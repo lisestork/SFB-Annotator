@@ -1,0 +1,70 @@
+{ 
+	"items" : 
+						[{
+							"name" : "Here goes info for main collection",
+							"id" : "",
+							"thumbnail" : "",
+							"item" :[
+													{
+													"name" : "Here goes info subcollection",
+													"id" : "",
+													"thumbnail" : "",
+													"item" :[{
+																"name": "Here goes first folder subcollection",
+																"id": "",
+																"thumbnail" : "",
+																"item": [	
+																			"Here goes first image", 
+																			"Here goes second image"
+																		]
+															    },
+																{
+																"name": "Here goes second folder subcollection",
+																"id": "",
+																"thumbnail" : "",
+																"item": [
+																			"Here goes first image",
+																			"Here goes second image"
+																		]
+																}
+															]
+													}
+													
+									]
+						},
+						{
+							"name" : "Here goes info second subcollection",
+							"id" : "",
+							"thumbnail" : "",
+							"item" :[
+													{
+													"name" : "",
+													"id" : "",
+													"thumbnail" : "",
+													"item" :[{
+																"name": "",
+																"id": "",
+																"thumbnail" : "",
+																"item": [	
+																			"", 
+																			""
+																		]
+															    },
+																{
+																"name": "",
+																"id": "",
+																"thumbnail" : "",
+																"item": [
+																			"",
+																			""
+																		]
+																}
+															]
+													}
+													
+									]
+						}]
+
+
+					
+}
