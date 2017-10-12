@@ -1,11 +1,8 @@
 package localdomain.localhost.servlets;
 
-import java.io.BufferedReader;
-import java.io.FileWriter;
+
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -29,9 +26,9 @@ import org.eclipse.rdf4j.query.TupleQueryResult;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.http.HTTPRepository;
+import org.eclipse.rdf4j.repository.manager.RemoteRepositoryManager;
+import org.eclipse.rdf4j.repository.manager.RepositoryManager;
 import org.json.JSONObject;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Servlet implementation class WriteAnnotations
@@ -64,6 +61,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
         
         //textual body
         String verbatim = json.getString("verbatim");
+        String verbatimNoSpace = verbatim.replaceAll("\\s+","");
         String language = json.getString("language");
         
         //semantic body
@@ -87,7 +85,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		
 	    //Connect to RDF server   
 		String rdf4jServer = "http://localhost:8080/rdf4j-server/";
-		String repositoryID = "AN1";
+		String repositoryID = "AN";
 		Repository repo = new HTTPRepository(rdf4jServer, repositoryID);
 		repo.initialize();
 
@@ -95,8 +93,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		ValueFactory f = repo.getValueFactory();
 		
 		//retrieve nr of annotations
-		String query = "SELECT (COUNT(DISTINCT ?s) AS ?totalNumberOfInstances) WHERE { ?s rdf:type <http://www.w3.org/ns/oa#Annotation> }";
-		int annoID = QueryTripleStore(query, "AN1", "totalNumberOfInstances");
+		String query = "SELECT ?value WHERE {?iri rdf:type <http://www.w3.org/ns/oa#Annotation> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
+		int annoID = QueryTripleStore(query, "AN", "value");
 		
 		//class initialization
 		IRI annotationClass = f.createIRI(oa, "Annotation");
@@ -119,13 +117,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI targetIRI = f.createIRI(nc, target);
 		IRI sourceIRI = f.createIRI(nc, source);
 		IRI selectorIRI = f.createIRI(nc, selector);
-		IRI annotatorIRI = f.createIRI(nc, annotator.replaceAll("\\s","_"));
-
-		//STORE TRANSCRIPTION
-		rdf4jServer = "http://localhost:8080/rdf4j-server/";
-		repositoryID = "AN1";
-		repo = new HTTPRepository(rdf4jServer, repositoryID);
-		repo.initialize();
+		IRI annotatorIRI = f.createIRI(annotator);
 		
 		try (RepositoryConnection conn = repo.getConnection()){	
 			
@@ -150,6 +142,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		   //link annotation to all metadata, incl body & target
 		   conn.add(annotationIRI, RDF.TYPE, annotationClass);
 		   conn.add(annotatorIRI, RDF.TYPE, FOAF.PERSON);
+		   conn.add(annotationIRI,  RDF.VALUE, f.createLiteral(annoID));
 		   conn.add(annotationIRI, createdProperty, annotatorIRI);
 		   conn.add(annotationIRI, dateProperty, f.createLiteral(date));
 		   conn.add(annotationIRI, hasBodyProperty, textualBodyIRI);		   
@@ -169,12 +162,12 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			String organismID = json.getString("organismID");
 			
 		    //query the DB for the taxon nr
-		    String queryTax = "SELECT (COUNT(DISTINCT ?taxon) AS ?totalNumberOfInstances) WHERE { ?taxon <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rs.tdwg.org/dwc/terms/Taxon>}";
-	    	int taxonNr = QueryTripleStore(queryTax, "AN", "totalNumberOfInstances");		
-			
+		    String queryTax = "SELECT ?value WHERE {?iri rdf:type <http://rs.tdwg.org/dwc/terms/Taxon> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
+	    	int taxonNr = QueryTripleStore(queryTax, "AN", "value");		
+	    	
 			//retrieve nr of annotations
-			query = "SELECT (COUNT(DISTINCT ?s) AS ?totalNumberOfInstances) WHERE { ?s rdf:type <http://www.w3.org/ns/oa#Annotation> }";
-			annoID = QueryTripleStore(query, "AN1", "totalNumberOfInstances");
+			query = "SELECT ?value WHERE {?iri rdf:type <http://www.w3.org/ns/oa#Annotation> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
+			annoID = QueryTripleStore(query, "AN", "value");
 
 			//SEMANTIC IRI'S
 			//instances
@@ -212,13 +205,14 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			IRI locatedAtProperty = f.createIRI(dsw, "locatedAt");					
 			IRI hasDerivativeProperty = f.createIRI(dsw, "hasDerivative");
 			IRI derivedFromProperty = f.createIRI(dsw, "derivedFrom");			
-			IRI verbatimEventDateProperty = f.createIRI(dwciri, "verbatimEventDate");
+			IRI verbatimEventDateProperty = f.createIRI(nhc, "verbatimEventDate");
 			IRI belongsToTaxonProperty = f.createIRI(nhc, "belongsToTaxon");
 			IRI taxonRankProperty = f.createIRI(nhc, "taxonRank");
 			IRI identifiedByProperty = f.createIRI(dwciri, "identifiedBy");
 			IRI recordedByProperty = f.createIRI(dwciri, "recordedBy");	
 			
 			//class
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
 			IRI identificationClass = f.createIRI(dwc, "Identification");
 			IRI occurrenceClass = f.createIRI(dwc, "Occurrence");
 			IRI humanObservationClass = f.createIRI(dwc, "HumanObservation");
@@ -233,7 +227,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				conn.begin();
 
 				//add to annotation object 
-				conn.add(annotationIRI, hasBodyProperty, taxonIRI);		   
+				conn.add(annotationIRI, hasBodyProperty, taxonIRI);		
+				conn.add(taxonIRI, RDF.TYPE, semanticTagClass);
 				conn.add(taxonIRI, RDFS.LABEL, f.createLiteral(verbatim));
 
 				//link instances
@@ -271,6 +266,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				conn.add(HOannotationIRI, hasBodyProperty, humanObservationIRI);
 				conn.add(HOannotationIRI, hasTargetProperty, sourceIRI);
 			    conn.add(HOannotationIRI, RDF.TYPE, annotationClass);
+			    conn.add(HOannotationIRI, RDF.VALUE, f.createLiteral(annoID));
 			    conn.add(annotatorIRI, RDF.TYPE, FOAF.PERSON);
 			    conn.add(HOannotationIRI, createdProperty, annotatorIRI);
 			    conn.add(HOannotationIRI, dateProperty, f.createLiteral(date));
@@ -279,6 +275,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				conn.add(taxonIRI,  taxonRankProperty, taxonRankIRI);
 				conn.add(taxonIRI,  RDFS.LABEL, f.createLiteral(verbatim));
 				conn.add(taxonIRI, RDF.TYPE, taxonClass);
+				conn.add(taxonIRI,  RDF.VALUE, f.createLiteral(taxonNr));
 
 				conn.add(dateIRI,  RDF.TYPE, dateClass);
 				//add classes
@@ -290,46 +287,58 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			};
 		} else if (property.equals("additionalIdentification")){
 			String organismID = json.getString("organismID");
+			String identificationID = json.getString("identificationID");
+			String belongstotaxon = json.getString("belongstotaxon");
+			String rank = json.getString("rank");
 			
 			IRI organismIRI = f.createIRI(nc, "organism"+organismID);	
 			IRI toTaxonProperty = f.createIRI(dwciri, "toTaxon");
-			IRI additionalIdentificationProperty = f.createIRI(nhc, "additionalIdentification");			
+			IRI additionalIdentificationProperty = f.createIRI(nhc, "additionalIdentification");		
+			IRI additionalProperty = f.createIRI(nhc, "additional");
 
 			//find amount of taxa
-		    String queryTax = "SELECT (COUNT(DISTINCT ?taxon) AS ?totalNumberOfInstances) WHERE { ?taxon <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rs.tdwg.org/dwc/terms/Taxon>}";
-	    	int taxonNr = QueryTripleStore(queryTax, "AN1", "totalNumberOfInstances");    	
-
-	    	//find additional identifications
-		    String queryId = "SELECT (COUNT(DISTINCT ?additonalIdentification) AS ?totalNumberOfInstances) WHERE { <+"+organismIRI+"> <"+additionalIdentificationProperty+"> ?additonalIdentification}";
-	    	int additionalIdNr = QueryTripleStore(queryId, "AN1", "totalNumberOfInstances");	
-	
-			IRI addIdentificationIRI = f.createIRI(nc, "identification"+organismID+"_add"+additionalIdNr);
+		    String queryTax = "SELECT ?value WHERE {?iri rdf:type <http://rs.tdwg.org/dwc/terms/Taxon> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
+	    	int taxonNr = QueryTripleStore(queryTax, "AN", "value");		
+	 
+			IRI taxonRankIRI = f.createIRI(nc, rank);
+			IRI belongsToTaxonIRI = null;
+			if (!belongstotaxon.equals("")){ belongsToTaxonIRI = f.createIRI(belongstotaxon);};
+			IRI addIdentificationIRI = f.createIRI(nc, "identification"+organismID+"_id"+identificationID);
 			IRI addTaxonIRI = f.createIRI(nc, "taxon"+taxonNr); 
 			
+			IRI taxonRankProperty = f.createIRI(nhc, "taxonRank");
+			IRI belongsToTaxonProperty = f.createIRI(nhc, "belongsToTaxon");
 			IRI identificationIDProperty = f.createIRI(dwc, "identificationID");
 
 			IRI identificationClass = f.createIRI(dwc, "Identification");
 			IRI taxonClass = f.createIRI(dwc, "Taxon");
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
 
 			try (RepositoryConnection conn = repo.getConnection()){	
 				
 				conn.begin();
+				conn.add(additionalIdentificationProperty, RDFS.SUBPROPERTYOF, additionalProperty);
 				conn.add(addIdentificationIRI, toTaxonProperty, addTaxonIRI);
-				conn.add(addIdentificationIRI, identificationIDProperty, f.createLiteral(organismID+"_add"+additionalIdNr));
+				conn.add(addIdentificationIRI, identificationIDProperty, f.createLiteral(organismID+"_id"+identificationID));
 				conn.add(addIdentificationIRI,  RDF.TYPE, identificationClass);
 				
 				conn.add(organismIRI,  additionalIdentificationProperty, addIdentificationIRI);			
-				conn.add(annotationIRI, hasBodyProperty, addTaxonIRI);		
+				conn.add(annotationIRI, hasBodyProperty, addTaxonIRI);	
+				conn.add(addTaxonIRI, RDF.TYPE, semanticTagClass);
 				
 				conn.add(addTaxonIRI, RDFS.LABEL, f.createLiteral(verbatim));	
 				conn.add(addTaxonIRI,  RDF.TYPE, taxonClass);
+				conn.add(addTaxonIRI,  belongsToTaxonProperty, belongsToTaxonIRI);
+				conn.add(addTaxonIRI, taxonRankProperty, taxonRankIRI);
+				conn.add(addTaxonIRI,  RDF.VALUE, f.createLiteral(taxonNr));
+
 				conn.commit();	
 			};
 
 		} else if (property.equals("verbatimEventDate")){
-			String year = json.getString("year");
-			String month = json.getString("month");
-			String day = json.getString("day");
+			int year = json.getInt("year");
+			int month = json.getInt("month");
+			int day = json.getInt("day");
 			String organismID = json.getString("organismID");
 			
 			IRI dateIRI = f.createIRI(nc, "date"+organismID);
@@ -337,64 +346,117 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			IRI monthProperty = f.createIRI(dwc, "month");
 			IRI dayProperty = f.createIRI(dwc, "day");
 			
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
+			
 			try (RepositoryConnection conn = repo.getConnection()){	
 				
 				conn.begin();	
 				conn.add(annotationIRI, hasBodyProperty, dateIRI);	
+				conn.add(dateIRI, RDF.TYPE, semanticTagClass);
 				conn.add(dateIRI, RDFS.LABEL, f.createLiteral(verbatim));
-				if(!year.equals("")){conn.add(dateIRI,  yearProperty, f.createLiteral(year));};
-				if(!month.equals("")){conn.add(dateIRI,  monthProperty, f.createLiteral(month));};
-				if(!day.equals("")){conn.add(dateIRI,  dayProperty, f.createLiteral(day));};
+				if(year != 0){conn.add(dateIRI,  yearProperty, f.createLiteral(year));};
+				if(month != 0){conn.add(dateIRI,  monthProperty, f.createLiteral(month));};
+				if(day != 0){conn.add(dateIRI,  dayProperty, f.createLiteral(day));};
 				conn.commit();	
 			};
 			
-		} else if (property.equals("measuresOrDescribes")){
+		} if(type.equals("measurementorfact")){	
 			String organismID = json.getString("organismID");
-			
-			IRI measurementOrFactIRI = f.createIRI(nc, "measurementOrFact"+organismID);
-			IRI measuresOrDescribesProperty = f.createIRI(nhc,"measuresOrDescribes" );
+
+		    String queryMeasurementOrFact = "SELECT (COUNT(DISTINCT ?measurements) AS ?totalNumberOfInstances) WHERE { ?measurements <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rs.tdwg.org/dwc/terms/MeasurementOrFact>}";
+	    	int measurementOrFactNr = QueryTripleStore(queryMeasurementOrFact, "AN", "totalNumberOfInstances");   
+	    	
+			IRI measurementOrFactIRI = f.createIRI(nc, "measurementOrFact"+measurementOrFactNr);
+			IRI hasDerivativeProperty = f.createIRI(dsw, "hasDerivative");
 			IRI humanObservationIRI = f.createIRI(nc, "humanObservation"+organismID);
 			IRI derivedFromProperty = f.createIRI(dsw, "derivedFrom");			
-			IRI measurementOrFactClass = f.createIRI(dwc, "measurementOrFact");
-
-			if (type.equals("property") || type.equals("attribute")){
-				String propertyorattribute = json.getString("propertyorattribute");
-
-				IRI propertyOrAttributeIRI = f.createIRI(nc, verbatim);	
-				IRI propertyOrAttributeClass = f.createIRI("http://purl.obolibrary.org/obo/NCIT_C20189");
-				if(!propertyorattribute.equals("")){propertyOrAttributeClass = f.createIRI(propertyorattribute);};
+			IRI measurementOrFactClass = f.createIRI(dwc, "MeasurementOrFact");
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
 
 				try (RepositoryConnection conn = repo.getConnection()){	
 					
 					conn.begin();
-					conn.add(annotationIRI, hasBodyProperty, propertyOrAttributeIRI);	
+					conn.add(measurementOrFactIRI, derivedFromProperty, humanObservationIRI );
+					conn.add(humanObservationIRI, hasDerivativeProperty, measurementOrFactIRI);
+					conn.add(measurementOrFactIRI,  RDF.TYPE, measurementOrFactClass);
+					conn.add(annotationIRI, hasBodyProperty, measurementOrFactIRI);
+					conn.add(measurementOrFactIRI, RDF.TYPE, semanticTagClass);
+					conn.commit();	
+				};
+			
+		} else if (type.equals("propertyorattribute")){
+			String propertyorattribute = json.getString("propertyorattribute");
+			String organismID = json.getString("organismID");
+			
+		    String queryMeasurementOrFact = "SELECT (COUNT(DISTINCT ?measurements) AS ?totalNumberOfInstances) WHERE { ?measurements <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rs.tdwg.org/dwc/terms/MeasurementOrFact>}";
+	    	int measurementOrFactNr = QueryTripleStore(queryMeasurementOrFact, "AN", "totalNumberOfInstances");   
+	    	
+	    	String queryPropertyOrAttribute = "SELECT (COUNT(DISTINCT ?propertyorattribute) AS ?totalNumberOfInstances) WHERE { ?propertyorattribute <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type . ?type <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://identifiers.org/ncit/C20189>}";
+	    	int propertyOrAttributeNr = QueryTripleStore(queryPropertyOrAttribute, "AN", "totalNumberOfInstances");   
+
+			IRI measurementOrFactIRI = f.createIRI(nc, "measurementOrFact"+measurementOrFactNr);
+			IRI measuresOrDescribesProperty = f.createIRI(nhc,"measuresOrDescribes" );
+			IRI hasDerivativeProperty = f.createIRI(dsw, "hasDerivative");
+			IRI humanObservationIRI = f.createIRI(nc, "humanObservation"+organismID);
+			IRI derivedFromProperty = f.createIRI(dsw, "derivedFrom");			
+			IRI measurementOrFactClass = f.createIRI(dwc, "MeasurementOrFact");
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
+
+			IRI propertyOrAttributeIRI = f.createIRI(nc, "propertyOrAttribute"+propertyOrAttributeNr);	
+			IRI propertyOrAttributeClass = f.createIRI(propertyorattribute);
+			IRI propertyOrAttributeTopClass = f.createIRI("http://identifiers.org/ncit/C20189");
+
+				try (RepositoryConnection conn = repo.getConnection()){	
+					conn.begin();
+					conn.add(annotationIRI, hasBodyProperty, propertyOrAttributeIRI);
+					conn.add(propertyOrAttributeIRI, RDF.TYPE, semanticTagClass);
 					conn.add(propertyOrAttributeIRI,  RDF.TYPE, propertyOrAttributeClass);
+					conn.add(propertyOrAttributeClass,  RDFS.SUBCLASSOF, propertyOrAttributeTopClass);
 					conn.add(propertyOrAttributeIRI,  RDFS.LABEL, f.createLiteral(verbatim));
 					conn.add(measurementOrFactIRI, measuresOrDescribesProperty, propertyOrAttributeIRI);
 					conn.add(measurementOrFactIRI, derivedFromProperty, humanObservationIRI );
-					conn.add(measurementOrFactIRI,  RDF.TYPE, measurementOrFactClass);
+					conn.add(humanObservationIRI, hasDerivativeProperty, measurementOrFactIRI);
+					conn.add(measurementOrFactIRI,  RDF.TYPE, measurementOrFactClass);	
 					conn.commit();	
 				};
+						
+		} else if (type.equals("anatomicalentity")){
+			String anatomicalentity = json.getString("anatomicalentity");
+			String organismID = json.getString("organismID");
+			
+		    String queryMeasurementOrFact = "SELECT (COUNT(DISTINCT ?measurements) AS ?totalNumberOfInstances) WHERE { ?measurements <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rs.tdwg.org/dwc/terms/MeasurementOrFact>}";
+	    	int measurementOrFactNr = QueryTripleStore(queryMeasurementOrFact, "AN", "totalNumberOfInstances");   
+	    	
+	    	String queryAnatomicalEntity = "SELECT (COUNT(DISTINCT ?anatomicalentity) AS ?totalNumberOfInstances) WHERE { ?anatomicalentity <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type . ?type <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/UBERON_0001062>}";
+	    	int anatomicalEntityNr = QueryTripleStore(queryAnatomicalEntity, "AN", "totalNumberOfInstances");   
+	    	
+			IRI measurementOrFactIRI = f.createIRI(nc, "measurementOrFact"+measurementOrFactNr);
+			IRI measuresOrDescribesProperty = f.createIRI(nhc,"measuresOrDescribes" );
+			IRI hasDerivativeProperty = f.createIRI(dsw, "hasDerivative");
+			IRI humanObservationIRI = f.createIRI(nc, "humanObservation"+organismID);
+			IRI derivedFromProperty = f.createIRI(dsw, "derivedFrom");			
+			IRI measurementOrFactClass = f.createIRI(dwc, "MeasurementOrFact");
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
+			
+			IRI anatomicalEntityIRI = f.createIRI(nc, "anatomicalEntity"+anatomicalEntityNr);				
+			IRI anatomicalEntityClass = f.createIRI(anatomicalentity);
+			IRI anatomicalEntityTopClass = f.createIRI("http://purl.obolibrary.org/obo/UBERON_0001062");
 				
-			} else if (type.equals("anatomicalentity")){
-				String anatomicalentity = json.getString("anatomicalentity");
-				
-				IRI anatomicalEntityIRI = f.createIRI(nc, verbatim);				
-				IRI anatomicalEntityClass = f.createIRI("http://purl.obolibrary.org/obo/UBERON_0001062");
-				if(!anatomicalEntityClass.equals("")){anatomicalEntityClass = f.createIRI(anatomicalentity);};
-
 				try (RepositoryConnection conn = repo.getConnection()){	
 					
 					conn.begin();	
 					conn.add(annotationIRI, hasBodyProperty, anatomicalEntityIRI);	
+					conn.add(anatomicalEntityIRI, RDF.TYPE, semanticTagClass);
 					conn.add(anatomicalEntityIRI,  RDF.TYPE, anatomicalEntityClass);
+					conn.add(anatomicalEntityClass,  RDFS.SUBCLASSOF, anatomicalEntityTopClass);
 					conn.add(anatomicalEntityIRI,  RDFS.LABEL, f.createLiteral(verbatim));
 					conn.add(measurementOrFactIRI, measuresOrDescribesProperty, anatomicalEntityIRI);
 					conn.add(measurementOrFactIRI, derivedFromProperty, humanObservationIRI );
-					conn.add(measurementOrFactIRI,  RDF.TYPE, measurementOrFactClass);
+					conn.add(humanObservationIRI, hasDerivativeProperty, measurementOrFactIRI);
+					conn.add(measurementOrFactIRI,  RDF.TYPE, measurementOrFactClass);	
 					conn.commit();	
 				};
-			}
+
 		} else if (property.equals("locatedAt")){
 			String geonamesfeature = json.getString("geonamesfeature");
 			String organismID = json.getString("organismID");
@@ -403,12 +465,14 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			if (!geonamesfeature.equals("")){geonamesFeatureIRI = f.createIRI(geonamesfeature);};
 			IRI inDescribedPlaceProperty = f.createIRI(dwciri, "inDescribedPlace");
 			IRI featureClass = f.createIRI(gn, "Feature");		
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
 			IRI locationIRI = f.createIRI(nc, "location"+organismID);	
 
 			try (RepositoryConnection conn = repo.getConnection()){	
 				
 				conn.begin();	
 				conn.add(annotationIRI, hasBodyProperty, locationIRI);	
+				conn.add(locationIRI, RDF.TYPE, semanticTagClass);
 				conn.add(locationIRI, RDFS.LABEL, f.createLiteral(verbatim));
 				if(!geonamesfeature.equals("")){
 					conn.add(locationIRI,  inDescribedPlaceProperty, geonamesFeatureIRI);
@@ -420,24 +484,22 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		} else if (property.equals("additionalLocatedAt")){
 			String geonamesfeature = json.getString("geonamesfeature");
 			String organismID = json.getString("organismID");
+			String occurrenceID = json.getString("occurrenceID");
 			
 			IRI organismIRI = f.createIRI(nc, "organism"+organismID);	
 			IRI additionalOccurrenceProperty = f.createIRI(nhc, "additionalOccurrence");	
+			IRI additionalProperty = f.createIRI(nhc, "additional");
 			
-					//find additional identifications
-		    String queryOcc = "SELECT (COUNT(DISTINCT ?additionalOccurrence) AS ?totalNumberOfInstances) WHERE { <+"+organismIRI+"> <"+additionalOccurrenceProperty+"> ?additionalOccurrence}";
-	    	int additionalOccNr = QueryTripleStore(queryOcc, "AN1", "totalNumberOfInstances");	
-	
-	    	IRI addOccurrenceIRI = f.createIRI(nc, "occurrence"+organismID+"_add"+additionalOccNr);
-			IRI addEventIRI = f.createIRI(nc, "event"+organismID+"_add"+additionalOccNr);
-			IRI addLocationIRI = f.createIRI(nc, "location"+organismID+"_add"+additionalOccNr);	
-			IRI addDateIRI = f.createIRI(nc, "date"+organismID+"_add"+additionalOccNr);
+	    	IRI addOccurrenceIRI = f.createIRI(nc, "occurrence"+organismID+"_occ"+occurrenceID);
+			IRI addEventIRI = f.createIRI(nc, "event"+organismID+"_occ"+occurrenceID);
+			IRI addLocationIRI = f.createIRI(nc, "location"+organismID+"_occ"+occurrenceID);	
+			IRI addDateIRI = f.createIRI(nc, "date"+organismID+"_occ"+occurrenceID);
 			IRI geonamesFeatureIRI = null;
 			if (!geonamesfeature.equals("")){geonamesFeatureIRI = f.createIRI(geonamesfeature);};
 			
 			IRI inDescribedPlaceProperty = f.createIRI(dwciri, "inDescribedPlace");
 			IRI atEventProperty = f.createIRI(dsw, "atEvent");
-			IRI verbatimEventDateProperty = f.createIRI(dwciri, "verbatimEventDate");
+			IRI verbatimEventDateProperty = f.createIRI(nhc, "verbatimEventDate");
 			IRI locatedAtProperty = f.createIRI(dsw, "locatedAt");	
 			IRI locatesProperty = f.createIRI(dsw, "locates");
 			IRI eventOfProperty = f.createIRI(dsw, "eventOf");	
@@ -447,13 +509,15 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			IRI locationClass = f.createIRI(dcterms, "Location");
 			IRI occurrenceClass = f.createIRI(dwc, "Occurrence");
 			IRI eventClass = f.createIRI(dwc, "Event");
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
 
 			try (RepositoryConnection conn = repo.getConnection()){	
 				
 				conn.begin();
+				conn.add(additionalOccurrenceProperty, RDFS.SUBPROPERTYOF, additionalProperty);
 				conn.add(organismIRI, additionalOccurrenceProperty, addOccurrenceIRI);
 				conn.add(addOccurrenceIRI, atEventProperty, addEventIRI);
-				conn.add(addOccurrenceIRI, occurrenceIDProperty, f.createLiteral(organismID+"_add"+additionalOccNr));
+				conn.add(addOccurrenceIRI, occurrenceIDProperty, f.createLiteral(organismID+"_occ"+occurrenceID));
 				conn.add(addOccurrenceIRI, RDF.TYPE, occurrenceClass);
 				conn.add(addEventIRI, verbatimEventDateProperty, addDateIRI);
 				conn.add(addEventIRI,  locatedAtProperty, addLocationIRI);
@@ -463,6 +527,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				conn.add(addLocationIRI, RDFS.LABEL, f.createLiteral(verbatim));
 				conn.add(addLocationIRI, RDF.TYPE, locationClass);
 				conn.add(annotationIRI, hasBodyProperty, addLocationIRI);	
+				conn.add(addLocationIRI, RDF.TYPE, semanticTagClass);
 				if(!geonamesfeature.equals("")){
 					conn.add(addLocationIRI,  inDescribedPlaceProperty, geonamesFeatureIRI);
 					conn.add(geonamesFeatureIRI,  RDF.TYPE, featureClass);};
@@ -476,10 +541,13 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			IRI belongsToTaxonIRI = f.createIRI(belongstotaxon);
 			IRI scientificNameAuthorshipProperty = f.createIRI(nhc, "scientificNameAuthorship");
 			
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
+
 			try (RepositoryConnection conn = repo.getConnection()){	
 				
 				conn.begin();	
 				conn.add(annotationIRI, hasBodyProperty, personIRI);	
+				conn.add(personIRI, RDF.TYPE, semanticTagClass);
 				conn.add(personIRI,  RDF.TYPE, FOAF.PERSON);
 				conn.add(belongsToTaxonIRI, scientificNameAuthorshipProperty, personIRI);
 				conn.commit();	
@@ -494,10 +562,13 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			
 			IRI identifiedByProperty = f.createIRI(dwciri, "identifiedBy");
 			
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
+			
 			try (RepositoryConnection conn = repo.getConnection()){	
 				
 				conn.begin();	
-				conn.add(annotationIRI, hasBodyProperty, personIRI);	
+				conn.add(annotationIRI, hasBodyProperty, personIRI);
+				conn.add(personIRI, RDF.TYPE, semanticTagClass);
 				conn.add(personIRI,  RDF.TYPE, FOAF.PERSON);
 				conn.add(identificationIRI, identifiedByProperty, personIRI);
 				conn.commit();	
@@ -512,27 +583,44 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			
 			IRI recordedByProperty = f.createIRI(dwciri, "recordedBy");
 			
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
+			
 			try (RepositoryConnection conn = repo.getConnection()){	
 				
 				conn.begin();	
-				conn.add(annotationIRI, hasBodyProperty, personIRI);	
+				conn.add(annotationIRI, hasBodyProperty, personIRI);
+				conn.add(personIRI, RDF.TYPE, semanticTagClass);
 				conn.add(personIRI,  RDF.TYPE, FOAF.PERSON);
 				conn.add(occurrenceIRI, recordedByProperty, personIRI);
 				conn.commit();	
 			};
 		} else if (property.equals("additionalRecordedBy")){
 			String person = json.getString("person");
+			String organismID = json.getString("organismID");
 			String occurrenceID = json.getString("occurrenceID");
 			
 			IRI addPersonIRI = f.createIRI(person);
-			IRI addOccurrenceIRI = f.createIRI(nc, "occurrence"+occurrenceID);
-			
+			IRI organismIRI = f.createIRI(nc, "organism"+organismID);	
+			IRI addOccurrenceIRI = f.createIRI(nc, "occurrence"+organismID+"_occ"+occurrenceID);
+			IRI additionalProperty = f.createIRI(nhc, "additional");
+
+			IRI additionalOccurrenceProperty = f.createIRI(nhc, "additionalOccurrence");	
 			IRI recordedByProperty = f.createIRI(dwciri, "recordedBy");
+			IRI occurrenceIDProperty = f.createIRI(dwc, "occurrenceID");
+			
+			IRI occurrenceClass = f.createIRI(dwc, "Occurrence");
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
 			
 			try (RepositoryConnection conn = repo.getConnection()){	
 				
 				conn.begin();	
+				conn.add(additionalOccurrenceProperty, RDFS.SUBPROPERTYOF, additionalProperty);
+				conn.add(organismIRI, additionalOccurrenceProperty, addOccurrenceIRI);
+				conn.add(addOccurrenceIRI, occurrenceIDProperty, f.createLiteral(organismID+"_occ"+occurrenceID));
+				conn.add(addOccurrenceIRI, RDF.TYPE, occurrenceClass);
+				conn.add(additionalOccurrenceProperty, RDFS.SUBPROPERTYOF, additionalProperty);
 				conn.add(annotationIRI, hasBodyProperty, addPersonIRI);	
+				conn.add(addPersonIRI, RDF.TYPE, semanticTagClass);
 				conn.add(addPersonIRI,  RDF.TYPE, FOAF.PERSON);
 				conn.add(addOccurrenceIRI, recordedByProperty, addPersonIRI);
 				conn.commit();	
@@ -541,11 +629,13 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			String instance = json.getString("instance");
 			
 			IRI instanceIRI = f.createIRI(instance);
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
 			
 			try (RepositoryConnection conn = repo.getConnection()){	
 				
 				conn.begin();	
-				conn.add(annotationIRI, hasBodyProperty, instanceIRI);	
+				conn.add(annotationIRI, hasBodyProperty, instanceIRI);
+				conn.add(instanceIRI, RDF.TYPE, semanticTagClass);
 				conn.add(instanceIRI,  RDF.TYPE, FOAF.PERSON);
 				conn.commit();	
 			};
@@ -554,11 +644,13 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			
 			IRI instanceIRI = f.createIRI(instance);
 			IRI locationClass = f.createIRI(dcterms, "Location");
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
 			
 			try (RepositoryConnection conn = repo.getConnection()){	
 				
 				conn.begin();	
-				conn.add(annotationIRI, hasBodyProperty, instanceIRI);	
+				conn.add(annotationIRI, hasBodyProperty, instanceIRI);
+				conn.add(instanceIRI, RDF.TYPE, semanticTagClass);
 				conn.add(instanceIRI,  RDF.TYPE, locationClass);
 				conn.commit();	
 			};
@@ -567,9 +659,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			String rank = json.getString("rank");
 			
 			//find amount of taxa
-		    String queryTax = "SELECT (COUNT(DISTINCT ?taxon) AS ?totalNumberOfInstances) WHERE { ?taxon <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rs.tdwg.org/dwc/terms/Taxon>}";
-	    	int taxonNr = QueryTripleStore(queryTax, "AN1", "totalNumberOfInstances");    	
-	    	
+		    String queryTax = "SELECT ?value WHERE {?iri rdf:type <http://rs.tdwg.org/dwc/terms/Taxon> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
+	    	int taxonNr = QueryTripleStore(queryTax, "AN", "value");		
+	 	    	
 			IRI taxonIRI = f.createIRI(nc, "taxon"+taxonNr);
 			IRI taxonRankIRI = f.createIRI(nc, rank);
 			IRI belongsToTaxonIRI = null;
@@ -578,19 +670,43 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			IRI belongsToTaxonProperty = f.createIRI(nhc, "belongsToTaxon");
 			IRI taxonRankProperty = f.createIRI(nhc, "taxonRank");
 
-			IRI taxonClass = f.createIRI(dwc, "Taxon");
-			
+			IRI taxonClass = f.createIRI(dwc, "Taxon");			
+			IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
+
 			try (RepositoryConnection conn = repo.getConnection()){	
 				
 				conn.begin();	
 				conn.add(annotationIRI, hasBodyProperty, taxonIRI);	
+				conn.add(taxonIRI, RDF.TYPE, semanticTagClass);
 				conn.add(taxonIRI,  RDF.TYPE, taxonClass);
 				if(!belongstotaxon.equals("")){conn.add(taxonIRI, belongsToTaxonProperty, belongsToTaxonIRI);};
 				conn.add(taxonIRI,  taxonRankProperty, taxonRankIRI);
 				conn.add(taxonIRI,  RDFS.LABEL, f.createLiteral(verbatim));
+				conn.add(taxonIRI,  RDF.VALUE, f.createLiteral(taxonNr));
 				conn.commit();	
 			};
-		};			
+		};	
+		
+//		//Connect to virtuoso server
+//		//Initialize Remote Repository Manager 
+//		RepositoryManager repositoryManager = new RemoteRepositoryManager( "http://localhost:8080/rdf4j-server/" );
+//		repositoryManager.initialize();
+//
+//		//Set Virtuoso (or any other) repositoryID on http://hostname:portno/openrdf-sesame
+//		Repository repository = repositoryManager.getRepository("NCVIRT"); 
+//
+//		ValueFactory fact = repository.getValueFactory();
+//
+//		IRI object = fact.createIRI(oa, "TextualTag");
+//		IRI subject = fact.createIRI(nc, "textualBody");
+//
+//		// Open a connection to this repository
+//		try (RepositoryConnection conn = repository.getConnection()){	
+//			
+//			   conn.begin();
+//			   conn.add(object, RDF.TYPE, subject);
+//			   conn.commit();
+//		}
 	};
 	
 	public int QueryTripleStore(String query, String repID, String valueOf){
@@ -613,7 +729,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				try (TupleQueryResult result = tupleQuery.evaluate()) {
 						resultList = QueryResults.asList(result);		
 					}
-				System.out.println(resultList);
+				System.out.println("amount of taxa"+resultList);
 				valueCount = resultList.get(0).getValue(valueOf);
 	
 			}
