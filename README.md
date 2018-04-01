@@ -18,13 +18,13 @@ Steps to take to annotate a full observation record:
 - First annotate the taxonomical name to build the basis of an [observation record graph](https://github.com/lisestork/NHC-Ontology/blob/master/Images/RecordGraph.png) and specify an organism ID, e.g., 1. 
     - First click on 'annotate' in the upper right corner of the image. 
     - Draw a bounding box around the taxonomical name. 
- - Choose the class 'Taxon' in the first field. 
- - Transcribe the text (e.g. the taxonomical name) in the field 'verbatim text' and add the language in the 'language' field if known.
- - Choose the relation 'Organism identified to: Taxon' relation from the 'select property' drop-down menu. Meta-data fields appear that ask for the taxon rank, higher classification, person who did the identification and the organism id. 
- - Enter the IRI of the first known higher taxon (which will be retrievable using autocomplete and the name). 
- - Enter the VIAF IRI from the person that did the identification (which can also be retrieved using autocomplete if the database is prepopulated with viaf IRIs of expedition companions).
- - Enter the organism id. At the moment it has to be inserted manually. Other annotations show this ID. e.g.: 
- <img width="300" src="https://github.com/lisestork/SFB-Annotator/blob/master/images/organismID.png">
+    - Choose the class 'Taxon' in the first field. 
+    - Transcribe the text (e.g. the taxonomical name) in the field 'verbatim text' and add the language in the 'language' field if known.
+    - Choose the relation 'Organism identified to: Taxon' relation from the 'select property' drop-down menu. Meta-data fields appear that ask for the taxon rank, higher classification, person who did the identification and the organism id. 
+    - Enter the IRI of the first known higher taxon (which will be retrievable using autocomplete and the name). 
+    - Enter the VIAF IRI from the person that did the identification (which can also be retrieved using autocomplete if the  database is prepopulated with viaf IRIs of expedition companions).
+    - Enter the organism id. At the moment it has to be inserted manually. Other annotations show this ID. e.g.: 
+    <img width="300" src="https://github.com/lisestork/SFB-Annotator/blob/master/images/organismID.png">
  
 - Then start annotating the other named entities such as the location, the scientific publisher, the anatomical entities, etc., and specify the organism ID to which the entities belong. e.g., 1. 
 
