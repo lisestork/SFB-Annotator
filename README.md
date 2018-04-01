@@ -26,8 +26,7 @@ Steps to take to annotate a full observation record:
     - Enter the organism id. At the moment it has to be inserted manually, but hovering over other annotations of the same record will show this ID. e.g.: 
     <img width="300" src="https://github.com/lisestork/SFB-Annotator/blob/master/images/organismID.png">
  
-- Then start annotating the other named entities such as the location, the scientific publisher, the anatomical entities, etc., and specify the organism ID to which the entities belong. e.g., 1. 
-
+- Then start annotating the other named entities of the following set: {location, person, anatomicalentity, propertyorattribute, measurementorfact, date}. A predicate must be selected next, for instance if a person is selected, there are three options: 1. Organism identified by: person, 2. Organism collected by: person, 3. taxon scientificNameAuthorship: person. In each case, specify the organism ID to which the entities belong. e.g., 1.
 
 ## To do: 
 - fix pagination <b>[done]</b>
