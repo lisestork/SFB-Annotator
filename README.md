@@ -1,12 +1,17 @@
 # SFB-Annotator
-The Semantic Field Book Annotator (SFB-A) is a web application, developed for domain experts, to harvest structured annotations from field books, drawings and specimen labels of natural history collections using the NHC-Ontology [NHC-Ontology](https://github.com/lisestork/NHC-Ontology). 
+The Semantic Field Book Annotator (SFB-A) is a web application, developed for domain experts, to harvest structured annotations from field books, drawings and specimen labels of natural history collections using the NHC-Ontology [NHC-Ontology](https://github.com/lisestork/NHC-Ontology). The project was set up using [RDF4J, Maven, and Eclipse](http://docs.rdf4j.org/getting-started/).
 
-Making use of the [annotorious annotation API](https://annotorious.github.io) and the [openseadragon API](https://openseadragon.github.io/), users can draw bounding boxes over (zoomable) image scans to which annotations can be attached. Provenance is stored regarding the annotation event, the target of the annotation (digitised manuscript scans) and the transcription and semantic interpretation using the Web Annotation Data Model<sup>1</sup>.
-
-<sup>1</sup>[The Web Annotation Model](https://www.w3.org/TR/annotation-model/).
+Making use of the [annotorious annotation API](https://annotorious.github.io) and the [openseadragon API](https://openseadragon.github.io/), users can draw bounding boxes over (zoomable) image scans to which annotations can be attached. Provenance is stored regarding the annotation event, the target of the annotation (digitised manuscript scans) and the transcription and semantic interpretation using [the Web Annotation Model](https://www.w3.org/TR/annotation-model/).
 
 ## Annotation guidelines 
 
+
+
+## Setting up the SFB-Annotator
+- Set up a stable version of the [Apache Tomcat Java Servlet Container](http://tomcat.apache.org/)
+- Deploy the [RDF4j-Server and RDF4j-Workbench](http://docs.rdf4j.org/server-workbench-console/) on Tomcat
+- Deploy the sesame server (or virtuoso server with the [Virtuoso Eclipse RDF4J Provider](http://vos.openlinksw.com/owiki/wiki/VOS/VirtSesame2Provider)
+- Deploy the SFB-Annotator on Tomcat via the tomcat manager
 
 ## To do: 
 - fix pagination <b>[done]</b>
@@ -17,3 +22,4 @@ Making use of the [annotorious annotation API](https://annotorious.github.io) an
 - Automatic assignment of number to an organism observation record in case a new organism observation is annotated. Otherwise the specific organism can be chosen (the taxon name) to attach new annotations to.
 - Change nhc namespace
 - Change the assignment of dwc:year dwc:month dwc:day to point to event, not nhc:Date. 
+- Remove SQL database storage
