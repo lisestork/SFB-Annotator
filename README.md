@@ -1,7 +1,7 @@
 # SFB-Annotator
 The Semantic Field Book Annotator (SFB-A) is a web application, developed for domain experts, to harvest structured annotations from field books, drawings and specimen labels of natural history collections using the NHC-Ontology [NHC-Ontology](https://github.com/lisestork/NHC-Ontology). The project was set up using [RDF4J, Maven, and Eclipse](http://docs.rdf4j.org/getting-started/).
 
-Making use of the [annotorious annotation API](https://annotorious.github.io) and the [openseadragon API](https://openseadragon.github.io/), users can draw bounding boxes over (zoomable) image scans to which annotations can be attached. Provenance is stored regarding the annotation event, the target of the annotation (digitised manuscript scans) and the transcription and semantic interpretation using [the Web Annotation Model](https://www.w3.org/TR/annotation-model/).
+Making use of the [annotorious annotation API](https://annotorious.github.io) and the [openseadragon API](https://openseadragon.github.io/), users can draw bounding boxes over (zoomable) image scans of historical field notes, to which annotations can be attached. Meta-data is stored regarding an annotation event, annotation provenance is stored (regions of interest in digitised manuscript scans) and the transcription and semantic interpretation of the text are stored using [the Web Annotation Model](https://www.w3.org/TR/annotation-model/).
 
 The knowledge base of one annotated field book can be queried online via a [SPARQL endpoint](http://makingsense.liacs.nl/rdf4j-server/repositories/NC) through a SPARQL query editor such as: http://yasgui.org/. Example queries can be found in the following document: https://github.com/lisestork/NHC-Ontology/blob/master/Example_Queries.txt.
 
