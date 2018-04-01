@@ -15,7 +15,8 @@ Making use of the [annotorious annotation API](https://annotorious.github.io) an
 ## To do: 
 - fix pagination <b>[done]</b>
 - fix the loading of images (if a folder closed and another loaded before all images were finished loading from the first folder, images keep loading and the openseadragon tilesources get overwritten). 
-- Retrieve entities from db to use for annotation. 
+- Retrieve entities from db to use for annotation with autocomplete (as in previous version):
+![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/Temauto.png)
 - Enable attachment of measurement table to their initiator (e.g. humanobservation -> hasDerivative -> measurementorfact      (measurementtable) -> measuresOrDescribes -> Dentibus (teeth). 
 - Make sure that when an occurrencerecord spans multiple pages, the humanobservation instance is attached to multiple pages, either by connecting it with a new annotation object to the page or with the same annotation object. A new annotation object seems better as it will store the date of the annotation and the annotator. 
 - Automatic assignment of number to an organism observation record in case a new organism observation is annotated. Otherwise the specific organism can be chosen (the taxon name) to attach new annotations to.
