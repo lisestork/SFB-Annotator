@@ -1,6 +1,9 @@
+# SFB-Annotator
+
+## Annotation Guidelines:
 
 
-To do: 
+## To do: 
 - fix pagination [done]
 - fix the loading of images
 - Retrieve entities from db to use for annotation. 
