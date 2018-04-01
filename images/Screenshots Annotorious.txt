@@ -1,6 +1,0 @@
-1. Login
-2. Choose collection
-3. Choose subcollection
-4. Choose object
-5. Retrieved Annotations
-6. Start annotating
