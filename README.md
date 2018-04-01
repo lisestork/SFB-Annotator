@@ -3,6 +3,8 @@ The Semantic Field Book Annotator (SFB-A) is a web application, developed for do
 
 Making use of the [annotorious annotation API](https://annotorious.github.io) and the [openseadragon API](https://openseadragon.github.io/), users can draw bounding boxes over (zoomable) image scans to which annotations can be attached. Provenance is stored regarding the annotation event, the target of the annotation (digitised manuscript scans) and the transcription and semantic interpretation using [the Web Annotation Model](https://www.w3.org/TR/annotation-model/).
 
+The knowledge base of one annotated field book can be queried online via a [SPARQL endpoint](http://makingsense.liacs.nl/rdf4j-server/repositories/NC) through a SPARQL query editor such as: http://yasgui.org/. Example queries can be found in the following document: https://github.com/lisestork/NHC-Ontology/blob/master/Example_Queries.txt.
+
 ## Setting up the SFB-Annotator
 - Set up a stable version of the [Apache Tomcat Java Servlet Container](http://tomcat.apache.org/)
 - Deploy the [RDF4j-Server and RDF4j-Workbench](http://docs.rdf4j.org/server-workbench-console/) on Tomcat
