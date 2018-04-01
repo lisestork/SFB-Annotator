@@ -15,7 +15,7 @@ The knowledge base of one annotated field book can be queried online via a [SPAR
 Some screenshots can be found in the [image folder](https://github.com/lisestork/SFB-Annotator/tree/master/images). 
 
 Steps to take to annotate a full observation record: 
-- First annotate the taxonomical name to build the basis of an [observation record graph](https://github.com/lisestork/NHC-Ontology/blob/master/Images/RecordGraph.png) and specify an organism ID, e.g., 1. 
+- First annotate the taxonomical name, an action which automatically builds the basis of an [observation record graph](https://github.com/lisestork/NHC-Ontology/blob/master/Images/RecordGraph.png), and specify an organism ID, e.g., 1. If a taxonomical name is not annotated, the basis graph is not instantiated and thus other annotations can not be linked to the observation record graph. 
     - First click on 'annotate' in the upper right corner of the image. 
     - Draw a bounding box around the taxonomical name. 
     - Choose the class 'Taxon' in the first field. 
