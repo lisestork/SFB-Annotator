@@ -24,7 +24,7 @@ Steps to take to annotate a full observation record:
  - Enter the IRI of the first known higher taxon (which will be retrievable using autocomplete and the name). 
  - Enter the VIAF IRI from the person that did the identification (which can also be retrieved using autocomplete if the database is prepopulated with viaf IRIs of expedition companions).
  - Enter the organism id. At the moment it has to be inserted manually. Other annotations show this ID. e.g.: 
- <img width="300" style="margin:-200px 0 0 -200px" src="https://github.com/lisestork/SFB-Annotator/blob/master/images/7.%20Retrieved%20annotations%202.png">
+ <img width="300" src="https://github.com/lisestork/SFB-Annotator/blob/master/images/organismID.png">
  
 - Then start annotating the other named entities such as the location, the scientific publisher, the anatomical entities, etc., and specify the organism ID to which the entities belong. e.g., 1. 
 
