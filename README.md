@@ -7,9 +7,9 @@ The knowledge base of one annotated field book can be queried online via a [SPAR
 
 ## Setting up the SFB-Annotator
 - Set up a stable version of the [Apache Tomcat Java Servlet Container](http://tomcat.apache.org/)
-- Deploy the [RDF4j-Server and RDF4j-Workbench](http://docs.rdf4j.org/server-workbench-console/) on Tomcat
+- Deploy the [RDF4j-Server and RDF4j-Workbench](http://docs.rdf4j.org/server-workbench-console/) in the Tomcat Servlet Container.
 - In case the virtuoso server is preferred over the RDF4j server, the RDF4j framework can still be used: the RDF4j-workbench is used to create a link to the Virtuoso server using the [Virtuoso Eclipse RDF4J Provider](http://vos.openlinksw.com/owiki/wiki/VOS/VirtSesame2Provider).
-- Deploy the SFB-Annotator on Tomcat via the tomcat manager
+- Deploy the SFB-Annotator on the Tomcat Servlet Container using the tomcat manager.
 
 ## Annotation guidelines
 Some screenshots can be found in the [image folder](https://github.com/lisestork/SFB-Annotator/tree/master/images). 
