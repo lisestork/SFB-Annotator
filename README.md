@@ -16,8 +16,8 @@ Some screenshots can be found in the [image folder](https://github.com/lisestork
 
 Steps to take to annotate a full observation record: 
 - First annotate the taxonomical name to build the basis of an [observation record graph](https://github.com/lisestork/NHC-Ontology/blob/master/Images/RecordGraph.png) and specify an organism ID, e.g., 1. 
- - First click on 'annotate' in the upper right corner of the image. 
- - Draw a bounding box around the taxonomical name. 
+    - First click on 'annotate' in the upper right corner of the image. 
+    - Draw a bounding box around the taxonomical name. 
  - Choose the class 'Taxon' in the first field. 
  - Transcribe the text (e.g. the taxonomical name) in the field 'verbatim text' and add the language in the 'language' field if known.
  - Choose the relation 'Organism identified to: Taxon' relation from the 'select property' drop-down menu. Meta-data fields appear that ask for the taxon rank, higher classification, person who did the identification and the organism id. 
