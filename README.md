@@ -1,7 +1,5 @@
 # SFB-Annotator
-
-## Annotation Guidelines:
-
+The Semantic Field Book Annotator (SFB-A) is a web application, developed for domain experts, to harvest structured annotations from field books, drawings and specimen labels of natural history collections using the NHC-Ontology ([https://github.com/lisestork/NHC-Ontology]). 
 
 ## To do: 
 - fix pagination <b>[done]</b>
