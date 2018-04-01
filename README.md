@@ -1,7 +1,7 @@
 # SFB-Annotator
-The Semantic Field Book Annotator (SFB-A) is a web application, developed for domain experts, to harvest structured annotations from field books, drawings and specimen labels of natural history collections using the NHC-Ontology ([https://github.com/lisestork/NHC-Ontology]). 
+The Semantic Field Book Annotator (SFB-A) is a web application, developed for domain experts, to harvest structured annotations from field books, drawings and specimen labels of natural history collections using the NHC-Ontology [link](https://github.com/lisestork/NHC-Ontology). 
 
-Making use of the annotorious annotation API ([https://annotorious.github.io]) and the openseadragon API ([https://openseadragon.github.io/]), users can draw bounding boxes over (zoomable) image scans to which annotations can be attached. Provenance is stored regarding the annotation event, the target of the annotation (digitised manuscript scans) and the transcription and semantic interpretation using the Web Annotation Data Model<sup>1</sup>.
+Making use of the annotorious annotation API [link](https://annotorious.github.io) and the openseadragon API [link](https://openseadragon.github.io/), users can draw bounding boxes over (zoomable) image scans to which annotations can be attached. Provenance is stored regarding the annotation event, the target of the annotation (digitised manuscript scans) and the transcription and semantic interpretation using the Web Annotation Data Model<sup>1</sup>.
 
 <sup>1</sup>The Web Annotation Model [Link](https://www.w3.org/TR/annotation-model/).
 
