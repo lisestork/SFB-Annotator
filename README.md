@@ -4,7 +4,7 @@
 
 
 ## To do: 
-- fix pagination [done]
+- fix pagination <b>[done]</b>
 - fix the loading of images 
 - Retrieve entities from db to use for annotation. 
 - Enable attachment of measurement table to their initiator (e.g. humanobservation -> hasDerivative -> measurementorfact      (measurementtable) -> measuresOrDescribes -> Dentibus (teeth). 
