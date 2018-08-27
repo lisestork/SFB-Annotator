@@ -5,6 +5,8 @@ Making use of the [annotorious annotation API](https://annotorious.github.io) an
 
 The knowledge base of one annotated field book can be queried online via a [SPARQL endpoint](http://makingsense.liacs.nl/rdf4j-server/repositories/NC) through a SPARQL query editor such as: http://yasgui.org/. Example queries can be found in the following document: https://github.com/lisestork/NHC-Ontology/blob/master/Example_Queries.txt.
 
+For more information: Stork, L., Weber, A., Gassó Miracle, E., Verbeek, F., Plaat, A., Herik, J. van den, and Wolstencroft, K. Semantic annotation of natural history collections. Web Semantics: Science, Services and Agents on the World Wide Web (2018), https://doi.org/10.1016/j.websem.2018.06.002.
+
 ## Setting up the SFB-Annotator
 - Set up a stable version of the [Apache Tomcat Java Servlet Container](http://tomcat.apache.org/)
 - Deploy the [RDF4j-Server and RDF4j-Workbench](http://docs.rdf4j.org/server-workbench-console/) in the Tomcat Servlet Container.
