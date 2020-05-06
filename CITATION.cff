@@ -1,0 +1,21 @@
+# YAML 1.2
+---
+authors:
+  -
+    affiliation: Leiden University
+    family-names: Stork
+    given-names: Lise
+    orcid: http://orcid.org/0000-0002-2146-4803
+
+cff-version: "1.0.3"
+title: "Semantic Field Book Annotator"
+doi: 10.0000/FIXME
+keywords:
+  - "semantic annotation"
+  - "natural history"
+  - "biodiversity"
+  - "ontology"
+version: "0.0.0-alpha0"  # FIXME
+date-released: 2020-01-01  # FIXME
+repository-code: https://github.com/lisestork/SFB-Annotator
+license: Apache-2.0
