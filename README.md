@@ -17,15 +17,24 @@ The Semantic Field Book Annotator is a web application developed for domain expe
 
 ## Installation
 
-Compile Java sources.
+Compile sources.
 
 ```
 git clone https://github.com/lisestork/SFB-Annotator.git
 cd SFB-Annotator
-mvn install  # see ./target dir
+mvn install  # see ./target/ directory
 ```
 
-Deploy Tomcat using Docker.
+Deploy app using `test:local` Docker image.
+
+```
+PORT=8080
+BASE_URL=http://localhost:$PORT
+docker build -t test:local .
+docker run -d -p $PORT:$PORT test:local
+```
+
+Deploy app using `tomcat:8-jdk8-corretto` base image.
 
 ```
 PORT=8080
@@ -55,3 +64,5 @@ Edit config files:
 Open URL(s) in a web browser:
 - `$BASE_URL/manager/`
 - `$BASE_URL/semanticAnnotator/`
+
+user/password: `tomcat/tomcat`
