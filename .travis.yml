@@ -1,0 +1,20 @@
+---
+dist: xenial
+sudo: required
+language: java
+jdk:
+  - oraclejdk8
+#  - openjdk8
+services:
+  - docker
+env:
+  global:
+    - PORT=8080
+    - URL=http://localhost:${PORT}/semanticAnnotator/
+install:
+  - mvn clean install
+script:
+  - docker build -t tomcat .
+  - docker run -d -p $PORT:$PORT tomcat
+  - |
+    [[ $(curl -u tomcat:tomcat -o -I -w "%{http_code}" $URL) -eq 200 ]]
