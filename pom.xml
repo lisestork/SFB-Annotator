@@ -103,13 +103,13 @@
       <!-- Tomcat plugin -->
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.1</version>
+        <artifactId>tomcat8-maven-plugin</artifactId>
+        <version>2.2</version>
         <configuration>
-          <server>tomcat7</server>
-          <username>deployadmin</username>
-          <password>ohzee9fe2I</password>
-          <url>http://testingsense.liacs.nl:8080/manager/text</url>
+          <server>tomcat8</server>
+          <username>tomcat</username>
+          <password>tomcat</password>
+          <url>http://localhost:8080/manager/html</url>
         </configuration>
       </plugin>
     </plugins>
