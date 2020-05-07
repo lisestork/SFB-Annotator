@@ -16,5 +16,6 @@ install:
 script:
   - docker build -t tomcat .
   - docker run -d -p $PORT:$PORT tomcat
+  - sleep 10
   - |
     [[ $(curl -u tomcat:tomcat -o -I -w "%{http_code}" $URL) -eq 200 ]]
