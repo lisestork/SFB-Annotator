@@ -9,13 +9,14 @@ services:
   - docker
 env:
   global:
+    - IMG=sea
     - PORT=8080
     - URL=http://localhost:${PORT}/semanticAnnotator/
 install:
   - mvn clean install
 script:
-  - docker build -t tomcat .
-  - docker run -d -p $PORT:$PORT tomcat
+  - docker build -t $IMG .
+  - docker run -d -p $PORT:$PORT $IMG
   - sleep 10
   - |
     [[ $(curl -u tomcat:tomcat -o -I -w "%{http_code}" $URL) -eq 200 ]]
