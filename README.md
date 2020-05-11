@@ -25,44 +25,18 @@ cd SFB-Annotator
 mvn install  # see ./target/ directory
 ```
 
-Deploy app using `test:local` Docker image.
+Deploy app using Docker.
 
 ```
+IMG=sea
 PORT=8080
 BASE_URL=http://localhost:$PORT
-docker build -t test:local .
-docker run -d -p $PORT:$PORT test:local
+docker build -t $IMG .
+docker run -d -p $PORT:$PORT $IMG
 ```
-
-Deploy app using `tomcat:8-jdk8-corretto` base image.
-
-```
-PORT=8080
-BASE_URL=http://localhost:$PORT
-CONTAINER=test
-CATALINA_HOME=/usr/local/tomcat/
-docker run -d -p $PORT:$PORT --name $CONTAINER tomcat:8-jdk8-corretto
-docker exec -t $CONTAINER cp -R $CATALINA_HOME/webapps.dist/manager $CATALINA_HOME/webapps
-docker cp target/semanticAnnotator.war $CONTAINER:$CATALINA_HOME/webapps
-docker exec -t $CONTAINER chown -R root.root $CATALINA_HOME/webapps
-```
-
-Edit config files:
-- `tomcat-users.xml` - add user/role entries 
-
-```
-  <role rolename="manager-gui"/>
-  <user username="tomcat" password="tomcat" roles="manager-gui"/>
-```
-
-`docker exec -it $CONTAINER vi $CATALINA_HOME/conf/tomcat-users.xml`
-
-- `context.xml` - add comments `<!-- <Valve.../> -->`
-
-`docker exec -it $CONTAINER vi $CATALINA_HOME/webapps/manager/META-INF/context.xml`
 
 Open URL(s) in a web browser:
-- `$BASE_URL/manager/`
-- `$BASE_URL/semanticAnnotator/`
+- `$BASE_URL/semanticAnnotator/` (user/password: `tomcat/tomcat`)
+- `$BASE_URL/rdf4j-server/`
+- `$BASE_URL/rdf4j-workbench/`
 
-user/password: `tomcat/tomcat`
