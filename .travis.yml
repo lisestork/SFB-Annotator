@@ -1,10 +1,6 @@
 ---
 dist: trusty
 sudo: required
-language: java
-jdk:
-  - oraclejdk8
-#  - openjdk8
 services:
   - docker
 env:
@@ -13,10 +9,9 @@ env:
     - PORT=8080
     - URL=http://localhost:${PORT}/semanticAnnotator/
 install:
-  - mvn clean install
-script:
   - docker build -t $IMG .
   - docker run -d -p $PORT:$PORT $IMG
   - sleep 10
+script:
   - |
     [[ $(curl -u tomcat:tomcat -o -I -w "%{http_code}" $URL) -eq 200 ]]

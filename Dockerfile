@@ -1,6 +1,8 @@
 FROM eclipse/rdf4j-workbench:amd64-latest
 
 USER root
-COPY conf/tomcat-users.xml /usr/local/tomcat/conf/
-COPY target/semanticAnnotator.war /usr/local/tomcat/webapps
-RUN chown tomcat.root /usr/local/tomcat/conf/tomcat-users.xml
+COPY ./ /usr/local/tomcat/
+RUN apk add maven openjdk8 && \
+    mvn clean install && \
+    cp ./target/semanticAnnotator.war /usr/local/tomcat/webapps && \
+    chown -R tomcat.root /usr/local/tomcat/
