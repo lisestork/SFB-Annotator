@@ -17,26 +17,15 @@ The Semantic Field Book Annotator is a web application developed for domain expe
 
 ## Installation
 
-Compile sources.
-
 ```
 git clone https://github.com/lisestork/SFB-Annotator.git
 cd SFB-Annotator
-mvn install  # see ./target/ directory
-```
-
-Deploy app using Docker.
-
-```
-IMG=sea
-PORT=8080
-BASE_URL=http://localhost:$PORT
-docker build -t $IMG .
-docker run -d -p $PORT:$PORT $IMG
+docker build -t sea .
+docker run -d -p 8080:8080 sea
 ```
 
 Open URL(s) in a web browser:
-- `$BASE_URL/semanticAnnotator/` (user/password: `tomcat/tomcat`)
-- `$BASE_URL/rdf4j-server/`
-- `$BASE_URL/rdf4j-workbench/`
+- `http://localhost:8080/semanticAnnotator/` (user/password: `tomcat/tomcat`)
+- `http://localhost:8080/rdf4j-server/`
+- `http://localhost:8080/rdf4j-workbench/`
 
