@@ -18,52 +18,15 @@ The Semantic Field Book Annotator is a web application developed for domain expe
 
 ## Installation
 
-Compile sources.
-
 ```
 git clone https://github.com/lisestork/SFB-Annotator.git
 cd SFB-Annotator
-mvn clean install  # see ./target/ directory
+docker build -t sea .
+docker run -d -p 8080:8080 sea
 ```
-
-Deploy app using `test:local` Docker image.
-
-```
-PORT=8080
-BASE_URL=http://localhost:$PORT
-docker build -t test:local .
-docker run -d -p $PORT:$PORT test:local
-```
-
-Deploy app using `tomcat:8-jdk8-corretto` base image.
-
-```
-PORT=8080
-BASE_URL=http://localhost:$PORT
-CONTAINER=test
-CATALINA_HOME=/usr/local/tomcat/
-docker run -d -p $PORT:$PORT --name $CONTAINER tomcat:8-jdk8-corretto
-docker exec -t $CONTAINER cp -R $CATALINA_HOME/webapps.dist/manager $CATALINA_HOME/webapps
-docker cp target/semanticAnnotator.war $CONTAINER:$CATALINA_HOME/webapps
-docker exec -t $CONTAINER chown -R root.root $CATALINA_HOME/webapps
-```
-
-Edit config files:
-- `tomcat-users.xml` - add user/role entries 
-
-```
-  <role rolename="manager-gui"/>
-  <user username="tomcat" password="tomcat" roles="manager-gui"/>
-```
-
-`docker exec -it $CONTAINER vi $CATALINA_HOME/conf/tomcat-users.xml`
-
-- `context.xml` - add comments `<!-- <Valve.../> -->`
-
-`docker exec -it $CONTAINER vi $CATALINA_HOME/webapps/manager/META-INF/context.xml`
 
 Open URL(s) in a web browser:
-- `$BASE_URL/manager/`
-- `$BASE_URL/semanticAnnotator/`
+- `http://localhost:8080/semanticAnnotator/` (user/password: `tomcat/tomcat`)
+- `http://localhost:8080/rdf4j-server/`
+- `http://localhost:8080/rdf4j-workbench/`
 
-user/password: `tomcat/tomcat`
