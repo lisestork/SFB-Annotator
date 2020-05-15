@@ -34,13 +34,13 @@ var imageViewer = {
 			events.emit('viewerOpened',this.pageID);
 		}.bind(this));
 	},
-	
+
 	hideOrShowImageviewer: function(data){
 		if(data.depth == 1){
-			this.$el.show(); 
+			this.$el.show();
 			this.setFolder(eval(itemViewer.path+'.item'), breadCrumbs.selected);
 		} else if (data.depth != 1 && data.oldDepth == 1){
-			this.$el.hide();	
+			this.$el.hide();
 			//this.stopload = true;
 			this.viewer.tileSources = new Array();
 			this.viewer.open(this.viewer.tileSources,0);
@@ -52,21 +52,21 @@ var imageViewer = {
 		this.imageArray = array;
 		pagination.imageArray = array;
 		this.selected = path;
-		
+
 		//emit new folder for annotation linking
 		//annotationViewer.loadAnnotations();
 		events.emit('folderSelected', this.selected[this.selected.length-1]);
 		//this.$loader.show();
 		//this.stopload = false;
 		var that = this;
-		var image = new Array();     
+		var image = new Array();
 		for (var i = 0; i < this.imageArray.length; i++){
 			//if (that.stopload == true) { break; alert('hi')};
 			image[i] = new Image();
 			image[i].onload = (function(nr){
 				return function () {
-					that.viewer.tileSources[nr] = 
-					{	
+					that.viewer.tileSources[nr] =
+					{
 						type: 'legacy-image-pyramid',
 						id: image[nr].url,
 						crossOriginPolicy: 'Anonymous',
@@ -82,22 +82,23 @@ var imageViewer = {
 			            },{
 			                url: image[nr].url,
 			                height: image[nr].height * 6.25,
-			                width:  image[nr].width * 6.25			                
+			                width:  image[nr].width * 6.25
 			            }]
 			        }
 				}
 			}(i));
-			image[i].src = 'http://testingsense.liacs.nl:8080/semanticAnnotator/files/'+this.selected[2]+'/AF (JPG files)/'+this.selected[3]+'/'+this.imageArray[i];
-			image[i].url = 'http://testingsense.liacs.nl:8080/semanticAnnotator/files/'+this.selected[2]+'/AF (JPG files)/'+this.selected[3]+'/'+this.imageArray[i];
-		};	
+			image[i].src = './files/' + this.imageArray[i];
+			image[i].url = image[i].src;
+			//console.log(image[i].url);
+		};
 		anno.makeAnnotatable(this.viewer);
-		
+
 //		if (this.viewer.tileSources.length === this.imageArray.length){
 //			this.$loader.hide();
 //		};
 	},
 
-	createOpenSeadragon: function(){	
+	createOpenSeadragon: function(){
 
 		this.viewer = OpenSeadragon({
 				  id: "openseadragon",
@@ -107,7 +108,7 @@ var imageViewer = {
 				});
 	},
 
-	render: function(pagenumber){ 
+	render: function(pagenumber){
 
 		this.viewer.goToPage(pagenumber-1);
 	},
