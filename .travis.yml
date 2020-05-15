@@ -5,12 +5,12 @@ services:
   - docker
 env:
   global:
-    - IMG=sea
+    - IMG_NAME=sea
     - PORT=8080
-    - URL=http://localhost:${PORT}/semanticAnnotator/
+    - URL=http://localhost:${PORT}/semanticAnnotator/files/MMNAT01_AF_NNM001000283.jpg
 install:
-  - docker build -t $IMG .
-  - docker run -d -p $PORT:$PORT $IMG
+  - docker build -t $IMG_NAME .
+  - docker run -d -p $PORT:$PORT $IMG_NAME
   - sleep 10
 script:
   - |
