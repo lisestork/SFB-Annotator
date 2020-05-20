@@ -100,16 +100,16 @@
           <encoding>utf8</encoding>
         </configuration>
       </plugin>
-      <!-- Tomcat plugin -->
       <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat8-maven-plugin</artifactId>
-        <version>2.2</version>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>1.31.0</version>
         <configuration>
-          <server>tomcat8</server>
-          <username>tomcat</username>
-          <password>tomcat</password>
-          <url>http://localhost:8080/manager/html</url>
+          <java>
+            <eclipse>
+              <version>4.7.1</version>
+            </eclipse>
+          </java>
         </configuration>
       </plugin>
     </plugins>
