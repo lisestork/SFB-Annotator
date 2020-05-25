@@ -1,12 +1,12 @@
 var semanticAnnotation = {
-		
+
 		annotatedPersons: [],
 		annotatedTaxa: [],
 		annotatedLocations: [],
 		annotatedAnEntities: [],
 		annotatedProperties: [],
 		organismIDs: [],
-		
+
 		init: function(){
 			this.cacheDom();
 			this.bindEvents();
@@ -17,7 +17,7 @@ var semanticAnnotation = {
 		cacheDom: function(){
 			this.$el = $('#image');
 		},
-		
+
 		bindEvents: function(){
 			events.on('pagenumberChanged', function(data){
 				this.pageID = data.pageID;
@@ -27,48 +27,48 @@ var semanticAnnotation = {
 				this.storeAnnotationRDF(annotation);
 			}.bind(this));
 			anno.addHandler('onAnnotationRemoved', function(annotation){
-				this.removeAnnotationSQL(annotation);
+				//this.removeAnnotationSQL(annotation);
 				this.removeAnnotationRDF(annotation);
 			}.bind(this));
 			events.on('folderSelected', this.loadAnnotations.bind(this));
 			events.on('viewerOpened', this.showAnnotations.bind(this));
 		},
-		
+
 		render: function(){
 
 		},
-		
-		storeAnnotationSQL: function(annotation){
-			
-			var request = new XMLHttpRequest();
-			param = "writeAnnotationsToSQL?url="+annotation.source+"&firstname="+accounts.person[0].firstname+"&lastname="+accounts.person[0].lastname+"&class="+annotation.text.toLowerCase().trim()+"&x="+annotation.shapes[0].geometry.x+"&y="+annotation.shapes[0].geometry.y+"&height="+annotation.shapes[0].geometry.height+"&width="+annotation.shapes[0].geometry.width+"&organismID="+annotation.organismID+"&action="+accounts.$action;
-			request.open("POST",param, true);
-			request.onreadystatechange = function(e){
-				
-				if ( request.readyState == 4 && request.status == 200) {
-					this.loadAnnotations();
-				}
 
-			}.bind(this);
+		// storeAnnotationSQL: function(annotation){
+		//
+		// 	var request = new XMLHttpRequest();
+		// 	param = "writeAnnotationsToSQL?url="+annotation.source+"&firstname="+accounts.person[0].firstname+"&lastname="+accounts.person[0].lastname+"&class="+annotation.text.toLowerCase().trim()+"&x="+annotation.shapes[0].geometry.x+"&y="+annotation.shapes[0].geometry.y+"&height="+annotation.shapes[0].geometry.height+"&width="+annotation.shapes[0].geometry.width+"&organismID="+annotation.organismID+"&action="+accounts.$action;
+		// 	request.open("POST",param, true);
+		// 	request.onreadystatechange = function(e){
+		//
+		// 		if ( request.readyState == 4 && request.status == 200) {
+		// 			this.loadAnnotations();
+		// 		}
+		//
+		// 	}.bind(this);
+		//
+		// 	request.send();
+		// },
+		//
+		// removeAnnotationSQL: function(annotation){
+		// 	var request = new XMLHttpRequest();
+		// 	param = "removeAnnotationsFromSQL?url="+this.pageID+"&firstname="+accounts.person[0].firstname+"&lastname="+accounts.person[0].lastname+"&class="+annotation.text+"&x="+annotation.shapes[0].geometry.x+"&y="+annotation.shapes[0].geometry.y+"&height="+annotation.shapes[0].geometry.height+"&width="+annotation.shapes[0].geometry.width+"&action="+accounts.$action;
+		// 	request.open("POST",param, true);
+		// 	request.onreadystatechange = function(e){
+		//
+		// 		if ( request.readyState == 4 && request.status == 200) {
+		// 			this.loadAnnotations();
+		// 		}
+		//
+		// 	}.bind(this);
+		//
+		// 	request.send();
+		// },
 
-			request.send();
-		},
-				
-		removeAnnotationSQL: function(annotation){
-			var request = new XMLHttpRequest();
-			param = "removeAnnotationsFromSQL?url="+this.pageID+"&firstname="+accounts.person[0].firstname+"&lastname="+accounts.person[0].lastname+"&class="+annotation.text+"&x="+annotation.shapes[0].geometry.x+"&y="+annotation.shapes[0].geometry.y+"&height="+annotation.shapes[0].geometry.height+"&width="+annotation.shapes[0].geometry.width+"&action="+accounts.$action;
-			request.open("POST",param, true);
-			request.onreadystatechange = function(e){
-				
-				if ( request.readyState == 4 && request.status == 200) {
-					this.loadAnnotations();
-				}
-
-			}.bind(this);
-
-			request.send();
-		},
-		
 		removeAnnotationRDF: function(annotation){
 
 			selector = '#xywh='+annotation.shapes[0].geometry.x+','+annotation.shapes[0].geometry.y+','+annotation.shapes[0].geometry.width+','+annotation.shapes[0].geometry.height;
@@ -77,7 +77,7 @@ var semanticAnnotation = {
 			param = "removeAnnotationsFromRDF?source="+annotation.source+"&selector="+selectorURI+"&organismID"+annotation.organismID;
 			request.open("POST",param, true);
 			request.onreadystatechange = function(e){
-				
+
 				if ( request.readyState == 4 && request.status == 200) {
 				}
 
@@ -85,7 +85,7 @@ var semanticAnnotation = {
 
 			request.send();
 		},
-		
+
 		loadAnnotations: function(folder){
 			this.annotations = [];
 			var that = this;
@@ -96,28 +96,28 @@ var semanticAnnotation = {
 				if ( request.readyState == 4 && request.status == 200) {
 
 					var response = request.response;
-					response = response.split(';');	
+					response = response.split(';');
 					var annotations = response[1].split('\n');
 					var amount = response[0];
 					for(var i=0; i< amount; i++){
 						var annotation = annotations[i].split(',')
-						
+
 						that.annotations.push({
 							source: annotation[0],
 							text: annotation[1],
 							x: parseFloat(annotation[2]),
 							y: parseFloat(annotation[3]),
 							width: parseFloat(annotation[4]),
-							height:  parseFloat(annotation[5]),	
+							height:  parseFloat(annotation[5]),
 							organismID: annotation[6]
-						});		
+						});
 					};
 				}
 
 			};
 			request.send();
 		},
-		
+
 		showAnnotations: function(page){
 			this.annotations.forEach(function(element){
 				if(element.source == page){
@@ -129,27 +129,27 @@ var semanticAnnotation = {
 					        type : 'rect',
 					        geometry : { x : element.x, y: element.y, width : element.width, height: element.height }
 					    }],
-					    organismID: element.organismID					
+					    organismID: element.organismID
 					});
 				}
 			})
 		},
-		
+
 		storeAnnotationRDF: function(annotation){
-			
+
 			//mandatory annotation info
 				//annotation.date = new Date().toJSON().slice(0,10);
 				annotation.date = "2017-09-21";
-			    annotation.annotator = accounts.person[0].IRI;	    
-			    
+			    annotation.annotator = accounts.person[0].IRI;
+
 			    //target
 			    annotation.source = this.pageID;
 			    annotation.selector = '#xywh='+annotation.shapes[0].geometry.x+','+annotation.shapes[0].geometry.y+','+annotation.shapes[0].geometry.width+','+annotation.shapes[0].geometry.height;
-			
+
 			    //textual body
 			    annotation.verbatim = $('#verbatim').val();
 			    annotation.language = $('#language').val();
-			    
+
 			//semantic annotation info
 			    annotation.type = annotation.text.toLowerCase().trim();
 			    annotation.property = $('select[name=property]').val();
@@ -204,43 +204,43 @@ var semanticAnnotation = {
 					annotation.belongstotaxon = $('#belongstotaxon').val();
 					annotation.rank = $('#rank').val();
 				}
-			    
+
 			    annoString = JSON.stringify(annotation);
 
 			  	annoURI = encodeURIComponent(annoString);
-			  	
+
 				var request = new XMLHttpRequest();
 				param = "writeAnnotationsToRDF?annotation="+annoURI;
 				request.open("POST",param, true);
 				request.onreadystatechange = function(e){
-					
+
 					if ( request.readyState == 4 && request.status == 200) {
 					}
 
 				}.bind(this);
 
-				request.send();	
-				
-				this.storeAnnotationSQL(annotation);
+				request.send();
+
+				//this.storeAnnotationSQL(annotation);
 		},
 
 		addPlugins: function(){
 			//Create Plugin
 			annotorious.plugin.annoInformationPlugin = function(opt_config_options) { }
-			
+
 			annotorious.plugin.annoInformationPlugin.prototype.initPlugin = function(anno) {
 			  // Add initialization code here, if needed (or just skip this method if not)
 			}
-			
+
 			annotorious.plugin.annoInformationPlugin.prototype.onInitAnnotator = function(annotator) {
 			  // A Field can be an HTML string or a function(annotation) that returns a string
-								
-				annotator.popup.addField(function(annotation) { 
-					return '<em> <span class="badge"> organismID:' + annotation.organismID + '</span></em>'	
+
+				annotator.popup.addField(function(annotation) {
+					return '<em> <span class="badge"> organismID:' + annotation.organismID + '</span></em>'
 				  });
-				
-				annotator.editor.addField(function(annotation) { 
-					var 
+
+				annotator.editor.addField(function(annotation) {
+					var
 						field = '<input class="annotorious-editor-text" id="verbatim" placeholder="verbatim text" value ="" style="width:160px;height:20px;display:inline;">'
 						field = field + '<input class="annotorious-editor-text" id="language" placeholder="language" value ="" style="width:40px;height:20px;display:inline;"><br>'
 						field = field + '<select name="property" onchange="semanticAnnotation.addFieldsToEditor($(\'select[name=property]\').val())" class="annotorious-editor-text" style="width:160px;height:20px;display:inline;"><option value="">Select property..</option><option value="type">Type:</option><option value="hasIdentification">Organism identification to:</option><option value="additionalIdentification">Additional identification to:</option><option value="identifiedBy">Organism identified by:</option><option value="recordedBy">Occurrence recorded by:</option><option value="additionalRecordedBy">Additional occurrence recorded by:</option>"><option value="scientificNameAuthorship">Author of scientific name:</option><option value="locatedAt">Occurrence located at:</option><option value="additionalLocatedAt">Additional occurrence located at:</option><option value="verbatimEventDate">Organism described on:</option><option value="basedOn">Identification based on (table):</option><option value="measuresOrDescribes">Table/paragraph measures or describes:</option></select>'
@@ -260,21 +260,21 @@ var semanticAnnotation = {
 						field = field + '<span id="instancefield1"></span>'
 						field = field + '<span id="personfield1"></span>'
 					return field
- 
+
 				});
-			}	
+			}
 
 			//Add the plugin
-			anno.addPlugin('annoInformationPlugin', {});	
+			anno.addPlugin('annoInformationPlugin', {});
 		},
-		
+
 		addClassToField: function(type){
 			$('#type').val(type);
 		},
-		
+
 		addFieldsToEditor: function(property){
-			
-			//empty all fields 
+
+			//empty all fields
 			$('#taxonfield1').html("");
 			$('#taxonfield2').html("");
 			$('#taxonfield3').html("");
@@ -289,15 +289,15 @@ var semanticAnnotation = {
 			$('#identificationIDfield1').html("");
 			$('#instancefield1').html("");
 			$('#personfield1').html("");
-					
+
 			if(property === "hasIdentification"){
 				$('#taxonfield1').html('<input class="annotorious-editor-text" id="belongstotaxon" placeholder="Belongs to taxon:" value =""  style="width:250px;height:20px;">');
 				$('#taxonfield2').html('<input class="annotorious-editor-text" id="rank" placeholder="Taxon rank:" value =""  style="width:250px;height:20px;">');
-				$('#taxonfield3').html('<input class="annotorious-editor-text" id="identifiedBy" placeholder="Identified By:" value =""  style="width:250px;height:20px;">');	
+				$('#taxonfield3').html('<input class="annotorious-editor-text" id="identifiedBy" placeholder="Identified By:" value =""  style="width:250px;height:20px;">');
 				$('#organismIDfield1').html('<input class="annotorious-editor-text" id="organismID" placeholder="Organism ID:" value ="" style="width:250px;height:20px;">');
 			} else if (property === 'additionalIdentification'){
-				$('#organismIDfield1').html('<input class="annotorious-editor-text" id="organismID" placeholder="Organism ID:" value ="" style="width:250px;height:20px;">');			
-				$('#identificationIDfield1').html('<input class="annotorious-editor-text" id="identificationID" placeholder="Occurrence ID:" value ="" style="width:250px;height:20px;">');	
+				$('#organismIDfield1').html('<input class="annotorious-editor-text" id="organismID" placeholder="Organism ID:" value ="" style="width:250px;height:20px;">');
+				$('#identificationIDfield1').html('<input class="annotorious-editor-text" id="identificationID" placeholder="Occurrence ID:" value ="" style="width:250px;height:20px;">');
 				$('#taxonfield1').html('<input class="annotorious-editor-text" id="belongstotaxon" placeholder="Belongs to taxon:" value =""  style="width:250px;height:20px;">');
 				$('#taxonfield2').html('<input class="annotorious-editor-text" id="rank" placeholder="Taxon rank:" value =""  style="width:250px;height:20px;">');
 			} else if (property === 'verbatimEventDate'){
@@ -316,14 +316,14 @@ var semanticAnnotation = {
 				}
 			} else if (property == "locatedAt"){
 				$('#geonamesfeaturefield1').html('<input class="annotorious-editor-text" id="geonamesfeature" placeholder="gn:geonamesfeature IRI:" value ="" style="width:250px;height:20px;">');
-				$('#organismIDfield1').html('<input class="annotorious-editor-text" id="organismID" placeholder="Organism ID:" value ="" style="width:125px;height:20px;display:inline;">');			
+				$('#organismIDfield1').html('<input class="annotorious-editor-text" id="organismID" placeholder="Organism ID:" value ="" style="width:125px;height:20px;display:inline;">');
 			} else if (property == "additionalLocatedAt"){
 				$('#geonamesfeaturefield1').html('<input class="annotorious-editor-text" id="geonamesfeature" placeholder="gn:geonamesfeature IRI:" value ="" style="width:250px;height:20px;">');
-				$('#organismIDfield1').html('<input class="annotorious-editor-text" id="organismID" placeholder="Organism ID:" value ="" style="width:250px;height:20px;">');			
-				$('#occurrenceIDfield1').html('<input class="annotorious-editor-text" id="occurrenceID" placeholder="Occurrence ID:" value ="" style="width:250px;height:20px;">');	
+				$('#organismIDfield1').html('<input class="annotorious-editor-text" id="organismID" placeholder="Organism ID:" value ="" style="width:250px;height:20px;">');
+				$('#occurrenceIDfield1').html('<input class="annotorious-editor-text" id="occurrenceID" placeholder="Occurrence ID:" value ="" style="width:250px;height:20px;">');
 			} else if (property === 'scientificNameAuthorship'){
 				$('#personfield1').html('<input class="annotorious-editor-text" id="person" placeholder="viaf IRI:" value ="" style="width:250px;height:20px;">');
-				$('#taxonfield1').html('<input class="annotorious-editor-text" id="belongstotaxon" placeholder="Belongs to taxon:" value =""  style="width:250px;height:20px;">');	
+				$('#taxonfield1').html('<input class="annotorious-editor-text" id="belongstotaxon" placeholder="Belongs to taxon:" value =""  style="width:250px;height:20px;">');
 			} else if (property == 'identifiedBy'){
 				$('#personfield1').html('<input class="annotorious-editor-text" id="person" placeholder="viaf IRI:" value ="" style="width:250px;height:20px;">');
 				$('#organismIDfield1').html('<input class="annotorious-editor-text" id="organismID" placeholder="Organism ID:" value ="" style="width:250px;height:20px;">');
@@ -332,14 +332,14 @@ var semanticAnnotation = {
 				$('#organismIDfield1').html('<input class="annotorious-editor-text" id="organismID" placeholder="Organism ID:" value ="" style="width:250px;height:20px;">');
 			} else if (property === 'additionalRecordedBy'){
 				$('#personfield1').html('<input class="annotorious-editor-text" id="person" placeholder="viaf IRI:" value ="" style="width:250px;height:20px;">');
-				$('#organismIDfield1').html('<input class="annotorious-editor-text" id="organismID" placeholder="Organism ID:" value ="" style="width:250px;height:20px;">');			
-				$('#occurrenceIDfield1').html('<input class="annotorious-editor-text" id="occurrenceID" placeholder="Occurrence ID:" value ="" style="width:250px;height:20px;">');				
+				$('#organismIDfield1').html('<input class="annotorious-editor-text" id="organismID" placeholder="Organism ID:" value ="" style="width:250px;height:20px;">');
+				$('#occurrenceIDfield1').html('<input class="annotorious-editor-text" id="occurrenceID" placeholder="Occurrence ID:" value ="" style="width:250px;height:20px;">');
 			} else if (property == "type" && $('#type').val() != 'taxon'){
-				$('#instancefield1').html('<input class="annotorious-editor-text" id="instance" placeholder="Instance:" value ="" style="width:250px;height:20px;">');	
+				$('#instancefield1').html('<input class="annotorious-editor-text" id="instance" placeholder="Instance:" value ="" style="width:250px;height:20px;">');
 			} else if (property == "type" && $('#type').val() == 'taxon'){
 				$('#taxonfield1').html('<input class="annotorious-editor-text" id="belongstotaxon" placeholder="Belongs to taxon:" value =""  style="width:250px;height:20px;">');
 				$('#taxonfield2').html('<input class="annotorious-editor-text" id="rank" placeholder="Taxon rank:" value =""  style="width:250px;height:20px;">');
 			}
 		}
-		
+
 }
