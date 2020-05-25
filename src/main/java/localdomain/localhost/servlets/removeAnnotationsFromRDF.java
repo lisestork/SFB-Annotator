@@ -49,47 +49,47 @@ public class removeAnnotationsFromRDF extends HttpServlet {
 
 		// Connect to RDF server
 		String rdf4jServer = "http://localhost:8080/rdf4j-server/";
-		String repositoryID = "AN";
+		String repositoryID = "mem-rdf";
 		Repository repo = new HTTPRepository(rdf4jServer, repositoryID);
-		repo.initialize();
+		// repo.initialize();
 
 		// create valuefactory for IRIs
 		ValueFactory f = repo.getValueFactory();
 
-		String nc = "http://testingsense.liacs.nl/rdf/nc#";
-		IRI selectorIRI = f.createIRI(nc, selector);
-		IRI sourceIRI = f.createIRI(nc, source);
+		String nhc = "http://makingsense.liacs.nl/rdf/nhc/";
+		IRI selectorIRI = f.createIRI(nhc, selector);
+		IRI sourceIRI = f.createIRI(nhc, source);
 
 		// retrieve annotation with page
-		IRI targetIRI = f.createIRI(nc, source + selector);
+		IRI targetIRI = f.createIRI(nhc, source + selector);
 		String query1 = "SELECT DISTINCT ?x WHERE {?x <http://www.w3.org/ns/oa#hasTarget> <" + targetIRI + "> }";
-		String anno = QueryTripleStoreString(query1, "AN", "x");
+		String anno = QueryTripleStoreString(query1, repo, "x");
 
 		System.out.println(anno);
+
 		// retrieve body with annotation
 		IRI annoIRI = f.createIRI(anno);
 		String query2 = "SELECT DISTINCT ?x WHERE {<" + anno + "> <http://www.w3.org/ns/oa#hasBody> ?x}";
-		String body = QueryTripleStoreString(query2, "AN", "x");
+		String body = QueryTripleStoreString(query2, repo, "x");
 
 		System.out.println(anno);
 		System.out.println(body);
+
 		// STORE TRANSCRIPTION
-		rdf4jServer = "http://localhost:8080/rdf4j-server/";
-		repositoryID = "AN";
-		repo = new HTTPRepository(rdf4jServer, repositoryID);
-		repo.initialize();
+		// rdf4jServer = "http://localhost:8080/rdf4j-server/";
+		// repositoryID = "AN";
+		// repo = new HTTPRepository(rdf4jServer, repositoryID);
+		// repo.initialize();
 
 		IRI bodyIRI = f.createIRI(body);
 		System.out.println(annoIRI);
 		try (RepositoryConnection conn = repo.getConnection()) {
-
 			conn.begin();
 			conn.remove(annoIRI, null, null);
 			conn.remove(targetIRI, null, null);
 			conn.remove(bodyIRI, null, null);
 			conn.remove(selectorIRI, null, null);
 			conn.remove(sourceIRI, null, null);
-
 			//// DELETE ANNOTATIONS/////////
 			conn.commit();
 		}
@@ -97,14 +97,14 @@ public class removeAnnotationsFromRDF extends HttpServlet {
 
 	}
 
-	public String QueryTripleStoreString(String query, String repID, String valueOf) {
+	public String QueryTripleStoreString(String query, Repository repo, String valueOf) {
 		// Connect to RDF server
-		String rdf4jServer = "http://localhost:8080/rdf4j-server/";
-		String repositoryID = repID;
-		Repository repo = new HTTPRepository(rdf4jServer, repositoryID);
-		repo.initialize();
-
+		// String rdf4jServer = "http://localhost:8080/rdf4j-server/";
+		// String repositoryID = repID;
+		// Repository repo = new HTTPRepository(rdf4jServer, repositoryID);
+		// repo.initialize();
 		String anno = new String();
+
 		try (RepositoryConnection conn = repo.getConnection()) {
 			TupleQuery tupleQuery = conn.prepareTupleQuery(QueryLanguage.SPARQL, query);
 			List<BindingSet> resultList;
@@ -117,5 +117,4 @@ public class removeAnnotationsFromRDF extends HttpServlet {
 		}
 		return anno;
 	}
-
 }
