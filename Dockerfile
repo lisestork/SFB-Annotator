@@ -1,5 +1,4 @@
-FROM eclipse/rdf4j-workbench:amd64-latest
-
+FROM eclipse/rdf4j-workbench:amd64-3.2.0-M2
 USER root
 COPY ./ /usr/local/tomcat/
 RUN apk add maven openjdk8 && \
