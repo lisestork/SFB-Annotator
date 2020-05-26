@@ -30,7 +30,8 @@ docker run -d -p 8080:8080 sea
 ```
 
 ## Access web app(s)
-- requires user/password: `tomcat/tomcat`
 - http://localhost:8080/semanticAnnotator/
-- http://localhost:8080/rdf4j-server/
+  - requires user/password: `tomcat/tomcat`
 - http://localhost:8080/rdf4j-workbench/
+  - create a new repository with ID: `mem-rdf`
+- http://localhost:8080/rdf4j-server/
