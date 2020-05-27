@@ -7,6 +7,7 @@ The Semantic Field Book Annotator is a web application developed for domain expe
 
 ## Prerequisites
 - [Docker CE](https://docs.docker.com/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 - Java 8 Runtime Environment ([OpenJDK](https://openjdk.java.net/) or [Oracle Java](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html))
 - [Apache Maven](https://maven.apache.org/)
 - [Eclipse RDF4J Server and Workbench](https://rdf4j.org/documentation/tools/server-workbench/) or OpenLink [Virtuoso OSE](http://vos.openlinksw.com/owiki/wiki/VOS) including the [Eclipse RDF4J Provider](http://vos.openlinksw.com/owiki/wiki/VOS/VirtSesame2Provider)
@@ -14,17 +15,35 @@ The Semantic Field Book Annotator is a web application developed for domain expe
   - [Annotorius](https://annotorious.github.io)
   - [OpenSeadragon](https://openseadragon.github.io/)
 
-## Deploy container using [DockerHub](https://hub.docker.com/orgs/linnae)
+## Install & deploy
 
+1. Clone this repository.
+
+```bash
+git clone https://github.com/LINNAE-project/SFB-Annotator.git
 ```
-docker run -d -p 8080:8080 linnae/sfb-annotator
+2. Install Docker Compose.
+
+```bash
+pip install docker-compose
 ```
 
-## Build Docker image locally and deploy (development)
+3. Start Docker service(s).
 
-```
-git clone https://github.com/lisestork/SFB-Annotator.git
+- `sea` - Semantic Field Book Annotator (also available at [DockerHub](https://hub.docker.com/repository/docker/linnae/sfb-annotator))
+- `grlc` - Web API based on [grlc](https://www.research-software.nl/software/grlc)
+
+```bash
 cd SFB-Annotator
+# list available services
+docker-compose config --services
+# start all services or one-by-one
+docker-compose up -d # or add [SERVICE]
+```
+
+4. Build Docker image and deploy container locally (development)
+
+```bash
 docker build -t sea .
 docker run -d -p 8080:8080 sea
 ```
@@ -35,3 +54,11 @@ docker run -d -p 8080:8080 sea
 - http://localhost:8080/rdf4j-workbench/
   - create a new repository with ID: `mem-rdf`
 - http://localhost:8080/rdf4j-server/
+- http://localhost:8088 followed by
+  - remote path `/api-git/LINNAE-project/queries/` or
+    - requires `GRLC_GITHUB_ACCESS_TOKEN` to be set in [`docker-compose.yml`](https://github.com/LINNAE-project/SFB-Annotator/blob/master/docker-compose.yml#L19)
+  - local path `/api-local/`
+    - requires
+    ```bash
+    git clone https://github.com/LINNAE-project/queries && docker cp ./queries grlc:/home/grlc/
+    ```
