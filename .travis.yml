@@ -7,11 +7,14 @@ env:
   global:
     - IMG_NAME=sea
     - PORT=8080
-    - URL=http://localhost:${PORT}/semanticAnnotator/files/MMNAT01_AF_NNM001000283.jpg
+    - BASE_URL=http://localhost:${PORT}
 install:
   - docker build -t $IMG_NAME .
   - docker run -d -p $PORT:$PORT $IMG_NAME
   - sleep 10
 script:
   - |
-    [[ $(curl -u tomcat:tomcat -o -I -w "%{http_code}" $URL) -eq 200 ]]
+    PATHS=(semanticAnnotator/files/MMNAT01_AF_NNM001000283.jpg rdf4j-workbench/repositories/mem-rdf/repositories)
+    for p in ${PATHS[@]}; do
+      [[ $(curl -u tomcat:tomcat -o -I -w "%{http_code}" $URL/$p) -eq 200 ]]
+    done

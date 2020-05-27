@@ -52,7 +52,7 @@ docker run -d -p 8080:8080 sea
 - http://localhost:8080/semanticAnnotator/
   - requires user/password: `tomcat/tomcat`
 - http://localhost:8080/rdf4j-workbench/
-  - create a new repository with ID: `mem-rdf`
+  - includes a newly created repository (ID): `mem-rdf`
 - http://localhost:8080/rdf4j-server/
 - http://localhost:8088 followed by
   - remote path `/api-git/LINNAE-project/queries/` or
