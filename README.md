@@ -49,8 +49,9 @@ docker cp ./queries grlc:/home/grlc/
 4. Build Docker image and deploy container locally (development)
 
 ```bash
-docker build -t sea .
-docker run -d -p 8080:8080 sea
+docker build -t linnae/sfb-annotator:local .
+docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
+docker exec -it sea ./init.sh
 ```
 
 ## Access web app(s)
