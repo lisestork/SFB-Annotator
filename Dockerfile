@@ -6,5 +6,3 @@ RUN apk update && apk add maven openjdk8
 RUN mvn clean install
 RUN ln -s ./target/semanticAnnotator.war /usr/local/tomcat/webapps/
 RUN chown -R tomcat.root /usr/local/tomcat
-RUN mkdir -p /var/rdf4j/server
-RUN cat create_store.txt | console.sh

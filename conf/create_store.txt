@@ -1,0 +1,6 @@
+create native.
+mem-rdf
+yes
+yes
+yes
+quit.

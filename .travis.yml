@@ -8,13 +8,16 @@ env:
     - IMG_NAME=sea
     - PORT=8080
     - BASE_URL=http://localhost:${PORT}
+    - CONF=conf/create_store.txt
+    - DATA_DIR=/var/rdf4j/server
 install:
   - docker build -t $IMG_NAME .
-  - docker run -d -p $PORT:$PORT $IMG_NAME
+  - docker run --name $IMG_NAME -d -p $PORT:$PORT $IMG_NAME
   - sleep 10
+  - docker exec -t $IMG_NAME sh -c "cat $CONF | console.sh -e -f -d $DATA_DIR"
 script:
   - |
-    PATHS=(semanticAnnotator/files/MMNAT01_AF_NNM001000283.jpg rdf4j-workbench/repositories/mem-rdf/repositories)
+    PATHS=(semanticAnnotator/files/MMNAT01_AF_NNM001000283.jpg rdf4j-workbench/repositories/mem-rdf/summary)
     for p in ${PATHS[@]}; do
-      [[ $(curl -u tomcat:tomcat -o -I -w "%{http_code}" $BASE_URL/$p) -eq 200 ]]
+      [[ $(curl -u tomcat:tomcat -o -I -w "%{http_code}" "$BASE_URL/$p") -eq 200 ]]
     done
