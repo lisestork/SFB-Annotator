@@ -1,0 +1,23 @@
+---
+version: '3'
+services:
+  sea:
+    image: linnae/sfb-annotator:latest
+    container_name: sea
+    ports:
+      - 8080:8080
+
+  grlc:
+    image: clariah/grlc:latest
+    container_name: grlc
+    depends_on:
+      - sea
+    ports:
+      - 8088:8088
+    environment:
+      - DEBUG=true
+      - GRLC_GITHUB_ACCESS_TOKEN=xxx
+      - GRLC_SERVER_NAME=localhost:8088
+      - GRLC_SPARQL_ENDPOINT=http://sea:8080/rdf4j-server/repositories/mem-rdf  # dev
+      # - GRLC_SPARQL_ENDPOINT=http://makingsense.liacs.nl/rdf4j-server/repositories/NC
+      - GRLC_LOCAL_SPARQL_DIR=/home/grlc/queries
