@@ -1,0 +1,47 @@
+
+<http://makingsense.liacs.nl/rdf/nhc/identification> a <http://rs.tdwg.org/dwc/terms/Identification>;
+  <http://purl.org/dsw/identifies> <http://makingsense.liacs.nl/rdf/nhc/organism>;
+  <http://purl.org/dsw/isBasedOn> <http://makingsense.liacs.nl/rdf/nhc/humanObservation>;
+  <http://rs.tdwg.org/dwc/iri/identifiedBy> _:node1e9ao384ix4 .
+
+_:node1e9ao384ix4 a <http://xmlns.com/foaf/0.1/Person> .
+
+<http://makingsense.liacs.nl/rdf/nhc/identification> <http://rs.tdwg.org/dwc/iri/toTaxon>
+    <http://makingsense.liacs.nl/rdf/nhc/taxon1>;
+  <http://rs.tdwg.org/dwc/terms/identificationID> "" .
+
+<http://makingsense.liacs.nl/rdf/nhc/humanObservation> a <http://rs.tdwg.org/dwc/terms/HumanObservation>;
+  <http://purl.org/dsw/derivedFrom> <http://makingsense.liacs.nl/rdf/nhc/organism>;
+  <http://purl.org/dsw/evidenceFor> <http://makingsense.liacs.nl/rdf/nhc/occurrence>;
+  <http://purl.org/dsw/isBasisForId> <http://makingsense.liacs.nl/rdf/nhc/identification> .
+
+<http://makingsense.liacs.nl/rdf/nhc/date> a <http://purl.org/dc/terms/date> .
+
+<http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
+
+<http://makingsense.liacs.nl/rdf/nhc/location> a <http://purl.org/dc/terms/Location>;
+  <http://purl.org/dsw/locates> <http://makingsense.liacs.nl/rdf/nhc/event> .
+
+<http://makingsense.liacs.nl/rdf/nhc/taxon1> a <http://rs.tdwg.org/dwc/terms/Taxon>,
+    <http://www.w3.org/ns/oa#SemanticTag>;
+  <http://makingsense.liacs.nl/rdf/nhc/belongsToTaxon> <https://identifiers.org/taxonomy:9397>;
+  <http://makingsense.liacs.nl/rdf/nhc/taxonRank> <http://makingsense.liacs.nl/rdf/nhc/order>;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Chiropterae" .
+
+<http://makingsense.liacs.nl/rdf/nhc/occurrence> a <http://rs.tdwg.org/dwc/terms/Occurrence>;
+  <http://purl.org/dsw/atEvent> <http://makingsense.liacs.nl/rdf/nhc/event>;
+  <http://purl.org/dsw/hasEvidence> <http://makingsense.liacs.nl/rdf/nhc/humanObservation>;
+  <http://purl.org/dsw/occurrenceOf> <http://makingsense.liacs.nl/rdf/nhc/organism>;
+  <http://rs.tdwg.org/dwc/iri/recordedBy> _:node1e9ao384ix4 .
+
+<http://makingsense.liacs.nl/rdf/nhc/event> a <http://rs.tdwg.org/dwc/terms/Event>;
+  <http://makingsense.liacs.nl/rdf/nhc/verbatimEventDate> <http://makingsense.liacs.nl/rdf/nhc/date>;
+  <http://purl.org/dsw/eventOf> <http://makingsense.liacs.nl/rdf/nhc/occurrence>;
+  <http://purl.org/dsw/locatedAt> <http://makingsense.liacs.nl/rdf/nhc/location> .
+
+<http://makingsense.liacs.nl/rdf/nhc/organism> a <http://rs.tdwg.org/dwc/terms/Organism>;
+  <http://purl.org/dsw/hasDerivative> <http://makingsense.liacs.nl/rdf/nhc/humanObservation>;
+  <http://purl.org/dsw/hasIdentification> <http://makingsense.liacs.nl/rdf/nhc/identification>;
+  <http://purl.org/dsw/hasOccurrence> <http://makingsense.liacs.nl/rdf/nhc/occurrence>;
+  <http://rs.tdwg.org/dwc/terms/organismID> "" .
