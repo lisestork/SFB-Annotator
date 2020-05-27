@@ -49,8 +49,9 @@ docker cp ./queries grlc:/home/grlc/
 4. Build Docker image and deploy container locally (development)
 
 ```bash
-docker build -t sea .
-docker run -d -p 8080:8080 sea
+docker build -t linnae/sfb-annotator:local .
+docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
+docker exec -it sea ./init.sh
 ```
 
 ## Access web app(s)
@@ -59,7 +60,7 @@ docker run -d -p 8080:8080 sea
 - http://localhost:8080/rdf4j-workbench/
   - includes an empty repository: `mem-rdf`
 - http://localhost:8080/rdf4j-server/
-- http://localhost:8088 followed by
-  - remote path `/api-git/LINNAE-project/queries/` or
+- http://localhost:8088/ followed by
+  - remote path [`/api-git/LINNAE-project/queries/`](http://localhost:8088/api-git/LINNAE-project/queries/) or
     - requires `GRLC_GITHUB_ACCESS_TOKEN` to be set in [`docker-compose.yml`](https://github.com/LINNAE-project/SFB-Annotator/blob/master/docker-compose.yml#L19)
-  - local path `/api-local/`
+  - local path [`/api-local/`](http://localhost:8088/api-local/)
