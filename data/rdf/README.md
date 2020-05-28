@@ -1,4 +1,4 @@
-### Example: annotating a field book
+### Example 1: annotating a field book
 
 * Go to http://localhost:8080/semanticAnnotator/
 
@@ -34,7 +34,7 @@ where {
 |--|
 |55|
 
-See [`example.ttl`](/data/rdf/example.ttl) file.
+See [`example_1.ttl`](/data/rdf/example_1.ttl) file.
 
 * Delete the annotated box (page 2) via GUI.
 
@@ -52,7 +52,7 @@ where {
 
 !FIXME!
 
-See [`example_del.ttl`](/data/rdf/example_del.ttl) file.
+See [`example_1_del.ttl`](/data/rdf/example_1_del.ttl) file.
 
 * Delete triples manually from the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/update).
 
