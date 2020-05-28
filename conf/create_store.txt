@@ -1,6 +1,8 @@
-create native.
+create memory.
 mem-rdf
-yes
-yes
-yes
+Memory Store
+10000
+true
+0
+
 quit.

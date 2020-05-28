@@ -60,7 +60,7 @@ docker exec -it sea ./init.sh
 - http://localhost:8080/rdf4j-workbench/
   - includes an empty repository: `mem-rdf`
 - http://localhost:8080/rdf4j-server/
-- http://localhost:8088 followed by
-  - remote path `/api-git/LINNAE-project/queries/` or
+- http://localhost:8088/ followed by
+  - remote path [`/api-git/LINNAE-project/queries/`](http://localhost:8088/api-git/LINNAE-project/queries/) or
     - requires `GRLC_GITHUB_ACCESS_TOKEN` to be set in [`docker-compose.yml`](https://github.com/LINNAE-project/SFB-Annotator/blob/master/docker-compose.yml#L19)
-  - local path `/api-local/`
+  - local path [`/api-local/`](http://localhost:8088/api-local/)
