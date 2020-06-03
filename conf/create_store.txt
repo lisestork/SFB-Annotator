@@ -1,5 +1,5 @@
 create memory
-mem-rdf
+<REPO_ID>
 Memory Store
 10000
 true
