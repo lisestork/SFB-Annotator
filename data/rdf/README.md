@@ -22,6 +22,7 @@
 | Identified By | | left empty, perhaps not needed given a registered annotator?
 | Organism ID | | left empty, perhaps not needed given the IRI in _Belongs to taxon_?
 
+bluub
 * Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
 
 ```
@@ -43,7 +44,7 @@ See [`example_1.ttl`](/data/rdf/example_1.ttl) file.
 ```
 select (count(*) as ?n)
 where {
-  ?s ?p ?o 
+  ?s ?p ?o
 }
 ```
 |?n|
