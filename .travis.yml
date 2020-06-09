@@ -9,8 +9,8 @@ env:
     - BASE_URL=http://localhost:${PORT}
 install:
   - docker build -t linnae/sfb-annotator:local .
-  - sleep 10
   - docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
+  - sleep 10
   - docker exec sea ./init.sh
 script:
   - |
