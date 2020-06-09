@@ -1,0 +1,34 @@
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+
+nhc:textualBody1 a oa:TextualTag;
+  <http://purl.org/dc/terms/format> "text/plain";
+  <http://purl.org/dc/terms/language> "la";
+  <http://www.w3.org/2000/01/rdf-schema#label> "Pteropus minimus" .
+
+<http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5564975105323628,0.1899425507468403,0.07001531980084263,0.01802374569130602>
+  a oa:Target;
+  oa:hasSelector <http://makingsense.liacs.nl/rdf/nhc/#xywh=0.5564975105323628,0.1899425507468403,0.07001531980084263,0.01802374569130602>;
+  oa:hasSource nhc:MMNAT01_AF_NNM001001033_003.jpg .
+
+nhc:MMNAT01_AF_NNM001001033_003.jpg a oa:Source .
+
+<http://makingsense.liacs.nl/rdf/nhc/#xywh=0.5564975105323628,0.1899425507468403,0.07001531980084263,0.01802374569130602>
+  a oa:Selector;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.5564975105323628,0.1899425507468403,0.07001531980084263,0.01802374569130602" .
+
+nhc:anno1 a oa:Annotation;
+  <http://purl.org/dc/terms/created> nhc:anno1;
+  <http://purl.org/dc/terms/date> "2017-09-21";
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
+  oa:hasBody nhc:taxon1, nhc:textualBody1;
+  oa:hasTarget <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5564975105323628,0.1899425507468403,0.07001531980084263,0.01802374569130602> .
+
+<http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
+
+nhc:taxon1 a dwc:Taxon, oa:SemanticTag;
+  nhc:belongsToTaxon <https://identifiers.org/taxonomy:9397>;
+  nhc:taxonRank nhc:order;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Pteropus minimus" .
