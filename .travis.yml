@@ -11,7 +11,7 @@ install:
   - docker build -t linnae/sfb-annotator:local .
   - sleep 10
   - docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
-  - docker exec -t sea ./init.sh
+  - docker exec sea ./init.sh
 script:
   - |
     PATHS=(semanticAnnotator/files/MMNAT01_AF_NNM001000283.jpg rdf4j-workbench/repositories/mem-rdf/summary)

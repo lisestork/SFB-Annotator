@@ -51,7 +51,7 @@ docker cp ./queries grlc:/home/grlc/
 ```bash
 docker build -t linnae/sfb-annotator:local .
 docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
-docker exec -t sea ./init.sh
+docker exec sea ./init.sh
 ```
 
 ## Access web app(s)
