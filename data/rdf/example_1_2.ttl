@@ -1,0 +1,70 @@
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+
+nhc:textualBody1 a oa:TextualTag;
+  <http://purl.org/dc/terms/format> "text/plain";
+  <http://purl.org/dc/terms/language> "la";
+  <http://www.w3.org/2000/01/rdf-schema#label> "Pteropus minimus" .
+
+<http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862>
+  a oa:Target;
+  oa:hasSelector <http://makingsense.liacs.nl/rdf/nhc/#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862>;
+  oa:hasSource nhc:MMNAT01_AF_NNM001001033_003.jpg .
+
+nhc:MMNAT01_AF_NNM001001033_003.jpg a oa:Source .
+
+<http://makingsense.liacs.nl/rdf/nhc/#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862>
+  a oa:Selector;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862" .
+
+nhc:anno1 a oa:Annotation;
+  <http://purl.org/dc/terms/created> nhc:anno1, <http://orcid.org/0000-0002-2146-4803>;
+  <http://purl.org/dc/terms/date> "2017-09-21";
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
+  oa:hasBody nhc:humanObservation1, nhc:taxon1, nhc:textualBody1;
+  oa:hasTarget nhc:MMNAT01_AF_NNM001001033_003.jpg, <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862> .
+
+<http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
+
+nhc:taxon1 a dwc:Taxon, oa:SemanticTag;
+  nhc:belongsToTaxon <https://identifiers.org/taxonomy:9397>;
+  nhc:taxonRank nhc:scientificName;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Pteropus minimus" .
+
+nhc:occurrence1 a dwc:Occurrence;
+  <http://purl.org/dsw/atEvent> nhc:event1;
+  <http://purl.org/dsw/hasEvidence> nhc:humanObservation1;
+  <http://purl.org/dsw/occurrenceOf> nhc:organism1;
+  <http://rs.tdwg.org/dwc/iri/recordedBy> <https://viaf.org/viaf/45106482/> .
+
+nhc:event1 a dwc:Event;
+  nhc:verbatimEventDate nhc:date1;
+  <http://purl.org/dsw/eventOf> nhc:occurrence1;
+  <http://purl.org/dsw/locatedAt> nhc:location1 .
+
+nhc:location1 a <http://purl.org/dc/terms/Location>;
+  <http://purl.org/dsw/locates> nhc:event1 .
+
+nhc:organism1 a dwc:Organism;
+  <http://purl.org/dsw/hasDerivative> nhc:humanObservation1;
+  <http://purl.org/dsw/hasIdentification> nhc:identification1;
+  <http://purl.org/dsw/hasOccurrence> nhc:occurrence1;
+  dwc:organismID "1" .
+
+nhc:identification1 a dwc:Identification;
+  <http://purl.org/dsw/identifies> nhc:organism1;
+  <http://purl.org/dsw/isBasedOn> nhc:humanObservation1;
+  <http://rs.tdwg.org/dwc/iri/identifiedBy> <https://viaf.org/viaf/45106482/>;
+  <http://rs.tdwg.org/dwc/iri/toTaxon> nhc:taxon1;
+  dwc:identificationID "1" .
+
+nhc:humanObservation1 a dwc:HumanObservation;
+  <http://purl.org/dsw/derivedFrom> nhc:organism1;
+  <http://purl.org/dsw/evidenceFor> nhc:occurrence1;
+  <http://purl.org/dsw/isBasisForId> nhc:identification1 .
+
+nhc:date1 a <http://purl.org/dc/terms/date> .
+
+<https://viaf.org/viaf/45106482/> a <http://xmlns.com/foaf/0.1/Person> .
