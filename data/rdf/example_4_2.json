@@ -1,0 +1,26 @@
+{
+  "src": "dzi://openseadragon/something",
+  "text": "MeasurementOrFact",
+  "shapes": [
+    {
+      "type": "rect",
+      "geometry": {
+        "x": 0.5576041291028121,
+        "y": 0.23095222462217865,
+        "width": 0.1481062028819542,
+        "height": 0.05918359200650655
+      },
+      "style": {}
+    }
+  ],
+  "context": "http://localhost:8080/semanticAnnotator/#",
+  "date": "2017-09-21",
+  "annotator": "http://orcid.org/0000-0002-2146-4803",
+  "source": "MMNAT01_AF_NNM001001033_003.jpg",
+  "selector": "#xywh=0.5576041291028121,0.23095222462217865,0.1481062028819542,0.05918359200650655",
+  "verbatim": "",
+  "language": "",
+  "type": "measurementorfact",
+  "property": "measuresOrDescribes",
+  "organismID": "1"
+}
