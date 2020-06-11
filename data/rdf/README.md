@@ -593,7 +593,7 @@ Variation: `rdf:type`
 | language |  nl | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a date. |
 | type | `date` |  auto-fill from entity type |
-| instance | | this field should be removed | instead of the instance field, we would like to see the same fields as when the property `Organism described on` is selected, minus the organism ID. 
+| instance | | this field should be removed | instead of the instance field, we would like to see the same fields as when the property `Organism described on` is selected, minus the organism ID field. See example [`example 7_2`](#Example-7_2) and corresponding ttl file [`example_7_2.ttl`](/data/rdf/example_7_2.ttl) file.
 
 * Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
 
@@ -606,6 +606,9 @@ where {
 |?n|
 |--|
 |17|
+
+See [`example_7_1.ttl`](/data/rdf/example_7_1.ttl) file.
+
 
 ### Example 7_2
 
