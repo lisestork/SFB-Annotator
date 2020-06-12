@@ -391,7 +391,7 @@ Variation: `rdf:type`
 
 * Collections -> manuscript MMNAT01_AF -> page 3
 
-* Annotate -> Click and Drag -> draw a bounding box around the measurement or fact (such as a table or a statement about the animal)
+* Annotate -> Click and Drag -> draw a bounding box around the table
 
 * Fill in the pop-up form/table:
 
@@ -438,7 +438,7 @@ Variation: `dsw:derivedFrom`
 | Entity type | `MeasurementOrFact` | The handwritten text contains a table or other measurement or fact. | Should be a drop-down menu with all possible classes|  
 | verbatim text | leave empty |  |  |
 | language | leave empty | [ISO code](https://www.iso.org/iso-639-language-codes.html) | add autocomplete/drop down menu |
-| Select property | `Table/paragraph measures or describes` | Prompt should be changed to `Human observation has derivative` to map to the ontology, although that would be rather unclear | |
+| Select property | `Identification based on (table)` |  should be table _or_ paragraph| |
 | type | `measurementorfact` | auto-fill from entity type |
 | organism ID | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `1` is a placeholder; an unique ID should be generated for the organism record.* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?  |
 
