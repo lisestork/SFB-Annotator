@@ -33,7 +33,7 @@ script:
       python -m json.tool < $f
 
       # create triples
-      [[ $($ curl -u "$CRE" -o -I -w "%{http_code}" "Content-Type: application/json" -d @"$f" "$URL1") -eq 200 ]]
+      [[ $(curl -u "$CRE" -o -I -w "%{http_code}" -H "Content-Type: application/json" -d @"$f" "$URL1") -eq 200 ]]
 
       # count triples
       n=$(curl "${URL2}/size")
