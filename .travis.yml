@@ -28,18 +28,33 @@ script:
       pfx="$(basename $f .json)"
       exp="$(echo "$pfx" | cut -f 2,3 -d _)"
       rdf="example_${exp}.ttl"
+
       # validate JSON input
       python -m json.tool < $f
+
       # create triples
-      [[ $($ curl -u "$CRE" -o -I -w "%{http_code}" "Content-Type: application/json" -d \@$f "$URL1") -eq 200 ]]
+      [[ $($ curl -u "$CRE" -o -I -w "%{http_code}" "Content-Type: application/json" -d @"$f" "$URL1") -eq 200 ]]
+
       # count triples
       n=$(curl "${URL2}/size")
+      if [ "$n" == "0" ]; then
+        exit 1
+      fi
       echo -n "### $f: $n triples found."
+
       # dump triples
       curl -H 'Accept: text/turtle' "${URL2}/statements" -o "$rdf"
+
       # show triples
       cat "$rdf"
       echo
+
       # delete triples
       curl -X DELETE "${URL2}/statements"
-    done
+
+      # count triples
+      n=$(curl "{$URL2}/size")
+      if [ "$n" != "0" ]; then
+        exit 1
+      fi
+      done
