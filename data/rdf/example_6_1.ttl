@@ -1,0 +1,40 @@
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+
+nhc:textualBody1 a oa:TextualTag;
+  <http://purl.org/dc/terms/format> "text/plain";
+  <http://purl.org/dc/terms/language> "la";
+  <http://www.w3.org/2000/01/rdf-schema#label> "Color" .
+
+<http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091>
+  a oa:Target;
+  oa:hasSelector <http://makingsense.liacs.nl/rdf/nhc/#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091>;
+  oa:hasSource nhc:MMNAT01_AF_NNM001001033_003.jpg .
+
+nhc:MMNAT01_AF_NNM001001033_003.jpg a oa:Source .
+
+<http://makingsense.liacs.nl/rdf/nhc/#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091>
+  a oa:Selector;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091" .
+
+nhc:anno1 a oa:Annotation;
+  <http://purl.org/dc/terms/created> nhc:anno1;
+  <http://purl.org/dc/terms/date> "2017-09-21";
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
+  oa:hasBody nhc:propertyOrAttribute1, nhc:textualBody1;
+  oa:hasTarget <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091> .
+
+<http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
+
+nhc:propertyOrAttribute1 a oa:SemanticTag, _:node1earj85fex18 .
+
+_:node1earj85fex18 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://identifiers.org/ncit/C20189> .
+
+nhc:propertyOrAttribute1 <http://www.w3.org/2000/01/rdf-schema#label> "Color" .
+
+nhc:measurementOrFact1 a dwc:MeasurementOrFact;
+  nhc:measuresOrDescribes nhc:propertyOrAttribute1;
+  <http://purl.org/dsw/derivedFrom> nhc:humanObservation- .
+
+nhc:humanObservation- <http://purl.org/dsw/hasDerivative> nhc:measurementOrFact1 .

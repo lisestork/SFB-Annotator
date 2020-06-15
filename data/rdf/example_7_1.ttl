@@ -1,0 +1,27 @@
+@prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+
+nhc:textualBody1 a oa:TextualTag;
+  <http://purl.org/dc/terms/format> "text/plain";
+  <http://purl.org/dc/terms/language> "nl";
+  <http://www.w3.org/2000/01/rdf-schema#label> "10 April 1821" .
+
+<http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>
+  a oa:Target;
+  oa:hasSelector <http://makingsense.liacs.nl/rdf/nhc/#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>;
+  oa:hasSource nhc:MMNAT01_AF_NNM001001033_004.jpg .
+
+nhc:MMNAT01_AF_NNM001001033_004.jpg a oa:Source .
+
+<http://makingsense.liacs.nl/rdf/nhc/#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>
+  a oa:Selector;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081" .
+
+nhc:anno1 a oa:Annotation;
+  <http://purl.org/dc/terms/created> nhc:anno1;
+  <http://purl.org/dc/terms/date> "2017-09-21";
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
+  oa:hasBody nhc:textualBody1;
+  oa:hasTarget <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081> .
+
+<http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
