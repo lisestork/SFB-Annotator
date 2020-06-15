@@ -23,7 +23,8 @@ script:
       [[ $(curl -u "$CRE" -o -I -w "%{http_code}" "$BASE_URL/$p") -eq 200 ]]
     done
   - |
-    for f in $(ls *.json); do
+    cd data/rdf
+    for f in *.json; do
       pfx="$(basename $f .json)"
       exp="$(echo "$pfx" | cut -f 2,3 -d _)"
       rdf="example_${exp}.ttl"
