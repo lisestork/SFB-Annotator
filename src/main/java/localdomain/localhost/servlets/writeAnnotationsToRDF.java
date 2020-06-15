@@ -29,6 +29,7 @@ import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.http.HTTPRepository;
 import org.eclipse.rdf4j.repository.manager.RemoteRepositoryManager;
 import org.eclipse.rdf4j.repository.manager.RepositoryManager;
+import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 
 /**
@@ -41,12 +42,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			throws ServletException, IOException {
 
 		// get httpRequest parameters
-		String anno = request.getParameter("annotation");
-
-		// convert string to annotation object to store into rdf
-		anno = anno.replaceAll("\"", "\\\"");
-		anno = anno.replaceAll("\\[", "").replaceAll("\\]", "");
-
+		String anno = IOUtils.toString(request.getReader());
 		JSONObject json = new JSONObject(anno);
 		// System.out.println(json);
 
