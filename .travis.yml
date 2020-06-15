@@ -7,6 +7,7 @@ env:
   global:
     - PORT=8080
     - BASE_URL=http://localhost:${PORT}
+    - REPO_ID=mem-rdf
 install:
   - docker build -t linnae/sfb-annotator:local .
   - docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
@@ -17,4 +18,22 @@ script:
     PATHS=(semanticAnnotator/files/MMNAT01_AF_NNM001000283.jpg rdf4j-workbench/repositories/mem-rdf/summary)
     for p in ${PATHS[@]}; do
       [[ $(curl -u tomcat:tomcat -o -I -w "%{http_code}" "$BASE_URL/$p") -eq 200 ]]
+    done
+  - |
+    for ln in $(grep -v example data/rdf/urls.csv); do
+      exp="$(echo $ln | cut -f 1 -d ,)"
+      url="$(echo $ln | cut -f 2 -d ,)"
+      rdf="example_${exp}.ttl"
+      # create triples
+      curl "$url" -X 'POST' -H 'Authorization: Basic dG9tY2F0OnRvbWNhdA==' --compressed
+      # count triples
+      n=$(curl "${BASE_URL}/rdf4j-server/repositories/${REPO_ID}/size")
+      echo -n "### example $exp: $n triples found."
+      # dump triples
+      curl -H 'Accept: text/turtle' "${BASE_URL}/rdf4j-server/repositories/${REPO_ID}/statements" > "$rdf"
+      # show triples
+      cat "$rdf"
+      echo
+      # delete triples
+      curl -X DELETE "${BASE_URL}/rdf4j-server/repositories/mem-rdf/statements"
     done
