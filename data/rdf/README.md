@@ -5,19 +5,23 @@ The different variations for annotation are:
 
 |class| variation | example |
 |---|---|---
-|`dwc:Taxon` | `rdf:type` | [`example 1_1`](#Example-1_1)\*
+|`dwc:Taxon` | `rdf:type` | [`example 1_1`](#Example-1_1)
 |       |`dsw:hasIdentification` | [`example 1_2`](#Example-1_2)
 |       |`nhc:additionalIdentification`| [`example 1_3`](#Example-1_3)
-|`foaf:Person` | `nhc:scientificNameAuthorship` | [`example 2_2`](#Example-2_2)
+|`foaf:Person` | `rdf:type` | [`example 2_1`](#Example-2_1)
+| | `nhc:scientificNameAuthorship` |  [`example 2_2`](#Example-2_2)
 |       | `dwciri:identifiedBy` | [`example 2_3`](#Example-2_3)
 |       | `dwciri:recordedBy`| [`example 2_4`](#Example-2_4)
-|`dwc:Location` | `dsw:locatedAt` | [`example 3_2`](#Example-3_2)
-|`dwc:MeasurementOrFact` | `dsw:derivedFrom` | [`example 4_2`](#Example-4_2) |
-|`ncit:C20189` (propertyOrAttribute)| `nhc:measuresOrDescribes` | [`example 5_2`](#Example-5_2)|
-|`uberon:0001062` (anatomicalEntity)| `nhc:measuresOrDescribes` | [`example 6_2`](#Example-6_2) |
-|`nhc:Date`| `nhc:verbatimDate` | [`example 7_2`](#Example-7_2)|
-
-\* the first variation `rdf:type` annotation is similar for all observable classes: it links the bounding box to its verbatim text and corresponding class, without linking to other named entities on the page. For entities other than `taxon`, (`person`, `location`, `date`, `anatomical entity`, `propertyOrAttribute` `measurementOrFact`), the fields `belongs to taxon` and `taxon rank` are replaced by the field `instance`, which gives the option to link the annotation to a globally persistent IRI (such as `http://viaf.org/viaf/39377694` for the person Étienne Geoffroy-Saint-Hilaire).
+|`dwc:Location` | `rdf:type` | [`example 3_1`](#Example-3_1)
+| | `dsw:locatedAt` | [`example 3_2`](#Example-3_2)
+|`dwc:MeasurementOrFact` | `rdf:type` | [`example 4_1`](#Example-4_1)
+| | `dsw:derivedFrom` | [`example 4_2`](#Example-4_2) |
+|`ncit:C20189` (propertyOrAttribute)| `rdf:type` | [`example 5_1`](#Example-5_1)
+| |  `nhc:measuresOrDescribes` | [`example 5_2`](#Example-5_2)|
+|`uberon:0001062` (anatomicalEntity)| `rdf:type` | [`example 6_1`](#Example-6_1)
+| | `nhc:measuresOrDescribes` | [`example 6_2`](#Example-6_2) |
+|`nhc:Date`| `rdf:type` | [`example 7_1`](#Example-7_1)
+| | `nhc:verbatimDate` | [`example 7_2`](#Example-7_2)|
 
 ### Example 1_1
 
@@ -174,6 +178,44 @@ where {
 
 **Remarks:** Triples not generated. Output should be similar to output of [`example_1_2.ttl`](/data/rdf/example_1_2.ttl), but `dsw:hasIdentification` should be replaced with `nhc:additionalIdentification`, and the additional identification should refer to the same organism ID as the first identification (`dsw:hasIdentification`).
 
+### Example 2_1
+
+Variation: `rdf:type`
+
+* Go to http://localhost:8080/semanticAnnotator/
+
+* Register -> Save
+
+* Collections -> manuscript MMNAT01_AF -> page 3
+
+* Annotate -> Click and Drag -> draw a bounding box around the written text _Geoff_
+
+* Fill in the pop-up form/table:
+
+|Key|Value |Notes | Diff Expected
+|---|-----|-----|-----
+| Entity type | `Person` |  The handwritten text contains a person name. | Should be a drop-down menu with all possible classes
+| verbatim text | _Geoff_ | The verbatim text as written in the bounding box |
+| language |  | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  not relevant
+| Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a person. |
+| type | `person` |  auto-fill from entity type |
+| instance | `http://viaf.org/viaf/39377694` | Link the bounding box to the IRI if known. Here the person Étienne Geoffroy-Saint-Hilaire. | Preferably these can be retrieved with semantic autocomplete
+
+* Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
+
+```
+select (count(*) as ?n)
+where {
+  ?s ?p ?o .
+}
+```
+|?n|
+|--|
+|20|
+
+* See [`example_2_1.ttl`](/data/rdf/example_2_1.ttl) file.
+
+
 ### Example 2_2
 
 Variation `nhc:scientificNameAuthorship`
@@ -275,6 +317,44 @@ Variation: `dwciri:recordedBy`
 
 * See [`example_2_4.ttl`](/data/rdf/example_2_4.ttl) file.
 
+### Example 3_1
+
+Variation: `rdf:type`
+
+* Go to http://localhost:8080/semanticAnnotator/
+
+* Register -> Save
+
+* Collections -> manuscript MMNAT01_AF -> page 3
+
+* Annotate -> Click and Drag -> draw a bounding box around the written text _Buitenzorg_
+
+* Fill in the pop-up form/table:
+
+|Key|Value |Notes | Diff Expected
+|---|-----|-----|-----
+| Entity type | `Location` |  The handwritten text contains a location name. | Should be a drop-down menu with all possible classes
+| verbatim text | _Buitenzorg_ | The verbatim text as written in the bounding box |
+| language |  nl | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  
+| Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a location. |
+| type | `location` |  auto-fill from entity type |
+| instance | `http://sws.geonames.org/1648473/` | Link the bounding box to the IRI if known. Here the location _Buitenzorg_, currently called _Bogor_. | Preferably these instances can be retrieved with semantic autocomplete
+
+
+* Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
+
+```
+select (count(*) as ?n)
+where {
+  ?s ?p ?o .
+}
+```
+|?n|
+|--|
+|20|
+
+* See [`example_3_1.ttl`](/data/rdf/example_3_1.ttl) file.
+
 ### Example 3_2
 
 Variation: `dsw:locatedAt`
@@ -301,6 +381,44 @@ Variation: `dsw:locatedAt`
 
 * See [`example_3_2.ttl`](/data/rdf/example_3_2.ttl) file.
 
+### Example 4_1
+
+Variation: `rdf:type`
+
+* Go to http://localhost:8080/semanticAnnotator/
+
+* Register -> Save
+
+* Collections -> manuscript MMNAT01_AF -> page 3
+
+* Annotate -> Click and Drag -> draw a bounding box around the table
+
+* Fill in the pop-up form/table:
+
+|Key|Value |Notes | Diff Expected
+|---|-----|-----|-----
+| Entity type | `MeasurementOrFact` |  The handwritten text contains a measurement or fact. | Should be a drop-down menu with all possible classes
+| verbatim text |  | leave empty |
+| language |   | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ | should be removed here
+| Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a measurement or fact. |
+| type | `measurementorfact` |  auto-fill from entity type |
+| instance |  | Should be left empty | This field should be removed here.
+
+
+* Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
+
+```
+select (count(*) as ?n)
+where {
+  ?s ?p ?o .
+}
+```
+|?n|
+|--|
+|22|
+
+* See [`example_4_1.ttl`](/data/rdf/example_4_1.ttl) file.
+
 ### Example 4_2
 
 Variation: `dsw:derivedFrom`
@@ -320,11 +438,49 @@ Variation: `dsw:derivedFrom`
 | Entity type | `MeasurementOrFact` | The handwritten text contains a table or other measurement or fact. | Should be a drop-down menu with all possible classes|  
 | verbatim text | leave empty |  |  |
 | language | leave empty | [ISO code](https://www.iso.org/iso-639-language-codes.html) | add autocomplete/drop down menu |
-| Select property | `Table/paragraph measures or describes` | Prompt should be changed to `Human observation has derivative` to map to the ontology, although that would be rather unclear | |
+| Select property | `Identification based on (table)` |  should be table _or_ paragraph| |
 | type | `measurementorfact` | auto-fill from entity type |
 | organism ID | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `1` is a placeholder; an unique ID should be generated for the organism record.* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?  |
 
 See [`example_4_2.ttl`](/data/rdf/example_4_2.ttl) file.
+
+### Example 5_1
+
+Variation: `rdf:type`
+
+* Go to http://localhost:8080/semanticAnnotator/
+
+* Register -> Save
+
+* Collections -> manuscript MMNAT01_AF -> page 3
+
+* Annotate -> Click and Drag -> draw a bounding box around the handwritten word _Color_
+
+* Fill in the pop-up form/table:
+
+|Key|Value |Notes | Diff Expected
+|---|-----|-----|-----
+| Entity type | `PropertyOrAttribute` |  The handwritten text contains a property or attribute name. | Should be a drop-down menu with all possible classes
+| verbatim text | _Color_ | The verbatim text as written in the bounding box |
+| language |  nl | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  
+| Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a property or attribute name. |
+| type | `propertyOrAttribute` |  auto-fill from entity type |
+| instance | `http://identifiers.org/ncit/C37927` | Link the bounding box to the IRI if known. Here the property _Color_. | Preferably these instances can be retrieved with semantic autocomplete
+
+* Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
+
+```
+select (count(*) as ?n)
+where {
+  ?s ?p ?o .
+}
+```
+|?n|
+|--|
+|26|
+
+* See [`example_5_1.ttl`](/data/rdf/example_5_1.ttl) file.
+
 
 ### Example 5_2
 
@@ -343,7 +499,7 @@ Variation: `nhc:measuresOrDescribes` a `propertyOrAttribute`
 |Key|Value |Notes  | Diff Expected
 |---|-----|-----|-----
 | Entity type | `propertyOrAttribute` | The handwritten text contains an indication of a property or attribute of the described organism. | Should be a drop-down menu with all possible classes|  
-| verbatim text | _Color |  |  |
+| verbatim text | _Color_ |  |  |
 | language | la | [ISO code](https://www.iso.org/iso-639-language-codes.html)  |add autocomplete/drop down menu
 | Select property | `Table/paragraph measures or describes` | Indicating that a table or a paragraph describes the certain property or attribute, here the _Color_ of the animal | |
 | type | `propertyOrAttribute` | auto-fill from entity type |
@@ -351,6 +507,43 @@ Variation: `nhc:measuresOrDescribes` a `propertyOrAttribute`
 | organism ID | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `1` is a placeholder; an unique ID should be generated for the organism record.* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?  |
 
 See [`example_5_2.ttl`](/data/rdf/example_5_2.ttl) file.
+
+### Example 6_1
+
+Variation: `rdf:type`
+
+* Go to http://localhost:8080/semanticAnnotator/
+
+* Register -> Save
+
+* Collections -> manuscript MMNAT01_AF -> page 3
+
+* Annotate -> Click and Drag -> draw a bounding box around the handwritten word _Dentibus_
+
+* Fill in the pop-up form/table:
+
+|Key|Value |Notes | Diff Expected
+|---|-----|-----|-----
+| Entity type | `AnatomicalEntity` |  The handwritten text contains the name of an anatomical entity. | Should be a drop-down menu with all possible classes
+| verbatim text | _Dentibus_ | The verbatim text as written in the bounding box |
+| language |  nl | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  
+| Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains the name of an anatomical entity. |
+| type | `anatomicalentity` |  auto-fill from entity type |
+| instance | `http://purl.obolibrary.org/obo/UBERON_0003672` | Link the bounding box to the IRI if known. Here the anatomical entity _Dentibus_. | Preferably these instances can be retrieved with semantic autocomplete
+
+* Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
+
+```
+select (count(*) as ?n)
+where {
+  ?s ?p ?o .
+}
+```
+|?n|
+|--|
+|26|
+
+* See [`example_6_1.ttl`](/data/rdf/example_6_1.ttl) file.
 
 ### Example 6_2
 
@@ -377,6 +570,44 @@ Variation: `nhc:measuresOrDescribes` an `anatomicalEntity`
 | organism ID | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `1` is a placeholder; an unique ID should be generated for the organism record.* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend? |
 
 See [`example_6_2.ttl`](/data/rdf/example_6_2.ttl) file.
+
+### Example 7_1
+
+
+Variation: `rdf:type`
+
+* Go to http://localhost:8080/semanticAnnotator/
+
+* Register -> Save
+
+* Collections -> manuscript MMNAT01_AF -> page 4
+
+* Annotate -> Click and Drag -> draw a bounding box around the handwritten words _10 April 1821_
+
+* Fill in the pop-up form/table:
+
+|Key|Value |Notes | Diff Expected
+|---|-----|-----|-----
+| Entity type | `date` |  The handwritten text contains a date. | Should be a drop-down menu with all possible classes
+| verbatim text | _10 April 1821_ | The verbatim text as written in the bounding box |
+| language |  nl | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  
+| Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a date. |
+| type | `date` |  auto-fill from entity type |
+| instance | | this field should be removed | instead of the instance field, we would like to see the same fields as when the property `Organism described on` is selected, minus the organism ID field. See example [`example 7_2`](#Example-7_2) and corresponding ttl file [`example_7_2.ttl`](/data/rdf/example_7_2.ttl) file.
+
+* Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
+
+```
+select (count(*) as ?n)
+where {
+  ?s ?p ?o .
+}
+```
+|?n|
+|--|
+|17|
+
+See [`example_7_1.ttl`](/data/rdf/example_7_1.ttl) file.
 
 
 ### Example 7_2
