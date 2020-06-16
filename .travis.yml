@@ -26,8 +26,7 @@ script:
     cd data/rdf
     for f in *.json; do
       pfx="$(basename $f .json)"
-      exp="$(echo "$pfx" | cut -f 2,3 -d _)"
-      rdf="example_${exp}.ttl"
+      rdf="$pfx.ttl"
 
       # validate JSON input
       python -m json.tool < $f
