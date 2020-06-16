@@ -3,14 +3,6 @@ dist: trusty
 sudo: required
 services:
   - docker
-env:
-  global:
-    - REPO_ID=mem-rdf
-    - CRE=tomcat:tomcat
-    - PORT=8080
-    - BASE_URL=http://localhost:${PORT}
-    - URL1=${BASE_URL}/semanticAnnotator/writeAnnotationsToRDF
-    - URL2=${BASE_URL}/rdf4j-server/repositories/${REPO_ID}/
 install:
   - docker build -t linnae/sfb-annotator:local .
   - docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
@@ -18,42 +10,8 @@ install:
   - docker exec sea ./init.sh
 script:
   - |
-    PATHS=(semanticAnnotator/files/MMNAT01_AF_NNM001000283.jpg rdf4j-workbench/repositories/mem-rdf/summary)
-    for p in ${PATHS[@]}; do
-      [[ $(curl -u "$CRE" -o -I -w "%{http_code}" "$BASE_URL/$p") -eq 200 ]]
-    done
-  - |
-    cd data/rdf
-    for f in *.json; do
-      pfx="$(basename $f .json)"
+    for json in $(ls data/rdf/*.json); do
+      pfx="$(basename "$json" .json)"
       rdf="$pfx.ttl"
-
-      # validate JSON input
-      python -m json.tool < $f
-
-      # create triples
-      [[ $(curl -u "$CRE" -o -I -w "%{http_code}" -H "Content-Type: application/json" -d @"$f" "$URL1") -eq 200 ]]
-
-      # count triples
-      n=$(curl "${URL2}/size")
-      if [ "$n" == "0" ]; then
-        exit 1
-      fi
-      echo -n "### $f: $n triples found."
-
-      # dump triples
-      curl -H 'Accept: text/turtle' "${URL2}/statements" -o "$rdf"
-
-      # show triples
-      cat "$rdf"
-      echo
-
-      # delete triples
-      curl -X DELETE "${URL2}/statements"
-
-      # count triples
-      n=$(curl "{$URL2}/size")
-      if [ "$n" != "0" ]; then
-        exit 1
-      fi
-      done
+      ./run.sh "$json" "$rdf"
+    done
