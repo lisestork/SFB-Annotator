@@ -15,7 +15,7 @@ REPO_ID="mem-rdf"
 CRE="tomcat:tomcat"
 PORT="8080"
 BASE_URL="http://localhost:${PORT}"
-URL0="${BASE_URL}/semanticAnnotator/files/MMNAT01_AF_NNM001000283.jpg"
+URL0="${BASE_URL}/semanticAnnotator/files/MMNAT01_AF_NNM001001033_001.jpg"
 URL1="${BASE_URL}/semanticAnnotator/writeAnnotationsToRDF"
 URL2="${BASE_URL}/rdf4j-server/repositories/${REPO_ID}"
 
