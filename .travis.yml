@@ -10,7 +10,7 @@ install:
   - docker exec sea ./init.sh
 script:
   - |
-    for json in $(ls data/rdf/*.json); do
+    for json in $(ls data/json/); do
       pfx="$(basename "$json" .json)"
       rdf="$pfx.ttl"
       ./run.sh "$json" "$rdf"
