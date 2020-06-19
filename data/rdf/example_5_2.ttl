@@ -4,16 +4,16 @@
   <http://purl.org/dc/terms/language> "la";
   <http://www.w3.org/2000/01/rdf-schema#label> "Color" .
 
-<http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5590970116210314,0.16766294899344533,0.021316545384910013,0.01802374569130602>
+<http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726>
   a <http://www.w3.org/ns/oa#Target>;
-  <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nhc/#xywh=0.5590970116210314,0.16766294899344533,0.021316545384910013,0.01802374569130602>;
+  <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nhc/#xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg> .
 
 <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg> a <http://www.w3.org/ns/oa#Source> .
 
-<http://makingsense.liacs.nl/rdf/nhc/#xywh=0.5590970116210314,0.16766294899344533,0.021316545384910013,0.01802374569130602>
+<http://makingsense.liacs.nl/rdf/nhc/#xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726>
   a <http://www.w3.org/ns/oa#Selector>;
-  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.5590970116210314,0.16766294899344533,0.021316545384910013,0.01802374569130602" .
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726" .
 
 <http://makingsense.liacs.nl/rdf/nhc/anno1> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/created> <http://makingsense.liacs.nl/rdf/nhc/anno1>;
@@ -21,7 +21,7 @@
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nhc/propertyOrAttribute1>,
     <http://makingsense.liacs.nl/rdf/nhc/textualBody1>;
-  <http://www.w3.org/ns/oa#hasTarget> <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5590970116210314,0.16766294899344533,0.021316545384910013,0.01802374569130602> .
+  <http://www.w3.org/ns/oa#hasTarget> <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726> .
 
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
 

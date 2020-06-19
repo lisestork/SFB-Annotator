@@ -2,24 +2,24 @@
 <http://makingsense.liacs.nl/rdf/nhc/textualBody1> a <http://www.w3.org/ns/oa#TextualTag>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "nl";
-  <http://www.w3.org/2000/01/rdf-schema#label> "10 april 1821" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "10 April 1821" .
 
-<http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.6720257234726688,0.03347360536419182,0.06430868167202575,0.01152197213290461>
+<http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>
   a <http://www.w3.org/ns/oa#Target>;
-  <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nhc/#xywh=0.6720257234726688,0.03347360536419182,0.06430868167202575,0.01152197213290461>;
+  <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nhc/#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_004.jpg> .
 
 <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_004.jpg> a <http://www.w3.org/ns/oa#Source> .
 
-<http://makingsense.liacs.nl/rdf/nhc/#xywh=0.6720257234726688,0.03347360536419182,0.06430868167202575,0.01152197213290461>
+<http://makingsense.liacs.nl/rdf/nhc/#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>
   a <http://www.w3.org/ns/oa#Selector>;
-  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.6720257234726688,0.03347360536419182,0.06430868167202575,0.01152197213290461" .
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081" .
 
 <http://makingsense.liacs.nl/rdf/nhc/anno1> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/created> <http://makingsense.liacs.nl/rdf/nhc/anno1>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nhc/textualBody1>;
-  <http://www.w3.org/ns/oa#hasTarget> <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.6720257234726688,0.03347360536419182,0.06430868167202575,0.01152197213290461> .
+  <http://www.w3.org/ns/oa#hasTarget> <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081> .
 
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .

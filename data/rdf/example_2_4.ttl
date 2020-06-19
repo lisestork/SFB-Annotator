@@ -4,29 +4,28 @@
   <http://purl.org/dc/terms/language> "";
   <http://www.w3.org/2000/01/rdf-schema#label> "Diard" .
 
-<http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.7419341248563771,0.01247797778628814,0.029115281501340573,0.024955955572577557>
+<http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064>
   a <http://www.w3.org/ns/oa#Target>;
-  <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nhc/#xywh=0.7419341248563771,0.01247797778628814,0.029115281501340573,0.024955955572577557>;
+  <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nhc/#xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg> .
 
 <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg> a <http://www.w3.org/ns/oa#Source> .
 
-<http://makingsense.liacs.nl/rdf/nhc/#xywh=0.7419341248563771,0.01247797778628814,0.029115281501340573,0.024955955572577557>
+<http://makingsense.liacs.nl/rdf/nhc/#xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064>
   a <http://www.w3.org/ns/oa#Selector>;
-  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.7419341248563771,0.01247797778628814,0.029115281501340573,0.024955955572577557" .
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064" .
 
 <http://makingsense.liacs.nl/rdf/nhc/anno1> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/created> <http://makingsense.liacs.nl/rdf/nhc/anno1>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nhc/textualBody1>,
-    _:node1e9vdbkqux77 .
-
-_:node1e9vdbkqux77 a <http://www.w3.org/ns/oa#SemanticTag>, <http://xmlns.com/foaf/0.1/Person> .
-
-<http://makingsense.liacs.nl/rdf/nhc/anno1> <http://www.w3.org/ns/oa#hasTarget> <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.7419341248563771,0.01247797778628814,0.029115281501340573,0.024955955572577557> .
+    <http://viaf.org/viaf/39377694>;
+  <http://www.w3.org/ns/oa#hasTarget> <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064> .
 
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
 
+<http://viaf.org/viaf/39377694> a <http://www.w3.org/ns/oa#SemanticTag>, <http://xmlns.com/foaf/0.1/Person> .
+
 <http://makingsense.liacs.nl/rdf/nhc/occurrence1> <http://rs.tdwg.org/dwc/iri/recordedBy>
-    _:node1e9vdbkqux77 .
+    <http://viaf.org/viaf/39377694> .

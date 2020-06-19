@@ -29,6 +29,7 @@ import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.http.HTTPRepository;
 import org.eclipse.rdf4j.repository.manager.RemoteRepositoryManager;
 import org.eclipse.rdf4j.repository.manager.RepositoryManager;
+import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 
 /**
@@ -41,12 +42,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			throws ServletException, IOException {
 
 		// get httpRequest parameters
-		String anno = request.getParameter("annotation");
-
-		// convert string to annotation object to store into rdf
-		anno = anno.replaceAll("\"", "\\\"");
-		anno = anno.replaceAll("\\[", "").replaceAll("\\]", "");
-
+		String anno = IOUtils.toString(request.getReader());
 		JSONObject json = new JSONObject(anno);
 		// System.out.println(json);
 
@@ -58,7 +54,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String target = source + selector;
 		String belongstotaxon = (json.isNull("belongstotaxon")) ? "" : json.getString("belongstotaxon").trim();
 		String rank = (json.isNull("rank")) ? "" : json.getString("rank").trim();
-		String person = (json.isNull("rank")) ? "" : json.getString("person").trim();
+		String person = (json.isNull("person")) ? "" : json.getString("person").trim();
 		String organismID = (json.isNull("organismID")) ? "" : json.getString("organismID").trim();
 		String occurrenceID = (json.isNull("occurrenceID")) ? "" : json.getString("occurrenceID").trim();
 		String identificationID = (json.isNull("identificationID")) ? "" : json.getString("identificationID").trim();
