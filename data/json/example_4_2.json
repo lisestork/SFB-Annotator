@@ -1,14 +1,14 @@
 {
   "src": "dzi://openseadragon/something",
-  "text": "MeasurementOrFact",
+  "text": "measurementorfact",
   "shapes": [
     {
       "type": "rect",
       "geometry": {
-        "x": 0.5576041291028121,
-        "y": 0.23095222462217865,
-        "width": 0.1481062028819542,
-        "height": 0.05918359200650655
+        "x": 0.5644329896907211,
+        "y": 0.10470473364690311,
+        "width": 0.1377025036818852,
+        "height": 0.06369661266568483
       },
       "style": {}
     }
@@ -17,10 +17,10 @@
   "date": "2017-09-21",
   "annotator": "http://orcid.org/0000-0002-2146-4803",
   "source": "MMNAT01_AF_NNM001001033_003.jpg",
-  "selector": "#xywh=0.5576041291028121,0.23095222462217865,0.1481062028819542,0.05918359200650655",
+  "selector": "#xywh=0.5644329896907211,0.10470473364690311,0.1377025036818852,0.06369661266568483",
   "verbatim": "",
   "language": "",
   "type": "measurementorfact",
-  "property": "measuresOrDescribes",
+  "property": "basedOn",
   "organismID": "1"
 }
