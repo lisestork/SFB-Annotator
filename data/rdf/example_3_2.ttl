@@ -26,7 +26,9 @@
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
 
 <http://makingsense.liacs.nl/rdf/nhc/location1> a <http://www.w3.org/ns/oa#SemanticTag>;
-  <http://rs.tdwg.org/dwc/iri/inDescribedPlace> <http://sws.geonames.org/1648473/>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "Bagalonga" .
+  <http://rs.tdwg.org/dwc/iri/inDescribedPlace> _:node1ebdq93rtx138 .
 
-<http://sws.geonames.org/1648473/> a <http://www.geonames.org/ontology#Feature> .
+_:node1ebdq93rtx138 a <http://www.geonames.org/ontology#Feature> .
+
+<http://makingsense.liacs.nl/rdf/nhc/location1> <http://www.w3.org/2000/01/rdf-schema#label>
+    "Bagalonga" .

@@ -26,9 +26,9 @@
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
 
 <http://makingsense.liacs.nl/rdf/nhc/anatomicalEntity1> a <http://www.w3.org/ns/oa#SemanticTag>,
-    _:node1eb3ic2dix66 .
+    _:node1ebdq93rtx149 .
 
-_:node1eb3ic2dix66 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/UBERON_0001062> .
+_:node1ebdq93rtx149 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/UBERON_0001062> .
 
 <http://makingsense.liacs.nl/rdf/nhc/anatomicalEntity1> <http://www.w3.org/2000/01/rdf-schema#label>
     "Dentibus" .

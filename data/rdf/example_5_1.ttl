@@ -26,9 +26,9 @@
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
 
 <http://makingsense.liacs.nl/rdf/nhc/propertyOrAttribute1> a <http://www.w3.org/ns/oa#SemanticTag>,
-    _:node1eb3ic2dix57 .
+    _:node1ebdq93rtx119 .
 
-_:node1eb3ic2dix57 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://identifiers.org/ncit/C20189> .
+_:node1ebdq93rtx119 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://identifiers.org/ncit/C20189> .
 
 <http://makingsense.liacs.nl/rdf/nhc/propertyOrAttribute1> <http://www.w3.org/2000/01/rdf-schema#label>
     "Color" .
