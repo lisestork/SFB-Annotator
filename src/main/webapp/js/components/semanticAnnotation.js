@@ -205,21 +205,16 @@ var semanticAnnotation = {
 					annotation.rank = $('#rank').val();
 				}
 
-			    annoString = JSON.stringify(annotation);
-
-			  	annoURI = encodeURIComponent(annoString);
-
 				var request = new XMLHttpRequest();
-				param = "writeAnnotationsToRDF?annotation="+annoURI;
-				request.open("POST",param, true);
+				request.open("POST", "writeAnnotationsToRDF", true);
+				request.setRequestHeader("Content-type", "application/json");
 				request.onreadystatechange = function(e){
-
 					if ( request.readyState == 4 && request.status == 200) {
 					}
 
 				}.bind(this);
 
-				request.send();
+				request.send(JSON.stringify(annotation));
 
 				//this.storeAnnotationSQL(annotation);
 		},
