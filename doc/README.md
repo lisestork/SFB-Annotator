@@ -1,9 +1,8 @@
-### **Annotation notes:**
-Field notes are collections of observation records ([`dwc:HumanObservation`](http://rs.tdwg.org/dwc/terms/HumanObservation)) that describe the occurrence ([`dwc:Occurrence`](http://rs.tdwg.org/dwc/terms/Occurrence)) of an organism ([`dwc:Organism`](http://rs.tdwg.org/dwc/terms/Organism)) at a certain location ([`dwc:Location`](http://rs.tdwg.org/dwc/terms/Location)) and date ([`nhc:Date`](http://makingsense.liacs.nl/rdf/nhc-content/2018-04-04.html#Date)). An observation record most often includes  an identification ([`dwc:Identification`](https://dwc.tdwg.org/terms/#dwc:Identification)) to a taxon ([`dwc:Taxon`](https://dwc.tdwg.org/terms/#dwc:Taxon)), and accompanying measurements and facts (`dwc:MeasurementOrFact`, `UBERON_0001062`, `ncit:C20189`) that were used for identification. These observation records usually span multiple field notes, but can also be very short utterances such as on page 3: _Sci. Diard Buitenzorg_, most likely referring to the occurrence of another organism with the same identification.
+### Use cases
+Field notes are collections of observation records ([`dwc:HumanObservation`](https://dwc.tdwg.org/terms/#humanobservation)) that describe the occurrence ([`dwc:Occurrence`](https://dwc.tdwg.org/terms/#occurrence)) of an organism ([`dwc:Organism`](http://rs.tdwg.org/dwc/terms/Organism)) at a certain location ([`dwc:Location`](https://dwc.tdwg.org/terms/#location)) and date ([`nhc:Date`](http://makingsense.liacs.nl/rdf/nhc-content/2018-04-04.html#Date)). An observation record most often includes  an identification ([`dwc:Identification`](https://dwc.tdwg.org/terms/#identification)) to a taxon ([`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)), and accompanying measurements and facts ([`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact), [`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062), [`ncit:C20189`](http://purl.obolibrary.org/obo/NCIT_C20189)) that were used for identification. These observation records usually span multiple field notes, but can also be very short utterances such as on page 3: _Sci. Diard Buitenzorg_, most likely referring to the occurrence of another organism with the same identification.
 
-The different variations for annotation are:
-
-|class| variation | example |
+**Table 1.** List of examples with annotation classes and properties.
+|class| property | example |
 |---|---|---
 |`dwc:Taxon` | `rdf:type` | [`example 1_1`](#Example-1_1)
 |       |`dsw:hasIdentification` | [`example 1_2`](#Example-1_2)
@@ -18,14 +17,21 @@ The different variations for annotation are:
 | | `dsw:derivedFrom` | [`example 4_2`](#Example-4_2) |
 |`ncit:C20189` (propertyOrAttribute)| `rdf:type` | [`example 5_1`](#Example-5_1)
 | |  `nhc:measuresOrDescribes` | [`example 5_2`](#Example-5_2)|
-|`uberon:0001062` (anatomicalEntity)| `rdf:type` | [`example 6_1`](#Example-6_1)
+|`UBERON:0001062` (anatomicalEntity)| `rdf:type` | [`example 6_1`](#Example-6_1)
 | | `nhc:measuresOrDescribes` | [`example 6_2`](#Example-6_2) |
 |`nhc:Date`| `rdf:type` | [`example 7_1`](#Example-7_1)
 | | `nhc:verbatimDate` | [`example 7_2`](#Example-7_2)|
 
+
 ### Example 1_1
 
-Variation: `rdf:type`
+Property: `rdf:type`
+
+Input: [example_1_1.json](/data/json/example_1_1.json)
+
+Output: [example_1_1.ttl](/data/rdf/example_1_1.ttl)
+
+Steps:
 
 * Go to http://localhost:8080/semanticAnnotator/
 
@@ -37,35 +43,26 @@ Variation: `rdf:type`
 
 * Fill in the pop-up form/table:
 
-|Key|Value |Notes | Diff Expected
+|Field/Key|Value |Notes | Diff Expected
 |---|-----|-----|-----
-| Entity type | `Taxon` |  The handwritten text contains a taxon name. | Should be a drop-down menu with all possible classes
-| verbatim text | _Pteropus minimus_ | The verbatim text as written in the bounding box |
-| language | _la_ | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  add autocomplete/drop down menu
-| Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a taxon. |
-| type | `taxon` |  auto-fill from entity type |
-| Belongs to taxon | `https://identifiers.org/taxonomy:9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) | **question:** who do we allow to annotate, and who to interpret the data
-| Taxon rank | `scientificName` | from list (`kingdom`,`class`,`order`,`family`,`genus`, `specificEpithet`, `scientificName`) | should be drop-down menu
+| Entity type/`text` | `Taxon` |  The handwritten text contains a taxon name. | Should be a drop-down menu with all possible classes
+| verbatim text/`verbatim` | _Pteropus minimus_ | The verbatim text as written in the bounding box |
+| language/`language` | _la_ | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  add autocomplete/drop down menu
+| Select property/`property` | `type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a taxon. |
+| type/`type` | `taxon` |  auto-fill from entity type |
+| Belongs to taxon/`belongstotaxon` | `https://identifiers.org/taxonomy:9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) | **question:** who do we allow to annotate, and who to interpret the data
+| Taxon rank/`rank`| `scientificName` | from list (`kingdom`,`class`,`order`,`family`,`genus`, `specificEpithet`, `scientificName`) | should be drop-down menu
 
-\* **_nc_** refers to our namespace (natural committee for research in the Netherlands' Indies)
-
-* Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
-
-```
-select (count(*) as ?n)
-where {
-  ?s ?p ?o .
-}
-```
-|?n|
-|--|
-|0|
-
-!FIXME!
 
 ### Example 1_2
 
-Variation: `dsw:hasIdentification`
+Property: `dsw:hasIdentification`
+
+Input: [example_1_2.json](/data/json/example_1_2.json)
+
+Output: [example_1_2.ttl](/data/rdf/example_1_2.ttl)
+
+Steps:
 
 * Go to http://localhost:8080/semanticAnnotator/
 
@@ -77,66 +74,30 @@ Variation: `dsw:hasIdentification`
 
 * Fill in the pop-up form/table:
 
-|Key|Value |Notes | Diff Expected
+|Field/Key|Value |Notes | Diff Expected
 |---|-----|-----|-----
-| Entity type | `Taxon` | The handwritten text contains a taxon name. | Should be a drop-down menu with all possible classes
-| verbatim text | _Pteropus minimus_ | The verbatim text as written in the bounding box |
-| language | _la_ | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ | add autocomplete/drop down menu
-| Select property | `Organism identification to` | The annotation of an entity that refers to the identification of an organism (a taxon name as the initialisation of a field observation record, usually a new genus or scientificName). |
-| type | `taxon` | auto-fill from entity type |
-| Belongs to taxon | `https://identifiers.org/taxonomy:9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) | **question:** who do we allow to annotate, and who to interpret the data
-| Taxon rank | `scientificName` | from list (`kingdom`,`class`,`order`,`family`,`genus`, `specificEpithet`, `scientificName`) | should be drop-down menu
-| Identified by | `https://viaf.org/viaf/45106482/` | Corresponds to meaning of [`dwc:identifiedBy`](`https://dwc.tdwg.org/terms/#dwc:identifiedBy`) (people, groups, or organizations who assigned the Taxon to the subject). Preferably enter an instance of the class `foaf:Person` (or organization). Here, the writer of the field book is known (_Heinrich Kuhl_), but leave empty if unknown. | should be retrievable from pre-populated triple store
-| Organism ID | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically, used to link all information belonging to an observation record of a single organism occurrence together. `1` is a placeholder; an unique ID should be generated for the organism record.\* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?
+| Entity type/`text` | `Taxon` | The handwritten text contains a taxon name. | Should be a drop-down menu with all possible classes
+| verbatim text/`verbatim` | _Pteropus minimus_ | The verbatim text as written in the bounding box |
+| language/`language` | _la_ | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ | add autocomplete/drop down menu
+| Select property/`property` | `Organism identification to` | The annotation of an entity that refers to the identification of an organism (a taxon name as the initialisation of a field observation record, usually a new genus or scientificName). |
+| type/`type` | `taxon` | auto-fill from entity type |
+| Belongs to taxon/`belongstotaxon` | `https://identifiers.org/taxonomy:9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) | **question:** who do we allow to annotate, and who to interpret the data
+| Taxon rank/`rank` | `scientificName` | from list (`kingdom`,`class`,`order`,`family`,`genus`, `specificEpithet`, `scientificName`) | should be drop-down menu
+| Identified by/`person` | `https://viaf.org/viaf/45106482/` | Corresponds to meaning of [`dwc:identifiedBy`](`https://dwc.tdwg.org/terms/#dwc:identifiedBy`) (people, groups, or organizations who assigned the Taxon to the subject). Preferably enter an instance of the class `foaf:Person` (or organization). Here, the writer of the field book is known (_Heinrich Kuhl_), but leave empty if unknown. | should be retrievable from pre-populated triple store
+| Organism ID/`organismID` | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically, used to link all information belonging to an observation record of a single organism occurrence together. `1` is a placeholder; an unique ID should be generated for the organism record.\* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?
 
-\* In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the ID globally unique. Examples: http://arctos.database.museum/guid/MSB:Mamm:233627, 000866d2-c177-4648-a200-ead4007051b9, urn:catalog:UWBM:Bird:89776
+\* In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the ID globally unique. Examples: http://arctos.database.museum/guid/MSB:Mamm:233627, 000866d2-c177-4648-a200-ead4007051b9, urn:catalog:UWBM:Bird:89776.
 
-* Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
-
-```
-select (count(*) as ?n)
-where {
-  ?s ?p ?o .
-}
-```
-|?n|
-|--|
-|55|
-
-See [`example_1_2.ttl`](/data/rdf/example_1_2.ttl) file.
-
-**Remarks:**
-
-**Deleting annotations:**
-* Delete the annotated box (page 2) via GUI.
-
-* Check if the annotations (triples) were deleted from the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
-
-```
-select (count(*) as ?n)
-where {
-  ?s ?p ?o
-}
-```
-|?n|
-|--|
-|35|
-
-!FIXME!
-
-See [`example_1_del.ttl`](/data/rdf/example_1_del.ttl) file.
-
-* Delete triples manually from the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/update).
-
-```
-delete where {
-  ?s ?p ?o .
-}
-```
 
 ### Example 1_3
 
-Variation: `nhc:additionalIdentification`
+Property: `nhc:additionalIdentification`
+
+Input: [example_1_3.json](/data/json/example_1_3.json)
+
+Output: [example_1_3.ttl](/data/rdf/example_1_3.ttl)
+
+Steps:
 
 * Go to http://localhost:8080/semanticAnnotator/
 
@@ -150,33 +111,17 @@ Variation: `nhc:additionalIdentification`
 
 |Key|Value |Notes | Diff Expected
 |---|-----|-----|-----
-| Entity type | `Taxon` | The handwritten text contains a taxon name. |
-| verbatim text | _Pteropus_ | The verbatim text as written in the bounding box |  
-| language | _la_ | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ | add autocomplete/drop down menu
-| Select property | `Additional identification to` | The annotation of an entity that refers to an _additional_ (secondary) identification of an organism (a scientific name as the initialisation of a field observation record). Usually, this is a second identification performed at a later stage (with availability of more knowledge for identification). Within this field note, the organism is first identified `in the field' as a new taxon _Gymnonotus_. |
-| type | `taxon` | auto-fill from entity type |
-| Belongs to taxon | `https://identifiers.org/taxonomy:9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) (question: who do we allow to annotate, and who to interpret the data) |
+| Entity type/`text` | `Taxon` | The handwritten text contains a taxon name. |
+| verbatim text/`verbatim` | _Pteropus_ | The verbatim text as written in the bounding box |
+| language/`language` | _la_ | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ | add autocomplete/drop down menu
+| Select property/`property` | `Additional identification to` | The annotation of an entity that refers to an _additional_ (secondary) identification of an organism (a scientific name as the initialisation of a field observation record). Usually, this is a second identification performed at a later stage (with availability of more knowledge for identification). Within this field note, the organism is first identified in the field as a new taxon _Gymnonotus_. |
+| type/`type` | `taxon` | auto-fill from entity type |
+| Belongs to taxon/`belongstotaxon` | `https://identifiers.org/taxonomy:9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) (question: who do we allow to annotate, and who to interpret the data) |
 | Taxon rank | `genus` | from list (`kingdom`,`class`,`order`,`family`,`genus`, `specificEpithet`, `scientificName`)|
-| Identified by | | Corresponds to meaning of [`dwc:identifiedBy`](`https://dwc.tdwg.org/terms/#dwc:identifiedBy`) (people, groups, or organizations who assigned the Taxon to the subject). Preferably enter an instance of the class `foaf:Person` (or organization). _Pteropus_ is most likely added at a later stage; therefore, we do not know (for sure) who performed the identification.  |
-| Organism ID | `2` | Matches to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `2` is a placeholder; an unique ID should be generated for the organism record.\*| This additional identification should refer to the same organism ID as the first identification (`dsw:hasIdentification`). **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?
-| Occurrence ID | `1` | Maps to [`dwc:occurrenceID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `1` is a placeholder; some unique ID should be generated for the organism record.\* | Should potentially be removed, or should be the same as the occurrence ID generated for the first identification, as it is based on information from the same organism occurrence. Right now, the pop-up table for example_1_2 does not prompt for occurrenceID.
+| Identified by/`person` | _AK_: `https://viaf.org/viaf/45106482/`? | Corresponds to meaning of [`dwc:identifiedBy`](`https://dwc.tdwg.org/terms/#dwc:identifiedBy`) (people, groups, or organizations who assigned the Taxon to the subject). Preferably enter an instance of the class `foaf:Person` (or organization). _Pteropus_ is most likely added at a later stage; therefore, we do not know (for sure) who performed the identification.  |
+| Organism ID/`organismsID`| `2` | Matches to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `2` is a placeholder; an unique ID should be generated for the organism record.\*| This additional identification should refer to the same organism ID as the first identification (`dsw:hasIdentification`). **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?
+| Occurrence ID/`identificationID` _AK_: `occurenceID`?| `1` | Maps to [`dwc:occurrenceID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `1` is a placeholder; some unique ID should be generated for the organism record.\* | Should potentially be removed, or should be the same as the occurrence ID generated for the first identification, as it is based on information from the same organism occurrence. Right now, the pop-up table for example_1_2 does not prompt for occurrenceID.
 
-
-* Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
-
-```
-select (count(*) as ?n)
-where {
-  ?s ?p ?o .
-}
-```
-|?n|
-|--|
-|0|
-
-!FIXME!
-
-**Remarks:** Triples not generated. Output should be similar to output of [`example_1_2.ttl`](/data/rdf/example_1_2.ttl), but `dsw:hasIdentification` should be replaced with `nhc:additionalIdentification`, and the additional identification should refer to the same organism ID as the first identification (`dsw:hasIdentification`).
 
 ### Example 2_1
 
