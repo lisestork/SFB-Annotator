@@ -210,6 +210,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(annotationIRI, hasBodyProperty, textualBodyIRI);
 			conn.add(annotationIRI, hasTargetProperty, targetIRI);
 			conn.add(annotatorIRI, RDF.TYPE, FOAF.PERSON);
+			conn.add(annotationIRI, DCTERMS.CREATOR, annotatorIRI);
+			conn.add(annotationIRI, DCTERMS.DATE, f.createLiteral(date));
 			conn.add(targetIRI, hasSourceProperty, sourceIRI);
 			conn.add(targetIRI, hasSelectorProperty, selectorIRI);
 			conn.add(targetIRI, RDF.TYPE, targetClass);
@@ -228,8 +230,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(annotationIRI, hasTargetProperty, sourceIRI);
 					conn.add(annotationIRI, RDF.TYPE, annotationClass);
 					conn.add(annotationIRI, RDF.VALUE, f.createLiteral(annotationID));
-					conn.add(annotationIRI, DCTERMS.CREATOR, annotatorIRI);
-					conn.add(annotationIRI, DCTERMS.DATE, f.createLiteral(date));
 					conn.add(eventIRI, verbatimEventDateProperty, dateIRI);
 					conn.add(eventIRI, locatedAtProperty, locationIRI);
 					conn.add(eventIRI, eventOfProperty, occurrenceIRI);
