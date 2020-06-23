@@ -1,5 +1,5 @@
 
-<http://makingsense.liacs.nl/rdf/nhc/textualBody1> a <http://www.w3.org/ns/oa#TextualTag>;
+<http://makingsense.liacs.nl/rdf/nc/textualBody1> a <http://www.w3.org/ns/oa#TextualTag>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "";
   <http://www.w3.org/2000/01/rdf-schema#label> "Diard" .
@@ -15,11 +15,11 @@
   a <http://www.w3.org/ns/oa#Selector>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.7453283007676283,0.08173359870928262,0.02509760712606801,0.01573687798175072" .
 
-<http://makingsense.liacs.nl/rdf/nhc/anno1> a <http://www.w3.org/ns/oa#Annotation>;
-  <http://purl.org/dc/terms/created> <http://makingsense.liacs.nl/rdf/nhc/anno1>;
+<http://makingsense.liacs.nl/rdf/nc/anno1> a <http://www.w3.org/ns/oa#Annotation>;
+  <http://purl.org/dc/terms/created> <http://makingsense.liacs.nl/rdf/nc/anno1>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
-  <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nhc/textualBody1>,
+  <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/textualBody1>,
     <http://viaf.org/viaf/39377694>;
   <http://www.w3.org/ns/oa#hasTarget> <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.7453283007676283,0.08173359870928262,0.02509760712606801,0.01573687798175072> .
 
@@ -27,5 +27,5 @@
 
 <http://viaf.org/viaf/39377694> a <http://www.w3.org/ns/oa#SemanticTag>, <http://xmlns.com/foaf/0.1/Person> .
 
-<http://makingsense.liacs.nl/rdf/nhc/identification1> <http://rs.tdwg.org/dwc/iri/identifiedBy>
+<http://makingsense.liacs.nl/rdf/nc/identification1> <http://rs.tdwg.org/dwc/iri/identifiedBy>
     <http://viaf.org/viaf/39377694> .

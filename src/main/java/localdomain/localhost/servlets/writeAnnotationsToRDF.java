@@ -76,6 +76,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String gn = "http://www.geonames.org/ontology#";
 		String obo = "http://purl.obolibrary.org/obo/";
 		String ncit = "http://identifiers.org/ncit/";
+		String nc = "http://makingsense.liacs.nl/rdf/nc/";
 		String nhc = "http://makingsense.liacs.nl/rdf/nhc/";
 		String oa = "http://www.w3.org/ns/oa#";
 
@@ -152,19 +153,19 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI targetIRI = f.createIRI(nhc, target);
 		IRI sourceIRI = f.createIRI(nhc, source);
 		IRI selectorIRI = f.createIRI(nhc, selector);
-		IRI identificationIRI = f.createIRI(nhc, "identification" + organismID);
-		IRI humanObservationIRI = f.createIRI(nhc, "humanObservation" + organismID);
-		IRI organismIRI = f.createIRI(nhc, "organism" + organismID);
-		IRI occurrenceIRI = f.createIRI(nhc, "occurrence" + organismID);
-		IRI eventIRI = f.createIRI(nhc, "event" + organismID);
-		IRI dateIRI = f.createIRI(nhc, "date" + organismID);
+		IRI identificationIRI = f.createIRI(nc, "identification" + organismID);
+		IRI humanObservationIRI = f.createIRI(nc, "humanObservation" + organismID);
+		IRI organismIRI = f.createIRI(nc, "organism" + organismID);
+		IRI occurrenceIRI = f.createIRI(nc, "occurrence" + organismID);
+		IRI eventIRI = f.createIRI(nc, "event" + organismID);
+		IRI dateIRI = f.createIRI(nc, "date" + organismID);
 		IRI taxonRankIRI = f.createIRI(nhc, rank);
-		IRI locationIRI = f.createIRI(nhc, "location" + organismID);
-		IRI addIdentificationIRI = f.createIRI(nhc, "identification" + organismID + "_id" + identificationID);
-		IRI addOccurrenceIRI = f.createIRI(nhc, "occurrence" + organismID + "_occ" + occurrenceID);
-		IRI addEventIRI = f.createIRI(nhc, "event" + organismID + "_occ" + occurrenceID);
-		IRI addLocationIRI = f.createIRI(nhc, "location" + organismID + "_occ" + occurrenceID);
-		IRI addDateIRI = f.createIRI(nhc, "date" + organismID + "_occ" + occurrenceID);
+		IRI locationIRI = f.createIRI(nc, "location" + organismID);
+		IRI addIdentificationIRI = f.createIRI(nc, "identification" + organismID + "_id" + identificationID);
+		IRI addOccurrenceIRI = f.createIRI(nc, "occurrence" + organismID + "_occ" + occurrenceID);
+		IRI addEventIRI = f.createIRI(nc, "event" + organismID + "_occ" + occurrenceID);
+		IRI addLocationIRI = f.createIRI(nc, "location" + organismID + "_occ" + occurrenceID);
+		IRI addDateIRI = f.createIRI(nc, "date" + organismID + "_occ" + occurrenceID);
 		Resource instanceIRI = (instance.equals("")) ? f.createBNode() : f.createIRI(instance);
 		Resource annotatorIRI = (annotator.equals("")) ? f.createBNode() : f.createIRI(annotator);
 		Resource personIRI = (person.equals("")) ? f.createBNode() : f.createIRI(person);
@@ -174,28 +175,28 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		// query RDF store
 		String query1 = "SELECT ?value WHERE {?iri rdf:type <http://www.w3.org/ns/oa#Annotation> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
 		int annotationID = QueryTripleStore(query1, repo, "value");
-		IRI annotationIRI = f.createIRI(nhc, "anno" + annotationID);
-		IRI textualBodyIRI = f.createIRI(nhc, "textualBody" + annotationID);
+		IRI annotationIRI = f.createIRI(nc, "anno" + annotationID);
+		IRI textualBodyIRI = f.createIRI(nc, "textualBody" + annotationID);
 
 		String query2 = "SELECT ?value WHERE { ?iri rdf:type <" + taxonClass.toString()
 				+ "> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
 		int taxonNr = QueryTripleStore(query2, repo, "value");
-		IRI taxonIRI = f.createIRI(nhc, "taxon" + taxonNr);
+		IRI taxonIRI = f.createIRI(nc, "taxon" + taxonNr);
 
 		String query3 = "SELECT (COUNT(DISTINCT ?measurements) AS ?totalNumberOfInstances) WHERE { ?measurements rdf:type <"
 				+ measurementOrFactClass.toString() + "> . }";
 		int measurementOrFactNr = QueryTripleStore(query3, repo, "totalNumberOfInstances");
-		IRI measurementOrFactIRI = f.createIRI(nhc, "measurementOrFact" + measurementOrFactNr);
+		IRI measurementOrFactIRI = f.createIRI(nc, "measurementOrFact" + measurementOrFactNr);
 
 		String query4 = "SELECT (COUNT(DISTINCT ?propertyorattribute) AS ?totalNumberOfInstances) WHERE { ?propertyorattribute rdf:type ?type . ?type rdfs:subClassOf <"
 				+ propertyOrAttributeTopClass.toString() + "> . }";
 		int propertyOrAttributeNr = QueryTripleStore(query4, repo, "totalNumberOfInstances");
-		IRI propertyOrAttributeIRI = f.createIRI(nhc, "propertyOrAttribute" + propertyOrAttributeNr);
+		IRI propertyOrAttributeIRI = f.createIRI(nc, "propertyOrAttribute" + propertyOrAttributeNr);
 
 		String query5 = "SELECT (COUNT(DISTINCT ?anatomicalentity) AS ?totalNumberOfInstances) WHERE { ?anatomicalentity rdf:type ?type . ?type rdfs:subClassOf <"
 				+ anatomicalEntityTopClass.toString() + "> . }";
 		int anatomicalEntityNr = QueryTripleStore(query5, repo, "totalNumberOfInstances");
-		IRI anatomicalEntityIRI = f.createIRI(nhc, "anatomicalEntity" + anatomicalEntityNr);
+		IRI anatomicalEntityIRI = f.createIRI(nc, "anatomicalEntity" + anatomicalEntityNr);
 
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();

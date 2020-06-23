@@ -1,5 +1,5 @@
 
-<http://makingsense.liacs.nl/rdf/nhc/textualBody1> a <http://www.w3.org/ns/oa#TextualTag>;
+<http://makingsense.liacs.nl/rdf/nc/textualBody1> a <http://www.w3.org/ns/oa#TextualTag>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "nl";
   <http://www.w3.org/2000/01/rdf-schema#label> "Buitenzorg" .
@@ -15,11 +15,11 @@
   a <http://www.w3.org/ns/oa#Selector>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445" .
 
-<http://makingsense.liacs.nl/rdf/nhc/anno1> a <http://www.w3.org/ns/oa#Annotation>;
-  <http://purl.org/dc/terms/created> <http://makingsense.liacs.nl/rdf/nhc/anno1>;
+<http://makingsense.liacs.nl/rdf/nc/anno1> a <http://www.w3.org/ns/oa#Annotation>;
+  <http://purl.org/dc/terms/created> <http://makingsense.liacs.nl/rdf/nc/anno1>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
-  <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nhc/textualBody1>,
+  <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/textualBody1>,
     <http://sws.geonames.org/1648473/>;
   <http://www.w3.org/ns/oa#hasTarget> <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445> .
 
