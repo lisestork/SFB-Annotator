@@ -5,9 +5,9 @@
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/location1>,
     <http://makingsense.liacs.nl/rdf/nc/textualBody1>;
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh5cq61x51 .
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh8dfhkx51 .
 
-_:node1ebh5cq61x51 a <http://www.w3.org/ns/oa#Target>;
+_:node1ebh8dfhkx51 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
 
@@ -18,17 +18,18 @@ _:node1ebh5cq61x51 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/language> "";
   <http://www.w3.org/2000/01/rdf-schema#label> "Bagalonga" .
 
+<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/Image>,
+    <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+
 <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597>
   a <http://www.w3.org/ns/oa#FragmentSelector>;
   <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597" .
 
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://www.w3.org/ns/oa#Source> .
-
 <http://makingsense.liacs.nl/rdf/nc/location1> a <http://www.w3.org/ns/oa#SemanticTag>;
-  <http://rs.tdwg.org/dwc/iri/inDescribedPlace> _:node1ebh5cq61x50 .
+  <http://rs.tdwg.org/dwc/iri/inDescribedPlace> _:node1ebh8dfhkx50 .
 
-_:node1ebh5cq61x50 a <http://www.geonames.org/ontology#Feature> .
+_:node1ebh8dfhkx50 a <http://www.geonames.org/ontology#Feature> .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> <http://www.w3.org/2000/01/rdf-schema#label>
     "Bagalonga" .

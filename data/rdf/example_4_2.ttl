@@ -5,9 +5,9 @@
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1>,
     <http://makingsense.liacs.nl/rdf/nc/textualBody1>;
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh5cq61x14 .
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh8dfhkx14 .
 
-_:node1ebh5cq61x14 a <http://www.w3.org/ns/oa#Target>;
+_:node1ebh8dfhkx14 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5644329896907211,0.10470473364690311,0.1377025036818852,0.06369661266568483>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
 
@@ -18,12 +18,13 @@ _:node1ebh5cq61x14 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/language> "";
   <http://www.w3.org/2000/01/rdf-schema#label> "" .
 
+<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/Image>,
+    <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+
 <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5644329896907211,0.10470473364690311,0.1377025036818852,0.06369661266568483>
   a <http://www.w3.org/ns/oa#FragmentSelector>;
   <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.5644329896907211,0.10470473364690311,0.1377025036818852,0.06369661266568483" .
-
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://www.w3.org/ns/oa#Source> .
 
 <http://makingsense.liacs.nl/rdf/nc/humanObservation1> <http://purl.org/dsw/hasDerivative>
     <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .

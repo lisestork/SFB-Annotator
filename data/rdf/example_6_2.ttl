@@ -5,9 +5,9 @@
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>,
     <http://makingsense.liacs.nl/rdf/nc/textualBody1>;
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh5cq61x94 .
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh8dfhkx94 .
 
-_:node1ebh5cq61x94 a <http://www.w3.org/ns/oa#Target>;
+_:node1ebh8dfhkx94 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
 
@@ -18,12 +18,13 @@ _:node1ebh5cq61x94 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/language> "la";
   <http://www.w3.org/2000/01/rdf-schema#label> "Dentibus" .
 
+<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/Image>,
+    <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+
 <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747>
   a <http://www.w3.org/ns/oa#FragmentSelector>;
   <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747" .
-
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://www.w3.org/ns/oa#Source> .
 
 <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a <http://purl.obolibrary.org/obo/UBERON_0003672>,
     <http://www.w3.org/ns/oa#SemanticTag>;

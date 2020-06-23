@@ -5,9 +5,9 @@
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/textualBody1>,
     <http://viaf.org/viaf/39377694>;
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh5cq61x99 .
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh8dfhkx99 .
 
-_:node1ebh5cq61x99 a <http://www.w3.org/ns/oa#Target>;
+_:node1ebh8dfhkx99 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6285924932975873,0.31825775988026184,0.025649176560704756,0.017330524703178862>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
 
@@ -18,12 +18,13 @@ _:node1ebh5cq61x99 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/language> "";
   <http://www.w3.org/2000/01/rdf-schema#label> "Geoff" .
 
+<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/Image>,
+    <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+
 <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6285924932975873,0.31825775988026184,0.025649176560704756,0.017330524703178862>
   a <http://www.w3.org/ns/oa#FragmentSelector>;
   <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.6285924932975873,0.31825775988026184,0.025649176560704756,0.017330524703178862" .
-
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://www.w3.org/ns/oa#Source> .
 
 <nc:taxon1> <http://makingsense.liacs.nl/rdf/nhc/scientificNameAuthorship> <http://viaf.org/viaf/39377694> .
 

@@ -5,9 +5,9 @@
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/textualBody1>,
     <http://sws.geonames.org/1648473/>;
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh5cq61x81 .
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh8dfhkx81 .
 
-_:node1ebh5cq61x81 a <http://www.w3.org/ns/oa#Target>;
+_:node1ebh8dfhkx81 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
 
@@ -18,11 +18,12 @@ _:node1ebh5cq61x81 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/language> "nl";
   <http://www.w3.org/2000/01/rdf-schema#label> "Buitenzorg" .
 
+<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/Image>,
+    <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+
 <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445>
   a <http://www.w3.org/ns/oa#FragmentSelector>;
   <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445" .
-
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://www.w3.org/ns/oa#Source> .
 
 <http://sws.geonames.org/1648473/> a <http://purl.org/dc/terms/Location>, <http://www.w3.org/ns/oa#SemanticTag> .
