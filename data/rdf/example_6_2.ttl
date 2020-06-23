@@ -1,5 +1,6 @@
 
 <http://makingsense.liacs.nl/rdf/nc/anno1> a <http://www.w3.org/ns/oa#Annotation>;
+  <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>,
