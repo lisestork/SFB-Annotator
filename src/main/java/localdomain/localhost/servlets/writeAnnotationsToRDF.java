@@ -83,6 +83,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String nc = "http://makingsense.liacs.nl/rdf/nc/";
 		String nhc = "http://makingsense.liacs.nl/rdf/nhc/";
 		String oa = "http://www.w3.org/ns/oa#";
+		String mf = "http://www.w3.org/TR/media-frags/";
 
 		// Connect to RDF server
 		String rdf4jServer = "http://localhost:8080/rdf4j-server/";
@@ -154,9 +155,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				: f.createIRI(propertyorattribute);
 
 		// init instances
-		IRI targetIRI = f.createIRI(nc, target);
 		IRI sourceIRI = f.createIRI(nc, source);
-		IRI selectorIRI = f.createIRI(nc, selector);
+		IRI selectorIRI = f.createIRI(nc, source + selector);
 		IRI identificationIRI = f.createIRI(nc, "identification" + organismID);
 		IRI humanObservationIRI = f.createIRI(nc, "humanObservation" + organismID);
 		IRI organismIRI = f.createIRI(nc, "organism" + organismID);
@@ -175,6 +175,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		Resource personIRI = (person.equals("")) ? f.createBNode() : f.createIRI(person);
 		Resource belongsToTaxonIRI = (belongstotaxon.equals("")) ? f.createBNode() : f.createIRI(belongstotaxon);
 		Resource geonamesFeatureIRI = (geonamesfeature.equals("")) ? f.createBNode() : f.createIRI(geonamesfeature);
+		Resource targetIRI = f.createBNode();
 
 		// query RDF store
 		String query1 = "SELECT ?value WHERE {?iri rdf:type <http://www.w3.org/ns/oa#Annotation> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
@@ -220,7 +221,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(textualBodyIRI, DCTERMS.FORMAT, f.createLiteral("text/plain"));
 			conn.add(textualBodyIRI, DCTERMS.LANGUAGE, f.createLiteral(language));
 			conn.add(selectorIRI, RDF.TYPE, fragmentSelectorClass);
-			conn.add(selectorIRI, RDF.VALUE, f.createLiteral(selector));
+			conn.add(selectorIRI, RDF.VALUE, f.createLiteral(selector.replace("#", "")));
+			conn.add(selectorIRI, DCTERMS.CONFORMS_TO, f.createIRI(mf));
 			conn.add(sourceIRI, RDF.TYPE, sourceClass);
 
 			switch (property) {
