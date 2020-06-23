@@ -49,7 +49,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		// retrieve key-value pairs
 		Integer year = (json.isNull("year")) ? null : json.getInt("year");
 		Integer month = (json.isNull("month")) ? null : json.getInt("month");
-		Integer day = (json.isNull("day")) ? null : json.getInt("");
+		Integer day = (json.isNull("day")) ? null : json.getInt("day");
 
 		String date = (json.isNull("date")) ? "" : json.getString("date").trim();
 		String annotator = (json.isNull("annotator")) ? "" : json.getString("annotator").trim();
