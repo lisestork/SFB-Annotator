@@ -4,22 +4,22 @@
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/textualBody1>;
-  <http://www.w3.org/ns/oa#hasTarget> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081> .
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh5cq61x7 .
+
+_:node1ebh5cq61x7 a <http://www.w3.org/ns/oa#Target>;
+  <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>;
+  <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg> .
 
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
-
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>
-  a <http://www.w3.org/ns/oa#Target>;
-  <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>;
-  <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg> .
 
 <http://makingsense.liacs.nl/rdf/nc/textualBody1> a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "nl";
   <http://www.w3.org/2000/01/rdf-schema#label> "10 April 1821" .
 
-<http://makingsense.liacs.nl/rdf/nc/#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>
-  a <http://www.w3.org/ns/oa#Selector>;
-  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081" .
+<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>
+  a <http://www.w3.org/ns/oa#FragmentSelector>;
+  <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081" .
 
 <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg> a <http://www.w3.org/ns/oa#Source> .
