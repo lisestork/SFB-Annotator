@@ -1,5 +1,5 @@
 
-<http://makingsense.liacs.nl/rdf/nc/textualBody1> a <http://www.w3.org/ns/oa#TextualTag>;
+<http://makingsense.liacs.nl/rdf/nc/textualBody1> a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "";
   <http://www.w3.org/2000/01/rdf-schema#label> "Bagalonga" .
@@ -26,9 +26,9 @@
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> a <http://www.w3.org/ns/oa#SemanticTag>;
-  <http://rs.tdwg.org/dwc/iri/inDescribedPlace> _:node1ebg2mshqx43 .
+  <http://rs.tdwg.org/dwc/iri/inDescribedPlace> _:node1ebg4gul2x43 .
 
-_:node1ebg2mshqx43 a <http://www.geonames.org/ontology#Feature> .
+_:node1ebg4gul2x43 a <http://www.geonames.org/ontology#Feature> .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> <http://www.w3.org/2000/01/rdf-schema#label>
     "Bagalonga" .

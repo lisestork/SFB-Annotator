@@ -94,7 +94,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI targetClass = f.createIRI(oa, "Target");
 		IRI selectorClass = f.createIRI(oa, "Selector");
 		IRI sourceClass = f.createIRI(oa, "Source");
-		IRI textualTagClass = f.createIRI(oa, "TextualTag");
+		IRI textualBodyClass = f.createIRI(oa, "TextualBody");
 		IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
 		IRI identificationClass = f.createIRI(dwc, "Identification");
 		IRI occurrenceClass = f.createIRI(dwc, "Occurrence");
@@ -200,7 +200,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();
-			conn.add(textualBodyIRI, RDF.TYPE, textualTagClass);
+			conn.add(textualBodyIRI, RDF.TYPE, textualBodyClass);
 			conn.add(textualBodyIRI, RDFS.LABEL, f.createLiteral(verbatim));
 			conn.add(textualBodyIRI, DCTERMS.FORMAT, f.createLiteral("text/plain"));
 			conn.add(textualBodyIRI, DCTERMS.LANGUAGE, f.createLiteral(language));
