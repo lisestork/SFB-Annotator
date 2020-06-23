@@ -154,9 +154,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				: f.createIRI(propertyorattribute);
 
 		// init instances
-		IRI targetIRI = f.createIRI(nhc, target);
-		IRI sourceIRI = f.createIRI(nhc, source);
-		IRI selectorIRI = f.createIRI(nhc, selector);
+		IRI targetIRI = f.createIRI(nc, target);
+		IRI sourceIRI = f.createIRI(nc, source);
+		IRI selectorIRI = f.createIRI(nc, selector);
 		IRI identificationIRI = f.createIRI(nc, "identification" + organismID);
 		IRI humanObservationIRI = f.createIRI(nc, "humanObservation" + organismID);
 		IRI organismIRI = f.createIRI(nc, "organism" + organismID);
