@@ -33,9 +33,9 @@
   <http://purl.org/dsw/derivedFrom> <http://makingsense.liacs.nl/rdf/nc/humanObservation-> .
 
 <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a <http://www.w3.org/ns/oa#SemanticTag>,
-    _:node1ebgqr569x24 .
+    _:node1ebgsop9ux58 .
 
-_:node1ebgqr569x24 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://identifiers.org/ncit/C20189> .
+_:node1ebgsop9ux58 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://identifiers.org/ncit/C20189> .
 
 <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> <http://www.w3.org/2000/01/rdf-schema#label>
     "Color" .

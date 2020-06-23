@@ -26,9 +26,9 @@
 <http://makingsense.liacs.nl/rdf/nhc/MMNAT01_AF_NNM001001033_003.jpg> a <http://www.w3.org/ns/oa#Source> .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> a <http://www.w3.org/ns/oa#SemanticTag>;
-  <http://rs.tdwg.org/dwc/iri/inDescribedPlace> _:node1ebgqr569x43 .
+  <http://rs.tdwg.org/dwc/iri/inDescribedPlace> _:node1ebgsop9ux44 .
 
-_:node1ebgqr569x43 a <http://www.geonames.org/ontology#Feature> .
+_:node1ebgsop9ux44 a <http://www.geonames.org/ontology#Feature> .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> <http://www.w3.org/2000/01/rdf-schema#label>
     "Bagalonga" .
