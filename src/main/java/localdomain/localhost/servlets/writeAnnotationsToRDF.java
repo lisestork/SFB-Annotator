@@ -55,7 +55,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String annotator = (json.isNull("annotator")) ? "" : json.getString("annotator").trim();
 		String source = (json.isNull("source")) ? "" : json.getString("source").trim();
 		String selector = (json.isNull("selector")) ? "" : json.getString("selector").trim();
-		String target = source + selector;
 		String belongstotaxon = (json.isNull("belongstotaxon")) ? "" : json.getString("belongstotaxon").trim();
 		String rank = (json.isNull("rank")) ? "" : json.getString("rank").trim();
 		String person = (json.isNull("person")) ? "" : json.getString("person").trim();
@@ -84,6 +83,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String nhc = "http://makingsense.liacs.nl/rdf/nhc/";
 		String oa = "http://www.w3.org/ns/oa#";
 		String mf = "http://www.w3.org/TR/media-frags/";
+		String dcmitype = "http://purl.org/dc/dcmitype/";
 
 		// Connect to RDF server
 		String rdf4jServer = "http://localhost:8080/rdf4j-server/";
@@ -220,6 +220,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(textualBodyIRI, RDFS.LABEL, f.createLiteral(verbatim));
 			conn.add(textualBodyIRI, DCTERMS.FORMAT, f.createLiteral("text/plain"));
 			conn.add(textualBodyIRI, DCTERMS.LANGUAGE, f.createLiteral(language));
+			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "Image"));
 			conn.add(selectorIRI, RDF.TYPE, fragmentSelectorClass);
 			conn.add(selectorIRI, RDF.VALUE, f.createLiteral(selector.replace("#", "")));
 			conn.add(selectorIRI, DCTERMS.CONFORMS_TO, f.createIRI(mf));
