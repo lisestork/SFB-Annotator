@@ -3,6 +3,7 @@ package localdomain.localhost.servlets;
 import java.io.IOException;
 
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +30,9 @@ import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.http.HTTPRepository;
 import org.eclipse.rdf4j.repository.manager.RemoteRepositoryManager;
 import org.eclipse.rdf4j.repository.manager.RepositoryManager;
+
 import org.apache.commons.io.IOUtils;
+
 import org.json.JSONObject;
 
 /**
@@ -64,13 +67,19 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String geonamesfeature = (json.isNull("geonamesfeature")) ? "" : json.getString("geonamesfeature").trim();
 		String anatomicalentity = (json.isNull("anatomicalentity")) ? "" : json.getString("anatomicalentity").trim();
 		String verbatim = (json.isNull("verbatim")) ? "" : json.getString("verbatim").trim();
-		String language = (json.isNull("language")) ? "" : json.getString("language").trim();
 		String type = (json.isNull("type")) ? "" : json.getString("type").trim();
 		String property = (json.isNull("property")) ? "" : json.getString("property").trim();
 		String propertyorattribute = (json.isNull("propertyorattribute"))
 				? ""
 				: json.getString("propertyorattribute").trim();
 		String instance = (json.isNull("instance")) ? "" : json.getString("instance").trim();
+		String lang = (json.isNull("language")) ? "" : json.getString("language").trim();
+
+		try { // return well-formed IETF BCP 47 language tag
+			lang = Locale.forLanguageTag(lang).toLanguageTag();
+		} catch (Exception e) {
+			//
+		}
 
 		// ns prefixes
 		String dwc = "http://rs.tdwg.org/dwc/terms/";
@@ -217,9 +226,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(targetIRI, hasSelectorProperty, selectorIRI);
 			conn.add(targetIRI, RDF.TYPE, targetClass);
 			conn.add(textualBodyIRI, RDF.TYPE, textualBodyClass);
-			conn.add(textualBodyIRI, RDFS.LABEL, f.createLiteral(verbatim));
 			conn.add(textualBodyIRI, DCTERMS.FORMAT, f.createLiteral("text/plain"));
-			conn.add(textualBodyIRI, DCTERMS.LANGUAGE, f.createLiteral(language));
+			conn.add(textualBodyIRI, DCTERMS.LANGUAGE, f.createLiteral(lang));
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "Image"));
 			conn.add(sourceIRI, RDF.TYPE, FOAF.IMAGE);
 			conn.add(selectorIRI, RDF.TYPE, fragmentSelectorClass);
@@ -265,7 +273,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(taxonIRI, belongsToTaxonProperty, belongsToTaxonIRI);
 					conn.add(taxonIRI, taxonRankProperty, taxonRankIRI);
 					conn.add(taxonIRI, RDF.TYPE, semanticTagClass);
-					conn.add(taxonIRI, RDFS.LABEL, f.createLiteral(verbatim));
+					conn.add(taxonIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					conn.add(taxonIRI, RDF.TYPE, taxonClass);
 					conn.add(taxonIRI, RDF.VALUE, f.createLiteral(taxonNr));
 					break;
@@ -278,7 +286,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(annotationIRI, hasBodyProperty, taxonIRI);
 					conn.add(organismIRI, additionalIdentificationProperty, addIdentificationIRI);
 					conn.add(taxonIRI, RDF.TYPE, semanticTagClass);
-					conn.add(taxonIRI, RDFS.LABEL, f.createLiteral(verbatim));
+					conn.add(taxonIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					conn.add(taxonIRI, RDF.TYPE, taxonClass);
 					conn.add(taxonIRI, belongsToTaxonProperty, belongsToTaxonIRI);
 					conn.add(taxonIRI, taxonRankProperty, taxonRankIRI);
@@ -287,7 +295,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				case "verbatimEventDate" :
 					conn.add(annotationIRI, hasBodyProperty, dateIRI);
 					conn.add(dateIRI, RDF.TYPE, semanticTagClass);
-					conn.add(dateIRI, RDFS.LABEL, f.createLiteral(verbatim));
+					conn.add(dateIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 
 					if (year != null) {
 						conn.add(dateIRI, yearProperty, f.createLiteral(year));
@@ -303,7 +311,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(annotationIRI, hasBodyProperty, locationIRI);
 					conn.add(geonamesFeatureIRI, RDF.TYPE, featureClass);
 					conn.add(locationIRI, RDF.TYPE, semanticTagClass);
-					conn.add(locationIRI, RDFS.LABEL, f.createLiteral(verbatim));
+					conn.add(locationIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					conn.add(locationIRI, inDescribedPlaceProperty, geonamesFeatureIRI);
 					break;
 				case "additionalLocatedAt" :
@@ -317,7 +325,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 							f.createLiteral(organismID + "_occ" + occurrenceID));
 					conn.add(addOccurrenceIRI, RDF.TYPE, occurrenceClass);
 					conn.add(addLocationIRI, locatesProperty, addEventIRI);
-					conn.add(addLocationIRI, RDFS.LABEL, f.createLiteral(verbatim));
+					conn.add(addLocationIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					conn.add(addLocationIRI, RDF.TYPE, DCTERMS.LOCATION);
 					conn.add(addLocationIRI, RDF.TYPE, semanticTagClass);
 					conn.add(addLocationIRI, inDescribedPlaceProperty, geonamesFeatureIRI);
@@ -370,7 +378,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 						conn.add(taxonIRI, RDF.TYPE, taxonClass);
 						conn.add(taxonIRI, belongsToTaxonProperty, belongsToTaxonIRI);
 						conn.add(taxonIRI, taxonRankProperty, taxonRankIRI);
-						conn.add(taxonIRI, RDFS.LABEL, f.createLiteral(verbatim));
+						conn.add(taxonIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 						conn.add(taxonIRI, RDF.VALUE, f.createLiteral(taxonNr));
 					}
 					break;
@@ -395,14 +403,14 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(propertyOrAttributeIRI, RDF.TYPE, semanticTagClass);
 					conn.add(propertyOrAttributeIRI, RDF.TYPE, propertyOrAttributeClass);
 					conn.add(propertyOrAttributeClass, RDFS.SUBCLASSOF, propertyOrAttributeTopClass);
-					conn.add(propertyOrAttributeIRI, RDFS.LABEL, f.createLiteral(verbatim));
+					conn.add(propertyOrAttributeIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					break;
 				case "anatomicalentity" :
 					conn.add(annotationIRI, hasBodyProperty, anatomicalEntityIRI);
 					conn.add(anatomicalEntityIRI, RDF.TYPE, semanticTagClass);
 					conn.add(anatomicalEntityIRI, RDF.TYPE, anatomicalEntityClass);
 					conn.add(anatomicalEntityClass, RDFS.SUBCLASSOF, anatomicalEntityTopClass);
-					conn.add(anatomicalEntityIRI, RDFS.LABEL, f.createLiteral(verbatim));
+					conn.add(anatomicalEntityIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					conn.add(humanObservationIRI, hasDerivativeProperty, measurementOrFactIRI);
 					conn.add(measurementOrFactIRI, measuresOrDescribesProperty, anatomicalEntityIRI);
 					conn.add(measurementOrFactIRI, derivedFromProperty, humanObservationIRI);
