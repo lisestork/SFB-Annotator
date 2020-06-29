@@ -23,6 +23,10 @@ The different variations for annotation are:
 |`nhc:Date`| `rdf:type` | [`example 7_1`](#Example-7_1)
 | | `nhc:verbatimDate` | [`example 7_2`](#Example-7_2)|
 
+
+Figure 1: Example occurrence record annotated with the NHC-Ontology.
+![alt text](https://github.com/LINNAE-project/SFB-Annotator/blob/iss22/data/rdf/rdf_examples.png)
+
 ### Example 1_1
 
 Variation: `rdf:type`
