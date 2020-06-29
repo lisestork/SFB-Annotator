@@ -5,9 +5,9 @@
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/location1>,
     <http://makingsense.liacs.nl/rdf/nc/textualBody1>;
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ec0qobe8x53 .
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ec0rse7lx53 .
 
-_:node1ec0qobe8x53 a <http://www.w3.org/ns/oa#Target>;
+_:node1ec0rse7lx53 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
 
@@ -17,7 +17,7 @@ _:node1ec0qobe8x53 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "und" .
 
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/Image>,
+<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/StillImage>,
     <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
 
 <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597>
@@ -26,9 +26,9 @@ _:node1ec0qobe8x53 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597" .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> a <http://www.w3.org/ns/oa#SemanticTag>;
-  <http://rs.tdwg.org/dwc/iri/inDescribedPlace> _:node1ec0qobe8x52 .
+  <http://rs.tdwg.org/dwc/iri/inDescribedPlace> _:node1ec0rse7lx52 .
 
-_:node1ec0qobe8x52 a <http://www.geonames.org/ontology#Feature> .
+_:node1ec0rse7lx52 a <http://www.geonames.org/ontology#Feature> .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> <http://www.w3.org/2000/01/rdf-schema#label>
     "Bagalonga"@und .

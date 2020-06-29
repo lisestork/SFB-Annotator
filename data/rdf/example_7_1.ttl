@@ -4,9 +4,9 @@
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/textualBody1>;
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ec0qobe8x98 .
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ec0rse7lx98 .
 
-_:node1ec0qobe8x98 a <http://www.w3.org/ns/oa#Target>;
+_:node1ec0rse7lx98 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg> .
 
@@ -16,7 +16,7 @@ _:node1ec0qobe8x98 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "nl" .
 
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg> a <http://purl.org/dc/dcmitype/Image>,
+<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg> a <http://purl.org/dc/dcmitype/StillImage>,
     <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
 
 <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>

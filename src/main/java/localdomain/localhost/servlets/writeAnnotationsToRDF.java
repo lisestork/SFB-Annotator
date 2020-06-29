@@ -228,7 +228,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(textualBodyIRI, RDF.TYPE, textualBodyClass);
 			conn.add(textualBodyIRI, DCTERMS.FORMAT, f.createLiteral("text/plain"));
 			conn.add(textualBodyIRI, DCTERMS.LANGUAGE, f.createLiteral(lang));
-			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "Image"));
+			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "StillImage"));
 			conn.add(sourceIRI, RDF.TYPE, FOAF.IMAGE);
 			conn.add(selectorIRI, RDF.TYPE, fragmentSelectorClass);
 			conn.add(selectorIRI, RDF.VALUE, f.createLiteral(selector.replace("#", "")));
