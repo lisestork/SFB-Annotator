@@ -25,7 +25,7 @@ The different variations for annotation are:
 
 
 Figure 1: Example occurrence record annotated with the NHC-Ontology.
-![alt text](https://github.com/LINNAE-project/SFB-Annotator/blob/iss22/data/rdf/rdf_examples.png)
+![alt text](https://github.com/LINNAE-project/SFB-Annotator/blob/iss22/data/rdf/rdf_examples_low.png)
 
 ### Example 1_1
 
