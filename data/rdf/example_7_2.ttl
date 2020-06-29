@@ -4,9 +4,9 @@
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/date1>, <http://makingsense.liacs.nl/rdf/nc/textualBody1>;
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh8dfhkx88 .
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ec0qobe8x105 .
 
-_:node1ebh8dfhkx88 a <http://www.w3.org/ns/oa#Target>;
+_:node1ec0qobe8x105 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.6712020824648357,0.177764417868435,0.07131751180401791,0.015538452292495508>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg> .
 
@@ -14,8 +14,7 @@ _:node1ebh8dfhkx88 a <http://www.w3.org/ns/oa#Target>;
 
 <http://makingsense.liacs.nl/rdf/nc/textualBody1> a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
-  <http://purl.org/dc/terms/language> "nl";
-  <http://www.w3.org/2000/01/rdf-schema#label> "10 April 1821" .
+  <http://purl.org/dc/terms/language> "nl" .
 
 <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg> a <http://purl.org/dc/dcmitype/Image>,
     <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
@@ -29,4 +28,4 @@ _:node1ebh8dfhkx88 a <http://www.w3.org/ns/oa#Target>;
   <http://rs.tdwg.org/dwc/terms/day> "10"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://rs.tdwg.org/dwc/terms/month> "4"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://rs.tdwg.org/dwc/terms/year> "1821"^^<http://www.w3.org/2001/XMLSchema#int>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "10 April 1821" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "10 April 1821"@nl .

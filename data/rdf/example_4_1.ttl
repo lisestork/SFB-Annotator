@@ -5,9 +5,9 @@
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1>,
     <http://makingsense.liacs.nl/rdf/nc/textualBody1>;
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh8dfhkx26 .
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ec0qobe8x60 .
 
-_:node1ebh8dfhkx26 a <http://www.w3.org/ns/oa#Target>;
+_:node1ec0qobe8x60 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5614033197022136,0.11586327570674965,0.14027982326951394,0.0625920471281296>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
 
@@ -15,8 +15,7 @@ _:node1ebh8dfhkx26 a <http://www.w3.org/ns/oa#Target>;
 
 <http://makingsense.liacs.nl/rdf/nc/textualBody1> a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
-  <http://purl.org/dc/terms/language> "";
-  <http://www.w3.org/2000/01/rdf-schema#label> "" .
+  <http://purl.org/dc/terms/language> "und" .
 
 <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/Image>,
     <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .

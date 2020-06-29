@@ -4,9 +4,9 @@
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/taxon1>, <http://makingsense.liacs.nl/rdf/nc/textualBody1>;
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ebh8dfhkx57 .
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ec0qobe8x17 .
 
-_:node1ebh8dfhkx57 a <http://www.w3.org/ns/oa#Target>;
+_:node1ec0qobe8x17 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_008.jpg#xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_008.jpg> .
 
@@ -14,8 +14,7 @@ _:node1ebh8dfhkx57 a <http://www.w3.org/ns/oa#Target>;
 
 <http://makingsense.liacs.nl/rdf/nc/textualBody1> a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
-  <http://purl.org/dc/terms/language> "la";
-  <http://www.w3.org/2000/01/rdf-schema#label> "Pteropus" .
+  <http://purl.org/dc/terms/language> "la" .
 
 <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_008.jpg> a <http://purl.org/dc/dcmitype/Image>,
     <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
@@ -40,4 +39,4 @@ _:node1ebh8dfhkx57 a <http://www.w3.org/ns/oa#Target>;
   <http://makingsense.liacs.nl/rdf/nhc/belongsToTaxon> <https://identifiers.org/taxonomy:9397>;
   <http://makingsense.liacs.nl/rdf/nhc/taxonRank> <http://makingsense.liacs.nl/rdf/nhc/genus>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "Pteropus" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "Pteropus"@la .
