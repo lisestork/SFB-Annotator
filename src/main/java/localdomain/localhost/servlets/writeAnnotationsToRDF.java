@@ -76,6 +76,26 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String instance = (json.isNull("instance")) ? "" : json.getString("instance").trim();
 		String lang = (json.isNull("language")) ? "" : json.getString("language").trim();
 		String uuid = UUID.randomUUID().toString();
+		String filext = source.substring(source.lastIndexOf(".") + 1).toLowerCase();
+		String mime;
+
+		switch (filext) {
+			case "jpeg" :
+				mime = "image/jpeg";
+				break;
+			case "jpg" :
+				mime = "image/jpeg";
+				break;
+			case "tiff" :
+				mime = "image/jpeg";
+				break;
+			case "png" :
+				mime = "image/png";
+				break;
+			default :
+				mime = "";
+				break;
+		}
 
 		try { // return well-formed IETF BCP 47 language tag
 			lang = Locale.forLanguageTag(lang).toLanguageTag();
@@ -218,6 +238,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(annotationIRI, DCTERMS.CREATOR, annotatorIRI);
 			conn.add(annotationIRI, DCTERMS.DATE, f.createLiteral(date));
 			conn.add(annotatorIRI, RDF.TYPE, FOAF.PERSON);
+			conn.add(targetBNode, DCTERMS.FORMAT, f.createLiteral(mime));
 			conn.add(targetBNode, hasSourceProperty, sourceIRI);
 			conn.add(targetBNode, hasSelectorProperty, selectorIRI);
 			conn.add(targetBNode, RDF.TYPE, targetClass);
