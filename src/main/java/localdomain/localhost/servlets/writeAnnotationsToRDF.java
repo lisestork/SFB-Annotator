@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -74,6 +75,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				: json.getString("propertyorattribute").trim();
 		String instance = (json.isNull("instance")) ? "" : json.getString("instance").trim();
 		String lang = (json.isNull("language")) ? "" : json.getString("language").trim();
+		String uuid = UUID.randomUUID().toString();
 
 		try { // return well-formed IETF BCP 47 language tag
 			lang = Locale.forLanguageTag(lang).toLanguageTag();
@@ -109,7 +111,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI fragmentSelectorClass = f.createIRI(oa, "FragmentSelector");
 		IRI sourceClass = f.createIRI(oa, "Source");
 		IRI textualBodyClass = f.createIRI(oa, "TextualBody");
-		IRI semanticTagClass = f.createIRI(oa, "SemanticTag");
 		IRI identificationClass = f.createIRI(dwc, "Identification");
 		IRI occurrenceClass = f.createIRI(dwc, "Occurrence");
 		IRI humanObservationClass = f.createIRI(dwc, "HumanObservation");
@@ -164,6 +165,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				: f.createIRI(propertyorattribute);
 
 		// init instances
+		IRI annotationIRI = f.createIRI(nc, "annotation/" + uuid);
 		IRI sourceIRI = f.createIRI(nc, source);
 		IRI selectorIRI = f.createIRI(nc, source + selector);
 		IRI identificationIRI = f.createIRI(nc, "identification" + organismID);
@@ -184,14 +186,10 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		Resource personIRI = (person.equals("")) ? f.createBNode() : f.createIRI(person);
 		Resource belongsToTaxonIRI = (belongstotaxon.equals("")) ? f.createBNode() : f.createIRI(belongstotaxon);
 		Resource geonamesFeatureIRI = (geonamesfeature.equals("")) ? f.createBNode() : f.createIRI(geonamesfeature);
-		Resource targetIRI = f.createBNode();
+		Resource targetBNode = f.createBNode();
+		Resource textualBodyBNode = f.createBNode();
 
 		// query RDF store
-		String query1 = "SELECT ?value WHERE {?iri rdf:type <http://www.w3.org/ns/oa#Annotation> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
-		int annotationID = QueryTripleStore(query1, repo, "value");
-		IRI annotationIRI = f.createIRI(nc, "anno" + annotationID);
-		IRI textualBodyIRI = f.createIRI(nc, "textualBody" + annotationID);
-
 		String query2 = "SELECT ?value WHERE { ?iri rdf:type <" + taxonClass.toString()
 				+ "> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
 		int taxonNr = QueryTripleStore(query2, repo, "value");
@@ -215,19 +213,17 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();
 			conn.add(annotationIRI, RDF.TYPE, annotationClass);
-			conn.add(annotationIRI, RDF.VALUE, f.createLiteral(annotationID));
-			conn.add(annotationIRI, DCTERMS.DATE, f.createLiteral(date));
-			conn.add(annotationIRI, hasBodyProperty, textualBodyIRI);
-			conn.add(annotationIRI, hasTargetProperty, targetIRI);
-			conn.add(annotatorIRI, RDF.TYPE, FOAF.PERSON);
+			conn.add(annotationIRI, hasBodyProperty, textualBodyBNode);
+			conn.add(annotationIRI, hasTargetProperty, targetBNode);
 			conn.add(annotationIRI, DCTERMS.CREATOR, annotatorIRI);
 			conn.add(annotationIRI, DCTERMS.DATE, f.createLiteral(date));
-			conn.add(targetIRI, hasSourceProperty, sourceIRI);
-			conn.add(targetIRI, hasSelectorProperty, selectorIRI);
-			conn.add(targetIRI, RDF.TYPE, targetClass);
-			conn.add(textualBodyIRI, RDF.TYPE, textualBodyClass);
-			conn.add(textualBodyIRI, DCTERMS.FORMAT, f.createLiteral("text/plain"));
-			conn.add(textualBodyIRI, DCTERMS.LANGUAGE, f.createLiteral(lang));
+			conn.add(annotatorIRI, RDF.TYPE, FOAF.PERSON);
+			conn.add(targetBNode, hasSourceProperty, sourceIRI);
+			conn.add(targetBNode, hasSelectorProperty, selectorIRI);
+			conn.add(targetBNode, RDF.TYPE, targetClass);
+			conn.add(textualBodyBNode, RDF.TYPE, textualBodyClass);
+			conn.add(textualBodyBNode, DCTERMS.FORMAT, f.createLiteral("text/plain"));
+			conn.add(textualBodyBNode, DCTERMS.LANGUAGE, f.createLiteral(lang));
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "StillImage"));
 			conn.add(sourceIRI, RDF.TYPE, FOAF.IMAGE);
 			conn.add(selectorIRI, RDF.TYPE, fragmentSelectorClass);
@@ -240,8 +236,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(annotationIRI, hasBodyProperty, taxonIRI);
 					conn.add(annotationIRI, hasBodyProperty, humanObservationIRI);
 					conn.add(annotationIRI, hasTargetProperty, sourceIRI);
-					conn.add(annotationIRI, RDF.TYPE, annotationClass);
-					conn.add(annotationIRI, RDF.VALUE, f.createLiteral(annotationID));
 					conn.add(eventIRI, verbatimEventDateProperty, dateIRI);
 					conn.add(eventIRI, locatedAtProperty, locationIRI);
 					conn.add(eventIRI, eventOfProperty, occurrenceIRI);
@@ -272,7 +266,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
 					conn.add(taxonIRI, belongsToTaxonProperty, belongsToTaxonIRI);
 					conn.add(taxonIRI, taxonRankProperty, taxonRankIRI);
-					conn.add(taxonIRI, RDF.TYPE, semanticTagClass);
 					conn.add(taxonIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					conn.add(taxonIRI, RDF.TYPE, taxonClass);
 					conn.add(taxonIRI, RDF.VALUE, f.createLiteral(taxonNr));
@@ -285,7 +278,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(addIdentificationIRI, RDF.TYPE, identificationClass);
 					conn.add(annotationIRI, hasBodyProperty, taxonIRI);
 					conn.add(organismIRI, additionalIdentificationProperty, addIdentificationIRI);
-					conn.add(taxonIRI, RDF.TYPE, semanticTagClass);
 					conn.add(taxonIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					conn.add(taxonIRI, RDF.TYPE, taxonClass);
 					conn.add(taxonIRI, belongsToTaxonProperty, belongsToTaxonIRI);
@@ -294,7 +286,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					break;
 				case "verbatimEventDate" :
 					conn.add(annotationIRI, hasBodyProperty, dateIRI);
-					conn.add(dateIRI, RDF.TYPE, semanticTagClass);
 					conn.add(dateIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 
 					if (year != null) {
@@ -310,7 +301,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				case "locatedAt" :
 					conn.add(annotationIRI, hasBodyProperty, locationIRI);
 					conn.add(geonamesFeatureIRI, RDF.TYPE, featureClass);
-					conn.add(locationIRI, RDF.TYPE, semanticTagClass);
 					conn.add(locationIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					conn.add(locationIRI, inDescribedPlaceProperty, geonamesFeatureIRI);
 					break;
@@ -327,7 +317,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(addLocationIRI, locatesProperty, addEventIRI);
 					conn.add(addLocationIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					conn.add(addLocationIRI, RDF.TYPE, DCTERMS.LOCATION);
-					conn.add(addLocationIRI, RDF.TYPE, semanticTagClass);
 					conn.add(addLocationIRI, inDescribedPlaceProperty, geonamesFeatureIRI);
 					conn.add(annotationIRI, hasBodyProperty, addLocationIRI);
 					conn.add(organismIRI, additionalOccurrenceProperty, addOccurrenceIRI);
@@ -336,19 +325,16 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				case "scientificNameAuthorship" :
 					conn.add(annotationIRI, hasBodyProperty, personIRI);
 					conn.add(belongsToTaxonIRI, scientificNameAuthorshipProperty, personIRI);
-					conn.add(personIRI, RDF.TYPE, semanticTagClass);
 					conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
 					break;
 				case "identifiedBy" :
 					conn.add(annotationIRI, hasBodyProperty, personIRI);
 					conn.add(identificationIRI, identifiedByProperty, personIRI);
-					conn.add(personIRI, RDF.TYPE, semanticTagClass);
 					conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
 					break;
 				case "recordedBy" :
 					conn.add(annotationIRI, hasBodyProperty, personIRI);
 					conn.add(occurrenceIRI, recordedByProperty, personIRI);
-					conn.add(personIRI, RDF.TYPE, semanticTagClass);
 					conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
 					break;
 				case "additionalRecordedBy" :
@@ -360,21 +346,17 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(additionalOccurrenceProperty, RDFS.SUBPROPERTYOF, additionalProperty);
 					conn.add(annotationIRI, hasBodyProperty, personIRI);
 					conn.add(organismIRI, additionalOccurrenceProperty, addOccurrenceIRI);
-					conn.add(personIRI, RDF.TYPE, semanticTagClass);
 					conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
 					break;
 				case "type" :
 					if (type.equals("person")) {
 						conn.add(annotationIRI, hasBodyProperty, instanceIRI);
-						conn.add(instanceIRI, RDF.TYPE, semanticTagClass);
 						conn.add(instanceIRI, RDF.TYPE, FOAF.PERSON);
 					} else if (type.equals("location")) {
 						conn.add(annotationIRI, hasBodyProperty, instanceIRI);
-						conn.add(instanceIRI, RDF.TYPE, semanticTagClass);
 						conn.add(instanceIRI, RDF.TYPE, DCTERMS.LOCATION);
 					} else if (type.equals("taxon")) {
 						conn.add(annotationIRI, hasBodyProperty, taxonIRI);
-						conn.add(taxonIRI, RDF.TYPE, semanticTagClass);
 						conn.add(taxonIRI, RDF.TYPE, taxonClass);
 						conn.add(taxonIRI, belongsToTaxonProperty, belongsToTaxonIRI);
 						conn.add(taxonIRI, taxonRankProperty, taxonRankIRI);
@@ -392,7 +374,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(humanObservationIRI, hasDerivativeProperty, measurementOrFactIRI);
 					conn.add(measurementOrFactIRI, derivedFromProperty, humanObservationIRI);
 					conn.add(measurementOrFactIRI, RDF.TYPE, measurementOrFactClass);
-					conn.add(measurementOrFactIRI, RDF.TYPE, semanticTagClass);
 					break;
 				case "propertyorattribute" :
 					conn.add(annotationIRI, hasBodyProperty, propertyOrAttributeIRI);
@@ -400,14 +381,12 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(measurementOrFactIRI, measuresOrDescribesProperty, propertyOrAttributeIRI);
 					conn.add(measurementOrFactIRI, derivedFromProperty, humanObservationIRI);
 					conn.add(measurementOrFactIRI, RDF.TYPE, measurementOrFactClass);
-					conn.add(propertyOrAttributeIRI, RDF.TYPE, semanticTagClass);
 					conn.add(propertyOrAttributeIRI, RDF.TYPE, propertyOrAttributeClass);
 					conn.add(propertyOrAttributeClass, RDFS.SUBCLASSOF, propertyOrAttributeTopClass);
 					conn.add(propertyOrAttributeIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					break;
 				case "anatomicalentity" :
 					conn.add(annotationIRI, hasBodyProperty, anatomicalEntityIRI);
-					conn.add(anatomicalEntityIRI, RDF.TYPE, semanticTagClass);
 					conn.add(anatomicalEntityIRI, RDF.TYPE, anatomicalEntityClass);
 					conn.add(anatomicalEntityClass, RDFS.SUBCLASSOF, anatomicalEntityTopClass);
 					conn.add(anatomicalEntityIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
