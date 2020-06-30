@@ -1,19 +1,20 @@
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/c6ea2d6b-1695-4623-8b8b-c9efa7e425f9>
+<http://makingsense.liacs.nl/rdf/nc/annotation/a8883d7c-2154-4586-9835-cf360a04b85e>
   a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>,
-    _:node1ec35km66x99 .
+    _:node1ec3i5nr1x99 .
 
-_:node1ec35km66x99 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1ec3i5nr1x99 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "la" .
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/c6ea2d6b-1695-4623-8b8b-c9efa7e425f9>
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ec35km66x98 .
+<http://makingsense.liacs.nl/rdf/nc/annotation/a8883d7c-2154-4586-9835-cf360a04b85e>
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ec3i5nr1x98 .
 
-_:node1ec35km66x98 a <http://www.w3.org/ns/oa#Target>;
+_:node1ec3i5nr1x98 a <http://www.w3.org/ns/oa#Target>;
+  <http://purl.org/dc/terms/format> "image/jpeg";
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
 
@@ -27,9 +28,9 @@ _:node1ec35km66x98 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" .
 
-<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a _:node1ec35km66x93 .
+<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a _:node1ec3i5nr1x93 .
 
-_:node1ec35km66x93 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/UBERON_0001062> .
+_:node1ec3i5nr1x93 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/UBERON_0001062> .
 
 <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> <http://www.w3.org/2000/01/rdf-schema#label>
     "Dentibus"@la .

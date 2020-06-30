@@ -1,18 +1,19 @@
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/b47e4032-6e18-4eee-bf3b-2a2cbe793e76>
+<http://makingsense.liacs.nl/rdf/nc/annotation/4c0d2e8b-04f8-4698-bdac-abfc995d559f>
   a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
-  <http://www.w3.org/ns/oa#hasBody> _:node1ec35km66x114 .
+  <http://www.w3.org/ns/oa#hasBody> _:node1ec3i5nr1x114 .
 
-_:node1ec35km66x114 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1ec3i5nr1x114 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "nl" .
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/b47e4032-6e18-4eee-bf3b-2a2cbe793e76>
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ec35km66x113 .
+<http://makingsense.liacs.nl/rdf/nc/annotation/4c0d2e8b-04f8-4698-bdac-abfc995d559f>
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ec3i5nr1x113 .
 
-_:node1ec35km66x113 a <http://www.w3.org/ns/oa#Target>;
+_:node1ec3i5nr1x113 a <http://www.w3.org/ns/oa#Target>;
+  <http://purl.org/dc/terms/format> "image/jpeg";
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg> .
 

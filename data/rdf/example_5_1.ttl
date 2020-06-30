@@ -1,19 +1,20 @@
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/43de8d96-9e84-44a2-8285-fd8336e880bf>
+<http://makingsense.liacs.nl/rdf/nc/annotation/87e5c384-91eb-46a1-bbed-ffc604cd4f7c>
   a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>,
-    _:node1ec35km66x85 .
+    _:node1ec3i5nr1x85 .
 
-_:node1ec35km66x85 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1ec3i5nr1x85 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "la" .
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/43de8d96-9e84-44a2-8285-fd8336e880bf>
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ec35km66x84 .
+<http://makingsense.liacs.nl/rdf/nc/annotation/87e5c384-91eb-46a1-bbed-ffc604cd4f7c>
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ec3i5nr1x84 .
 
-_:node1ec35km66x84 a <http://www.w3.org/ns/oa#Target>;
+_:node1ec3i5nr1x84 a <http://www.w3.org/ns/oa#Target>;
+  <http://purl.org/dc/terms/format> "image/jpeg";
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
 
@@ -34,9 +35,9 @@ _:node1ec35km66x84 a <http://www.w3.org/ns/oa#Target>;
   <http://makingsense.liacs.nl/rdf/nhc/measuresOrDescribes> <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>;
   <http://purl.org/dsw/derivedFrom> <http://makingsense.liacs.nl/rdf/nc/humanObservation-> .
 
-<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a _:node1ec35km66x80 .
+<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a _:node1ec3i5nr1x80 .
 
-_:node1ec35km66x80 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://identifiers.org/ncit/C20189> .
+_:node1ec3i5nr1x80 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://identifiers.org/ncit/C20189> .
 
 <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> <http://www.w3.org/2000/01/rdf-schema#label>
     "Color"@la .
