@@ -1,21 +1,23 @@
 
-<http://makingsense.liacs.nl/rdf/nc/anno1> a <http://www.w3.org/ns/oa#Annotation>;
+<http://makingsense.liacs.nl/rdf/nc/annotation/857c40a9-5d3e-441e-8b12-e1ef8b90948b>
+  a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
-  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>,
-    <http://makingsense.liacs.nl/rdf/nc/textualBody1>;
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ec0rse7lx79 .
+    _:node1ec35km66x92 .
 
-_:node1ec0rse7lx79 a <http://www.w3.org/ns/oa#Target>;
+_:node1ec35km66x92 a <http://www.w3.org/ns/oa#TextualBody>;
+  <http://purl.org/dc/terms/format> "text/plain";
+  <http://purl.org/dc/terms/language> "la" .
+
+<http://makingsense.liacs.nl/rdf/nc/annotation/857c40a9-5d3e-441e-8b12-e1ef8b90948b>
+  <http://www.w3.org/ns/oa#hasTarget> _:node1ec35km66x91 .
+
+_:node1ec35km66x91 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
 
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
-
-<http://makingsense.liacs.nl/rdf/nc/textualBody1> a <http://www.w3.org/ns/oa#TextualBody>;
-  <http://purl.org/dc/terms/format> "text/plain";
-  <http://purl.org/dc/terms/language> "la" .
 
 <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/StillImage>,
     <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
@@ -32,8 +34,7 @@ _:node1ec0rse7lx79 a <http://www.w3.org/ns/oa#Target>;
   <http://makingsense.liacs.nl/rdf/nhc/measuresOrDescribes> <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>;
   <http://purl.org/dsw/derivedFrom> <http://makingsense.liacs.nl/rdf/nc/humanObservation1> .
 
-<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a <http://identifiers.org/ncit/C37927>,
-    <http://www.w3.org/ns/oa#SemanticTag>;
+<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a <http://identifiers.org/ncit/C37927>;
   <http://www.w3.org/2000/01/rdf-schema#label> "Color"@la .
 
 <http://identifiers.org/ncit/C37927> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
