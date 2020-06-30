@@ -1,0 +1,82 @@
+[ {
+  "@id" : "_:node1ec3i5nr1x1067",
+  "@type" : [ "http://www.w3.org/ns/oa#Target" ],
+  "http://purl.org/dc/terms/format" : [ {
+    "@value" : "image/jpeg"
+  } ],
+  "http://www.w3.org/ns/oa#hasSelector" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726"
+  } ],
+  "http://www.w3.org/ns/oa#hasSource" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg"
+  } ]
+}, {
+  "@id" : "_:node1ec3i5nr1x1068",
+  "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
+  "http://purl.org/dc/terms/format" : [ {
+    "@value" : "text/plain"
+  } ],
+  "http://purl.org/dc/terms/language" : [ {
+    "@value" : "la"
+  } ]
+}, {
+  "@id" : "http://identifiers.org/ncit/C37927",
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://identifiers.org/ncit/C20189"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg",
+  "@type" : [ "http://purl.org/dc/dcmitype/StillImage", "http://xmlns.com/foaf/0.1/Image", "http://www.w3.org/ns/oa#Source" ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726",
+  "@type" : [ "http://www.w3.org/ns/oa#FragmentSelector" ],
+  "http://purl.org/dc/terms/conformsTo" : [ {
+    "@id" : "http://www.w3.org/TR/media-frags/"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
+    "@value" : "xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/annotation/bde8927e-40bd-4d69-85c6-aa97a4a9c680",
+  "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
+  "http://purl.org/dc/terms/creator" : [ {
+    "@id" : "http://orcid.org/0000-0002-2146-4803"
+  } ],
+  "http://purl.org/dc/terms/date" : [ {
+    "@value" : "2017-09-21"
+  } ],
+  "http://www.w3.org/ns/oa#hasBody" : [ {
+    "@id" : "_:node1ec3i5nr1x1068"
+  }, {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1"
+  } ],
+  "http://www.w3.org/ns/oa#hasTarget" : [ {
+    "@id" : "_:node1ec3i5nr1x1067"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/humanObservation1",
+  "http://purl.org/dsw/hasDerivative" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/measurementOrFact1"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/measurementOrFact1",
+  "@type" : [ "http://rs.tdwg.org/dwc/terms/MeasurementOrFact" ],
+  "http://makingsense.liacs.nl/rdf/nhc/measuresOrDescribes" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1"
+  } ],
+  "http://purl.org/dsw/derivedFrom" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/humanObservation1"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1",
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://identifiers.org/ncit/C37927"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "la",
+    "@value" : "Color"
+  } ]
+}, {
+  "@id" : "http://orcid.org/0000-0002-2146-4803",
+  "@type" : [ "http://xmlns.com/foaf/0.1/Person" ]
+} ]

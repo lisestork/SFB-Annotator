@@ -2,15 +2,24 @@
 
 set -e
 
+usage () {
+    echo "Usage: $0 [JSON INFILE] [RDF OUTFILE {.ttl|.jsonld}]"
+    exit 1
+}
+
+failed () {
+    echo "FAILED"
+    exit 1
+}
 
 # check input arg(s)
 if [ $# -ne "2" ]; then
-  echo "Usage: $0 [JSON INFILE] [RDF OUTFILE]"
-  exit 1
+  usage
 fi
 
 JSON_FILE="$1"
 RDF_FILE="$2"
+FILEXT="${RDF_FILE##*.}"
 REPO_ID="mem-rdf"
 CRE="tomcat:tomcat"
 PORT="8080"
@@ -19,11 +28,11 @@ URL0="${BASE_URL}/semanticAnnotator/files/MMNAT01_AF_NNM001001033_001.jpg"
 URL1="${BASE_URL}/semanticAnnotator/writeAnnotationsToRDF"
 URL2="${BASE_URL}/rdf4j-server/repositories/${REPO_ID}"
 
+declare -A MIME
+MIME=( [ttl]=text/turtle [jsonld]=application/ld+json )
 
-failed () {
-    echo "FAILED"
-    exit 1
-}
+# check RDF filext
+[[ ${MIME[$FILEXT]+_} ]] && echo "MIME: ${MIME[$FILEXT]}" || usage
 
 # check if the web app servers the image file(s)
 echo -ne "Image file(s) served\t... "
@@ -46,9 +55,9 @@ N=$(curl -s -u "$CRE" "{$URL2}/size")
 echo "N=$N"
 [[ $N == 0 ]] && exit 1
 
-# dump triples in RDF/Turtle
+# dump triples
 echo -ne "Dump triples\t... "
-[[ $(curl -s -u "$CRE" -w "%{http_code}" -H 'Accept: text/turtle' "${URL2}/statements" -o "$RDF_FILE") -eq 200 ]] \
+[[ $(curl -s -u "$CRE" -w "%{http_code}" -H "Accept: ${MIME[$FILEXT]}" "${URL2}/statements" -o "$RDF_FILE") -eq 200 ]] \
     && echo "OK" || failed
 cat "$RDF_FILE"
 echo

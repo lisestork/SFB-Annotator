@@ -1,0 +1,159 @@
+[ {
+  "@id" : "_:node1ec3i5nr1x988",
+  "@type" : [ "http://www.w3.org/ns/oa#Target" ],
+  "http://purl.org/dc/terms/format" : [ {
+    "@value" : "image/jpeg"
+  } ],
+  "http://www.w3.org/ns/oa#hasSelector" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862"
+  } ],
+  "http://www.w3.org/ns/oa#hasSource" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg"
+  } ]
+}, {
+  "@id" : "_:node1ec3i5nr1x989",
+  "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
+  "http://purl.org/dc/terms/format" : [ {
+    "@value" : "text/plain"
+  } ],
+  "http://purl.org/dc/terms/language" : [ {
+    "@value" : "la"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg",
+  "@type" : [ "http://purl.org/dc/dcmitype/StillImage", "http://xmlns.com/foaf/0.1/Image", "http://www.w3.org/ns/oa#Source" ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862",
+  "@type" : [ "http://www.w3.org/ns/oa#FragmentSelector" ],
+  "http://purl.org/dc/terms/conformsTo" : [ {
+    "@id" : "http://www.w3.org/TR/media-frags/"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
+    "@value" : "xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/annotation/72e6eb2a-46e2-4fbd-a904-de74b41514a9",
+  "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
+  "http://purl.org/dc/terms/creator" : [ {
+    "@id" : "http://orcid.org/0000-0002-2146-4803"
+  } ],
+  "http://purl.org/dc/terms/date" : [ {
+    "@value" : "2017-09-21"
+  } ],
+  "http://www.w3.org/ns/oa#hasBody" : [ {
+    "@id" : "_:node1ec3i5nr1x989"
+  }, {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/taxon1"
+  }, {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/humanObservation1"
+  } ],
+  "http://www.w3.org/ns/oa#hasTarget" : [ {
+    "@id" : "_:node1ec3i5nr1x988"
+  }, {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/date1",
+  "@type" : [ "http://purl.org/dc/terms/date" ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/event1",
+  "@type" : [ "http://rs.tdwg.org/dwc/terms/Event" ],
+  "http://makingsense.liacs.nl/rdf/nhc/verbatimEventDate" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/date1"
+  } ],
+  "http://purl.org/dsw/eventOf" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/occurrence1"
+  } ],
+  "http://purl.org/dsw/locatedAt" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/location1"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/humanObservation1",
+  "@type" : [ "http://rs.tdwg.org/dwc/terms/HumanObservation" ],
+  "http://purl.org/dsw/derivedFrom" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/organism1"
+  } ],
+  "http://purl.org/dsw/evidenceFor" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/occurrence1"
+  } ],
+  "http://purl.org/dsw/isBasisForId" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/identification1"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/identification1",
+  "@type" : [ "http://rs.tdwg.org/dwc/terms/Identification" ],
+  "http://purl.org/dsw/identifies" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/organism1"
+  } ],
+  "http://purl.org/dsw/isBasedOn" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/humanObservation1"
+  } ],
+  "http://rs.tdwg.org/dwc/iri/identifiedBy" : [ {
+    "@id" : "https://viaf.org/viaf/45106482/"
+  } ],
+  "http://rs.tdwg.org/dwc/iri/toTaxon" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/taxon1"
+  } ],
+  "http://rs.tdwg.org/dwc/terms/identificationID" : [ {
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/location1",
+  "@type" : [ "http://purl.org/dc/terms/Location" ],
+  "http://purl.org/dsw/locates" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/event1"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/occurrence1",
+  "@type" : [ "http://rs.tdwg.org/dwc/terms/Occurrence" ],
+  "http://purl.org/dsw/atEvent" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/event1"
+  } ],
+  "http://purl.org/dsw/hasEvidence" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/humanObservation1"
+  } ],
+  "http://purl.org/dsw/occurrenceOf" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/organism1"
+  } ],
+  "http://rs.tdwg.org/dwc/iri/recordedBy" : [ {
+    "@id" : "https://viaf.org/viaf/45106482/"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/organism1",
+  "@type" : [ "http://rs.tdwg.org/dwc/terms/Organism" ],
+  "http://purl.org/dsw/hasDerivative" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/humanObservation1"
+  } ],
+  "http://purl.org/dsw/hasIdentification" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/identification1"
+  } ],
+  "http://purl.org/dsw/hasOccurrence" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/occurrence1"
+  } ],
+  "http://rs.tdwg.org/dwc/terms/organismID" : [ {
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/taxon1",
+  "@type" : [ "http://rs.tdwg.org/dwc/terms/Taxon" ],
+  "http://makingsense.liacs.nl/rdf/nhc/belongsToTaxon" : [ {
+    "@id" : "https://identifiers.org/taxonomy:9397"
+  } ],
+  "http://makingsense.liacs.nl/rdf/nhc/taxonRank" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nhc/scientificName"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#int",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "la",
+    "@value" : "Pteropus minimus"
+  } ]
+}, {
+  "@id" : "http://orcid.org/0000-0002-2146-4803",
+  "@type" : [ "http://xmlns.com/foaf/0.1/Person" ]
+}, {
+  "@id" : "https://viaf.org/viaf/45106482/",
+  "@type" : [ "http://xmlns.com/foaf/0.1/Person" ]
+} ]

@@ -1,0 +1,57 @@
+[ {
+  "@id" : "_:node1ec3i5nr1x1029",
+  "@type" : [ "http://www.w3.org/ns/oa#Target" ],
+  "http://purl.org/dc/terms/format" : [ {
+    "@value" : "image/jpeg"
+  } ],
+  "http://www.w3.org/ns/oa#hasSelector" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445"
+  } ],
+  "http://www.w3.org/ns/oa#hasSource" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg"
+  } ]
+}, {
+  "@id" : "_:node1ec3i5nr1x1030",
+  "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
+  "http://purl.org/dc/terms/format" : [ {
+    "@value" : "text/plain"
+  } ],
+  "http://purl.org/dc/terms/language" : [ {
+    "@value" : "nl"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg",
+  "@type" : [ "http://purl.org/dc/dcmitype/StillImage", "http://xmlns.com/foaf/0.1/Image", "http://www.w3.org/ns/oa#Source" ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445",
+  "@type" : [ "http://www.w3.org/ns/oa#FragmentSelector" ],
+  "http://purl.org/dc/terms/conformsTo" : [ {
+    "@id" : "http://www.w3.org/TR/media-frags/"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
+    "@value" : "xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/annotation/34820cf2-0b46-4d92-8ab1-c5d6e16d60a5",
+  "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
+  "http://purl.org/dc/terms/creator" : [ {
+    "@id" : "http://orcid.org/0000-0002-2146-4803"
+  } ],
+  "http://purl.org/dc/terms/date" : [ {
+    "@value" : "2017-09-21"
+  } ],
+  "http://www.w3.org/ns/oa#hasBody" : [ {
+    "@id" : "_:node1ec3i5nr1x1030"
+  }, {
+    "@id" : "http://sws.geonames.org/1648473/"
+  } ],
+  "http://www.w3.org/ns/oa#hasTarget" : [ {
+    "@id" : "_:node1ec3i5nr1x1029"
+  } ]
+}, {
+  "@id" : "http://orcid.org/0000-0002-2146-4803",
+  "@type" : [ "http://xmlns.com/foaf/0.1/Person" ]
+}, {
+  "@id" : "http://sws.geonames.org/1648473/",
+  "@type" : [ "http://purl.org/dc/terms/Location" ]
+} ]

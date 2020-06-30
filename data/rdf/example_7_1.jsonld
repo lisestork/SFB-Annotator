@@ -1,0 +1,52 @@
+[ {
+  "@id" : "_:node1ec3i5nr1x1089",
+  "@type" : [ "http://www.w3.org/ns/oa#Target" ],
+  "http://purl.org/dc/terms/format" : [ {
+    "@value" : "image/jpeg"
+  } ],
+  "http://www.w3.org/ns/oa#hasSelector" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081"
+  } ],
+  "http://www.w3.org/ns/oa#hasSource" : [ {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg"
+  } ]
+}, {
+  "@id" : "_:node1ec3i5nr1x1090",
+  "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
+  "http://purl.org/dc/terms/format" : [ {
+    "@value" : "text/plain"
+  } ],
+  "http://purl.org/dc/terms/language" : [ {
+    "@value" : "nl"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg",
+  "@type" : [ "http://purl.org/dc/dcmitype/StillImage", "http://xmlns.com/foaf/0.1/Image", "http://www.w3.org/ns/oa#Source" ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081",
+  "@type" : [ "http://www.w3.org/ns/oa#FragmentSelector" ],
+  "http://purl.org/dc/terms/conformsTo" : [ {
+    "@id" : "http://www.w3.org/TR/media-frags/"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
+    "@value" : "xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/annotation/1ca8e2a9-2b3d-4f7c-9c28-792d581a1cb5",
+  "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
+  "http://purl.org/dc/terms/creator" : [ {
+    "@id" : "http://orcid.org/0000-0002-2146-4803"
+  } ],
+  "http://purl.org/dc/terms/date" : [ {
+    "@value" : "2017-09-21"
+  } ],
+  "http://www.w3.org/ns/oa#hasBody" : [ {
+    "@id" : "_:node1ec3i5nr1x1090"
+  } ],
+  "http://www.w3.org/ns/oa#hasTarget" : [ {
+    "@id" : "_:node1ec3i5nr1x1089"
+  } ]
+}, {
+  "@id" : "http://orcid.org/0000-0002-2146-4803",
+  "@type" : [ "http://xmlns.com/foaf/0.1/Person" ]
+} ]

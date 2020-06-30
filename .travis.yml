@@ -3,6 +3,10 @@ dist: trusty
 sudo: required
 services:
   - docker
+env:
+  matrix:
+    - FILEXT=ttl
+    - FILEXT=jsonld
 install:
   - docker build -t linnae/sfb-annotator:local .
   - docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
@@ -11,7 +15,7 @@ install:
 script:
   - |
     for json in $(ls data/json/*.json|sort); do
-      pfx="$(basename "$json" .json)"
-      rdf="$pfx.ttl"
+      prefix="$(basename "$json" .json)"
+      rdf="$prefix.$FILEXT"
       ./run.sh "$json" "$rdf"
     done
