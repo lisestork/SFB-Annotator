@@ -34,7 +34,7 @@ MIME=( [ttl]=text/turtle [jsonld]=application/ld+json )
 # check RDF filext
 [[ ${MIME[$FILEXT]+_} ]] && echo "MIME: ${MIME[$FILEXT]}" || usage
 
-# check if the web app servers the image file(s)
+# check if the web app serves the image file(s)
 echo -ne "Image file(s) served\t... "
 [[ $(curl -s -u "$CRE" -w "%{http_code}" "$URL0" -o test.jpg) -eq 200 ]] \
     && echo "OK" || failed
