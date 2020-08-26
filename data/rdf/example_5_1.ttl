@@ -1,29 +1,30 @@
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/659127c7-e183-4140-a666-32a0f74a8200>
-  a <http://www.w3.org/ns/oa#Annotation>;
+<http://localhost:8080/rdf/nc/annotation/4d6781bf-8d9d-4f92-ab3e-50d5f9614385> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>,
-    _:node1ec3i5nr1x939 .
+    _:node1eglquac7x96 .
 
-_:node1ec3i5nr1x939 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1eglquac7x96 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
-  <http://purl.org/dc/terms/language> "la" .
+  <http://purl.org/dc/terms/language> "la";
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Color"@la;
+  <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/659127c7-e183-4140-a666-32a0f74a8200>
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ec3i5nr1x938 .
+<http://localhost:8080/rdf/nc/annotation/4d6781bf-8d9d-4f92-ab3e-50d5f9614385> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1eglquac7x95 .
 
-_:node1ec3i5nr1x938 a <http://www.w3.org/ns/oa#Target>;
+_:node1eglquac7x95 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "image/jpeg";
-  <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091>;
-  <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
+  <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091>;
+  <http://www.w3.org/ns/oa#hasSource> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
 
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
 
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/StillImage>,
-    <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> a
+    <http://purl.org/dc/dcmitype/StillImage>, <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
 
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091>
+<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091>
   a <http://www.w3.org/ns/oa#FragmentSelector>;
   <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091" .
@@ -35,9 +36,9 @@ _:node1ec3i5nr1x938 a <http://www.w3.org/ns/oa#Target>;
   <http://makingsense.liacs.nl/rdf/nhc/measuresOrDescribes> <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>;
   <http://purl.org/dsw/derivedFrom> <http://makingsense.liacs.nl/rdf/nc/humanObservation-> .
 
-<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a _:node1ec3i5nr1x934 .
+<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a _:node1eglquac7x91 .
 
-_:node1ec3i5nr1x934 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://identifiers.org/ncit/C20189> .
+_:node1eglquac7x91 <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://identifiers.org/ncit/C20189> .
 
 <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> <http://www.w3.org/2000/01/rdf-schema#label>
     "Color"@la .

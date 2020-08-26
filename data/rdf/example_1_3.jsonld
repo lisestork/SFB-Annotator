@@ -1,17 +1,17 @@
 [ {
-  "@id" : "_:node1egloa9rbx21",
+  "@id" : "_:node1eglquac7x160",
   "@type" : [ "http://www.w3.org/ns/oa#Target" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "image/jpeg"
   } ],
   "http://www.w3.org/ns/oa#hasSelector" : [ {
-    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_008.jpg#xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658"
+    "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg#xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658"
   } ],
   "http://www.w3.org/ns/oa#hasSource" : [ {
-    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_008.jpg"
+    "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg"
   } ]
 }, {
-  "@id" : "_:node1egloa9rbx22",
+  "@id" : "_:node1eglquac7x161",
   "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "text/plain"
@@ -27,7 +27,7 @@
     "@id" : "http://www.w3.org/ns/oa#describing"
   } ]
 }, {
-  "@id" : "_:node1egloa9rbx23",
+  "@id" : "_:node1eglquac7x162",
   "@type" : [ "http://rs.tdwg.org/dwc/terms/Taxon" ],
   "http://makingsense.liacs.nl/rdf/nhc/belongsToTaxon" : [ {
     "@id" : "https://identifiers.org/taxonomy:9397"
@@ -44,19 +44,7 @@
     "@value" : "Pteropus"
   } ]
 }, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_008.jpg",
-  "@type" : [ "http://purl.org/dc/dcmitype/StillImage", "http://xmlns.com/foaf/0.1/Image", "http://www.w3.org/ns/oa#Source" ]
-}, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_008.jpg#xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658",
-  "@type" : [ "http://www.w3.org/ns/oa#FragmentSelector" ],
-  "http://purl.org/dc/terms/conformsTo" : [ {
-    "@id" : "http://www.w3.org/TR/media-frags/"
-  } ],
-  "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
-    "@value" : "xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658"
-  } ]
-}, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/annotation/02981f93-d175-4ef5-a528-b55eb6621776",
+  "@id" : "http://localhost:8080/rdf/nc/annotation/c05e6bb1-badf-4415-b80d-7740e8741402",
   "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
   "http://purl.org/dc/terms/creator" : [ {
     "@id" : "http://orcid.org/0000-0002-2146-4803"
@@ -65,18 +53,30 @@
     "@value" : "2017-09-21"
   } ],
   "http://www.w3.org/ns/oa#hasBody" : [ {
-    "@id" : "_:node1egloa9rbx22"
+    "@id" : "_:node1eglquac7x161"
   }, {
-    "@id" : "_:node1egloa9rbx23"
+    "@id" : "_:node1eglquac7x162"
   } ],
   "http://www.w3.org/ns/oa#hasTarget" : [ {
-    "@id" : "_:node1egloa9rbx21"
+    "@id" : "_:node1eglquac7x160"
+  } ]
+}, {
+  "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg",
+  "@type" : [ "http://purl.org/dc/dcmitype/StillImage", "http://xmlns.com/foaf/0.1/Image", "http://www.w3.org/ns/oa#Source" ]
+}, {
+  "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg#xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658",
+  "@type" : [ "http://www.w3.org/ns/oa#FragmentSelector" ],
+  "http://purl.org/dc/terms/conformsTo" : [ {
+    "@id" : "http://www.w3.org/TR/media-frags/"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
+    "@value" : "xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658"
   } ]
 }, {
   "@id" : "http://makingsense.liacs.nl/rdf/nc/identification2_id1",
   "@type" : [ "http://rs.tdwg.org/dwc/terms/Identification" ],
   "http://rs.tdwg.org/dwc/iri/toTaxon" : [ {
-    "@id" : "_:node1egloa9rbx23"
+    "@id" : "_:node1eglquac7x162"
   } ],
   "http://rs.tdwg.org/dwc/terms/identificationID" : [ {
     "@value" : "2_id1"

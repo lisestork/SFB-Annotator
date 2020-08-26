@@ -1,28 +1,29 @@
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/f7c4f94e-bb06-4d90-82d0-8ad462ac6806>
-  a <http://www.w3.org/ns/oa#Annotation>;
+<http://localhost:8080/rdf/nc/annotation/10bed307-f6e0-4c84-a0cb-76ad2759e23c> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
-  <http://www.w3.org/ns/oa#hasBody> <http://sws.geonames.org/1648473/>, _:node1ec3i5nr1x908 .
+  <http://www.w3.org/ns/oa#hasBody> <http://sws.geonames.org/1648473/>, _:node1eglquac7x61 .
 
-_:node1ec3i5nr1x908 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1eglquac7x61 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
-  <http://purl.org/dc/terms/language> "nl" .
+  <http://purl.org/dc/terms/language> "nl";
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Buitenzorg"@nl;
+  <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/f7c4f94e-bb06-4d90-82d0-8ad462ac6806>
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ec3i5nr1x907 .
+<http://localhost:8080/rdf/nc/annotation/10bed307-f6e0-4c84-a0cb-76ad2759e23c> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1eglquac7x60 .
 
-_:node1ec3i5nr1x907 a <http://www.w3.org/ns/oa#Target>;
+_:node1eglquac7x60 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "image/jpeg";
-  <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445>;
-  <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
+  <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445>;
+  <http://www.w3.org/ns/oa#hasSource> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
 
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
 
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/StillImage>,
-    <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> a
+    <http://purl.org/dc/dcmitype/StillImage>, <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
 
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445>
+<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445>
   a <http://www.w3.org/ns/oa#FragmentSelector>;
   <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445" .

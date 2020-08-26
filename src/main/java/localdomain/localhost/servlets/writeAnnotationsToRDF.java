@@ -117,9 +117,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String dcmitype = "http://purl.org/dc/dcmitype/";
 
 		// Connect to RDF server
-		String rdf4jServer = "http://localhost:8080/rdf4j-server/";
+		String host = "http://localhost:8080/";
 		String repositoryID = "mem-rdf";
-		Repository repo = new HTTPRepository(rdf4jServer, repositoryID);
+		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
 		// repo.initialize()
 		ValueFactory f = repo.getValueFactory();
 
@@ -186,9 +186,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				: f.createIRI(propertyorattribute);
 
 		// init instances
-		IRI annotationIRI = f.createIRI(nc, "annotation/" + uuid);
-		IRI sourceIRI = f.createIRI(nc, source);
-		IRI selectorIRI = f.createIRI(nc, source + selector);
+		IRI annotationIRI = f.createIRI(host, "rdf/nc/annotation/" + uuid);
+		IRI sourceIRI = f.createIRI(host, "semanticAnnotator/files/" + source);
+		IRI selectorIRI = f.createIRI(sourceIRI + selector);
 		IRI identificationIRI = f.createIRI(nc, "identification" + organismID);
 		IRI humanObservationIRI = f.createIRI(nc, "humanObservation" + organismID);
 		IRI organismIRI = f.createIRI(nc, "organism" + organismID);
@@ -202,6 +202,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI addEventIRI = f.createIRI(nc, "event" + organismID + "_occ" + occurrenceID);
 		IRI addLocationIRI = f.createIRI(nc, "location" + organismID + "_occ" + occurrenceID);
 		IRI addDateIRI = f.createIRI(nc, "date" + organismID + "_occ" + occurrenceID);
+
 		Resource instanceIRI = (instance.equals("")) ? f.createBNode() : f.createIRI(instance);
 		Resource annotatorIRI = (annotator.equals("")) ? f.createBNode() : f.createIRI(annotator);
 		Resource personIRI = (person.equals("")) ? f.createBNode() : f.createIRI(person);

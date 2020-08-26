@@ -1,29 +1,53 @@
 [ {
-  "@id" : "_:node1ec3i5nr1x1081",
+  "@id" : "_:node1eglquac7x258",
   "@type" : [ "http://www.w3.org/ns/oa#Target" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "image/jpeg"
   } ],
   "http://www.w3.org/ns/oa#hasSelector" : [ {
-    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747"
+    "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747"
   } ],
   "http://www.w3.org/ns/oa#hasSource" : [ {
-    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg"
+    "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg"
   } ]
 }, {
-  "@id" : "_:node1ec3i5nr1x1082",
+  "@id" : "_:node1eglquac7x259",
   "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "text/plain"
   } ],
   "http://purl.org/dc/terms/language" : [ {
     "@value" : "la"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
+    "@language" : "la",
+    "@value" : "Dentibus"
+  } ],
+  "http://www.w3.org/ns/oa#hasPurpose" : [ {
+    "@id" : "http://www.w3.org/ns/oa#describing"
   } ]
 }, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg",
+  "@id" : "http://localhost:8080/rdf/nc/annotation/dda47d35-c14e-4e6c-b0d7-72f496082cd4",
+  "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
+  "http://purl.org/dc/terms/creator" : [ {
+    "@id" : "http://orcid.org/0000-0002-2146-4803"
+  } ],
+  "http://purl.org/dc/terms/date" : [ {
+    "@value" : "2017-09-21"
+  } ],
+  "http://www.w3.org/ns/oa#hasBody" : [ {
+    "@id" : "_:node1eglquac7x259"
+  }, {
+    "@id" : "http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1"
+  } ],
+  "http://www.w3.org/ns/oa#hasTarget" : [ {
+    "@id" : "_:node1eglquac7x258"
+  } ]
+}, {
+  "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
   "@type" : [ "http://purl.org/dc/dcmitype/StillImage", "http://xmlns.com/foaf/0.1/Image", "http://www.w3.org/ns/oa#Source" ]
 }, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747",
+  "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747",
   "@type" : [ "http://www.w3.org/ns/oa#FragmentSelector" ],
   "http://purl.org/dc/terms/conformsTo" : [ {
     "@id" : "http://www.w3.org/TR/media-frags/"
@@ -39,23 +63,6 @@
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "la",
     "@value" : "Dentibus"
-  } ]
-}, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/annotation/180c2fa6-040a-40b3-ba3d-280af273e96c",
-  "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
-  "http://purl.org/dc/terms/creator" : [ {
-    "@id" : "http://orcid.org/0000-0002-2146-4803"
-  } ],
-  "http://purl.org/dc/terms/date" : [ {
-    "@value" : "2017-09-21"
-  } ],
-  "http://www.w3.org/ns/oa#hasBody" : [ {
-    "@id" : "_:node1ec3i5nr1x1082"
-  }, {
-    "@id" : "http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1"
-  } ],
-  "http://www.w3.org/ns/oa#hasTarget" : [ {
-    "@id" : "_:node1ec3i5nr1x1081"
   } ]
 }, {
   "@id" : "http://makingsense.liacs.nl/rdf/nc/humanObservation1",

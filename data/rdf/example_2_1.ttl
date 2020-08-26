@@ -1,28 +1,29 @@
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/6fcdcd9b-d801-4293-b47e-bf84f3653938>
-  a <http://www.w3.org/ns/oa#Annotation>;
+<http://localhost:8080/rdf/nc/annotation/bf894361-6b9c-4c22-b4c8-8343c250b237> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
-  <http://www.w3.org/ns/oa#hasBody> <http://viaf.org/viaf/39377694>, _:node1ec3i5nr1x881 .
+  <http://www.w3.org/ns/oa#hasBody> <http://viaf.org/viaf/39377694>, _:node1eglquac7x30 .
 
-_:node1ec3i5nr1x881 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1eglquac7x30 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
-  <http://purl.org/dc/terms/language> "und" .
+  <http://purl.org/dc/terms/language> "und";
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Geoff"@und;
+  <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/6fcdcd9b-d801-4293-b47e-bf84f3653938>
-  <http://www.w3.org/ns/oa#hasTarget> _:node1ec3i5nr1x880 .
+<http://localhost:8080/rdf/nc/annotation/bf894361-6b9c-4c22-b4c8-8343c250b237> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1eglquac7x29 .
 
-_:node1ec3i5nr1x880 a <http://www.w3.org/ns/oa#Target>;
+_:node1eglquac7x29 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "image/jpeg";
-  <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206>;
-  <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
+  <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206>;
+  <http://www.w3.org/ns/oa#hasSource> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
 
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
 
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/StillImage>,
-    <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> a
+    <http://purl.org/dc/dcmitype/StillImage>, <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
 
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206>
+<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206>
   a <http://www.w3.org/ns/oa#FragmentSelector>;
   <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206" .

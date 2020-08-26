@@ -1,43 +1,38 @@
 [ {
-  "@id" : "_:node1ec3i5nr1x1056",
+  "@id" : "_:node1eglquac7x230",
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://identifiers.org/ncit/C20189"
   } ]
 }, {
-  "@id" : "_:node1ec3i5nr1x1060",
+  "@id" : "_:node1eglquac7x234",
   "@type" : [ "http://www.w3.org/ns/oa#Target" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "image/jpeg"
   } ],
   "http://www.w3.org/ns/oa#hasSelector" : [ {
-    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091"
+    "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091"
   } ],
   "http://www.w3.org/ns/oa#hasSource" : [ {
-    "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg"
+    "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg"
   } ]
 }, {
-  "@id" : "_:node1ec3i5nr1x1061",
+  "@id" : "_:node1eglquac7x235",
   "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "text/plain"
   } ],
   "http://purl.org/dc/terms/language" : [ {
     "@value" : "la"
-  } ]
-}, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg",
-  "@type" : [ "http://purl.org/dc/dcmitype/StillImage", "http://xmlns.com/foaf/0.1/Image", "http://www.w3.org/ns/oa#Source" ]
-}, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091",
-  "@type" : [ "http://www.w3.org/ns/oa#FragmentSelector" ],
-  "http://purl.org/dc/terms/conformsTo" : [ {
-    "@id" : "http://www.w3.org/TR/media-frags/"
   } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
-    "@value" : "xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091"
+    "@language" : "la",
+    "@value" : "Color"
+  } ],
+  "http://www.w3.org/ns/oa#hasPurpose" : [ {
+    "@id" : "http://www.w3.org/ns/oa#describing"
   } ]
 }, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/annotation/fbd9422c-1eb7-4beb-ae8b-81fbf3261d59",
+  "@id" : "http://localhost:8080/rdf/nc/annotation/0ec6d7d8-ad7d-4962-a68a-92b2354b8955",
   "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
   "http://purl.org/dc/terms/creator" : [ {
     "@id" : "http://orcid.org/0000-0002-2146-4803"
@@ -46,12 +41,24 @@
     "@value" : "2017-09-21"
   } ],
   "http://www.w3.org/ns/oa#hasBody" : [ {
-    "@id" : "_:node1ec3i5nr1x1061"
+    "@id" : "_:node1eglquac7x235"
   }, {
     "@id" : "http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1"
   } ],
   "http://www.w3.org/ns/oa#hasTarget" : [ {
-    "@id" : "_:node1ec3i5nr1x1060"
+    "@id" : "_:node1eglquac7x234"
+  } ]
+}, {
+  "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
+  "@type" : [ "http://purl.org/dc/dcmitype/StillImage", "http://xmlns.com/foaf/0.1/Image", "http://www.w3.org/ns/oa#Source" ]
+}, {
+  "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091",
+  "@type" : [ "http://www.w3.org/ns/oa#FragmentSelector" ],
+  "http://purl.org/dc/terms/conformsTo" : [ {
+    "@id" : "http://www.w3.org/TR/media-frags/"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
+    "@value" : "xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091"
   } ]
 }, {
   "@id" : "http://makingsense.liacs.nl/rdf/nc/humanObservation-",
@@ -70,7 +77,7 @@
 }, {
   "@id" : "http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "_:node1ec3i5nr1x1056"
+    "@id" : "_:node1eglquac7x230"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "la",

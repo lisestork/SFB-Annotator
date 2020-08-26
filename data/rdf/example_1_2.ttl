@@ -1,41 +1,39 @@
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/f041726a-c461-4b4e-b0cf-a8eb57b867f0>
-  a <http://www.w3.org/ns/oa#Annotation>;
+<http://localhost:8080/rdf/nc/annotation/43139111-4b50-4b35-a199-a5e98b6ec60f> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/humanObservation1>,
-    _:node1egloa9rbx37 .
+    _:node1eglquac7x14 .
 
-_:node1egloa9rbx37 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1eglquac7x14 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "la";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Pteropus minimus"@la;
   <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/f041726a-c461-4b4e-b0cf-a8eb57b867f0>
-  <http://www.w3.org/ns/oa#hasBody> _:node1egloa9rbx38 .
+<http://localhost:8080/rdf/nc/annotation/43139111-4b50-4b35-a199-a5e98b6ec60f> <http://www.w3.org/ns/oa#hasBody>
+    _:node1eglquac7x15 .
 
-_:node1egloa9rbx38 a <http://rs.tdwg.org/dwc/terms/Taxon>;
+_:node1eglquac7x15 a <http://rs.tdwg.org/dwc/terms/Taxon>;
   <http://makingsense.liacs.nl/rdf/nhc/belongsToTaxon> <https://identifiers.org/taxonomy:9397>;
   <http://makingsense.liacs.nl/rdf/nhc/taxonRank> <http://makingsense.liacs.nl/rdf/nhc/scientificName>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/2000/01/rdf-schema#label> "Pteropus minimus"@la .
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/f041726a-c461-4b4e-b0cf-a8eb57b867f0>
-  <http://www.w3.org/ns/oa#hasTarget> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg>,
-    _:node1egloa9rbx36 .
+<http://localhost:8080/rdf/nc/annotation/43139111-4b50-4b35-a199-a5e98b6ec60f> <http://www.w3.org/ns/oa#hasTarget>
+    <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg>, _:node1eglquac7x13 .
 
-_:node1egloa9rbx36 a <http://www.w3.org/ns/oa#Target>;
+_:node1eglquac7x13 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "image/jpeg";
-  <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862>;
-  <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> .
+  <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862>;
+  <http://www.w3.org/ns/oa#hasSource> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
 
 <http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
 
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg> a <http://purl.org/dc/dcmitype/StillImage>,
-    <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> a
+    <http://purl.org/dc/dcmitype/StillImage>, <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
 
-<http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862>
+<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862>
   a <http://www.w3.org/ns/oa#FragmentSelector>;
   <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862" .
@@ -56,7 +54,7 @@ _:node1egloa9rbx36 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dsw/identifies> <http://makingsense.liacs.nl/rdf/nc/organism1>;
   <http://purl.org/dsw/isBasedOn> <http://makingsense.liacs.nl/rdf/nc/humanObservation1>;
   <http://rs.tdwg.org/dwc/iri/identifiedBy> <https://viaf.org/viaf/45106482/>;
-  <http://rs.tdwg.org/dwc/iri/toTaxon> _:node1egloa9rbx38;
+  <http://rs.tdwg.org/dwc/iri/toTaxon> _:node1eglquac7x15;
   <http://rs.tdwg.org/dwc/terms/identificationID> "1" .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> a <http://purl.org/dc/terms/Location>;
