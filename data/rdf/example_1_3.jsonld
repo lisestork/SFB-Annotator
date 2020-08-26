@@ -1,5 +1,5 @@
 [ {
-  "@id" : "_:node1ec3i5nr1x995",
+  "@id" : "_:node1egln5rm0x39",
   "@type" : [ "http://www.w3.org/ns/oa#Target" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "image/jpeg"
@@ -11,13 +11,20 @@
     "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_008.jpg"
   } ]
 }, {
-  "@id" : "_:node1ec3i5nr1x996",
+  "@id" : "_:node1egln5rm0x40",
   "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "text/plain"
   } ],
   "http://purl.org/dc/terms/language" : [ {
     "@value" : "la"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
+    "@language" : "la",
+    "@value" : "Pteropus"
+  } ],
+  "http://www.w3.org/ns/oa#hasPurpose" : [ {
+    "@id" : "http://www.w3.org/ns/oa#describing"
   } ]
 }, {
   "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_008.jpg",
@@ -32,7 +39,7 @@
     "@value" : "xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658"
   } ]
 }, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/annotation/19e6cd76-4057-4337-9cba-7f2b10599c6f",
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/annotation/3adecd7f-a719-49c2-accc-f310ef6bdaf6",
   "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
   "http://purl.org/dc/terms/creator" : [ {
     "@id" : "http://orcid.org/0000-0002-2146-4803"
@@ -41,12 +48,12 @@
     "@value" : "2017-09-21"
   } ],
   "http://www.w3.org/ns/oa#hasBody" : [ {
-    "@id" : "_:node1ec3i5nr1x996"
+    "@id" : "_:node1egln5rm0x40"
   }, {
     "@id" : "http://makingsense.liacs.nl/rdf/nc/taxon1"
   } ],
   "http://www.w3.org/ns/oa#hasTarget" : [ {
-    "@id" : "_:node1ec3i5nr1x995"
+    "@id" : "_:node1egln5rm0x39"
   } ]
 }, {
   "@id" : "http://makingsense.liacs.nl/rdf/nc/identification2_id1",

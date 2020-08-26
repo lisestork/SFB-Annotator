@@ -154,6 +154,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI hasSelectorProperty = f.createIRI(oa, "hasSelector");
 		IRI hasBodyProperty = f.createIRI(oa, "hasBody");
 		IRI hasTargetProperty = f.createIRI(oa, "hasTarget");
+		IRI hasPurposeProperty = f.createIRI(oa, "hasPurpose");
 		IRI hasDerivativeProperty = f.createIRI(dsw, "hasDerivative");
 		IRI derivedFromProperty = f.createIRI(dsw, "derivedFrom");
 		IRI identifiesProperty = f.createIRI(dsw, "identifies");
@@ -245,6 +246,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(textualBodyBNode, RDF.TYPE, textualBodyClass);
 			conn.add(textualBodyBNode, DCTERMS.FORMAT, f.createLiteral("text/plain"));
 			conn.add(textualBodyBNode, DCTERMS.LANGUAGE, f.createLiteral(lang));
+			conn.add(textualBodyBNode, RDF.VALUE, f.createLiteral(verbatim, lang));
+			conn.add(textualBodyBNode, hasPurposeProperty, f.createIRI(oa, "describing"));
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "StillImage"));
 			conn.add(sourceIRI, RDF.TYPE, FOAF.IMAGE);
 			conn.add(selectorIRI, RDF.TYPE, fragmentSelectorClass);
