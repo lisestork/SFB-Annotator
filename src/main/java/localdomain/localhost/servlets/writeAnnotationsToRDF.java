@@ -209,12 +209,12 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		Resource geonamesFeatureIRI = (geonamesfeature.equals("")) ? f.createBNode() : f.createIRI(geonamesfeature);
 		Resource targetBNode = f.createBNode();
 		Resource textualBodyBNode = f.createBNode();
+		Resource taxonBNode = f.createBNode();
 
 		// query RDF store
 		String query2 = "SELECT ?value WHERE { ?iri rdf:type <" + taxonClass.toString()
 				+ "> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
 		int taxonNr = QueryTripleStore(query2, repo, "value");
-		IRI taxonIRI = f.createIRI(nc, "taxon" + taxonNr);
 
 		String query3 = "SELECT (COUNT(DISTINCT ?measurements) AS ?totalNumberOfInstances) WHERE { ?measurements rdf:type <"
 				+ measurementOrFactClass.toString() + "> . }";
@@ -257,7 +257,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 
 			switch (property) {
 				case "hasIdentification" :
-					conn.add(annotationIRI, hasBodyProperty, taxonIRI);
+					conn.add(annotationIRI, hasBodyProperty, taxonBNode);
 					conn.add(annotationIRI, hasBodyProperty, humanObservationIRI);
 					conn.add(annotationIRI, hasTargetProperty, sourceIRI);
 					conn.add(eventIRI, verbatimEventDateProperty, dateIRI);
@@ -269,7 +269,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(humanObservationIRI, derivedFromProperty, organismIRI);
 					conn.add(humanObservationIRI, evidenceForProperty, occurrenceIRI);
 					conn.add(humanObservationIRI, RDF.TYPE, humanObservationClass);
-					conn.add(identificationIRI, toTaxonProperty, taxonIRI);
+					conn.add(identificationIRI, toTaxonProperty, taxonBNode);
 					conn.add(identificationIRI, isBasedOnProperty, humanObservationIRI);
 					conn.add(identificationIRI, identifiedByProperty, personIRI);
 					conn.add(identificationIRI, identifiesProperty, organismIRI);
@@ -288,25 +288,25 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(organismIRI, organismIDProperty, f.createLiteral(organismID));
 					conn.add(organismIRI, RDF.TYPE, organismClass);
 					conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
-					conn.add(taxonIRI, belongsToTaxonProperty, belongsToTaxonIRI);
-					conn.add(taxonIRI, taxonRankProperty, taxonRankIRI);
-					conn.add(taxonIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
-					conn.add(taxonIRI, RDF.TYPE, taxonClass);
-					conn.add(taxonIRI, RDF.VALUE, f.createLiteral(taxonNr));
+					conn.add(taxonBNode, belongsToTaxonProperty, belongsToTaxonIRI);
+					conn.add(taxonBNode, taxonRankProperty, taxonRankIRI);
+					conn.add(taxonBNode, RDFS.LABEL, f.createLiteral(verbatim, lang));
+					conn.add(taxonBNode, RDF.TYPE, taxonClass);
+					conn.add(taxonBNode, RDF.VALUE, f.createLiteral(taxonNr));
 					break;
 				case "additionalIdentification" :
 					conn.add(additionalIdentificationProperty, RDFS.SUBPROPERTYOF, additionalProperty);
-					conn.add(addIdentificationIRI, toTaxonProperty, taxonIRI);
+					conn.add(addIdentificationIRI, toTaxonProperty, taxonBNode);
 					conn.add(addIdentificationIRI, identificationIDProperty,
 							f.createLiteral(organismID + "_id" + identificationID));
 					conn.add(addIdentificationIRI, RDF.TYPE, identificationClass);
-					conn.add(annotationIRI, hasBodyProperty, taxonIRI);
+					conn.add(annotationIRI, hasBodyProperty, taxonBNode);
 					conn.add(organismIRI, additionalIdentificationProperty, addIdentificationIRI);
-					conn.add(taxonIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
-					conn.add(taxonIRI, RDF.TYPE, taxonClass);
-					conn.add(taxonIRI, belongsToTaxonProperty, belongsToTaxonIRI);
-					conn.add(taxonIRI, taxonRankProperty, taxonRankIRI);
-					conn.add(taxonIRI, RDF.VALUE, f.createLiteral(taxonNr));
+					conn.add(taxonBNode, RDFS.LABEL, f.createLiteral(verbatim, lang));
+					conn.add(taxonBNode, RDF.TYPE, taxonClass);
+					conn.add(taxonBNode, belongsToTaxonProperty, belongsToTaxonIRI);
+					conn.add(taxonBNode, taxonRankProperty, taxonRankIRI);
+					conn.add(taxonBNode, RDF.VALUE, f.createLiteral(taxonNr));
 					break;
 				case "verbatimEventDate" :
 					conn.add(annotationIRI, hasBodyProperty, dateIRI);
@@ -380,12 +380,12 @@ public class writeAnnotationsToRDF extends HttpServlet {
 						conn.add(annotationIRI, hasBodyProperty, instanceIRI);
 						conn.add(instanceIRI, RDF.TYPE, DCTERMS.LOCATION);
 					} else if (type.equals("taxon")) {
-						conn.add(annotationIRI, hasBodyProperty, taxonIRI);
-						conn.add(taxonIRI, RDF.TYPE, taxonClass);
-						conn.add(taxonIRI, belongsToTaxonProperty, belongsToTaxonIRI);
-						conn.add(taxonIRI, taxonRankProperty, taxonRankIRI);
-						conn.add(taxonIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
-						conn.add(taxonIRI, RDF.VALUE, f.createLiteral(taxonNr));
+						conn.add(annotationIRI, hasBodyProperty, taxonBNode);
+						conn.add(taxonBNode, RDF.TYPE, taxonClass);
+						conn.add(taxonBNode, belongsToTaxonProperty, belongsToTaxonIRI);
+						conn.add(taxonBNode, taxonRankProperty, taxonRankIRI);
+						conn.add(taxonBNode, RDFS.LABEL, f.createLiteral(verbatim, lang));
+						conn.add(taxonBNode, RDF.VALUE, f.createLiteral(taxonNr));
 					}
 					break;
 				default :

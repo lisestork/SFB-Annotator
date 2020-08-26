@@ -1,5 +1,5 @@
 [ {
-  "@id" : "_:node1egln5rm0x26",
+  "@id" : "_:node1egloa9rbx6",
   "@type" : [ "http://www.w3.org/ns/oa#Target" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "image/jpeg"
@@ -11,7 +11,7 @@
     "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg"
   } ]
 }, {
-  "@id" : "_:node1egln5rm0x27",
+  "@id" : "_:node1egloa9rbx7",
   "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "text/plain"
@@ -27,36 +27,7 @@
     "@id" : "http://www.w3.org/ns/oa#describing"
   } ]
 }, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg",
-  "@type" : [ "http://purl.org/dc/dcmitype/StillImage", "http://xmlns.com/foaf/0.1/Image", "http://www.w3.org/ns/oa#Source" ]
-}, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122",
-  "@type" : [ "http://www.w3.org/ns/oa#FragmentSelector" ],
-  "http://purl.org/dc/terms/conformsTo" : [ {
-    "@id" : "http://www.w3.org/TR/media-frags/"
-  } ],
-  "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
-    "@value" : "xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122"
-  } ]
-}, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/annotation/527327e2-23d2-4411-85ea-ea1aca92a70e",
-  "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
-  "http://purl.org/dc/terms/creator" : [ {
-    "@id" : "http://orcid.org/0000-0002-2146-4803"
-  } ],
-  "http://purl.org/dc/terms/date" : [ {
-    "@value" : "2017-09-21"
-  } ],
-  "http://www.w3.org/ns/oa#hasBody" : [ {
-    "@id" : "_:node1egln5rm0x27"
-  }, {
-    "@id" : "http://makingsense.liacs.nl/rdf/nc/taxon1"
-  } ],
-  "http://www.w3.org/ns/oa#hasTarget" : [ {
-    "@id" : "_:node1egln5rm0x26"
-  } ]
-}, {
-  "@id" : "http://makingsense.liacs.nl/rdf/nc/taxon1",
+  "@id" : "_:node1egloa9rbx8",
   "@type" : [ "http://rs.tdwg.org/dwc/terms/Taxon" ],
   "http://makingsense.liacs.nl/rdf/nhc/belongsToTaxon" : [ {
     "@id" : "https://identifiers.org/taxonomy:9397"
@@ -71,6 +42,35 @@
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "la",
     "@value" : "Pteropus minimus"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg",
+  "@type" : [ "http://purl.org/dc/dcmitype/StillImage", "http://xmlns.com/foaf/0.1/Image", "http://www.w3.org/ns/oa#Source" ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122",
+  "@type" : [ "http://www.w3.org/ns/oa#FragmentSelector" ],
+  "http://purl.org/dc/terms/conformsTo" : [ {
+    "@id" : "http://www.w3.org/TR/media-frags/"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#value" : [ {
+    "@value" : "xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122"
+  } ]
+}, {
+  "@id" : "http://makingsense.liacs.nl/rdf/nc/annotation/d5ec8185-2a91-4ae1-aa7e-74ca194a3687",
+  "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
+  "http://purl.org/dc/terms/creator" : [ {
+    "@id" : "http://orcid.org/0000-0002-2146-4803"
+  } ],
+  "http://purl.org/dc/terms/date" : [ {
+    "@value" : "2017-09-21"
+  } ],
+  "http://www.w3.org/ns/oa#hasBody" : [ {
+    "@id" : "_:node1egloa9rbx7"
+  }, {
+    "@id" : "_:node1egloa9rbx8"
+  } ],
+  "http://www.w3.org/ns/oa#hasTarget" : [ {
+    "@id" : "_:node1egloa9rbx6"
   } ]
 }, {
   "@id" : "http://orcid.org/0000-0002-2146-4803",

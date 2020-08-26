@@ -1,20 +1,29 @@
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/317f31cd-f228-4d10-b557-8ee87e07b910>
+<http://makingsense.liacs.nl/rdf/nc/annotation/292babc9-f0ef-4885-ba17-0c2a9e90a018>
   a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
-  <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/taxon1>, _:node1egln5rm0x20 .
+  <http://www.w3.org/ns/oa#hasBody> _:node1egloa9rbx45 .
 
-_:node1egln5rm0x20 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1egloa9rbx45 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "la";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Pteropus"@la;
   <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
 
-<http://makingsense.liacs.nl/rdf/nc/annotation/317f31cd-f228-4d10-b557-8ee87e07b910>
-  <http://www.w3.org/ns/oa#hasTarget> _:node1egln5rm0x19 .
+<http://makingsense.liacs.nl/rdf/nc/annotation/292babc9-f0ef-4885-ba17-0c2a9e90a018>
+  <http://www.w3.org/ns/oa#hasBody> _:node1egloa9rbx46 .
 
-_:node1egln5rm0x19 a <http://www.w3.org/ns/oa#Target>;
+_:node1egloa9rbx46 a <http://rs.tdwg.org/dwc/terms/Taxon>;
+  <http://makingsense.liacs.nl/rdf/nhc/belongsToTaxon> <https://identifiers.org/taxonomy:9397>;
+  <http://makingsense.liacs.nl/rdf/nhc/taxonRank> <http://makingsense.liacs.nl/rdf/nhc/genus>;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Pteropus"@la .
+
+<http://makingsense.liacs.nl/rdf/nc/annotation/292babc9-f0ef-4885-ba17-0c2a9e90a018>
+  <http://www.w3.org/ns/oa#hasTarget> _:node1egloa9rbx44 .
+
+_:node1egloa9rbx44 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "image/jpeg";
   <http://www.w3.org/ns/oa#hasSelector> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_008.jpg#xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658>;
   <http://www.w3.org/ns/oa#hasSource> <http://makingsense.liacs.nl/rdf/nc/MMNAT01_AF_NNM001001033_008.jpg> .
@@ -33,14 +42,8 @@ _:node1egln5rm0x19 a <http://www.w3.org/ns/oa#Target>;
     <http://makingsense.liacs.nl/rdf/nhc/additional> .
 
 <http://makingsense.liacs.nl/rdf/nc/identification2_id1> a <http://rs.tdwg.org/dwc/terms/Identification>;
-  <http://rs.tdwg.org/dwc/iri/toTaxon> <http://makingsense.liacs.nl/rdf/nc/taxon1>;
+  <http://rs.tdwg.org/dwc/iri/toTaxon> _:node1egloa9rbx46;
   <http://rs.tdwg.org/dwc/terms/identificationID> "2_id1" .
 
 <http://makingsense.liacs.nl/rdf/nc/organism2> <http://makingsense.liacs.nl/rdf/nhc/additionalIdentification>
     <http://makingsense.liacs.nl/rdf/nc/identification2_id1> .
-
-<http://makingsense.liacs.nl/rdf/nc/taxon1> a <http://rs.tdwg.org/dwc/terms/Taxon>;
-  <http://makingsense.liacs.nl/rdf/nhc/belongsToTaxon> <https://identifiers.org/taxonomy:9397>;
-  <http://makingsense.liacs.nl/rdf/nhc/taxonRank> <http://makingsense.liacs.nl/rdf/nhc/genus>;
-  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "Pteropus"@la .
