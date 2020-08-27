@@ -22,6 +22,6 @@
   "language": "nl",
   "type": "location",
   "property": "type",
-  "organismID": "-",
+  "organismID": "",
   "instance": "http://sws.geonames.org/1648473/"
 }

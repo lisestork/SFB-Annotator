@@ -153,7 +153,7 @@ var semanticAnnotation = {
 			//semantic annotation info
 			    annotation.type = annotation.text.toLowerCase().trim();
 			    annotation.property = $('select[name=property]').val();
-			    annotation.organismID = "-";
+			    annotation.organismID = '';
 
 			    if(annotation.property === "hasIdentification"){
 					annotation.belongstotaxon = $('#belongstotaxon').val();

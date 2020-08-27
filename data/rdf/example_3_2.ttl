@@ -1,20 +1,20 @@
 
-<http://localhost:8080/rdf/nc/annotation/bea751bf-4266-41ae-8cef-72729fee13be> a <http://www.w3.org/ns/oa#Annotation>;
+<http://localhost:8080/rdf/nc/annotation/dacf30b6-1947-476d-89db-d9a7b3b3adfe> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/location1>,
-    _:node1eglquac7x70 .
+    _:node1egopsku4x227 .
 
-_:node1eglquac7x70 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1egopsku4x227 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "und";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Bagalonga"@und;
   <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
 
-<http://localhost:8080/rdf/nc/annotation/bea751bf-4266-41ae-8cef-72729fee13be> <http://www.w3.org/ns/oa#hasTarget>
-    _:node1eglquac7x69 .
+<http://localhost:8080/rdf/nc/annotation/dacf30b6-1947-476d-89db-d9a7b3b3adfe> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1egopsku4x226 .
 
-_:node1eglquac7x69 a <http://www.w3.org/ns/oa#Target>;
+_:node1egopsku4x226 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "image/jpeg";
   <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597>;
   <http://www.w3.org/ns/oa#hasSource> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
@@ -30,9 +30,9 @@ _:node1eglquac7x69 a <http://www.w3.org/ns/oa#Target>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597" .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> <http://rs.tdwg.org/dwc/iri/inDescribedPlace>
-    _:node1eglquac7x68 .
+    _:node1egopsku4x225 .
 
-_:node1eglquac7x68 a <http://www.geonames.org/ontology#Feature> .
+_:node1egopsku4x225 a <http://www.geonames.org/ontology#Feature> .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> <http://www.w3.org/2000/01/rdf-schema#label>
     "Bagalonga"@und .

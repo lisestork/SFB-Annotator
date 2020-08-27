@@ -1,19 +1,19 @@
 
-<http://localhost:8080/rdf/nc/annotation/fc7923f8-08b2-4b64-9d28-4abbaeb05578> a <http://www.w3.org/ns/oa#Annotation>;
+<http://localhost:8080/rdf/nc/annotation/87773da5-43ef-4182-8d2e-029fa9fc132a> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
-  <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/date1>, _:node1eglquac7x138 .
+  <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/date1>, _:node1egopsku4x295 .
 
-_:node1eglquac7x138 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1egopsku4x295 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "nl";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "10 April 1821"@nl;
   <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
 
-<http://localhost:8080/rdf/nc/annotation/fc7923f8-08b2-4b64-9d28-4abbaeb05578> <http://www.w3.org/ns/oa#hasTarget>
-    _:node1eglquac7x137 .
+<http://localhost:8080/rdf/nc/annotation/87773da5-43ef-4182-8d2e-029fa9fc132a> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1egopsku4x294 .
 
-_:node1eglquac7x137 a <http://www.w3.org/ns/oa#Target>;
+_:node1egopsku4x294 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "image/jpeg";
   <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.6712020824648357,0.177764417868435,0.07131751180401791,0.015538452292495508>;
   <http://www.w3.org/ns/oa#hasSource> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg> .

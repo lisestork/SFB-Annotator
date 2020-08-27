@@ -1,19 +1,19 @@
 
-<http://localhost:8080/rdf/nc/annotation/10bed307-f6e0-4c84-a0cb-76ad2759e23c> a <http://www.w3.org/ns/oa#Annotation>;
+<http://localhost:8080/rdf/nc/annotation/da370c08-89b1-4b1a-8ef6-84e8187d6383> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
-  <http://www.w3.org/ns/oa#hasBody> <http://sws.geonames.org/1648473/>, _:node1eglquac7x61 .
+  <http://www.w3.org/ns/oa#hasBody> <http://sws.geonames.org/1648473/>, _:node1egopsku4x218 .
 
-_:node1eglquac7x61 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1egopsku4x218 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "nl";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Buitenzorg"@nl;
   <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
 
-<http://localhost:8080/rdf/nc/annotation/10bed307-f6e0-4c84-a0cb-76ad2759e23c> <http://www.w3.org/ns/oa#hasTarget>
-    _:node1eglquac7x60 .
+<http://localhost:8080/rdf/nc/annotation/da370c08-89b1-4b1a-8ef6-84e8187d6383> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1egopsku4x217 .
 
-_:node1eglquac7x60 a <http://www.w3.org/ns/oa#Target>;
+_:node1egopsku4x217 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "image/jpeg";
   <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445>;
   <http://www.w3.org/ns/oa#hasSource> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .

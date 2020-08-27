@@ -1,19 +1,19 @@
 
-<http://localhost:8080/rdf/nc/annotation/4c1ea806-00a6-4d81-afd7-52ae5342cb0c> a <http://www.w3.org/ns/oa#Annotation>;
+<http://localhost:8080/rdf/nc/annotation/f02b32bd-b1d0-4074-8fac-a8ad77d6c51b> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
-  <http://www.w3.org/ns/oa#hasBody> <http://viaf.org/viaf/39377694>, _:node1eglquac7x53 .
+  <http://www.w3.org/ns/oa#hasBody> <http://viaf.org/viaf/39377694>, _:node1egopsku4x210 .
 
-_:node1eglquac7x53 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1egopsku4x210 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "und";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Diard"@und;
   <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
 
-<http://localhost:8080/rdf/nc/annotation/4c1ea806-00a6-4d81-afd7-52ae5342cb0c> <http://www.w3.org/ns/oa#hasTarget>
-    _:node1eglquac7x52 .
+<http://localhost:8080/rdf/nc/annotation/f02b32bd-b1d0-4074-8fac-a8ad77d6c51b> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1egopsku4x209 .
 
-_:node1eglquac7x52 a <http://www.w3.org/ns/oa#Target>;
+_:node1egopsku4x209 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "image/jpeg";
   <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064>;
   <http://www.w3.org/ns/oa#hasSource> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
