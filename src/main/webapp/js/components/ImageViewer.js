@@ -101,11 +101,11 @@ var imageViewer = {
 	createOpenSeadragon: function(){
 
 		this.viewer = OpenSeadragon({
-				  id: "openseadragon",
-				  prefixUrl: "images/openseadragon/",
-				  showNavigator: false,
-				  tileSources: new Array()
-				});
+			id: "openseadragon",
+			prefixUrl: "images/openseadragon/",
+			showNavigator: false,
+			tileSources: new Array()
+		});
 	},
 
 	render: function(pagenumber){
