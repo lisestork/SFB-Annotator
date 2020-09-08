@@ -50,9 +50,9 @@ docker cp ./queries grlc:/home/grlc/
 
 ```bash
 docker build -t linnae/sfb-annotator:local .
-docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local  # wait until the server is up
+docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
 docker exec sea ./init.sh
-# generate RDF triples for examples
+# generate RDF triples for example inputs (annotation events)
 for json in $(find data -name *.json|sort)
 do
   ttl="data/rdf/$(basename $json .json).ttl"
