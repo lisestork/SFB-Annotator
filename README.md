@@ -32,6 +32,7 @@ pip install docker-compose
 
 - `sea` - Semantic Field Book Annotator (also available at [DockerHub](https://hub.docker.com/repository/docker/linnae/sfb-annotator))
 - `grlc` - Web API based on [grlc](https://www.research-software.nl/software/grlc)
+- `melon` - [Cantaloupe](https://cantaloupe-project.github.io/) image server ([IIIF](https://iiif.io/) compliant)
 
 ```bash
 cd SFB-Annotator
@@ -60,7 +61,7 @@ do
 done
 ```
 
-## Access web app(s)
+## Web app URLs & API endoints
 - http://localhost:8080/semanticAnnotator/
   - requires user/password: `tomcat/tomcat`
 - http://localhost:8080/rdf4j-workbench/
@@ -70,3 +71,4 @@ done
   - remote path [`/api-git/LINNAE-project/queries/`](http://localhost:8088/api-git/LINNAE-project/queries/) or
     - requires `GRLC_GITHUB_ACCESS_TOKEN` to be set in [`docker-compose.yml`](https://github.com/LINNAE-project/SFB-Annotator/blob/master/docker-compose.yml#L19)
   - local path [`/api-local/`](http://localhost:8088/api-local/)
+- http://localhost:8182/iiif/2

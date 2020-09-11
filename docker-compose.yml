@@ -7,6 +7,14 @@ services:
     ports:
       - 8080:8080
 
+  melon:
+    image: linnae/cantaloupe:latest
+    container_name: melon
+    depends_on:
+      - sea
+    ports:
+      - 8182:8182
+
   grlc:
     image: clariah/grlc:latest
     container_name: grlc

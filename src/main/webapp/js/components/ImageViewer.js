@@ -87,9 +87,10 @@ var imageViewer = {
 			        }
 				}
 			}(i));
-			image[i].src = './files/' + this.imageArray[i];
+			// image URL or path (localhost)
+			image[i].src = this.imageArray[i];
 			image[i].url = image[i].src;
-			//console.log(image[i].url);
+			console.log(image[i].url);
 		};
 		anno.makeAnnotatable(this.viewer);
 
