@@ -12,8 +12,9 @@ env:
     - JSON=data-sdr.json
 install:
   - docker-compose up -d
-  - docker exec -t sea ./init.sh
-  - docker exec -t sea bash -c "cp -f $BASE/$JSON $BASE/data.json"
+  - sleep 10
+  - docker exec sea ./init.sh
+  - docker exec sea bash -c "cp -f $BASE/$JSON $BASE/data.json"
 script:
   -
     for json in $(ls data/json/*.json|sort); do
