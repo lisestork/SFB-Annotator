@@ -4,17 +4,20 @@ sudo: required
 services:
   - docker
 env:
+  global:
+    - RDF_SUFFIX=ttl
+    - BASE=/usr/local/tomcat/webapps/semanticAnnotator/data/
   matrix:
-    - FILEXT=ttl
-    - FILEXT=jsonld
+    - JSON=data-local.json
+    - JSON=data-sdr.json
 install:
-  - docker build -t linnae/sfb-annotator:local .
-  - docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
-  - docker exec sea ./init.sh
+  - docker-compose up -d
+  - docker exec -t sea ./init.sh
+  - docker exec -t sea bash -c "cp -f $BASE/$JSON $BASE/data.json"
 script:
-  - |
+  -
     for json in $(ls data/json/*.json|sort); do
       prefix="$(basename "$json" .json)"
-      rdf="$prefix.$FILEXT"
+      rdf="$prefix.$RDF_SUFFIX"
       ./run.sh "$json" "$rdf"
     done
