@@ -8,9 +8,11 @@ The Semantic Field Book Annotator is a web application developed for domain expe
 ## Prerequisites
 - [Docker CE](https://docs.docker.com/install/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
-- Java 8 Runtime Environment ([OpenJDK](https://openjdk.java.net/) or [Oracle Java](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html))
-- [Apache Maven](https://maven.apache.org/)
-- [Eclipse RDF4J Server and Workbench](https://rdf4j.org/documentation/tools/server-workbench/) or OpenLink [Virtuoso OSE](http://vos.openlinksw.com/owiki/wiki/VOS) including the [Eclipse RDF4J Provider](http://vos.openlinksw.com/owiki/wiki/VOS/VirtSesame2Provider)
+
+## Software used
+- [Eclipse RDF4J Server and Workbench](https://rdf4j.org/documentation/tools/server-workbench/)
+- [Cantaloupe](https://cantaloupe-project.github.io/) IIIF image server
+- [grlc](https://www.research-software.nl/software/grlc) Web API
 - JavaScript libraries
   - [Annotorius](https://annotorious.github.io)
   - [OpenSeadragon](https://openseadragon.github.io/)
@@ -30,9 +32,11 @@ pip install docker-compose
 
 3. Start Docker service(s).
 
-- `sea` - Semantic Field Book Annotator (also available at [DockerHub](https://hub.docker.com/repository/docker/linnae/sfb-annotator))
-- `grlc` - Web API based on [grlc](https://www.research-software.nl/software/grlc)
-- `melon` - [Cantaloupe](https://cantaloupe-project.github.io/) image server ([IIIF](https://iiif.io/) compliant)
+| Service | Docker Image | Description |
+| --- | --- | --- |
+| `sea` | [`linnae/sfb-annotator:latest`](https://hub.docker.com/r/linnae/sfb-annotator) | Semantic Field Book Annotator |
+| `melon` | [`linnae/cantaloupe:latest`](https://hub.docker.com/r/linnae/cantaloupe) | Cantaloupe image server |
+| `grlc` | [`clariah/grlc`](https://hub.docker.com/r/clariah/grlc) | Web API |
 
 ```bash
 cd SFB-Annotator
@@ -42,6 +46,9 @@ docker-compose config --services
 docker-compose up -d # or add [SERVICE]
 # populate an empty repository (RDF store)
 docker-compose exec sea ./init.sh
+# configure for use with a remote image archive (optional)
+JSON=/usr/local/tomcat/webapps/semanticAnnotator/data/
+docker exec -it sea bash -c "cp -f $JSON/data-sdr.json $JSON/data.json"  # or data-local.json (default)
 # to access grlc using local path (optional)
 git clone https://github.com/LINNAE-project/queries
 docker cp ./queries grlc:/home/grlc/
