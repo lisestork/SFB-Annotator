@@ -15,9 +15,9 @@ install:
   - docker exec sea ./init.sh
   - docker exec sea bash -c "cp -f $BASE/$JSON $BASE/data.json"
 script:
-  -
+  - |
     for json in $(ls data/json/*.json | sort); do
       prefix="$(basename "$json" .json)"
       rdf="$prefix.ttl"
-      echo $json $rdf
+      ./run.sh "$json" "$rdf"
     done
