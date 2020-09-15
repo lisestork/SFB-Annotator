@@ -7,13 +7,13 @@ env:
   global:
     - BASE=/usr/local/tomcat/webapps/semanticAnnotator/data/
   matrix:
-    - JSON=data-local.json
-    - JSON=data-sdr.json
+    - IMG=local
+    - IMG=remote
 install:
   - docker-compose up -d
   - sleep 10
   - docker exec sea ./init.sh
-  - docker exec sea bash -c "cp -f $BASE/$JSON $BASE/data.json; cat \$_"
+  - docker exec sea bash -c "cp $BASE/data-$IMG.json $BASE/data.json; cat \$_"
 script:
   - |
     for json in $(ls data/json/*.json | sort); do
