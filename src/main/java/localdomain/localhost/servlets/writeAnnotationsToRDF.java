@@ -87,7 +87,10 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				mime = "image/jpeg";
 				break;
 			case "tiff" :
-				mime = "image/jpeg";
+				mime = "image/tiff";
+				break;
+			case "tif" :
+				mime = "image/tiff";
 				break;
 			case "png" :
 				mime = "image/png";
