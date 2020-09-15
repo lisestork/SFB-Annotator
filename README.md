@@ -46,10 +46,10 @@ docker-compose config --services
 docker-compose up -d # or add [SERVICE]
 # populate an empty repository (RDF store)
 docker-compose exec sea ./init.sh
-# configure for use with a remote image archive (optional)
+# configure sea to use a remote image archive (optional)
 JSON=/usr/local/tomcat/webapps/semanticAnnotator/data/
 docker exec -it sea bash -c "cp $JSON/data-remote.json $JSON/data.json"  # or data-local.json (default)
-# to access grlc using local path (optional)
+# configure grlc to use local path (optional)
 git clone https://github.com/LINNAE-project/queries
 docker cp ./queries grlc:/home/grlc/
 ```
