@@ -16,7 +16,6 @@ env:
 install:
   - pip install -q jq
   - docker-compose up -d
-  - sleep 10
   - docker exec sea ./init.sh
   - docker exec sea bash -c "cp $BASE/data-$IMG.json $BASE/data.json && cat \$_"
 script:
