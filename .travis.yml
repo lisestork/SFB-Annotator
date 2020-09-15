@@ -21,13 +21,13 @@ install:
   - docker exec sea bash -c "cp $BASE/data-$IMG.json $BASE/data.json && cat \$_"
 script:
   - |
-    # check if image files are accessible
-    for url in $(jq -r '.items|.[].item[]'" < ./src/main/webapp/data/data-$IMG.json); do
+    echo "Check the accessibility of image files..."
+    for url in $(jq -r ".items|.[].item[]" < ./src/main/webapp/data/data-$IMG.json); do
       echo -ne "$url\t ..."
       [[ $(curl -s -u "$CRE" -w "%{http_code}" "$url" -o /dev/null) -eq 200 ]] \
         && echo "OK" || (echo "FAILED" && exit 1)
     done
-    # generate RDF triples for each input JSON
+  - |
     for json in $(ls data/json/*.json | sort); do
       prefix="$(basename "$json" .json)"
       rdf="$prefix.ttl"
