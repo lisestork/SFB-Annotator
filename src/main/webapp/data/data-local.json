@@ -5,14 +5,14 @@
 			"id" : "MMNAT01_AF",
 			"thumbnail" : "",
 			"item" : [
-				"files/MMNAT01_AF_NNM001001033_001.jpg",
-				"files/MMNAT01_AF_NNM001001033_002.jpg",
-				"files/MMNAT01_AF_NNM001001033_003.jpg",
-				"files/MMNAT01_AF_NNM001001033_004.jpg",
-				"files/MMNAT01_AF_NNM001001033_005.jpg",
-				"files/MMNAT01_AF_NNM001001033_006.jpg",
-				"files/MMNAT01_AF_NNM001001033_007.jpg",
-				"files/MMNAT01_AF_NNM001001033_008.jpg"
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_001.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_002.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_005.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_006.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_007.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg"
 			]
 		}
 	]

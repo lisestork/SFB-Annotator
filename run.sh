@@ -24,7 +24,6 @@ REPO_ID="mem-rdf"
 CRE="tomcat:tomcat"
 PORT="8080"
 BASE_URL="http://localhost:${PORT}"
-URL0="${BASE_URL}/semanticAnnotator/files/MMNAT01_AF_NNM001001033_001.jpg"
 URL1="${BASE_URL}/semanticAnnotator/writeAnnotationsToRDF"
 URL2="${BASE_URL}/rdf4j-server/repositories/${REPO_ID}"
 
@@ -33,11 +32,6 @@ MIME=( [ttl]=text/turtle [jsonld]=application/ld+json )
 
 # check RDF filext
 [[ ${MIME[$FILEXT]+_} ]] && echo "MIME: ${MIME[$FILEXT]}" || usage
-
-# check if the web app serves the image file(s)
-echo -ne "Image file(s) served\t... "
-[[ $(curl -s -u "$CRE" -w "%{http_code}" "$URL0" -o test.jpg) -eq 200 ]] \
-    && echo "OK" || failed
 
 # validate JSON input
 echo -ne "Validate $JSON_FILE\t... "

@@ -1,21 +1,33 @@
 ---
 dist: trusty
 sudo: required
+language: python
+python:
+  - "3.8"
 services:
   - docker
 env:
   global:
+    - CRE=tomcat:tomcat
     - BASE=/usr/local/tomcat/webapps/semanticAnnotator/data/
   matrix:
     - IMG=local
     - IMG=remote
 install:
+  - pip install -q jq
   - docker-compose up -d
   - sleep 10
   - docker exec sea ./init.sh
   - docker exec sea bash -c "cp $BASE/data-$IMG.json $BASE/data.json && cat \$_"
 script:
   - |
+    # check if image files are accessible
+    for url in $(jq -r '.items|.[].item[]'" < ./src/main/webapp/data/data-$IMG.json); do
+      echo -ne "$url\t ..."
+      [[ $(curl -s -u "$CRE" -w "%{http_code}" "$url" -o /dev/null) -eq 200 ]] \
+        && echo "OK" || (echo "FAILED" && exit 1)
+    done
+    # generate RDF triples for each input JSON
     for json in $(ls data/json/*.json | sort); do
       prefix="$(basename "$json" .json)"
       rdf="$prefix.ttl"
