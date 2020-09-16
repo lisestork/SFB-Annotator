@@ -19,47 +19,57 @@ The Semantic Field Book Annotator is a web application developed for domain expe
 
 ## Install & deploy
 
-1. Clone this repository.
+**1. Clone this repository.**
 
 ```bash
 git clone https://github.com/LINNAE-project/SFB-Annotator.git
 ```
-2. Install Docker Compose.
+**2. Install Docker Compose.**
 
 ```bash
 pip install docker-compose
 ```
 
-3. Start Docker service(s).
+**3. Start Docker service(s).**
 
-| Service | Docker Image | Description |
-| --- | --- | --- |
-| `sea` | [`linnae/sfb-annotator:latest`](https://hub.docker.com/r/linnae/sfb-annotator) | Semantic Field Book Annotator |
-| `melon` | [`linnae/cantaloupe:latest`](https://hub.docker.com/r/linnae/cantaloupe) | Cantaloupe image server |
-| `grlc` | [`clariah/grlc`](https://hub.docker.com/r/clariah/grlc) | Web API |
+| Service | Port | Docker Image | Description |
+| ------- | ---- | -------------| ----------- |
+| `sea` | `8080` | [`linnae/sfb-annotator:latest`](https://hub.docker.com/r/linnae/sfb-annotator) | Semantic Field Book Annotator |
+| `melon` | `8182` | [`linnae/cantaloupe:latest`](https://hub.docker.com/r/linnae/cantaloupe) | Cantaloupe image server |
+| `grlc` | `8088` | [`clariah/grlc`](https://hub.docker.com/r/clariah/grlc) | Web API (optional)|
 
 ```bash
 cd SFB-Annotator
 # list available services
 docker-compose config --services
+
 # start all services or one-by-one
-docker-compose up -d # or add [SERVICE]
-# populate an empty repository (RDF store)
+docker-compose up -d # or append [SERVICE]
+```
+
+**4. Configure service(s).**
+
+```bash
+# populate an empty RDF store (repository)
 docker-compose exec sea ./init.sh
+
 # configure sea to use a remote image archive (optional)
+# default: data-local.json
 JSON=/usr/local/tomcat/webapps/semanticAnnotator/data/
-docker exec -it sea bash -c "cp $JSON/data-remote.json $JSON/data.json"  # or data-local.json (default)
+docker exec -it sea bash -c "cp $JSON/data-remote.json $JSON/data.json"
+
 # configure grlc to use local path (optional)
 git clone https://github.com/LINNAE-project/queries
 docker cp ./queries grlc:/home/grlc/
 ```
 
-4. Build Docker image and deploy container locally (development)
+**5. Build Docker image and deploy container locally (development)**
 
 ```bash
 docker build -t linnae/sfb-annotator:local .
 docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
 docker exec sea ./init.sh
+
 # generate RDF triples for example inputs (annotation events)
 for json in $(find data -name *.json | sort)
 do
@@ -76,6 +86,8 @@ done
 - http://localhost:8080/rdf4j-server/
 - http://localhost:8088/ followed by
   - remote path [`/api-git/LINNAE-project/queries/`](http://localhost:8088/api-git/LINNAE-project/queries/) or
-    - requires `GRLC_GITHUB_ACCESS_TOKEN` to be set in [`docker-compose.yml`](https://github.com/LINNAE-project/SFB-Annotator/blob/master/docker-compose.yml#L19)
+    - requires `GRLC_GITHUB_ACCESS_TOKEN` to be set in [`docker-compose.yml`](https://github.com/LINNAE-project/SFB-Annotator/blob/master/docker-compose.yml#L27)
   - local path [`/api-local/`](http://localhost:8088/api-local/)
 - http://localhost:8182/iiif/2
+  - e.g. sample image [`info.json`](http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_001/info.json)
+  - e.g. get [JPG](http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_001/full/max/0/default.jpg) version of this [TIF](https://trng-repository.surfsara.nl/deposit/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_001.tif) image deposited in the archive 
