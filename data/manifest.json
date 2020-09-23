@@ -14,11 +14,18 @@
       "label": "Default",
       "canvases": [
         {
+          
           "@id": "http://localhost:8182/iiif/book1/canvas/p1",
           "@type": "sc:Canvas",
           "label": "p. 1",
           "width": 1024,
           "height": 768,
+          "thumbnail" : {
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_001/full/!120,120/0/default.jpg",
+            "@type": "dctypes:Image",
+            "height": 120,
+            "width": 120
+          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_001",
@@ -39,11 +46,18 @@
           ]
         },
         {
+          
           "@id": "http://localhost:8182/iiif/book1/canvas/p2",
           "@type": "sc:Canvas",
           "label": "p. 2",
           "width": 1024,
           "height": 768,
+          "thumbnail" : {
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_002/full/!120,120/0/default.jpg",
+            "@type": "dctypes:Image",
+            "height": 120,
+            "width": 120
+          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_002",
@@ -64,11 +78,18 @@
           ]
         },
         {
+          
           "@id": "http://localhost:8182/iiif/book1/canvas/p3",
           "@type": "sc:Canvas",
           "label": "p. 3",
           "width": 1024,
           "height": 768,
+          "thumbnail" : {
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_003/full/!120,120/0/default.jpg",
+            "@type": "dctypes:Image",
+            "height": 120,
+            "width": 120
+          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_003",
@@ -89,11 +110,18 @@
           ]
         },
         {
+          
           "@id": "http://localhost:8182/iiif/book1/canvas/p4",
           "@type": "sc:Canvas",
           "label": "p. 4",
           "width": 1024,
           "height": 768,
+          "thumbnail" : {
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_004/full/!120,120/0/default.jpg",
+            "@type": "dctypes:Image",
+            "height": 120,
+            "width": 120
+          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_004",
@@ -114,11 +142,18 @@
           ]
         },
         {
+          
           "@id": "http://localhost:8182/iiif/book1/canvas/p5",
           "@type": "sc:Canvas",
           "label": "p. 5",
           "width": 1024,
           "height": 768,
+          "thumbnail" : {
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_005/full/!120,120/0/default.jpg",
+            "@type": "dctypes:Image",
+            "height": 120,
+            "width": 120
+          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_005",
@@ -139,11 +174,18 @@
           ]
         },
         {
+          
           "@id": "http://localhost:8182/iiif/book1/canvas/p6",
           "@type": "sc:Canvas",
           "label": "p. 6",
           "width": 1024,
           "height": 768,
+          "thumbnail" : {
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_006/full/!120,120/0/default.jpg",
+            "@type": "dctypes:Image",
+            "height": 120,
+            "width": 120
+          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_006",
@@ -164,11 +206,18 @@
           ]
         },
         {
+          
           "@id": "http://localhost:8182/iiif/book1/canvas/p7",
           "@type": "sc:Canvas",
           "label": "p. 7",
           "width": 1024,
           "height": 768,
+          "thumbnail" : {
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_007/full/!120,120/0/default.jpg",
+            "@type": "dctypes:Image",
+            "height": 120,
+            "width": 120
+          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_007",
@@ -189,11 +238,18 @@
           ]
         },
         {
+          
           "@id": "http://localhost:8182/iiif/book1/canvas/p8",
           "@type": "sc:Canvas",
           "label": "p. 8",
           "width": 1024,
           "height": 768,
+          "thumbnail" : {
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_008/full/!120,120/0/default.jpg",
+            "@type": "dctypes:Image",
+            "height": 120,
+            "width": 120
+          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_008",
