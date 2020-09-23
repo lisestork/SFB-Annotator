@@ -6,15 +6,15 @@
   "label": "Sample Field Book",
   "viewingDirection": "left-to-right",
   "viewingHint": "paged",
-  "startCanvas": "http://localhost:8182/900c341c1c10fff7/canvas/p1",
+  "startCanvas": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p1",
   "sequences": [
     {
-      "@id": "http://localhost:8182/900c341c1c10fff7/sequence/default",
+      "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/sequence/default",
       "@type": "sc:Sequence",
       "label": "Default",
       "canvases": [
         {
-          "@id": "http://localhost:8182/900c341c1c10fff7/canvas/p1",
+          "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p1",
           "@type": "sc:Canvas",
           "label": "p. 1",
           "width": 1024,
@@ -31,7 +31,7 @@
               "@type": "oa:Annotation",
               "format": "image/jpeg",
               "motivation": "sc:painting",
-              "on": "http://localhost:8182/900c341c1c10fff7/canvas/p1",
+              "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p1",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_001/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
@@ -45,7 +45,7 @@
           ]
         },
         {
-          "@id": "http://localhost:8182/900c341c1c10fff7/canvas/p2",
+          "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p2",
           "@type": "sc:Canvas",
           "label": "p. 2",
           "width": 1024,
@@ -62,7 +62,7 @@
               "@type": "oa:Annotation",
               "format": "image/jpeg",
               "motivation": "sc:painting",
-              "on": "http://localhost:8182/900c341c1c10fff7/canvas/p2",
+              "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p2",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_002/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
@@ -76,7 +76,7 @@
           ]
         },
         {
-          "@id": "http://localhost:8182/900c341c1c10fff7/canvas/p3",
+          "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p3",
           "@type": "sc:Canvas",
           "label": "p. 3",
           "width": 1024,
@@ -93,7 +93,7 @@
               "@type": "oa:Annotation",
               "format": "image/jpeg",
               "motivation": "sc:painting",
-              "on": "http://localhost:8182/900c341c1c10fff7/canvas/p3",
+              "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p3",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_003/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
@@ -107,7 +107,7 @@
           ]
         },
         {
-          "@id": "http://localhost:8182/900c341c1c10fff7/canvas/p4",
+          "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p4",
           "@type": "sc:Canvas",
           "label": "p. 4",
           "width": 1024,
@@ -124,7 +124,7 @@
               "@type": "oa:Annotation",
               "format": "image/jpeg",
               "motivation": "sc:painting",
-              "on": "http://localhost:8182/900c341c1c10fff7/canvas/p4",
+              "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p4",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_004/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
@@ -138,7 +138,7 @@
           ]
         },
         {
-          "@id": "http://localhost:8182/900c341c1c10fff7/canvas/p5",
+          "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p5",
           "@type": "sc:Canvas",
           "label": "p. 5",
           "width": 1024,
@@ -155,7 +155,7 @@
               "@type": "oa:Annotation",
               "format": "image/jpeg",
               "motivation": "sc:painting",
-              "on": "http://localhost:8182/900c341c1c10fff7/canvas/p5",
+              "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p5",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_005/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
@@ -169,7 +169,7 @@
           ]
         },
         {
-          "@id": "http://localhost:8182/900c341c1c10fff7/canvas/p6",
+          "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p6",
           "@type": "sc:Canvas",
           "label": "p. 6",
           "width": 1024,
@@ -186,7 +186,7 @@
               "@type": "oa:Annotation",
               "format": "image/jpeg",
               "motivation": "sc:painting",
-              "on": "http://localhost:8182/900c341c1c10fff7/canvas/p6",
+              "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p6",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_006/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
@@ -200,7 +200,7 @@
           ]
         },
         {
-          "@id": "http://localhost:8182/900c341c1c10fff7/canvas/p7",
+          "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p7",
           "@type": "sc:Canvas",
           "label": "p. 7",
           "width": 1024,
@@ -217,7 +217,7 @@
               "@type": "oa:Annotation",
               "format": "image/jpeg",
               "motivation": "sc:painting",
-              "on": "http://localhost:8182/900c341c1c10fff7/canvas/p7",
+              "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p7",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_007/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
@@ -231,7 +231,7 @@
           ]
         },
         {
-          "@id": "http://localhost:8182/900c341c1c10fff7/canvas/p8",
+          "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p8",
           "@type": "sc:Canvas",
           "label": "p. 8",
           "width": 1024,
@@ -248,7 +248,7 @@
               "@type": "oa:Annotation",
               "format": "image/jpeg",
               "motivation": "sc:painting",
-              "on": "http://localhost:8182/900c341c1c10fff7/canvas/p8",
+              "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p8",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_008/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
