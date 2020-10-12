@@ -16,7 +16,7 @@ services:
       - 8182:8182
 
   mirador:
-    image: linnae/mirador:local
+    image: linnae/mirador:latest
     container_name: mirador
     depends_on:
       - melon
