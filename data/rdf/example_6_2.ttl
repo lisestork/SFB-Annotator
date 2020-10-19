@@ -1,20 +1,20 @@
 
-<http://localhost:8080/rdf/nc/annotation/27fa17a6-636b-4889-88cb-e3429f4efa7c> a <http://www.w3.org/ns/oa#Annotation>;
+<http://localhost:8080/rdf/nc/annotation/3065e02d-d3af-406b-a7e8-344710659632> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>,
-    _:node1egopsku4x277 .
+    _:node1el15uavix247 .
 
-_:node1egopsku4x277 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1el15uavix247 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "la";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Dentibus"@la;
   <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
 
-<http://localhost:8080/rdf/nc/annotation/27fa17a6-636b-4889-88cb-e3429f4efa7c> <http://www.w3.org/ns/oa#hasTarget>
-    _:node1egopsku4x276 .
+<http://localhost:8080/rdf/nc/annotation/3065e02d-d3af-406b-a7e8-344710659632> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1el15uavix246 .
 
-_:node1egopsku4x276 a <http://www.w3.org/ns/oa#Target>;
+_:node1el15uavix246 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "image/jpeg";
   <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747>;
   <http://www.w3.org/ns/oa#hasSource> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
