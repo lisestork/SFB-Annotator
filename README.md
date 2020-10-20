@@ -73,10 +73,12 @@ docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
 docker exec sea ./init.sh
 
 # generate RDF triples for example inputs (annotation events)
-for json in $(find data -name *.json | sort)
+for json in $(ls data/json/*.json | sort)
 do
-  ttl="data/rdf/$(basename $json .json).ttl"
-  ./run.sh "$json" "$ttl" 
+  prefix="$(basename "$json" .json)"
+  suffix=ttl  # or jsonld
+  rdf="$prefix.$suffix"
+  ./run.sh "$json" "$rdf"
 done
 ```
 
