@@ -95,4 +95,4 @@ done
 - http://localhost:8182/iiif/2
   - e.g. sample image [`info.json`](http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/info.json)
   - e.g. get [JPG](http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/max/0/default.jpg) version of this [TIF](https://trng-repository.surfsara.nl/deposit/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_001.tif) image deposited in the archive
-- http://localhost:8000 includes an example [`manifest.json`](https://github.com/LINNAE-project/SFB-Annotator/blob/69e15046af8c3c380343fb72500d189acffa2cd5/data/manifest.json) (_Add Item_ -> _Sample Field Book_)
+- http://localhost:8000 includes an example [`manifest.json`](data/manifest.json) (_Add Item_ -> _Sample Field Book_)
