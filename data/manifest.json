@@ -27,15 +27,16 @@
           },
           "images": [
             {
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/annotation/p1",
               "@type": "oa:Annotation",
-              "format": "image/jpeg",
               "motivation": "sc:painting",
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p1",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
+                "format": "image/jpeg",
                 "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
                   "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001",
                   "profile": "http://iiif.io/api/image/2/level2.json",
                   "protocol": "http://iiif.io/api/image"
@@ -58,15 +59,16 @@
           },
           "images": [
             {
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002/annotation/p2",
               "@type": "oa:Annotation",
-              "format": "image/jpeg",
               "motivation": "sc:painting",
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p2",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
+                "format": "image/jpeg",
                 "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
                   "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002",
                   "profile": "http://iiif.io/api/image/2/level2.json",
                   "protocol": "http://iiif.io/api/image"
@@ -89,15 +91,16 @@
           },
           "images": [
             {
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/annotation/p3",
               "@type": "oa:Annotation",
-              "format": "image/jpeg",
               "motivation": "sc:painting",
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p3",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
+                "format": "image/jpeg",
                 "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
                   "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003",
                   "profile": "http://iiif.io/api/image/2/level2.json",
                   "protocol": "http://iiif.io/api/image"
@@ -120,15 +123,16 @@
           },
           "images": [
             {
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/annotation/p4",
               "@type": "oa:Annotation",
-              "format": "image/jpeg",
               "motivation": "sc:painting",
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p4",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
+                "format": "image/jpeg",
                 "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
                   "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004",
                   "profile": "http://iiif.io/api/image/2/level2.json",
                   "protocol": "http://iiif.io/api/image"
@@ -151,15 +155,16 @@
           },
           "images": [
             {
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005/annotation/p5",
               "@type": "oa:Annotation",
-              "format": "image/jpeg",
               "motivation": "sc:painting",
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p5",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
+                "format": "image/jpeg",
                 "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
                   "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005",
                   "profile": "http://iiif.io/api/image/2/level2.json",
                   "protocol": "http://iiif.io/api/image"
@@ -182,15 +187,16 @@
           },
           "images": [
             {
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006/annotation/p6",
               "@type": "oa:Annotation",
-              "format": "image/jpeg",
               "motivation": "sc:painting",
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p6",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
+                "format": "image/jpeg",
                 "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
                   "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006",
                   "profile": "http://iiif.io/api/image/2/level2.json",
                   "protocol": "http://iiif.io/api/image"
@@ -213,15 +219,16 @@
           },
           "images": [
             {
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007/annotation/p7",
               "@type": "oa:Annotation",
-              "format": "image/jpeg",
               "motivation": "sc:painting",
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p7",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
+                "format": "image/jpeg",
                 "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
                   "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007",
                   "profile": "http://iiif.io/api/image/2/level2.json",
                   "protocol": "http://iiif.io/api/image"
@@ -244,15 +251,16 @@
           },
           "images": [
             {
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008/annotation/p8",
               "@type": "oa:Annotation",
-              "format": "image/jpeg",
               "motivation": "sc:painting",
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p8",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008/full/max/0/default.jpg",
                 "@type": "dctypes:Image",
+                "format": "image/jpeg",
                 "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
                   "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008",
                   "profile": "http://iiif.io/api/image/2/level2.json",
                   "protocol": "http://iiif.io/api/image"
