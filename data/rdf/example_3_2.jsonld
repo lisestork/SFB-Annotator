@@ -1,8 +1,8 @@
 [ {
-  "@id" : "_:node1eglquac7x207",
+  "@id" : "_:node1el15uavix335",
   "@type" : [ "http://www.geonames.org/ontology#Feature" ]
 }, {
-  "@id" : "_:node1eglquac7x208",
+  "@id" : "_:node1el15uavix336",
   "@type" : [ "http://www.w3.org/ns/oa#Target" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "image/jpeg"
@@ -14,7 +14,7 @@
     "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg"
   } ]
 }, {
-  "@id" : "_:node1eglquac7x209",
+  "@id" : "_:node1el15uavix337",
   "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "text/plain"
@@ -30,7 +30,7 @@
     "@id" : "http://www.w3.org/ns/oa#describing"
   } ]
 }, {
-  "@id" : "http://localhost:8080/rdf/nc/annotation/01dafa15-3749-474f-bf8f-3bb8c39bdd65",
+  "@id" : "http://localhost:8080/rdf/nc/annotation/0fa74238-44dc-46b0-8526-b326d5a80d4d",
   "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
   "http://purl.org/dc/terms/creator" : [ {
     "@id" : "http://orcid.org/0000-0002-2146-4803"
@@ -39,12 +39,12 @@
     "@value" : "2017-09-21"
   } ],
   "http://www.w3.org/ns/oa#hasBody" : [ {
-    "@id" : "_:node1eglquac7x209"
+    "@id" : "_:node1el15uavix337"
   }, {
     "@id" : "http://makingsense.liacs.nl/rdf/nc/location1"
   } ],
   "http://www.w3.org/ns/oa#hasTarget" : [ {
-    "@id" : "_:node1eglquac7x208"
+    "@id" : "_:node1el15uavix336"
   } ]
 }, {
   "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
@@ -61,7 +61,7 @@
 }, {
   "@id" : "http://makingsense.liacs.nl/rdf/nc/location1",
   "http://rs.tdwg.org/dwc/iri/inDescribedPlace" : [ {
-    "@id" : "_:node1eglquac7x207"
+    "@id" : "_:node1el15uavix335"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "und",

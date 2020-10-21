@@ -1,5 +1,5 @@
 [ {
-  "@id" : "_:node1eglquac7x242",
+  "@id" : "_:node1el15uavix370",
   "@type" : [ "http://www.w3.org/ns/oa#Target" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "image/jpeg"
@@ -11,7 +11,7 @@
     "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg"
   } ]
 }, {
-  "@id" : "_:node1eglquac7x243",
+  "@id" : "_:node1el15uavix371",
   "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "text/plain"
@@ -32,7 +32,7 @@
     "@id" : "http://identifiers.org/ncit/C20189"
   } ]
 }, {
-  "@id" : "http://localhost:8080/rdf/nc/annotation/3575101a-0681-413d-b4cc-77e8459fd2d2",
+  "@id" : "http://localhost:8080/rdf/nc/annotation/3846f16a-6684-4022-8f20-f3cedc8d123c",
   "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
   "http://purl.org/dc/terms/creator" : [ {
     "@id" : "http://orcid.org/0000-0002-2146-4803"
@@ -41,12 +41,12 @@
     "@value" : "2017-09-21"
   } ],
   "http://www.w3.org/ns/oa#hasBody" : [ {
-    "@id" : "_:node1eglquac7x243"
+    "@id" : "_:node1el15uavix371"
   }, {
     "@id" : "http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1"
   } ],
   "http://www.w3.org/ns/oa#hasTarget" : [ {
-    "@id" : "_:node1eglquac7x242"
+    "@id" : "_:node1el15uavix370"
   } ]
 }, {
   "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",

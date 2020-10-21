@@ -1,29 +1,29 @@
 
-<http://localhost:8080/rdf/nc/annotation/bc504a5a-9a6a-4fbc-ae73-b0ed89bb2071> a <http://www.w3.org/ns/oa#Annotation>;
+<http://localhost:8080/rdf/nc/annotation/a1d6086c-294c-40b3-8c00-463fea8295be> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/humanObservation1>,
-    _:node1egopsku4x171 .
+    _:node1el15uavix141 .
 
-_:node1egopsku4x171 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1el15uavix141 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "la";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Pteropus minimus"@la;
   <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
 
-<http://localhost:8080/rdf/nc/annotation/bc504a5a-9a6a-4fbc-ae73-b0ed89bb2071> <http://www.w3.org/ns/oa#hasBody>
-    _:node1egopsku4x172 .
+<http://localhost:8080/rdf/nc/annotation/a1d6086c-294c-40b3-8c00-463fea8295be> <http://www.w3.org/ns/oa#hasBody>
+    _:node1el15uavix142 .
 
-_:node1egopsku4x172 a <http://rs.tdwg.org/dwc/terms/Taxon>;
+_:node1el15uavix142 a <http://rs.tdwg.org/dwc/terms/Taxon>;
   <http://makingsense.liacs.nl/rdf/nhc/belongsToTaxon> <https://identifiers.org/taxonomy:9397>;
   <http://makingsense.liacs.nl/rdf/nhc/taxonRank> <http://makingsense.liacs.nl/rdf/nhc/scientificName>;
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   <http://www.w3.org/2000/01/rdf-schema#label> "Pteropus minimus"@la .
 
-<http://localhost:8080/rdf/nc/annotation/bc504a5a-9a6a-4fbc-ae73-b0ed89bb2071> <http://www.w3.org/ns/oa#hasTarget>
-    <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg>, _:node1egopsku4x170 .
+<http://localhost:8080/rdf/nc/annotation/a1d6086c-294c-40b3-8c00-463fea8295be> <http://www.w3.org/ns/oa#hasTarget>
+    <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg>, _:node1el15uavix140 .
 
-_:node1egopsku4x170 a <http://www.w3.org/ns/oa#Target>;
+_:node1el15uavix140 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "image/jpeg";
   <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862>;
   <http://www.w3.org/ns/oa#hasSource> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
@@ -53,12 +53,12 @@ _:node1egopsku4x170 a <http://www.w3.org/ns/oa#Target>;
 <http://makingsense.liacs.nl/rdf/nc/identification1> a <http://rs.tdwg.org/dwc/terms/Identification>;
   <http://purl.org/dsw/identifies> <http://makingsense.liacs.nl/rdf/nc/organism1>;
   <http://purl.org/dsw/isBasedOn> <http://makingsense.liacs.nl/rdf/nc/humanObservation1>;
-  <http://rs.tdwg.org/dwc/iri/identifiedBy> _:node1egopsku4x168 .
+  <http://rs.tdwg.org/dwc/iri/identifiedBy> _:node1el15uavix138 .
 
-_:node1egopsku4x168 a <http://xmlns.com/foaf/0.1/Person> .
+_:node1el15uavix138 a <http://xmlns.com/foaf/0.1/Person> .
 
 <http://makingsense.liacs.nl/rdf/nc/identification1> <http://rs.tdwg.org/dwc/iri/toTaxon>
-    _:node1egopsku4x172;
+    _:node1el15uavix142;
   <http://rs.tdwg.org/dwc/terms/identificationID> "1" .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> a <http://purl.org/dc/terms/Location>;
@@ -68,7 +68,7 @@ _:node1egopsku4x168 a <http://xmlns.com/foaf/0.1/Person> .
   <http://purl.org/dsw/atEvent> <http://makingsense.liacs.nl/rdf/nc/event1>;
   <http://purl.org/dsw/hasEvidence> <http://makingsense.liacs.nl/rdf/nc/humanObservation1>;
   <http://purl.org/dsw/occurrenceOf> <http://makingsense.liacs.nl/rdf/nc/organism1>;
-  <http://rs.tdwg.org/dwc/iri/recordedBy> _:node1egopsku4x168 .
+  <http://rs.tdwg.org/dwc/iri/recordedBy> _:node1el15uavix138 .
 
 <http://makingsense.liacs.nl/rdf/nc/organism1> a <http://rs.tdwg.org/dwc/terms/Organism>;
   <http://purl.org/dsw/hasDerivative> <http://makingsense.liacs.nl/rdf/nc/humanObservation1>;

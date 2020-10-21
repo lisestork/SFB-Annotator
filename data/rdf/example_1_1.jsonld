@@ -1,5 +1,5 @@
 [ {
-  "@id" : "_:node1eglquac7x145",
+  "@id" : "_:node1el15uavix272",
   "@type" : [ "http://www.w3.org/ns/oa#Target" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "image/jpeg"
@@ -11,7 +11,7 @@
     "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg"
   } ]
 }, {
-  "@id" : "_:node1eglquac7x146",
+  "@id" : "_:node1el15uavix273",
   "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "text/plain"
@@ -27,7 +27,7 @@
     "@id" : "http://www.w3.org/ns/oa#describing"
   } ]
 }, {
-  "@id" : "_:node1eglquac7x147",
+  "@id" : "_:node1el15uavix274",
   "@type" : [ "http://rs.tdwg.org/dwc/terms/Taxon" ],
   "http://makingsense.liacs.nl/rdf/nhc/belongsToTaxon" : [ {
     "@id" : "https://identifiers.org/taxonomy:9397"
@@ -44,7 +44,7 @@
     "@value" : "Pteropus minimus"
   } ]
 }, {
-  "@id" : "http://localhost:8080/rdf/nc/annotation/f76932c7-0170-40bd-b0e8-3ee61e705cbc",
+  "@id" : "http://localhost:8080/rdf/nc/annotation/5b1f7ef5-237f-46d5-9524-a84c1de70321",
   "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
   "http://purl.org/dc/terms/creator" : [ {
     "@id" : "http://orcid.org/0000-0002-2146-4803"
@@ -53,12 +53,12 @@
     "@value" : "2017-09-21"
   } ],
   "http://www.w3.org/ns/oa#hasBody" : [ {
-    "@id" : "_:node1eglquac7x146"
+    "@id" : "_:node1el15uavix273"
   }, {
-    "@id" : "_:node1eglquac7x147"
+    "@id" : "_:node1el15uavix274"
   } ],
   "http://www.w3.org/ns/oa#hasTarget" : [ {
-    "@id" : "_:node1eglquac7x145"
+    "@id" : "_:node1el15uavix272"
   } ]
 }, {
   "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",

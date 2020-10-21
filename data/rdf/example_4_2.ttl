@@ -1,20 +1,20 @@
 
-<http://localhost:8080/rdf/nc/annotation/76d285e7-5bf9-40b2-bb86-0e5251553f3c> a <http://www.w3.org/ns/oa#Annotation>;
+<http://localhost:8080/rdf/nc/annotation/1d13f8df-36c9-4890-b574-3ee1206da2ec> a <http://www.w3.org/ns/oa#Annotation>;
   <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
   <http://purl.org/dc/terms/date> "2017-09-21";
   <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1>,
-    _:node1egopsku4x245 .
+    _:node1el15uavix215 .
 
-_:node1egopsku4x245 a <http://www.w3.org/ns/oa#TextualBody>;
+_:node1el15uavix215 a <http://www.w3.org/ns/oa#TextualBody>;
   <http://purl.org/dc/terms/format> "text/plain";
   <http://purl.org/dc/terms/language> "und";
   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> ""@und;
   <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
 
-<http://localhost:8080/rdf/nc/annotation/76d285e7-5bf9-40b2-bb86-0e5251553f3c> <http://www.w3.org/ns/oa#hasTarget>
-    _:node1egopsku4x244 .
+<http://localhost:8080/rdf/nc/annotation/1d13f8df-36c9-4890-b574-3ee1206da2ec> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1el15uavix214 .
 
-_:node1egopsku4x244 a <http://www.w3.org/ns/oa#Target>;
+_:node1el15uavix214 a <http://www.w3.org/ns/oa#Target>;
   <http://purl.org/dc/terms/format> "image/jpeg";
   <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5644329896907211,0.10470473364690311,0.1377025036818852,0.06369661266568483>;
   <http://www.w3.org/ns/oa#hasSource> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .

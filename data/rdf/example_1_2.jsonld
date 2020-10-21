@@ -1,5 +1,8 @@
 [ {
-  "@id" : "_:node1eglquac7x152",
+  "@id" : "_:node1el15uavix278",
+  "@type" : [ "http://xmlns.com/foaf/0.1/Person" ]
+}, {
+  "@id" : "_:node1el15uavix280",
   "@type" : [ "http://www.w3.org/ns/oa#Target" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "image/jpeg"
@@ -11,7 +14,7 @@
     "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg"
   } ]
 }, {
-  "@id" : "_:node1eglquac7x153",
+  "@id" : "_:node1el15uavix281",
   "@type" : [ "http://www.w3.org/ns/oa#TextualBody" ],
   "http://purl.org/dc/terms/format" : [ {
     "@value" : "text/plain"
@@ -27,7 +30,7 @@
     "@id" : "http://www.w3.org/ns/oa#describing"
   } ]
 }, {
-  "@id" : "_:node1eglquac7x154",
+  "@id" : "_:node1el15uavix282",
   "@type" : [ "http://rs.tdwg.org/dwc/terms/Taxon" ],
   "http://makingsense.liacs.nl/rdf/nhc/belongsToTaxon" : [ {
     "@id" : "https://identifiers.org/taxonomy:9397"
@@ -44,7 +47,7 @@
     "@value" : "Pteropus minimus"
   } ]
 }, {
-  "@id" : "http://localhost:8080/rdf/nc/annotation/30a5a5e5-3bd4-4a41-8e74-005466cf99ad",
+  "@id" : "http://localhost:8080/rdf/nc/annotation/8fedd1bf-cb93-4ab6-a6fa-655fc59af133",
   "@type" : [ "http://www.w3.org/ns/oa#Annotation" ],
   "http://purl.org/dc/terms/creator" : [ {
     "@id" : "http://orcid.org/0000-0002-2146-4803"
@@ -53,14 +56,14 @@
     "@value" : "2017-09-21"
   } ],
   "http://www.w3.org/ns/oa#hasBody" : [ {
-    "@id" : "_:node1eglquac7x153"
+    "@id" : "_:node1el15uavix281"
   }, {
-    "@id" : "_:node1eglquac7x154"
+    "@id" : "_:node1el15uavix282"
   }, {
     "@id" : "http://makingsense.liacs.nl/rdf/nc/humanObservation1"
   } ],
   "http://www.w3.org/ns/oa#hasTarget" : [ {
-    "@id" : "_:node1eglquac7x152"
+    "@id" : "_:node1el15uavix280"
   }, {
     "@id" : "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg"
   } ]
@@ -113,10 +116,10 @@
     "@id" : "http://makingsense.liacs.nl/rdf/nc/humanObservation1"
   } ],
   "http://rs.tdwg.org/dwc/iri/identifiedBy" : [ {
-    "@id" : "https://viaf.org/viaf/45106482/"
+    "@id" : "_:node1el15uavix278"
   } ],
   "http://rs.tdwg.org/dwc/iri/toTaxon" : [ {
-    "@id" : "_:node1eglquac7x154"
+    "@id" : "_:node1el15uavix282"
   } ],
   "http://rs.tdwg.org/dwc/terms/identificationID" : [ {
     "@value" : "1"
@@ -140,7 +143,7 @@
     "@id" : "http://makingsense.liacs.nl/rdf/nc/organism1"
   } ],
   "http://rs.tdwg.org/dwc/iri/recordedBy" : [ {
-    "@id" : "https://viaf.org/viaf/45106482/"
+    "@id" : "_:node1el15uavix278"
   } ]
 }, {
   "@id" : "http://makingsense.liacs.nl/rdf/nc/organism1",
@@ -159,8 +162,5 @@
   } ]
 }, {
   "@id" : "http://orcid.org/0000-0002-2146-4803",
-  "@type" : [ "http://xmlns.com/foaf/0.1/Person" ]
-}, {
-  "@id" : "https://viaf.org/viaf/45106482/",
   "@type" : [ "http://xmlns.com/foaf/0.1/Person" ]
 } ]

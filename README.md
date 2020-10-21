@@ -12,6 +12,7 @@ The Semantic Field Book Annotator is a web application developed for domain expe
 ## Software used
 - [Eclipse RDF4J Server and Workbench](https://rdf4j.org/documentation/tools/server-workbench/)
 - [Cantaloupe](https://cantaloupe-project.github.io/) IIIF image server
+- [Mirador](https://projectmirador.org/) IIIF image viewer
 - [grlc](https://www.research-software.nl/software/grlc) Web API
 - JavaScript libraries
   - [Annotorius](https://annotorious.github.io)
@@ -34,8 +35,9 @@ pip install docker-compose
 
 | Service | Port | Docker Image | Description |
 | ------- | ---- | -------------| ----------- |
-| `sea` | `8080` | [`linnae/sfb-annotator:latest`](https://hub.docker.com/r/linnae/sfb-annotator) | Semantic Field Book Annotator |
-| `melon` | `8182` | [`linnae/cantaloupe:latest`](https://hub.docker.com/r/linnae/cantaloupe) | Cantaloupe image server |
+| `sea` | `8080` | [`linnae/sfb-annotator`](https://hub.docker.com/r/linnae/sfb-annotator) | Semantic Field Book Annotator |
+| `melon` | `8182` | [`linnae/cantaloupe`](https://hub.docker.com/r/linnae/cantaloupe) | Cantaloupe image server |
+| `mirador` | `8000` | [`linnae/mirador`](https://hub.docker.com/r/linnae/mirador) | Mirador image viewer |
 | `grlc` | `8088` | [`clariah/grlc`](https://hub.docker.com/r/clariah/grlc) | Web API (optional)|
 
 ```bash
@@ -71,14 +73,16 @@ docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
 docker exec sea ./init.sh
 
 # generate RDF triples for example inputs (annotation events)
-for json in $(find data -name *.json | sort)
+for json in $(ls data/json/*.json | sort)
 do
-  ttl="data/rdf/$(basename $json .json).ttl"
-  ./run.sh "$json" "$ttl" 
+  prefix="$(basename "$json" .json)"
+  suffix=ttl  # or jsonld
+  rdf="$prefix.$suffix"
+  ./run.sh "$json" "$rdf"
 done
 ```
 
-## Web app URLs & API endoints
+## Web apps & API endpoints
 - http://localhost:8080/semanticAnnotator/
   - requires user/password: `tomcat/tomcat`
 - http://localhost:8080/rdf4j-workbench/
@@ -89,5 +93,6 @@ done
     - requires `GRLC_GITHUB_ACCESS_TOKEN` to be set in [`docker-compose.yml`](https://github.com/LINNAE-project/SFB-Annotator/blob/master/docker-compose.yml#L27)
   - local path [`/api-local/`](http://localhost:8088/api-local/)
 - http://localhost:8182/iiif/2
-  - requires [`data-remote.json`](src/main/webapp/data/data-remote.json)
-  - sample image [`info.json`](http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_001/info.json) including a [JPG](http://localhost:8182/iiif/2/900c341c1c10fff7%2Ffiles%2FMMNAT01_PM_NNM001001033_001/full/max/0/default.jpg) version of this [TIF](https://trng-repository.surfsara.nl/deposit/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_001.tif) image deposited in the archive 
+  - sample image [`info.json`](http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/info.json)
+  - get a [JPG](http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/max/0/default.jpg) version of this [TIF](https://trng-repository.surfsara.nl/deposit/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_001.tif) image in the archive
+- http://localhost:8000 includes an example [`manifest.json`](data/manifest.json) (_Add Item_ -> _Sample Field Book_)

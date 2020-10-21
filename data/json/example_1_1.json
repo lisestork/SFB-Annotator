@@ -16,7 +16,7 @@
   "context": "http://localhost:8080/semanticAnnotator/#",
   "date": "2017-09-21",
   "annotator": "http://orcid.org/0000-0002-2146-4803",
-  "source": "MMNAT01_AF_NNM001001033_003.jpg",
+  "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
   "selector": "#xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122",
   "verbatim": "Pteropus minimus",
   "language": "la",

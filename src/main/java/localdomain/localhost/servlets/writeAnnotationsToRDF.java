@@ -190,7 +190,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 
 		// init instances
 		IRI annotationIRI = f.createIRI(host, "rdf/nc/annotation/" + uuid);
-		IRI sourceIRI = f.createIRI(host, "semanticAnnotator/files/" + source);
+		IRI sourceIRI = f.createIRI(source);
 		IRI selectorIRI = f.createIRI(sourceIRI + selector);
 		IRI identificationIRI = f.createIRI(nc, "identification" + organismID);
 		IRI humanObservationIRI = f.createIRI(nc, "humanObservation" + organismID);
