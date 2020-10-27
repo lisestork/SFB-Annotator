@@ -11,17 +11,17 @@ env:
     - CRE=tomcat:tomcat
     - BASE=/usr/local/tomcat/webapps/semanticAnnotator/data/
   matrix:
-    - IMG=local
-    - IMG=remote
+    - IMG_SRC=local
+    - IMG_SRC=remote
 install:
   - pip install -q jq
   - docker-compose up -d
   - docker exec sea ./init.sh
-  - docker exec sea bash -c "cp $BASE/data-$IMG.json $BASE/data.json && cat \$_"
+  - docker exec sea bash -c "cp $BASE/data-$IMG_SRC.json $BASE/data.json && cat \$_"
 script:
   - |
     echo "Check the accessibility of image files..."
-    for url in $(jq -r ".items|.[].item[]" < ./src/main/webapp/data/data-$IMG.json); do
+    for url in $(jq -r ".items|.[].item[]" < ./src/main/webapp/data/data-$IMG_SRC.json); do
       echo -ne "$url\t ..."
       [[ $(curl -s -u "$CRE" -w "%{http_code}" "$url" -o /dev/null) -eq 200 ]] \
         && echo "OK" || (echo "FAILED" && exit 1)
