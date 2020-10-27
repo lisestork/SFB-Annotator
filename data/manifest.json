@@ -1,11 +1,13 @@
-
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@id": "https://raw.githubusercontent.com/LINNAE-project/SFB-Annotator/master/data/manifest.json",
+  "@id": "https://raw.githubusercontent.com/LINNAE-project/SFB-Annotator/14236422d6aac6d75df7ab6753e7da1be8aa1391/data/manifest.json",
   "@type": "sc:Manifest",
-  "label": "Sample Field Book",
+  "label": "Sample field book",
+  "description": "Sample field books used for testing purposes",
   "viewingDirection": "left-to-right",
   "viewingHint": "paged",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution": "Arnold Kuzniar",
   "startCanvas": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p1",
   "sequences": [
     {
@@ -20,7 +22,7 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/!120,120/0/default.jpg",
+            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
             "height": 120,
             "width": 120
@@ -52,7 +54,7 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002/full/!120,120/0/default.jpg",
+            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
             "height": 120,
             "width": 120
@@ -84,7 +86,7 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/!120,120/0/default.jpg",
+            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
             "height": 120,
             "width": 120
@@ -116,7 +118,7 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/!120,120/0/default.jpg",
+            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
             "height": 120,
             "width": 120
@@ -148,7 +150,7 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005/full/!120,120/0/default.jpg",
+            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
             "height": 120,
             "width": 120
@@ -180,7 +182,7 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006/full/!120,120/0/default.jpg",
+            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
             "height": 120,
             "width": 120
@@ -212,7 +214,7 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007/full/!120,120/0/default.jpg",
+            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
             "height": 120,
             "width": 120
@@ -244,7 +246,7 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008/full/!120,120/0/default.jpg",
+            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
             "height": 120,
             "width": 120
