@@ -1,19 +1,36 @@
+
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
   "@id": "https://raw.githubusercontent.com/LINNAE-project/SFB-Annotator/14236422d6aac6d75df7ab6753e7da1be8aa1391/data/manifest.json",
   "@type": "sc:Manifest",
   "label": "Sample field book",
+  "metadata": [
+    {"label": "Author", "value": "Arnold Kuzniar"}
+  ],
   "description": "Sample field books used for testing purposes",
+  "thumbnail": {
+    "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/!120,120/0/default.jpg",
+    "@type": "dctypes:Image",
+    "format": "image/jpeg",
+    "width": 120,
+    "height": 120,
+    "service": {
+      "@context": "http://iiif.io/api/image/2/context.json",
+      "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033",
+      "profile": "http://iiif.io/api/image/2/level2.json",
+      "protocol": "http://iiif.io/api/image"
+    }
+  },
   "viewingDirection": "left-to-right",
   "viewingHint": "paged",
   "license": "http://creativecommons.org/licenses/by/4.0/",
   "attribution": "Arnold Kuzniar",
-  "startCanvas": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p1",
   "sequences": [
     {
       "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/sequence/default",
       "@type": "sc:Sequence",
       "label": "Default",
+      "startCanvas": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p1",
       "canvases": [
         {
           "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p1",
@@ -22,10 +39,17 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/!120,120/0/default.jpg",
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "width": 120,
             "height": 120,
-            "width": 120
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001",
+              "profile": "http://iiif.io/api/image/2/level2.json",
+              "protocol": "http://iiif.io/api/image"
+            }
           },
           "images": [
             {
@@ -54,10 +78,17 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002/full/!120,120/0/default.jpg",
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "width": 120,
             "height": 120,
-            "width": 120
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002",
+              "profile": "http://iiif.io/api/image/2/level2.json",
+              "protocol": "http://iiif.io/api/image"
+            }
           },
           "images": [
             {
@@ -86,10 +117,17 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/!120,120/0/default.jpg",
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "width": 120,
             "height": 120,
-            "width": 120
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003",
+              "profile": "http://iiif.io/api/image/2/level2.json",
+              "protocol": "http://iiif.io/api/image"
+            }
           },
           "images": [
             {
@@ -118,10 +156,17 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/!120,120/0/default.jpg",
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "width": 120,
             "height": 120,
-            "width": 120
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004",
+              "profile": "http://iiif.io/api/image/2/level2.json",
+              "protocol": "http://iiif.io/api/image"
+            }
           },
           "images": [
             {
@@ -150,10 +195,17 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005/full/!120,120/0/default.jpg",
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "width": 120,
             "height": 120,
-            "width": 120
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005",
+              "profile": "http://iiif.io/api/image/2/level2.json",
+              "protocol": "http://iiif.io/api/image"
+            }
           },
           "images": [
             {
@@ -182,10 +234,17 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006/full/!120,120/0/default.jpg",
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "width": 120,
             "height": 120,
-            "width": 120
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006",
+              "profile": "http://iiif.io/api/image/2/level2.json",
+              "protocol": "http://iiif.io/api/image"
+            }
           },
           "images": [
             {
@@ -214,10 +273,17 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007/full/!120,120/0/default.jpg",
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "width": 120,
             "height": 120,
-            "width": 120
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007",
+              "profile": "http://iiif.io/api/image/2/level2.json",
+              "protocol": "http://iiif.io/api/image"
+            }
           },
           "images": [
             {
@@ -246,10 +312,17 @@
           "width": 1024,
           "height": 768,
           "thumbnail": {
-            "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008/full/!120,120/0/default.jpg",
+            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008/full/!120,120/0/default.jpg",
             "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "width": 120,
             "height": 120,
-            "width": 120
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008",
+              "profile": "http://iiif.io/api/image/2/level2.json",
+              "protocol": "http://iiif.io/api/image"
+            }
           },
           "images": [
             {
