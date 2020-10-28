@@ -14,7 +14,7 @@ env:
     - IMG_SRC=local
     - IMG_SRC=remote
 install:
-  - pip install -q jq
+  - pip install -q jq tripoli
   - docker-compose up -d
   - docker exec sea ./init.sh
   - docker exec sea bash -c "cp $BASE/data-$IMG_SRC.json $BASE/data.json && cat \$_"
@@ -32,3 +32,4 @@ script:
       rdf="$prefix.ttl"
       ./run.sh "$json" "$rdf"
     done
+  - ./validate.py data/manifest.json
