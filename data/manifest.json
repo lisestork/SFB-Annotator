@@ -1,7 +1,7 @@
 
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@id": "https://raw.githubusercontent.com/LINNAE-project/SFB-Annotator/14236422d6aac6d75df7ab6753e7da1be8aa1391/data/manifest.json",
+  "@id": "https://raw.githubusercontent.com/LINNAE-project/SFB-Annotator/5c2756036b7d36671a01b9999bce55123dcae723/data/manifest.json",
   "@type": "sc:Manifest",
   "label": "Sample field book",
   "metadata": [
