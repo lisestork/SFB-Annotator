@@ -1,26 +1,29 @@
-
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@id": "https://raw.githubusercontent.com/LINNAE-project/SFB-Annotator/5c2756036b7d36671a01b9999bce55123dcae723/data/manifest.json",
+  "@id": "https://raw.githubusercontent.com/LINNAE-project/SFB-Annotator/f98b6ca20807085d77ef7765550c9328027648fe/data/manifest.json",
   "@type": "sc:Manifest",
   "label": "Sample field book",
   "metadata": [
     {"label": "Author", "value": "Arnold Kuzniar"}
   ],
   "description": "Sample field books used for testing purposes",
+  "logo": {
+    "@id": "https://zenodo.org/api/files/00000000-0000-0000-0000-000000000000/nlesc/logo.jpg",
+    "@type": "dctypes:Image",
+    "format": "image/jpeg"
+  },
   "thumbnail": {
     "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/!120,120/0/default.jpg",
     "@type": "dctypes:Image",
     "format": "image/jpeg",
-    "width": 120,
-    "height": 120,
     "service": {
       "@context": "http://iiif.io/api/image/2/context.json",
-      "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033",
+      "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001",
       "profile": "http://iiif.io/api/image/2/level2.json",
       "protocol": "http://iiif.io/api/image"
     }
   },
+  "within": "https://trng-repository.surfsara.nl/api/objects/deposit/900c341c1c10fff7",
   "viewingDirection": "left-to-right",
   "viewingHint": "paged",
   "license": "http://creativecommons.org/licenses/by/4.0/",
@@ -38,19 +41,6 @@
           "label": "p. 1",
           "width": 1024,
           "height": 768,
-          "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/!120,120/0/default.jpg",
-            "@type": "dctypes:Image",
-            "format": "image/jpeg",
-            "width": 120,
-            "height": 120,
-            "service": {
-              "@context": "http://iiif.io/api/image/2/context.json",
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001",
-              "profile": "http://iiif.io/api/image/2/level2.json",
-              "protocol": "http://iiif.io/api/image"
-            }
-          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/annotation/p1",
@@ -59,6 +49,17 @@
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p1",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/max/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001",
+                  "profile": "http://iiif.io/api/image/2/level2.json",
+                  "protocol": "http://iiif.io/api/image"
+                }
+              },
+              "thumbnail": {
+                "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/!120,120/0/default.jpg",
                 "@type": "dctypes:Image",
                 "format": "image/jpeg",
                 "service": {
@@ -77,19 +78,6 @@
           "label": "p. 2",
           "width": 1024,
           "height": 768,
-          "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002/full/!120,120/0/default.jpg",
-            "@type": "dctypes:Image",
-            "format": "image/jpeg",
-            "width": 120,
-            "height": 120,
-            "service": {
-              "@context": "http://iiif.io/api/image/2/context.json",
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002",
-              "profile": "http://iiif.io/api/image/2/level2.json",
-              "protocol": "http://iiif.io/api/image"
-            }
-          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002/annotation/p2",
@@ -98,6 +86,17 @@
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p2",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002/full/max/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002",
+                  "profile": "http://iiif.io/api/image/2/level2.json",
+                  "protocol": "http://iiif.io/api/image"
+                }
+              },
+              "thumbnail": {
+                "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_002/full/!120,120/0/default.jpg",
                 "@type": "dctypes:Image",
                 "format": "image/jpeg",
                 "service": {
@@ -116,19 +115,6 @@
           "label": "p. 3",
           "width": 1024,
           "height": 768,
-          "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/!120,120/0/default.jpg",
-            "@type": "dctypes:Image",
-            "format": "image/jpeg",
-            "width": 120,
-            "height": 120,
-            "service": {
-              "@context": "http://iiif.io/api/image/2/context.json",
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003",
-              "profile": "http://iiif.io/api/image/2/level2.json",
-              "protocol": "http://iiif.io/api/image"
-            }
-          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/annotation/p3",
@@ -137,6 +123,17 @@
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p3",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003",
+                  "profile": "http://iiif.io/api/image/2/level2.json",
+                  "protocol": "http://iiif.io/api/image"
+                }
+              },
+              "thumbnail": {
+                "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/!120,120/0/default.jpg",
                 "@type": "dctypes:Image",
                 "format": "image/jpeg",
                 "service": {
@@ -155,19 +152,6 @@
           "label": "p. 4",
           "width": 1024,
           "height": 768,
-          "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/!120,120/0/default.jpg",
-            "@type": "dctypes:Image",
-            "format": "image/jpeg",
-            "width": 120,
-            "height": 120,
-            "service": {
-              "@context": "http://iiif.io/api/image/2/context.json",
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004",
-              "profile": "http://iiif.io/api/image/2/level2.json",
-              "protocol": "http://iiif.io/api/image"
-            }
-          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/annotation/p4",
@@ -176,6 +160,17 @@
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p4",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/max/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004",
+                  "profile": "http://iiif.io/api/image/2/level2.json",
+                  "protocol": "http://iiif.io/api/image"
+                }
+              },
+              "thumbnail": {
+                "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/!120,120/0/default.jpg",
                 "@type": "dctypes:Image",
                 "format": "image/jpeg",
                 "service": {
@@ -194,19 +189,6 @@
           "label": "p. 5",
           "width": 1024,
           "height": 768,
-          "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005/full/!120,120/0/default.jpg",
-            "@type": "dctypes:Image",
-            "format": "image/jpeg",
-            "width": 120,
-            "height": 120,
-            "service": {
-              "@context": "http://iiif.io/api/image/2/context.json",
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005",
-              "profile": "http://iiif.io/api/image/2/level2.json",
-              "protocol": "http://iiif.io/api/image"
-            }
-          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005/annotation/p5",
@@ -215,6 +197,17 @@
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p5",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005/full/max/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005",
+                  "profile": "http://iiif.io/api/image/2/level2.json",
+                  "protocol": "http://iiif.io/api/image"
+                }
+              },
+              "thumbnail": {
+                "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_005/full/!120,120/0/default.jpg",
                 "@type": "dctypes:Image",
                 "format": "image/jpeg",
                 "service": {
@@ -233,19 +226,6 @@
           "label": "p. 6",
           "width": 1024,
           "height": 768,
-          "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006/full/!120,120/0/default.jpg",
-            "@type": "dctypes:Image",
-            "format": "image/jpeg",
-            "width": 120,
-            "height": 120,
-            "service": {
-              "@context": "http://iiif.io/api/image/2/context.json",
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006",
-              "profile": "http://iiif.io/api/image/2/level2.json",
-              "protocol": "http://iiif.io/api/image"
-            }
-          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006/annotation/p6",
@@ -254,6 +234,17 @@
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p6",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006/full/max/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006",
+                  "profile": "http://iiif.io/api/image/2/level2.json",
+                  "protocol": "http://iiif.io/api/image"
+                }
+              },
+              "thumbnail": {
+                "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_006/full/!120,120/0/default.jpg",
                 "@type": "dctypes:Image",
                 "format": "image/jpeg",
                 "service": {
@@ -272,19 +263,6 @@
           "label": "p. 7",
           "width": 1024,
           "height": 768,
-          "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007/full/!120,120/0/default.jpg",
-            "@type": "dctypes:Image",
-            "format": "image/jpeg",
-            "width": 120,
-            "height": 120,
-            "service": {
-              "@context": "http://iiif.io/api/image/2/context.json",
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007",
-              "profile": "http://iiif.io/api/image/2/level2.json",
-              "protocol": "http://iiif.io/api/image"
-            }
-          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007/annotation/p7",
@@ -293,6 +271,17 @@
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p7",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007/full/max/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007",
+                  "profile": "http://iiif.io/api/image/2/level2.json",
+                  "protocol": "http://iiif.io/api/image"
+                }
+              },
+              "thumbnail": {
+                "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_007/full/!120,120/0/default.jpg",
                 "@type": "dctypes:Image",
                 "format": "image/jpeg",
                 "service": {
@@ -311,19 +300,6 @@
           "label": "p. 8",
           "width": 1024,
           "height": 768,
-          "thumbnail": {
-            "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008/full/!120,120/0/default.jpg",
-            "@type": "dctypes:Image",
-            "format": "image/jpeg",
-            "width": 120,
-            "height": 120,
-            "service": {
-              "@context": "http://iiif.io/api/image/2/context.json",
-              "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008",
-              "profile": "http://iiif.io/api/image/2/level2.json",
-              "protocol": "http://iiif.io/api/image"
-            }
-          },
           "images": [
             {
               "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008/annotation/p8",
@@ -332,6 +308,17 @@
               "on": "http://localhost:8182/iiif/2/900c341c1c10fff7/canvas/p8",
               "resource": {
                 "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008/full/max/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008",
+                  "profile": "http://iiif.io/api/image/2/level2.json",
+                  "protocol": "http://iiif.io/api/image"
+                }
+              },
+              "thumbnail": {
+                "@id" : "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008/full/!120,120/0/default.jpg",
                 "@type": "dctypes:Image",
                 "format": "image/jpeg",
                 "service": {
