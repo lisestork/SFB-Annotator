@@ -27,7 +27,7 @@ script:
         && echo "OK" || (echo "FAILED" && exit 1)
     done
   - |
-    for json in $(ls data/json/*.json | sort); do
+    for json in $(ls data/json/$IMG_SRC/*.json | sort); do
       prefix="$(basename "$json" .json)"
       rdf="$prefix.ttl"
       ./run.sh "$json" "$rdf"

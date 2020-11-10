@@ -57,8 +57,9 @@ docker-compose exec sea ./init.sh
 
 # configure sea to use a remote image archive (optional)
 # default: data-local.json
-JSON=/usr/local/tomcat/webapps/semanticAnnotator/data/
-docker exec -it sea bash -c "cp $JSON/data-remote.json $JSON/data.json"
+BASE_DIR=/usr/local/tomcat/webapps/semanticAnnotator/data/
+IMG_SRC=remote  # default: local
+docker exec -it sea bash -c "cp $BASE_DIR/data-$IMG_SRC.json $BASE_DIR/data.json"
 
 # configure grlc to use local path (optional)
 git clone https://github.com/LINNAE-project/queries
@@ -73,7 +74,7 @@ docker run --name sea -d -p 8080:8080 linnae/sfb-annotator:local
 docker exec sea ./init.sh
 
 # generate RDF triples for example inputs (annotation events)
-for json in $(ls data/json/*.json | sort)
+for json in $(ls data/json/$IMG_SRC/*.json | sort)
 do
   prefix="$(basename "$json" .json)"
   suffix=ttl  # or jsonld
