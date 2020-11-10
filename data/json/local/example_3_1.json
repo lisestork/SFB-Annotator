@@ -1,0 +1,27 @@
+{
+  "src": "dzi://openseadragon/something",
+  "text": "location",
+  "shapes": [
+    {
+      "type": "rect",
+      "geometry": {
+        "x": 0.783509282340829,
+        "y": 0.018142248666184174,
+        "width": 0.050441826215022134,
+        "height": 0.017488954344624445
+      },
+      "style": {}
+    }
+  ],
+  "context": "http://localhost:8080/semanticAnnotator/#",
+  "date": "2017-09-21",
+  "annotator": "http://orcid.org/0000-0002-2146-4803",
+  "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
+  "selector": "#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445",
+  "verbatim": "Buitenzorg",
+  "language": "nl",
+  "type": "location",
+  "property": "type",
+  "organismID": "",
+  "instance": "http://sws.geonames.org/1648473/"
+}
