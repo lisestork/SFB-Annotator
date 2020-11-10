@@ -1,0 +1,31 @@
+
+<http://localhost:8080/rdf/nc/annotation/c717bf11-4f61-4c22-b8ce-b43f0c196b4c> a <http://www.w3.org/ns/oa#Annotation>;
+  <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
+  <http://purl.org/dc/terms/date> "2017-09-21";
+  <http://www.w3.org/ns/oa#hasBody> <http://viaf.org/viaf/39377694>, _:node1emomvcqux187 .
+
+_:node1emomvcqux187 a <http://www.w3.org/ns/oa#TextualBody>;
+  <http://purl.org/dc/terms/format> "text/plain";
+  <http://purl.org/dc/terms/language> "und";
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Geoff"@und;
+  <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
+
+<http://localhost:8080/rdf/nc/annotation/c717bf11-4f61-4c22-b8ce-b43f0c196b4c> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1emomvcqux186 .
+
+_:node1emomvcqux186 a <http://www.w3.org/ns/oa#Target>;
+  <http://purl.org/dc/terms/format> "image/jpeg";
+  <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206>;
+  <http://www.w3.org/ns/oa#hasSource> <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
+
+<http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
+
+<http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg>
+  a <http://purl.org/dc/dcmitype/StillImage>, <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+
+<http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206>
+  a <http://www.w3.org/ns/oa#FragmentSelector>;
+  <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206" .
+
+<http://viaf.org/viaf/39377694> a <http://xmlns.com/foaf/0.1/Person> .

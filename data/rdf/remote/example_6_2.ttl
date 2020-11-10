@@ -1,0 +1,43 @@
+
+<http://localhost:8080/rdf/nc/annotation/3bda2f4e-61ee-4de0-8d4e-2b0e2d99a072> a <http://www.w3.org/ns/oa#Annotation>;
+  <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
+  <http://purl.org/dc/terms/date> "2017-09-21";
+  <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>,
+    _:node1emomvcqux277 .
+
+_:node1emomvcqux277 a <http://www.w3.org/ns/oa#TextualBody>;
+  <http://purl.org/dc/terms/format> "text/plain";
+  <http://purl.org/dc/terms/language> "la";
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Dentibus"@la;
+  <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
+
+<http://localhost:8080/rdf/nc/annotation/3bda2f4e-61ee-4de0-8d4e-2b0e2d99a072> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1emomvcqux276 .
+
+_:node1emomvcqux276 a <http://www.w3.org/ns/oa#Target>;
+  <http://purl.org/dc/terms/format> "image/jpeg";
+  <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747>;
+  <http://www.w3.org/ns/oa#hasSource> <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
+
+<http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
+
+<http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg>
+  a <http://purl.org/dc/dcmitype/StillImage>, <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+
+<http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747>
+  a <http://www.w3.org/ns/oa#FragmentSelector>;
+  <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747" .
+
+<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a <http://purl.obolibrary.org/obo/UBERON_0003672>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Dentibus"@la .
+
+<http://purl.obolibrary.org/obo/UBERON_0003672> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+    <http://purl.obolibrary.org/obo/UBERON_0001062> .
+
+<http://makingsense.liacs.nl/rdf/nc/humanObservation1> <http://purl.org/dsw/hasDerivative>
+    <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
+
+<http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> a <http://rs.tdwg.org/dwc/terms/MeasurementOrFact>;
+  <http://makingsense.liacs.nl/rdf/nhc/measuresOrDescribes> <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>;
+  <http://purl.org/dsw/derivedFrom> <http://makingsense.liacs.nl/rdf/nc/humanObservation1> .

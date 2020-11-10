@@ -1,0 +1,31 @@
+
+<http://localhost:8080/rdf/nc/annotation/2ca47877-5252-4325-a186-e2b13c51ec4e> a <http://www.w3.org/ns/oa#Annotation>;
+  <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
+  <http://purl.org/dc/terms/date> "2017-09-21";
+  <http://www.w3.org/ns/oa#hasBody> <http://sws.geonames.org/1648473/>, _:node1emomvcqux218 .
+
+_:node1emomvcqux218 a <http://www.w3.org/ns/oa#TextualBody>;
+  <http://purl.org/dc/terms/format> "text/plain";
+  <http://purl.org/dc/terms/language> "nl";
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Buitenzorg"@nl;
+  <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
+
+<http://localhost:8080/rdf/nc/annotation/2ca47877-5252-4325-a186-e2b13c51ec4e> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1emomvcqux217 .
+
+_:node1emomvcqux217 a <http://www.w3.org/ns/oa#Target>;
+  <http://purl.org/dc/terms/format> "image/jpeg";
+  <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445>;
+  <http://www.w3.org/ns/oa#hasSource> <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
+
+<http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
+
+<http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg>
+  a <http://purl.org/dc/dcmitype/StillImage>, <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+
+<http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445>
+  a <http://www.w3.org/ns/oa#FragmentSelector>;
+  <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445" .
+
+<http://sws.geonames.org/1648473/> a <http://purl.org/dc/terms/Location> .

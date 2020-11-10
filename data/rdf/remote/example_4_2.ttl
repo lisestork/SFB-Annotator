@@ -1,0 +1,36 @@
+
+<http://localhost:8080/rdf/nc/annotation/bb7499a1-e611-4974-b1ab-88f94771c333> a <http://www.w3.org/ns/oa#Annotation>;
+  <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
+  <http://purl.org/dc/terms/date> "2017-09-21";
+  <http://www.w3.org/ns/oa#hasBody> <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1>,
+    _:node1emomvcqux245 .
+
+_:node1emomvcqux245 a <http://www.w3.org/ns/oa#TextualBody>;
+  <http://purl.org/dc/terms/format> "text/plain";
+  <http://purl.org/dc/terms/language> "und";
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> ""@und;
+  <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
+
+<http://localhost:8080/rdf/nc/annotation/bb7499a1-e611-4974-b1ab-88f94771c333> <http://www.w3.org/ns/oa#hasTarget>
+    _:node1emomvcqux244 .
+
+_:node1emomvcqux244 a <http://www.w3.org/ns/oa#Target>;
+  <http://purl.org/dc/terms/format> "image/jpeg";
+  <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5644329896907211,0.10470473364690311,0.1377025036818852,0.06369661266568483>;
+  <http://www.w3.org/ns/oa#hasSource> <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
+
+<http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
+
+<http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg>
+  a <http://purl.org/dc/dcmitype/StillImage>, <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+
+<http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5644329896907211,0.10470473364690311,0.1377025036818852,0.06369661266568483>
+  a <http://www.w3.org/ns/oa#FragmentSelector>;
+  <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
+  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.5644329896907211,0.10470473364690311,0.1377025036818852,0.06369661266568483" .
+
+<http://makingsense.liacs.nl/rdf/nc/humanObservation1> <http://purl.org/dsw/hasDerivative>
+    <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
+
+<http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> a <http://rs.tdwg.org/dwc/terms/MeasurementOrFact>;
+  <http://purl.org/dsw/derivedFrom> <http://makingsense.liacs.nl/rdf/nc/humanObservation1> .
