@@ -107,6 +107,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		}
 
 		// ns prefixes
+		String iso = "https://iso639-3.sil.org/code/";
 		String dwc = "http://rs.tdwg.org/dwc/terms/";
 		String dwciri = "http://rs.tdwg.org/dwc/iri/";
 		String dsw = "http://purl.org/dsw/";
@@ -249,7 +250,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(targetBNode, RDF.TYPE, targetClass);
 			conn.add(textualBodyBNode, RDF.TYPE, textualBodyClass);
 			conn.add(textualBodyBNode, DCTERMS.FORMAT, f.createLiteral("text/plain"));
-			conn.add(textualBodyBNode, DCTERMS.LANGUAGE, f.createLiteral(lang));
+			conn.add(textualBodyBNode, DCTERMS.LANGUAGE, f.createIRI(iso, lang));
 			conn.add(textualBodyBNode, RDF.VALUE, f.createLiteral(verbatim, lang));
 			conn.add(textualBodyBNode, hasPurposeProperty, f.createIRI(oa, "describing"));
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "StillImage"));

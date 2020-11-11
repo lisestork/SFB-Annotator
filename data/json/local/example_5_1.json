@@ -19,7 +19,7 @@
   "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
   "selector": "#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091",
   "verbatim": "Color",
-  "language": "la",
+  "language": "lat",
   "type": "propertyorattribute",
   "property": "type",
   "organismID": "",

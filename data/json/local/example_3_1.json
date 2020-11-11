@@ -19,7 +19,7 @@
   "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
   "selector": "#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445",
   "verbatim": "Buitenzorg",
-  "language": "nl",
+  "language": "dut",
   "type": "location",
   "property": "type",
   "organismID": "",

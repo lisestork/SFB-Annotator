@@ -19,7 +19,7 @@
   "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
   "selector": "#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747",
   "verbatim": "Dentibus",
-  "language": "la",
+  "language": "lat",
   "type": "anatomicalentity",
   "property": "measuresOrDescribes",
   "organismID": "1",

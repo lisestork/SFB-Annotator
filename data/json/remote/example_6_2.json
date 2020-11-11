@@ -19,7 +19,7 @@
   "source": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg",
   "selector": "#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747",
   "verbatim": "Dentibus",
-  "language": "la",
+  "language": "lat",
   "type": "anatomicalentity",
   "property": "measuresOrDescribes",
   "organismID": "1",

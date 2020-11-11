@@ -19,7 +19,7 @@
   "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
   "selector": "#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862",
   "verbatim": "Pteropus minimus",
-  "language": "la",
+  "language": "lat",
   "type": "taxon",
   "property": "hasIdentification",
   "organismID": "1",

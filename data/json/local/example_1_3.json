@@ -19,7 +19,7 @@
   "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg",
   "selector": "#xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658",
   "verbatim": "Pteropus",
-  "language": "la",
+  "language": "lat",
   "type": "taxon",
   "property": "additionalIdentification",
   "organismID": "2",

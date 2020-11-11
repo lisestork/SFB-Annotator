@@ -47,7 +47,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type/`text` | `Taxon` |  The handwritten text contains a taxon name. | Should be a drop-down menu with all possible classes
 | verbatim text/`verbatim` | _Pteropus minimus_ | The verbatim text as written in the bounding box |
-| language/`language` | _la_ | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  add autocomplete/drop down menu
+| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |  add autocomplete/drop down menu
 | Select property/`property` | `type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a taxon. |
 | type/`type` | `taxon` |  auto-fill from entity type |
 | Belongs to taxon/`belongstotaxon` | `https://identifiers.org/taxonomy:9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) | **question:** who do we allow to annotate, and who to interpret the data
@@ -78,7 +78,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type/`text` | `Taxon` | The handwritten text contains a taxon name. | Should be a drop-down menu with all possible classes
 | verbatim text/`verbatim` | _Pteropus minimus_ | The verbatim text as written in the bounding box |
-| language/`language` | _la_ | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ | add autocomplete/drop down menu
+| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ | add autocomplete/drop down menu
 | Select property/`property` | Organism identification to/`hasIdentification` | The annotation of an entity that refers to the identification of an organism (a taxon name as the initialisation of a field observation record, usually a new genus or scientificName). |
 | type/`type` | `taxon` | auto-fill from entity type |
 | Belongs to taxon/`belongstotaxon` | `https://identifiers.org/taxonomy:9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) | **question:** who do we allow to annotate, and who to interpret the data
@@ -113,7 +113,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type/`text` | `Taxon` | The handwritten text contains a taxon name. |
 | verbatim text/`verbatim` | _Pteropus_ | The verbatim text as written in the bounding box |
-| language/`language` | _la_ | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ | add autocomplete/drop down menu
+| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ | add autocomplete/drop down menu
 | Select property/`property` | Additional identification to/`additionalIdentification` | The annotation of an entity that refers to an _additional_ (secondary) identification of an organism (a scientific name as the initialisation of a field observation record). Usually, this is a second identification performed at a later stage (with availability of more knowledge for identification). Within this field note, the organism is first identified in the field as a new taxon _Gymnonotus_. |
 | type/`type` | `taxon` | auto-fill from entity type |
 | Belongs to taxon/`belongstotaxon` | `https://identifiers.org/taxonomy:9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) (question: who do we allow to annotate, and who to interpret the data) |
@@ -268,7 +268,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type | `Location` |  The handwritten text contains a location name. | Should be a drop-down menu with all possible classes
 | verbatim text | _Buitenzorg_ | The verbatim text as written in the bounding box |
-| language |  nl | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  
+| language/`language` | _dut_ | [ISO 639-3 code](https://iso639-3.sil.org/code/latl) for _Dutch_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a location. |
 | type | `location` |  auto-fill from entity type |
 | instance | `http://sws.geonames.org/1648473/` | Link the bounding box to the IRI if known. Here the location _Buitenzorg_, currently called _Bogor_. | Preferably these instances can be retrieved with semantic autocomplete
@@ -298,7 +298,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type | `Location` | The handwritten text contains a location name. | Should be a drop-down menu with all possible classes|  
 | verbatim text | _Bagalonga_ | The verbatim text as written in the bounding box |
-| language | | [ISO code](https://www.iso.org/iso-639-language-codes.html)  |add autocomplete/drop down menu
+| language | | |add autocomplete/drop down menu
 | Select property | `Occurrence located at` | The annotation of an entity that refers to the location where the observation of the organism occurrence took place. Maps to `dsw:locatedAt`. The prompt `Additional occurrence located at` should be merged with this one. |
 | type | `taxon` | auto-fill from entity type |
 | gn:geonamesfeature IRI |  | if known, the persistent identifier for the location from the geonames ontology, e.g., `http://sws.geonames.org/1648473/` (stands for _Buitenzorg_, also _Bogor_) |
@@ -328,8 +328,8 @@ Steps:
 |Key|Value |Notes | Diff Expected
 |---|-----|-----|-----
 | Entity type | `MeasurementOrFact` |  The handwritten text contains a measurement or fact. | Should be a drop-down menu with all possible classes
-| verbatim text |  | leave empty |
-| language |   | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ | should be removed here
+| verbatim text | | leave empty |
+| language | | | should be removed here
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a measurement or fact. |
 | type | `measurementorfact` |  auto-fill from entity type |
 | instance |  | Should be left empty | This field should be removed here.
@@ -358,8 +358,8 @@ Steps:
 |Key|Value |Notes | Diff Expected
 |---|-----|-----|----
 | Entity type | `MeasurementOrFact` | The handwritten text contains a table or other measurement or fact. | Should be a drop-down menu with all possible classes|  
-| verbatim text | leave empty |  |  |
-| language | leave empty | [ISO code](https://www.iso.org/iso-639-language-codes.html) | add autocomplete/drop down menu |
+| verbatim text | | | |
+| language | | | add autocomplete/drop down menu |
 | Select property | `Identification based on (table)` |  should be table _or_ paragraph| |
 | type | `measurementorfact` | auto-fill from entity type |
 | organism ID | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `1` is a placeholder; an unique ID should be generated for the organism record.* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?  |
@@ -389,7 +389,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type | `PropertyOrAttribute` |  The handwritten text contains a property or attribute name. | Should be a drop-down menu with all possible classes
 | verbatim text | _Color_ | The verbatim text as written in the bounding box |
-| language |  nl | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  
+| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a property or attribute name. |
 | type | `propertyOrAttribute` |  auto-fill from entity type |
 | instance | `http://identifiers.org/ncit/C37927` | Link the bounding box to the IRI if known. Here the property _Color_. | Preferably these instances can be retrieved with semantic autocomplete
@@ -421,7 +421,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type | `propertyOrAttribute` | The handwritten text contains an indication of a property or attribute of the described organism. | Should be a drop-down menu with all possible classes|  
 | verbatim text | _Color_ |  |  |
-| language | la | [ISO code](https://www.iso.org/iso-639-language-codes.html)  |add autocomplete/drop down menu
+| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |add autocomplete/drop down menu
 | Select property | `Table/paragraph measures or describes` | Indicating that a table or a paragraph describes the certain property or attribute, here the _Color_ of the animal | |
 | type | `propertyOrAttribute` | auto-fill from entity type |
 | `ncit:propertyorattribute subclass IRI` | `http://identifiers.org/ncit/C37927` | A subclass of `http://identifiers.org/ncit/C20189` or `propertyOrAttribute` from the NCIT ontology.
@@ -452,7 +452,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type | `AnatomicalEntity` |  The handwritten text contains the name of an anatomical entity. | Should be a drop-down menu with all possible classes
 | verbatim text | _Dentibus_ | The verbatim text as written in the bounding box |
-| language |  nl | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  
+| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains the name of an anatomical entity. |
 | type | `anatomicalentity` |  auto-fill from entity type |
 | instance | `http://purl.obolibrary.org/obo/UBERON_0003672` | Link the bounding box to the IRI if known. Here the anatomical entity _Dentibus_. | Preferably these instances can be retrieved with semantic autocomplete
@@ -484,7 +484,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type | `anatomicalEntity` | The handwritten text contains the name of an anatomical entity of the described organism. | Should be a drop-down menu with all possible classes|  
 | verbatim text | _Dentibus_ |  | |
-| language | la | [ISO code](https://www.iso.org/iso-639-language-codes.html)   | add autocomplete/drop down menu
+| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ | add autocomplete/drop down menu
 | Select property | `Table/paragraph measures or describes` | Indicating that a table or a paragraph describes the certain anatomical entity, here the _Dentibus_ (teeth) of the animal | |
 | type | `anatomicalEntity` | auto-fill from entity type |
 | `uberon:anatomicalentity subclass IRI` | `http://purl.obolibrary.org/obo/UBERON_0003672` | A subclass of `http://purl.obolibrary.org/obo/UBERON_0001062` or `anatomical entity` from the uberon ontology.
@@ -515,7 +515,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type | `date` |  The handwritten text contains a date. | Should be a drop-down menu with all possible classes
 | verbatim text | _10 April 1821_ | The verbatim text as written in the bounding box |
-| language |  nl | [ISO code](https://www.iso.org/iso-639-language-codes.html) for _latin_ |  
+| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a date. |
 | type | `date` |  auto-fill from entity type |
 | instance | | this field should be removed | instead of the instance field, we would like to see the same fields as when the property `Organism described on` is selected, minus the organism ID field. See example [`example 7_2`](#Example-7_2) and corresponding ttl file [`example_7_2.ttl`](/data/rdf/example_7_2.ttl) file.
@@ -547,7 +547,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type | `date` | The handwritten text contains a date, either a day, month year, or a combination thereof. | Should be a drop-down menu with all possible classes|  
 | verbatim text | _10 april 1821_ |  Text as is, no formatting| |
-| language | nl | [ISO code](https://www.iso.org/iso-639-language-codes.html)   | add autocomplete/drop down menu
+| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ | add autocomplete/drop down menu
 | Select property | `Organism described on` | Indicates that the observation of the animal was on a certain date |  |
 | type | `date` | auto-fill from entity type |
 | Year (yyyy) | 1821 || should not be auto-filled with a 0

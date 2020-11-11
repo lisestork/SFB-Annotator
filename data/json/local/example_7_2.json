@@ -19,7 +19,7 @@
   "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg",
   "selector": "#xywh=0.6712020824648357,0.177764417868435,0.07131751180401791,0.015538452292495508",
   "verbatim": "10 April 1821",
-  "language": "nl",
+  "language": "dut",
   "type": "date",
   "property": "verbatimEventDate",
   "organismID": "1",

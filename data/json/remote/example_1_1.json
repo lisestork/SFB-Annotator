@@ -19,7 +19,7 @@
   "source": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg",
   "selector": "#xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122",
   "verbatim": "Pteropus minimus",
-  "language": "la",
+  "language": "lat",
   "type": "taxon",
   "property": "type",
   "organismID": "-",
