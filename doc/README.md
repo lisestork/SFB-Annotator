@@ -27,9 +27,9 @@ Field notes are collections of observation records ([`dwc:HumanObservation`](htt
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/example_1_1.json)
+Input: [JSON](/data/json/remote/example_1_1.json)
 
-Output: [RDF/Turtle](/data/rdf/example_1_1.ttl)|[JSON-LD](/data/rdf/example_1_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_1_1.ttl)|[JSON-LD](/data/rdf/remote/example_1_1.jsonld)
 
 Steps:
 
@@ -58,9 +58,9 @@ Steps:
 
 Property: [`dsw:hasIdentification`](http://purl.org/dsw/hasIdentification)
 
-Input: [JSON](/data/json/example_1_2.json)
+Input: [JSON](/data/json/remote/example_1_2.json)
 
-Output: [RDF/Turtle](/data/rdf/example_1_2.ttl)|[JSON-LD](/data/rdf/example_1_2.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_1_2.ttl)|[JSON-LD](/data/rdf/remote/example_1_2.jsonld)
 
 Steps:
 
@@ -93,9 +93,9 @@ Steps:
 
 Property: [`nhc:additionalIdentification`](http://makingsense.liacs.nl/rdf/nhc/additionalIdentification)
 
-Input: [JSON](/data/json/example_1_3.json)
+Input: [JSON](/data/json/remote/example_1_3.json)
 
-Output: [RDF/Turtle](/data/rdf/example_1_3.ttl)|[JSON-LD](/data/rdf/example_1_3.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_1_3.ttl)|[JSON-LD](/data/rdf/remote/example_1_3.jsonld)
 
 Steps:
 
@@ -126,9 +126,9 @@ Steps:
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/example_2_1.json)
+Input: [JSON](/data/json/remote/example_2_1.json)
 
-Output: [RDF/Turtle](/data/rdf/example_2_1.ttl)|[JSON-LD](/data/rdf/example_2_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_2_1.ttl)|[JSON-LD](/data/rdf/remote/example_2_1.jsonld)
 
 Steps:
 
@@ -156,9 +156,9 @@ Steps:
 
 Property: [`nhc:scientificNameAuthorship`](http://makingsense.liacs.nl/rdf/nhc/scientificNameAuthorship)
 
-Input: [JSON](/data/json/example_2_2.json)
+Input: [JSON](/data/json/remote/example_2_2.json)
 
-Output: [RDF/Turtle](/data/rdf/example_2_2.ttl)|[JSON-LD](/data/rdf/example_2_2.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_2_2.ttl)|[JSON-LD](/data/rdf/remote/example_2_2.jsonld)
 
 Steps:
 
@@ -187,9 +187,9 @@ Steps:
 
 Property: [`dwciri:identifiedBy`](https://dwc.tdwg.org/list/#dwciri_identifiedBy)
 
-Input: [JSON](/data/json/example_2_3.json)
+Input: [JSON](/data/json/remote/example_2_3.json)
 
-Output: [RDF/Turtle](/data/rdf/example_2_3.ttl)|[JSON-LD](/data/rdf/example_2_3.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_2_3.ttl)|[JSON-LD](/data/rdf/remote/example_2_3.jsonld)
 
 Steps:
 
@@ -218,9 +218,9 @@ Steps:
 
 Property: [`dwciri:recordedBy`](https://dwc.tdwg.org/list/#dwciri_recordedBy)
 
-Input: [JSON](/data/json/example_2_4.json)
+Input: [JSON](/data/json/remote/example_2_4.json)
 
-Output: [RDF/Turtle](/data/rdf/example_2_4.ttl)|[JSON-LD](/data/rdf/example_2_4.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_2_4.ttl)|[JSON-LD](/data/rdf/remote/example_2_4.jsonld)
 
 Steps:
 
@@ -248,9 +248,9 @@ Steps:
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/example_3_1.json)
+Input: [JSON](/data/json/remote/example_3_1.json)
 
-Output: [RDF/Turtle](/data/rdf/example_3_1.ttl)|[JSON-LD](/data/rdf/example_3_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_3_1.ttl)|[JSON-LD](/data/rdf/remote/example_3_1.jsonld)
 
 Steps:
 
@@ -278,9 +278,9 @@ Steps:
 
 Property: `dsw:locatedAt`
 
-Input: [JSON](/data/json/example_3_2.json)
+Input: [JSON](/data/json/remote/example_3_2.json)
 
-Output: [RDF/Turtle](/data/rdf/example_3_2.ttl)|[JSON-LD](/data/rdf/example_3_2.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_3_2.ttl)|[JSON-LD](/data/rdf/remote/example_3_2.jsonld)
 
 Steps:
 
@@ -309,9 +309,9 @@ Steps:
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/example_4_1.json)
+Input: [JSON](/data/json/remote/example_4_1.json)
 
-Output: [RDF/Turtle](/data/rdf/example_4_1.ttl)|[JSON-LD](/data/rdf/example_4_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_4_1.ttl)|[JSON-LD](/data/rdf/remote/example_4_1.jsonld)
 
 Steps:
 
@@ -339,9 +339,9 @@ Steps:
 
 Property: `dsw:derivedFrom`
 
-Input: [JSON](/data/json/example_4_2.json)
+Input: [JSON](/data/json/remote/example_4_2.json)
 
-Output: [RDF/Turtle](/data/rdf/example_4_2.ttl)|[JSON-LD](/data/rdf/example_4_2.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_4_2.ttl)|[JSON-LD](/data/rdf/remote/example_4_2.jsonld)
 
 Steps:
 
@@ -369,9 +369,9 @@ Steps:
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/example_5_1.json)
+Input: [JSON](/data/json/remote/example_5_1.json)
 
-Output: [RDF/Turtle](/data/rdf/example_5_1.ttl)|[JSON-LD](/data/rdf/example_5_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_5_1.ttl)|[JSON-LD](/data/rdf/remote/example_5_1.jsonld)
 
 Steps:
 
@@ -401,9 +401,9 @@ Steps:
 
 Property: `nhc:measuresOrDescribes` and `propertyOrAttribute`
 
-Input: [JSON](/data/json/example_5_2.json)
+Input: [JSON](/data/json/remote/example_5_2.json)
 
-Output: [RDF/Turtle](/data/rdf/example_5_2.ttl)|[JSON-LD](/data/rdf/example_5_2.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_5_2.ttl)|[JSON-LD](/data/rdf/remote/example_5_2.jsonld)
 
 Steps:
 
@@ -432,9 +432,9 @@ Steps:
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/example_6_1.json)
+Input: [JSON](/data/json/remote/example_6_1.json)
 
-Output: [RDF/Turtle](/data/rdf/example_6_1.ttl)|[JSON-LD](/data/rdf/example_6_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_6_1.ttl)|[JSON-LD](/data/rdf/remote/example_6_1.jsonld)
 
 Steps:
 
@@ -464,9 +464,9 @@ Steps:
 
 Property: `nhc:measuresOrDescribes` and `anatomicalEntity`
 
-Input: [JSON](/data/json/example_6_2.json)
+Input: [JSON](/data/json/remote/example_6_2.json)
 
-Output: [RDF/Turtle](/data/rdf/example_6_2.ttl)|[JSON-LD](/data/rdf/example_6_2.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_6_2.ttl)|[JSON-LD](/data/rdf/remote/example_6_2.jsonld)
 
 Steps:
 
@@ -495,9 +495,9 @@ Steps:
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/example_7_1.json)
+Input: [JSON](/data/json/remote/example_7_1.json)
 
-Output: [RDF/Turtle](/data/rdf/example_7_1.ttl)|[JSON-LD](/data/rdf/example_7_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_7_1.ttl)|[JSON-LD](/data/rdf/remote/example_7_1.jsonld)
 
 Steps:
 
@@ -518,7 +518,7 @@ Steps:
 | language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a date. |
 | type | `date` |  auto-fill from entity type |
-| instance | | this field should be removed | instead of the instance field, we would like to see the same fields as when the property `Organism described on` is selected, minus the organism ID field. See example [`example 7_2`](#Example-7_2) and corresponding ttl file [`example_7_2.ttl`](/data/rdf/example_7_2.ttl) file.
+| instance | | this field should be removed | instead of the instance field, we would like to see the same fields as when the property `Organism described on` is selected, minus the organism ID field. See example [`example 7_2`](#Example-7_2) and corresponding ttl file [`example_7_2.ttl`](/data/rdf/remote/example_7_2.ttl) file.
 
 * Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
 
@@ -527,9 +527,9 @@ Steps:
 
 Property: `nhc:verbatimDate` and `rdf:type`\*
 
-Input: [JSON](/data/json/example_7_1.json)
+Input: [JSON](/data/json/remote/example_7_1.json)
 
-Output: [RDF/Turtle](/data/rdf/example_7_1.ttl)|[JSON-LD](/data/rdf/example_7_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_7_1.ttl)|[JSON-LD](/data/rdf/remote/example_7_1.jsonld)
 
 Steps:
 
