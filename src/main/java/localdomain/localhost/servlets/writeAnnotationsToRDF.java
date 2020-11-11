@@ -106,8 +106,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			//
 		}
 
-		// ns prefixes
+		// namespace prefixes
 		String iso = "https://iso639-3.sil.org/code/";
+		String dcmitype = "http://purl.org/dc/dcmitype/";
 		String dwc = "http://rs.tdwg.org/dwc/terms/";
 		String dwciri = "http://rs.tdwg.org/dwc/iri/";
 		String dsw = "http://purl.org/dsw/";
@@ -117,8 +118,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String nc = "http://makingsense.liacs.nl/rdf/nc/";
 		String nhc = "http://makingsense.liacs.nl/rdf/nhc/";
 		String oa = "http://www.w3.org/ns/oa#";
+		String orcid = "http://orcid.org/";
 		String mf = "http://www.w3.org/TR/media-frags/";
-		String dcmitype = "http://purl.org/dc/dcmitype/";
+		String viaf = "http://viaf.org/viaf/";
 
 		// Connect to RDF server
 		String host = "http://localhost:8080/";
@@ -238,6 +240,24 @@ public class writeAnnotationsToRDF extends HttpServlet {
 
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();
+			// add namespace prefixes
+			conn.setNamespace("dsw", dsw);
+			conn.setNamespace(DCTERMS.PREFIX, DCTERMS.NAMESPACE);
+			conn.setNamespace("dcmitype", dcmitype);
+			conn.setNamespace("dwc", dwc);
+			conn.setNamespace("dwciri", dwciri);
+			conn.setNamespace(FOAF.PREFIX, FOAF.NAMESPACE);
+			conn.setNamespace("iso", iso);
+			conn.setNamespace("mf", mf);
+			conn.setNamespace("ncit", ncit);
+			conn.setNamespace("nhc", nhc);
+			conn.setNamespace(RDF.PREFIX, RDF.NAMESPACE);
+			conn.setNamespace(RDFS.PREFIX, RDFS.NAMESPACE);
+			conn.setNamespace("obo", obo);
+			conn.setNamespace("orcid", orcid);
+			conn.setNamespace("oa", oa);
+			conn.setNamespace("viaf", viaf);
+			// add triples
 			conn.add(annotationIRI, RDF.TYPE, annotationClass);
 			conn.add(annotationIRI, hasBodyProperty, textualBodyBNode);
 			conn.add(annotationIRI, hasTargetProperty, targetBNode);

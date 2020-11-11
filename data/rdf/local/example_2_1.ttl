@@ -1,31 +1,40 @@
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix iso: <https://iso639-3.sil.org/code/> .
+@prefix mf: <http://www.w3.org/TR/media-frags/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix orcid: <http://orcid.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/3c55d4cd-9696-495d-8489-f96bdd29ee1a> a <http://www.w3.org/ns/oa#Annotation>;
-  <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803>;
-  <http://purl.org/dc/terms/date> "2017-09-21";
-  <http://www.w3.org/ns/oa#hasBody> <http://viaf.org/viaf/39377694>, _:node1emrup8mnx451 .
+<http://localhost:8080/rdf/nc/annotation/6b13c066-56a7-408b-8809-28c6d1548c7d> a oa:Annotation;
+  dcterms:creator orcid:0000-0002-2146-4803;
+  dcterms:date "2017-09-21";
+  oa:hasBody viaf:39377694, _:node1emsnkim6x31 .
 
-_:node1emrup8mnx451 a <http://www.w3.org/ns/oa#TextualBody>;
-  <http://purl.org/dc/terms/format> "text/plain";
-  <http://purl.org/dc/terms/language> <https://iso639-3.sil.org/code/und>;
-  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "Geoff"@und;
-  <http://www.w3.org/ns/oa#hasPurpose> <http://www.w3.org/ns/oa#describing> .
+_:node1emsnkim6x31 a oa:TextualBody;
+  dcterms:format "text/plain";
+  dcterms:language iso:und;
+  rdf:value "Geoff"@und;
+  oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/3c55d4cd-9696-495d-8489-f96bdd29ee1a> <http://www.w3.org/ns/oa#hasTarget>
-    _:node1emrup8mnx450 .
+<http://localhost:8080/rdf/nc/annotation/6b13c066-56a7-408b-8809-28c6d1548c7d> oa:hasTarget
+    _:node1emsnkim6x30 .
 
-_:node1emrup8mnx450 a <http://www.w3.org/ns/oa#Target>;
-  <http://purl.org/dc/terms/format> "image/jpeg";
-  <http://www.w3.org/ns/oa#hasSelector> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206>;
-  <http://www.w3.org/ns/oa#hasSource> <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
+_:node1emsnkim6x30 a oa:Target;
+  dcterms:format "image/jpeg";
+  oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206>;
+  oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
 
-<http://orcid.org/0000-0002-2146-4803> a <http://xmlns.com/foaf/0.1/Person> .
+orcid:0000-0002-2146-4803 a foaf:Person .
 
 <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> a
-    <http://purl.org/dc/dcmitype/StillImage>, <http://www.w3.org/ns/oa#Source>, <http://xmlns.com/foaf/0.1/Image> .
+    dcmitype:StillImage, oa:Source, foaf:Image .
 
 <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206>
-  a <http://www.w3.org/ns/oa#FragmentSelector>;
-  <http://purl.org/dc/terms/conformsTo> <http://www.w3.org/TR/media-frags/>;
-  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206" .
+  a oa:FragmentSelector;
+  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
+  rdf:value "xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206" .
 
-<http://viaf.org/viaf/39377694> a <http://xmlns.com/foaf/0.1/Person> .
+viaf:39377694 a foaf:Person .
