@@ -12,31 +12,31 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/feb843f3-e011-4feb-ac93-7e7bd8bdc80d> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/24a9c20a-f369-45b1-8488-4eb1d3231124> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation1>, _:node1emsnkim6x155 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation1>, _:node1en8f0ijsx50 .
 
-_:node1emsnkim6x155 a oa:TextualBody;
+_:node1en8f0ijsx50 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus minimus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/feb843f3-e011-4feb-ac93-7e7bd8bdc80d> oa:hasBody
-    _:node1emsnkim6x156 .
+<http://localhost:8080/rdf/nc/annotation/24a9c20a-f369-45b1-8488-4eb1d3231124> oa:hasBody
+    _:node1en8f0ijsx51 .
 
-_:node1emsnkim6x156 a dwc:Taxon;
+_:node1en8f0ijsx51 a dwc:Taxon;
   nhc:belongsToTaxon <https://identifiers.org/taxonomy:9397>;
   nhc:taxonRank nhc:scientificName;
   rdf:value "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   rdfs:label "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/feb843f3-e011-4feb-ac93-7e7bd8bdc80d> oa:hasTarget
+<http://localhost:8080/rdf/nc/annotation/24a9c20a-f369-45b1-8488-4eb1d3231124> oa:hasTarget
     <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg>,
-    _:node1emsnkim6x154 .
+    _:node1en8f0ijsx49 .
 
-_:node1emsnkim6x154 a oa:Target;
+_:node1en8f0ijsx49 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862>;
   oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
@@ -66,11 +66,8 @@ orcid:0000-0002-2146-4803 a foaf:Person .
 <http://makingsense.liacs.nl/rdf/nc/identification1> a dwc:Identification;
   dsw:identifies <http://makingsense.liacs.nl/rdf/nc/organism1>;
   dsw:isBasedOn <http://makingsense.liacs.nl/rdf/nc/humanObservation1>;
-  dwciri:identifiedBy _:node1emsnkim6x152 .
-
-_:node1emsnkim6x152 a foaf:Person .
-
-<http://makingsense.liacs.nl/rdf/nc/identification1> dwciri:toTaxon _:node1emsnkim6x156;
+  dwciri:identifiedBy <http://viaf.org/viaf/45106482/>;
+  dwciri:toTaxon _:node1en8f0ijsx51;
   dwc:identificationID "1" .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> a dcterms:Location;
@@ -80,10 +77,12 @@ _:node1emsnkim6x152 a foaf:Person .
   dsw:atEvent <http://makingsense.liacs.nl/rdf/nc/event1>;
   dsw:hasEvidence <http://makingsense.liacs.nl/rdf/nc/humanObservation1>;
   dsw:occurrenceOf <http://makingsense.liacs.nl/rdf/nc/organism1>;
-  dwciri:recordedBy _:node1emsnkim6x152 .
+  dwciri:recordedBy <http://viaf.org/viaf/45106482/> .
 
 <http://makingsense.liacs.nl/rdf/nc/organism1> a dwc:Organism;
   dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/humanObservation1>;
   dsw:hasIdentification <http://makingsense.liacs.nl/rdf/nc/identification1>;
   dsw:hasOccurrence <http://makingsense.liacs.nl/rdf/nc/occurrence1>;
   dwc:organismID "1" .
+
+<http://viaf.org/viaf/45106482/> a foaf:Person .
