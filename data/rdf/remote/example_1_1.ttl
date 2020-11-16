@@ -10,30 +10,29 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/9f4a84f2-95cc-4e2f-8536-3bdd2e38dd1a> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/3efd7f38-43fb-4d55-8d21-d74b4de100ab> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody _:node1emsnkim6x147 .
+  oa:hasBody _:node1en8f0ijsx15 .
 
-_:node1emsnkim6x147 a oa:TextualBody;
+_:node1en8f0ijsx15 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus minimus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/9f4a84f2-95cc-4e2f-8536-3bdd2e38dd1a> oa:hasBody
-    _:node1emsnkim6x148 .
+<http://localhost:8080/rdf/nc/annotation/3efd7f38-43fb-4d55-8d21-d74b4de100ab> oa:hasBody
+    _:node1en8f0ijsx16 .
 
-_:node1emsnkim6x148 a dwc:Taxon;
+_:node1en8f0ijsx16 a dwc:Taxon;
   nhc:belongsToTaxon <https://identifiers.org/taxonomy:9397>;
   nhc:taxonRank nhc:scientificName;
-  rdf:value "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   rdfs:label "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/9f4a84f2-95cc-4e2f-8536-3bdd2e38dd1a> oa:hasTarget
-    _:node1emsnkim6x146 .
+<http://localhost:8080/rdf/nc/annotation/3efd7f38-43fb-4d55-8d21-d74b4de100ab> oa:hasTarget
+    _:node1en8f0ijsx14 .
 
-_:node1emsnkim6x146 a oa:Target;
+_:node1en8f0ijsx14 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122>;
   oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .

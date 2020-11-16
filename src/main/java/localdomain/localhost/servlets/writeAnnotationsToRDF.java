@@ -410,7 +410,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 						conn.add(taxonBNode, belongsToTaxonProperty, belongsToTaxonIRI);
 						conn.add(taxonBNode, taxonRankProperty, taxonRankIRI);
 						conn.add(taxonBNode, RDFS.LABEL, f.createLiteral(verbatim, lang));
-						conn.add(taxonBNode, RDF.VALUE, f.createLiteral(taxonNr));
 					}
 					break;
 				default :
