@@ -2,28 +2,28 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix iso: <https://iso639-3.sil.org/code/> .
+@prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/0427e2b6-4d2e-484d-848a-9bdb7a22ea80> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/44fc90e1-ca08-4424-8d97-4b9233482ccf> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody viaf:39377694, _:node1emsnkim6x54 .
+  oa:hasBody viaf:39377694, _:node1enbrodgax53 .
 
-_:node1emsnkim6x54 a oa:TextualBody;
+_:node1enbrodgax53 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Diard"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/0427e2b6-4d2e-484d-848a-9bdb7a22ea80> oa:hasTarget
-    _:node1emsnkim6x53 .
+<http://localhost:8080/rdf/nc/annotation/44fc90e1-ca08-4424-8d97-4b9233482ccf> oa:hasTarget
+    _:node1enbrodgax52 .
 
-_:node1emsnkim6x53 a oa:Target;
+_:node1enbrodgax52 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064>;
   oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .

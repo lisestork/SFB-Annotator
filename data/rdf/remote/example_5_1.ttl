@@ -3,7 +3,7 @@
 @prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix iso: <https://iso639-3.sil.org/code/> .
+@prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix ncit: <http://identifiers.org/ncit/> .
 @prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
@@ -12,21 +12,21 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/06b46f9b-a052-4437-a7df-9b040f2600f9> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/c63b7085-d8f6-4bae-9439-90ee61be0632> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1emsnkim6x237 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1enbrodgax374 .
 
-_:node1emsnkim6x237 a oa:TextualBody;
+_:node1enbrodgax374 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Color"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/06b46f9b-a052-4437-a7df-9b040f2600f9> oa:hasTarget
-    _:node1emsnkim6x236 .
+<http://localhost:8080/rdf/nc/annotation/c63b7085-d8f6-4bae-9439-90ee61be0632> oa:hasTarget
+    _:node1enbrodgax373 .
 
-_:node1emsnkim6x236 a oa:Target;
+_:node1enbrodgax373 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091>;
   oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
@@ -47,8 +47,8 @@ orcid:0000-0002-2146-4803 a foaf:Person .
   nhc:measuresOrDescribes <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>;
   dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation> .
 
-<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a _:node1emsnkim6x232 .
+<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a _:node1enbrodgax369 .
 
-_:node1emsnkim6x232 rdfs:subClassOf ncit:C20189 .
+_:node1enbrodgax369 rdfs:subClassOf ncit:C20189 .
 
 <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> rdfs:label "Color"@lat .

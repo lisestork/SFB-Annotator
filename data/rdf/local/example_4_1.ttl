@@ -3,27 +3,27 @@
 @prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix iso: <https://iso639-3.sil.org/code/> .
+@prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/d3f9d211-0eba-45f3-a68d-7c8d0ca8fc6a> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/0d82262b-81cf-4b8b-9f7b-bace022852b8> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1>, _:node1emsnkim6x80 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1>, _:node1enbrodgax79 .
 
-_:node1emsnkim6x80 a oa:TextualBody;
+_:node1enbrodgax79 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value ""@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/d3f9d211-0eba-45f3-a68d-7c8d0ca8fc6a> oa:hasTarget
-    _:node1emsnkim6x79 .
+<http://localhost:8080/rdf/nc/annotation/0d82262b-81cf-4b8b-9f7b-bace022852b8> oa:hasTarget
+    _:node1enbrodgax78 .
 
-_:node1emsnkim6x79 a oa:Target;
+_:node1enbrodgax78 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5614033197022136,0.11586327570674965,0.14027982326951394,0.0625920471281296>;
   oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .

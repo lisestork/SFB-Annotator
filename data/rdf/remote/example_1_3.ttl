@@ -3,7 +3,7 @@
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix iso: <https://iso639-3.sil.org/code/> .
+@prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
@@ -11,30 +11,30 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/4680bec9-1629-4c3c-8d5d-5419839eb3ee> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/8bbeb090-2fb7-44b1-a18a-74611832560c> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody _:node1emsnkim6x163 .
+  oa:hasBody _:node1enbrodgax300 .
 
-_:node1emsnkim6x163 a oa:TextualBody;
+_:node1enbrodgax300 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/4680bec9-1629-4c3c-8d5d-5419839eb3ee> oa:hasBody
-    _:node1emsnkim6x164 .
+<http://localhost:8080/rdf/nc/annotation/8bbeb090-2fb7-44b1-a18a-74611832560c> oa:hasBody
+    _:node1enbrodgax301 .
 
-_:node1emsnkim6x164 a dwc:Taxon;
-  nhc:belongsToTaxon <https://identifiers.org/taxonomy:9397>;
+_:node1enbrodgax301 a dwc:Taxon;
+  nhc:belongsToTaxon <http://identifiers.org/taxonomy:9397>;
   nhc:taxonRank nhc:genus;
   rdf:value "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   rdfs:label "Pteropus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/4680bec9-1629-4c3c-8d5d-5419839eb3ee> oa:hasTarget
-    _:node1emsnkim6x162 .
+<http://localhost:8080/rdf/nc/annotation/8bbeb090-2fb7-44b1-a18a-74611832560c> oa:hasTarget
+    _:node1enbrodgax299 .
 
-_:node1emsnkim6x162 a oa:Target;
+_:node1enbrodgax299 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008/full/max/0/default.jpg#xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658>;
   oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_008/full/max/0/default.jpg> .
@@ -52,7 +52,7 @@ orcid:0000-0002-2146-4803 a foaf:Person .
 nhc:additionalIdentification rdfs:subPropertyOf nhc:additional .
 
 <http://makingsense.liacs.nl/rdf/nc/identification2_id1> a dwc:Identification;
-  dwciri:toTaxon _:node1emsnkim6x164;
+  dwciri:toTaxon _:node1enbrodgax301;
   dwc:identificationID "2_id1" .
 
 <http://makingsense.liacs.nl/rdf/nc/organism2> nhc:additionalIdentification <http://makingsense.liacs.nl/rdf/nc/identification2_id1> .

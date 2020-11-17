@@ -1,27 +1,27 @@
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix iso: <https://iso639-3.sil.org/code/> .
+@prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/3507496f-3b0a-4355-a4bc-f5880a37839d> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/2f84f25b-af09-49b2-b77b-770fbf7b338d> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody _:node1emsnkim6x270 .
+  oa:hasBody _:node1enbrodgax407 .
 
-_:node1emsnkim6x270 a oa:TextualBody;
+_:node1enbrodgax407 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
   rdf:value "10 April 1821"@dut;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/3507496f-3b0a-4355-a4bc-f5880a37839d> oa:hasTarget
-    _:node1emsnkim6x269 .
+<http://localhost:8080/rdf/nc/annotation/2f84f25b-af09-49b2-b77b-770fbf7b338d> oa:hasTarget
+    _:node1enbrodgax406 .
 
-_:node1emsnkim6x269 a oa:Target;
+_:node1enbrodgax406 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/max/0/default.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>;
   oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/max/0/default.jpg> .

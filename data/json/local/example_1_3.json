@@ -24,6 +24,6 @@
   "property": "additionalIdentification",
   "organismID": "2",
   "identificationID": "1",
-  "belongstotaxon": "https://identifiers.org/taxonomy:9397",
+  "belongstotaxon": "http://identifiers.org/taxonomy:9397",
   "rank": "genus"
 }

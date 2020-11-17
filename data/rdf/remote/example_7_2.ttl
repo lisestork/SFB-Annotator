@@ -2,28 +2,28 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix iso: <https://iso639-3.sil.org/code/> .
+@prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/57446695-3d05-476d-89ec-e927993f6e18> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/fac68698-fc25-4317-9521-4330cb88a23b> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/date1>, _:node1emsnkim6x279 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/date1>, _:node1enbrodgax416 .
 
-_:node1emsnkim6x279 a oa:TextualBody;
+_:node1enbrodgax416 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
   rdf:value "10 April 1821"@dut;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/57446695-3d05-476d-89ec-e927993f6e18> oa:hasTarget
-    _:node1emsnkim6x278 .
+<http://localhost:8080/rdf/nc/annotation/fac68698-fc25-4317-9521-4330cb88a23b> oa:hasTarget
+    _:node1enbrodgax415 .
 
-_:node1emsnkim6x278 a oa:Target;
+_:node1enbrodgax415 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/max/0/default.jpg#xywh=0.6712020824648357,0.177764417868435,0.07131751180401791,0.015538452292495508>;
   oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/max/0/default.jpg> .

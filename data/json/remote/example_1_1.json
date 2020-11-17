@@ -23,6 +23,6 @@
   "type": "taxon",
   "property": "type",
   "organismID": "-",
-  "belongstotaxon": "https://identifiers.org/taxonomy:9397",
+  "belongstotaxon": "http://identifiers.org/taxonomy:9397",
   "rank": "scientificName"
 }

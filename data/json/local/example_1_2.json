@@ -23,7 +23,7 @@
   "type": "taxon",
   "property": "hasIdentification",
   "organismID": "1",
-  "belongstotaxon": "https://identifiers.org/taxonomy:9397",
+  "belongstotaxon": "http://identifiers.org/taxonomy:9397",
   "rank": "scientificName",
   "person": "http://viaf.org/viaf/45106482/"
 }

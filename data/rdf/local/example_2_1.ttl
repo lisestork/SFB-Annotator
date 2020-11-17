@@ -1,28 +1,28 @@
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix iso: <https://iso639-3.sil.org/code/> .
+@prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/6b13c066-56a7-408b-8809-28c6d1548c7d> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/34b2300e-c3cc-4e41-8252-f318e410b4f8> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody viaf:39377694, _:node1emsnkim6x31 .
+  oa:hasBody viaf:39377694, _:node1enbrodgax30 .
 
-_:node1emsnkim6x31 a oa:TextualBody;
+_:node1enbrodgax30 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Geoff"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/6b13c066-56a7-408b-8809-28c6d1548c7d> oa:hasTarget
-    _:node1emsnkim6x30 .
+<http://localhost:8080/rdf/nc/annotation/34b2300e-c3cc-4e41-8252-f318e410b4f8> oa:hasTarget
+    _:node1enbrodgax29 .
 
-_:node1emsnkim6x30 a oa:Target;
+_:node1enbrodgax29 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206>;
   oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .

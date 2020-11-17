@@ -107,7 +107,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		}
 
 		// namespace prefixes
-		String iso = "https://iso639-3.sil.org/code/";
+		String iso = "http://iso639-3.sil.org/code/";
 		String dcmitype = "http://purl.org/dc/dcmitype/";
 		String dwc = "http://rs.tdwg.org/dwc/terms/";
 		String dwciri = "http://rs.tdwg.org/dwc/iri/";

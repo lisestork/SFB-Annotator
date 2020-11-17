@@ -3,7 +3,7 @@
 @prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix iso: <https://iso639-3.sil.org/code/> .
+@prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix ncit: <http://identifiers.org/ncit/> .
 @prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
@@ -12,21 +12,21 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/9e8860c3-a062-48ff-83eb-e5572f432d21> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/aa6863c8-bc02-44ff-8227-b6fffe903a8d> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1emsnkim6x245 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1enbrodgax382 .
 
-_:node1emsnkim6x245 a oa:TextualBody;
+_:node1enbrodgax382 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Color"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/9e8860c3-a062-48ff-83eb-e5572f432d21> oa:hasTarget
-    _:node1emsnkim6x244 .
+<http://localhost:8080/rdf/nc/annotation/aa6863c8-bc02-44ff-8227-b6fffe903a8d> oa:hasTarget
+    _:node1enbrodgax381 .
 
-_:node1emsnkim6x244 a oa:Target;
+_:node1enbrodgax381 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726>;
   oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .

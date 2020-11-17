@@ -2,28 +2,28 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix iso: <https://iso639-3.sil.org/code/> .
+@prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/80b7b4dc-3297-4a70-95c6-c471d4fcee41> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/c6fe776e-cc6d-47fc-a020-c6910ff8a577> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location1>, _:node1emsnkim6x71 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location1>, _:node1enbrodgax70 .
 
-_:node1emsnkim6x71 a oa:TextualBody;
+_:node1enbrodgax70 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Bagalonga"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/80b7b4dc-3297-4a70-95c6-c471d4fcee41> oa:hasTarget
-    _:node1emsnkim6x70 .
+<http://localhost:8080/rdf/nc/annotation/c6fe776e-cc6d-47fc-a020-c6910ff8a577> oa:hasTarget
+    _:node1enbrodgax69 .
 
-_:node1emsnkim6x70 a oa:Target;
+_:node1enbrodgax69 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597>;
   oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
@@ -38,8 +38,8 @@ orcid:0000-0002-2146-4803 a foaf:Person .
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597" .
 
-<http://makingsense.liacs.nl/rdf/nc/location1> dwciri:inDescribedPlace _:node1emsnkim6x69 .
+<http://makingsense.liacs.nl/rdf/nc/location1> dwciri:inDescribedPlace _:node1enbrodgax68 .
 
-_:node1emsnkim6x69 a <http://www.geonames.org/ontology#Feature> .
+_:node1enbrodgax68 a <http://www.geonames.org/ontology#Feature> .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> rdfs:label "Bagalonga"@und .
