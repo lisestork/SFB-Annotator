@@ -9,21 +9,21 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/c6fe776e-cc6d-47fc-a020-c6910ff8a577> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/bb14fd1c-6ef1-4d39-ae54-5961c9d6d4b5> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location1>, _:node1enbrodgax70 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location1>, _:node1enc0eq55x70 .
 
-_:node1enbrodgax70 a oa:TextualBody;
+_:node1enc0eq55x70 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Bagalonga"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/c6fe776e-cc6d-47fc-a020-c6910ff8a577> oa:hasTarget
-    _:node1enbrodgax69 .
+<http://localhost:8080/rdf/nc/annotation/bb14fd1c-6ef1-4d39-ae54-5961c9d6d4b5> oa:hasTarget
+    _:node1enc0eq55x69 .
 
-_:node1enbrodgax69 a oa:Target;
+_:node1enc0eq55x69 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597>;
   oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
@@ -38,8 +38,8 @@ orcid:0000-0002-2146-4803 a foaf:Person .
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597" .
 
-<http://makingsense.liacs.nl/rdf/nc/location1> dwciri:inDescribedPlace _:node1enbrodgax68 .
+<http://makingsense.liacs.nl/rdf/nc/location1> dwciri:inDescribedPlace _:node1enc0eq55x68 .
 
-_:node1enbrodgax68 a <http://www.geonames.org/ontology#Feature> .
+_:node1enc0eq55x68 a <http://www.geonames.org/ontology#Feature> .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> rdfs:label "Bagalonga"@und .

@@ -9,21 +9,21 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/100d1a12-17e1-40f5-97b4-3266627f053d> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/2326da36-976a-4c99-aa5f-aeb8d7701a23> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody viaf:39377694, _:node1enbrodgax315 .
+  oa:hasBody viaf:39377694, _:node1enc0eq55x176 .
 
-_:node1enbrodgax315 a oa:TextualBody;
+_:node1enc0eq55x176 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Geoff"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/100d1a12-17e1-40f5-97b4-3266627f053d> oa:hasTarget
-    _:node1enbrodgax314 .
+<http://localhost:8080/rdf/nc/annotation/2326da36-976a-4c99-aa5f-aeb8d7701a23> oa:hasTarget
+    _:node1enc0eq55x175 .
 
-_:node1enbrodgax314 a oa:Target;
+_:node1enc0eq55x175 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.6285924932975873,0.31825775988026184,0.025649176560704756,0.017330524703178862>;
   oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .

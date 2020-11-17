@@ -7,21 +7,21 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/be3decc9-6160-41bb-acdc-8dd4afdc1b05> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/f50bc3ec-17bf-4a6a-9169-eff1bddcdd6b> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://sws.geonames.org/1648473/>, _:node1enbrodgax61 .
+  oa:hasBody <http://sws.geonames.org/1648473/>, _:node1enc0eq55x61 .
 
-_:node1enbrodgax61 a oa:TextualBody;
+_:node1enc0eq55x61 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
   rdf:value "Buitenzorg"@dut;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/be3decc9-6160-41bb-acdc-8dd4afdc1b05> oa:hasTarget
-    _:node1enbrodgax60 .
+<http://localhost:8080/rdf/nc/annotation/f50bc3ec-17bf-4a6a-9169-eff1bddcdd6b> oa:hasTarget
+    _:node1enc0eq55x60 .
 
-_:node1enbrodgax60 a oa:Target;
+_:node1enc0eq55x60 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445>;
   oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .

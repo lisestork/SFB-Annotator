@@ -12,21 +12,21 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/d4fba075-30a8-40c5-9a37-ba62ed46e44e> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/9690e11c-665d-4f21-93a5-8f9fc73fc790> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1enbrodgax112 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1enc0eq55x112 .
 
-_:node1enbrodgax112 a oa:TextualBody;
+_:node1enc0eq55x112 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Dentibus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/d4fba075-30a8-40c5-9a37-ba62ed46e44e> oa:hasTarget
-    _:node1enbrodgax111 .
+<http://localhost:8080/rdf/nc/annotation/9690e11c-665d-4f21-93a5-8f9fc73fc790> oa:hasTarget
+    _:node1enc0eq55x111 .
 
-_:node1enbrodgax111 a oa:Target;
+_:node1enc0eq55x111 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114>;
   oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
@@ -41,9 +41,9 @@ orcid:0000-0002-2146-4803 a foaf:Person .
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" .
 
-<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a _:node1enbrodgax106 .
+<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a _:node1enc0eq55x106 .
 
-_:node1enbrodgax106 rdfs:subClassOf obo:UBERON_0001062 .
+_:node1enc0eq55x106 rdfs:subClassOf obo:UBERON_0001062 .
 
 <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> rdfs:label "Dentibus"@lat .
 

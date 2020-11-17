@@ -12,21 +12,21 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/1d2dbfe7-dceb-43eb-8839-9b35bdebef55> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/27a0e450-4451-4520-933c-a188648ec090> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1enbrodgax120 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1enc0eq55x120 .
 
-_:node1enbrodgax120 a oa:TextualBody;
+_:node1enc0eq55x120 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Dentibus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/1d2dbfe7-dceb-43eb-8839-9b35bdebef55> oa:hasTarget
-    _:node1enbrodgax119 .
+<http://localhost:8080/rdf/nc/annotation/27a0e450-4451-4520-933c-a188648ec090> oa:hasTarget
+    _:node1enc0eq55x119 .
 
-_:node1enbrodgax119 a oa:Target;
+_:node1enc0eq55x119 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747>;
   oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .

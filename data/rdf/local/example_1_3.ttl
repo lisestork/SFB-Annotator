@@ -10,31 +10,32 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix taxonomy: <http://identifiers.org/taxonomy/> .
 
-<http://localhost:8080/rdf/nc/annotation/2b5732ad-5292-41f6-b0d1-dbaa2be441ce> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/dc22212b-1ed6-4b1c-95d2-89bddc2e1afa> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody _:node1enbrodgax22 .
+  oa:hasBody _:node1enc0eq55x22 .
 
-_:node1enbrodgax22 a oa:TextualBody;
+_:node1enc0eq55x22 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/2b5732ad-5292-41f6-b0d1-dbaa2be441ce> oa:hasBody
-    _:node1enbrodgax23 .
+<http://localhost:8080/rdf/nc/annotation/dc22212b-1ed6-4b1c-95d2-89bddc2e1afa> oa:hasBody
+    _:node1enc0eq55x23 .
 
-_:node1enbrodgax23 a dwc:Taxon;
-  nhc:belongsToTaxon <https://identifiers.org/taxonomy:9397>;
+_:node1enc0eq55x23 a dwc:Taxon;
+  nhc:belongsToTaxon taxonomy:9397;
   nhc:taxonRank nhc:genus;
   rdf:value "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   rdfs:label "Pteropus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/2b5732ad-5292-41f6-b0d1-dbaa2be441ce> oa:hasTarget
-    _:node1enbrodgax21 .
+<http://localhost:8080/rdf/nc/annotation/dc22212b-1ed6-4b1c-95d2-89bddc2e1afa> oa:hasTarget
+    _:node1enc0eq55x21 .
 
-_:node1enbrodgax21 a oa:Target;
+_:node1enc0eq55x21 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg#xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658>;
   oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg> .
@@ -52,7 +53,7 @@ orcid:0000-0002-2146-4803 a foaf:Person .
 nhc:additionalIdentification rdfs:subPropertyOf nhc:additional .
 
 <http://makingsense.liacs.nl/rdf/nc/identification2_id1> a dwc:Identification;
-  dwciri:toTaxon _:node1enbrodgax23;
+  dwciri:toTaxon _:node1enc0eq55x23;
   dwc:identificationID "2_id1" .
 
 <http://makingsense.liacs.nl/rdf/nc/organism2> nhc:additionalIdentification <http://makingsense.liacs.nl/rdf/nc/identification2_id1> .

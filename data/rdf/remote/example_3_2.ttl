@@ -9,21 +9,21 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/91e9cfc1-537a-4cf1-b193-a548e79d6739> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/da9e7da8-1a9b-4c9f-b82d-c612fc98fe4b> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location1>, _:node1enbrodgax348 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location1>, _:node1enc0eq55x209 .
 
-_:node1enbrodgax348 a oa:TextualBody;
+_:node1enc0eq55x209 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Bagalonga"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/91e9cfc1-537a-4cf1-b193-a548e79d6739> oa:hasTarget
-    _:node1enbrodgax347 .
+<http://localhost:8080/rdf/nc/annotation/da9e7da8-1a9b-4c9f-b82d-c612fc98fe4b> oa:hasTarget
+    _:node1enc0eq55x208 .
 
-_:node1enbrodgax347 a oa:Target;
+_:node1enc0eq55x208 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597>;
   oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
@@ -38,8 +38,8 @@ orcid:0000-0002-2146-4803 a foaf:Person .
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597" .
 
-<http://makingsense.liacs.nl/rdf/nc/location1> dwciri:inDescribedPlace _:node1enbrodgax346 .
+<http://makingsense.liacs.nl/rdf/nc/location1> dwciri:inDescribedPlace _:node1enc0eq55x207 .
 
-_:node1enbrodgax346 a <http://www.geonames.org/ontology#Feature> .
+_:node1enc0eq55x207 a <http://www.geonames.org/ontology#Feature> .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> rdfs:label "Bagalonga"@und .

@@ -11,32 +11,33 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix taxonomy: <http://identifiers.org/taxonomy/> .
 
-<http://localhost:8080/rdf/nc/annotation/2e8ce17d-8e9b-453c-8970-ebc0b051e419> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/0341c08b-504a-4462-b4d5-bd577a73ee82> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation1>, _:node1enbrodgax292 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation1>, _:node1enc0eq55x153 .
 
-_:node1enbrodgax292 a oa:TextualBody;
+_:node1enc0eq55x153 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus minimus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/2e8ce17d-8e9b-453c-8970-ebc0b051e419> oa:hasBody
-    _:node1enbrodgax293 .
+<http://localhost:8080/rdf/nc/annotation/0341c08b-504a-4462-b4d5-bd577a73ee82> oa:hasBody
+    _:node1enc0eq55x154 .
 
-_:node1enbrodgax293 a dwc:Taxon;
-  nhc:belongsToTaxon <http://identifiers.org/taxonomy:9397>;
+_:node1enc0eq55x154 a dwc:Taxon;
+  nhc:belongsToTaxon taxonomy:9397;
   nhc:taxonRank nhc:scientificName;
   rdf:value "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   rdfs:label "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/2e8ce17d-8e9b-453c-8970-ebc0b051e419> oa:hasTarget
+<http://localhost:8080/rdf/nc/annotation/0341c08b-504a-4462-b4d5-bd577a73ee82> oa:hasTarget
     <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg>,
-    _:node1enbrodgax291 .
+    _:node1enc0eq55x152 .
 
-_:node1enbrodgax291 a oa:Target;
+_:node1enc0eq55x152 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862>;
   oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
@@ -67,7 +68,7 @@ orcid:0000-0002-2146-4803 a foaf:Person .
   dsw:identifies <http://makingsense.liacs.nl/rdf/nc/organism1>;
   dsw:isBasedOn <http://makingsense.liacs.nl/rdf/nc/humanObservation1>;
   dwciri:identifiedBy <http://viaf.org/viaf/45106482/>;
-  dwciri:toTaxon _:node1enbrodgax293;
+  dwciri:toTaxon _:node1enc0eq55x154;
   dwc:identificationID "1" .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> a dcterms:Location;

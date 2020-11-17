@@ -12,21 +12,21 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/6bf1f2c5-fe48-4e6d-a52f-ac6b364a6ec6> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/309babaa-6f5e-4c9b-8a35-07977b72241c> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1enbrodgax398 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1enc0eq55x259 .
 
-_:node1enbrodgax398 a oa:TextualBody;
+_:node1enc0eq55x259 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Dentibus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/6bf1f2c5-fe48-4e6d-a52f-ac6b364a6ec6> oa:hasTarget
-    _:node1enbrodgax397 .
+<http://localhost:8080/rdf/nc/annotation/309babaa-6f5e-4c9b-8a35-07977b72241c> oa:hasTarget
+    _:node1enc0eq55x258 .
 
-_:node1enbrodgax397 a oa:Target;
+_:node1enc0eq55x258 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747>;
   oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .

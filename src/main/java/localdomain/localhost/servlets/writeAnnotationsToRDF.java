@@ -107,19 +107,20 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		}
 
 		// namespace prefixes
-		String iso = "http://iso639-3.sil.org/code/";
 		String dcmitype = "http://purl.org/dc/dcmitype/";
+		String dsw = "http://purl.org/dsw/";
 		String dwc = "http://rs.tdwg.org/dwc/terms/";
 		String dwciri = "http://rs.tdwg.org/dwc/iri/";
-		String dsw = "http://purl.org/dsw/";
 		String gn = "http://www.geonames.org/ontology#";
-		String obo = "http://purl.obolibrary.org/obo/";
+		String iso = "http://iso639-3.sil.org/code/";
+		String mf = "http://www.w3.org/TR/media-frags/";
 		String ncit = "http://identifiers.org/ncit/";
 		String nc = "http://makingsense.liacs.nl/rdf/nc/";
 		String nhc = "http://makingsense.liacs.nl/rdf/nhc/";
 		String oa = "http://www.w3.org/ns/oa#";
+		String obo = "http://purl.obolibrary.org/obo/";
 		String orcid = "http://orcid.org/";
-		String mf = "http://www.w3.org/TR/media-frags/";
+		String taxonomy = "http://identifiers.org/taxonomy/";
 		String viaf = "http://viaf.org/viaf/";
 
 		// Connect to RDF server
@@ -256,6 +257,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.setNamespace("obo", obo);
 			conn.setNamespace("orcid", orcid);
 			conn.setNamespace("oa", oa);
+			conn.setNamespace("taxonomy", taxonomy);
 			conn.setNamespace("viaf", viaf);
 			// add triples
 			conn.add(annotationIRI, RDF.TYPE, annotationClass);

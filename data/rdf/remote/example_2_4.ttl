@@ -9,21 +9,21 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/01938dcd-326d-4496-afd4-f0ba8a7577c7> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/0a1eedf5-a440-4675-b0e5-e24bce984101> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody viaf:39377694, _:node1enbrodgax331 .
+  oa:hasBody viaf:39377694, _:node1enc0eq55x192 .
 
-_:node1enbrodgax331 a oa:TextualBody;
+_:node1enc0eq55x192 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Diard"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/01938dcd-326d-4496-afd4-f0ba8a7577c7> oa:hasTarget
-    _:node1enbrodgax330 .
+<http://localhost:8080/rdf/nc/annotation/0a1eedf5-a440-4675-b0e5-e24bce984101> oa:hasTarget
+    _:node1enc0eq55x191 .
 
-_:node1enbrodgax330 a oa:Target;
+_:node1enc0eq55x191 a oa:Target;
   dcterms:format "image/jpeg";
   oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064>;
   oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .

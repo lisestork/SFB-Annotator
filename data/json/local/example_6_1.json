@@ -23,5 +23,5 @@
   "type": "anatomicalentity",
   "property": "type",
   "organismID": "",
-  "instance": "http://purl.obolibrary.org/obo/UBERON_0003672\t"
+  "instance": "http://purl.obolibrary.org/obo/UBERON_0003672"
 }
