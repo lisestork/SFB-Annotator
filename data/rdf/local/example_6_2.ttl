@@ -12,34 +12,34 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/27a0e450-4451-4520-933c-a188648ec090> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/279eaa42-9369-4641-9f92-b947be959c3e> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1enc0eq55x120 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1enfqdn15x455 .
 
-_:node1enc0eq55x120 a oa:TextualBody;
+_:node1enfqdn15x455 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Dentibus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/27a0e450-4451-4520-933c-a188648ec090> oa:hasTarget
-    _:node1enc0eq55x119 .
+<http://localhost:8080/rdf/nc/annotation/279eaa42-9369-4641-9f92-b947be959c3e> oa:hasTarget
+    _:node1enfqdn15x454 .
 
-_:node1enc0eq55x119 a oa:Target;
+_:node1enfqdn15x454 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747>;
-  oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
+  oa:hasSelector _:node1enfqdn15x457 .
+
+_:node1enfqdn15x457 a oa:FragmentSelector;
+  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
+  rdf:value "xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747" .
+
+_:node1enfqdn15x454 oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> a
     dcmitype:StillImage, oa:Source, foaf:Image .
-
-<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747>
-  a oa:FragmentSelector;
-  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
-  rdf:value "xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747" .
 
 <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a obo:UBERON_0003672;
   rdfs:label "Dentibus"@lat .

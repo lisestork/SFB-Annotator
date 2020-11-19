@@ -7,31 +7,31 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/57889047-8571-42b3-9a6f-10164d221e54> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/59c105cc-0aaf-44a4-a1fc-70bc1ff5c1f0> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody _:node1enc0eq55x129 .
+  oa:hasBody _:node1enfqdn15x465 .
 
-_:node1enc0eq55x129 a oa:TextualBody;
+_:node1enfqdn15x465 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
   rdf:value "10 April 1821"@dut;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/57889047-8571-42b3-9a6f-10164d221e54> oa:hasTarget
-    _:node1enc0eq55x128 .
+<http://localhost:8080/rdf/nc/annotation/59c105cc-0aaf-44a4-a1fc-70bc1ff5c1f0> oa:hasTarget
+    _:node1enfqdn15x464 .
 
-_:node1enc0eq55x128 a oa:Target;
+_:node1enfqdn15x464 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>;
-  oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg> .
+  oa:hasSelector _:node1enfqdn15x467 .
+
+_:node1enfqdn15x467 a oa:FragmentSelector;
+  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
+  rdf:value "xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081" .
+
+_:node1enfqdn15x464 oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg> .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg> a
     dcmitype:StillImage, oa:Source, foaf:Image .
-
-<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081>
-  a oa:FragmentSelector;
-  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
-  rdf:value "xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081" .

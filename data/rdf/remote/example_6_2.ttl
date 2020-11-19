@@ -12,34 +12,34 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/309babaa-6f5e-4c9b-8a35-07977b72241c> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/93ffaa78-6e51-479d-b841-58b8395fc925> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1enc0eq55x259 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1enfqdn15x299 .
 
-_:node1enc0eq55x259 a oa:TextualBody;
+_:node1enfqdn15x299 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Dentibus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/309babaa-6f5e-4c9b-8a35-07977b72241c> oa:hasTarget
-    _:node1enc0eq55x258 .
+<http://localhost:8080/rdf/nc/annotation/93ffaa78-6e51-479d-b841-58b8395fc925> oa:hasTarget
+    _:node1enfqdn15x298 .
 
-_:node1enc0eq55x258 a oa:Target;
+_:node1enfqdn15x298 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747>;
-  oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
+  oa:hasSelector _:node1enfqdn15x301 .
+
+_:node1enfqdn15x301 a oa:FragmentSelector;
+  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
+  rdf:value "xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747" .
+
+_:node1enfqdn15x298 oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg>
   a dcmitype:StillImage, oa:Source, foaf:Image .
-
-<http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747>
-  a oa:FragmentSelector;
-  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
-  rdf:value "xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747" .
 
 <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a obo:UBERON_0003672;
   rdfs:label "Dentibus"@lat .

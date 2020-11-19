@@ -195,7 +195,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		// init instances
 		IRI annotationIRI = f.createIRI(host, "rdf/nc/annotation/" + uuid);
 		IRI sourceIRI = f.createIRI(source);
-		IRI selectorIRI = f.createIRI(sourceIRI + selector);
 		IRI identificationIRI = f.createIRI(nc, "identification" + organismID);
 		IRI humanObservationIRI = f.createIRI(nc, "humanObservation" + organismID);
 		IRI organismIRI = f.createIRI(nc, "organism" + organismID);
@@ -215,9 +214,11 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		Resource personIRI = (person.equals("")) ? f.createBNode() : f.createIRI(person);
 		Resource belongsToTaxonIRI = (belongstotaxon.equals("")) ? f.createBNode() : f.createIRI(belongstotaxon);
 		Resource geonamesFeatureIRI = (geonamesfeature.equals("")) ? f.createBNode() : f.createIRI(geonamesfeature);
-		Resource targetBNode = f.createBNode();
-		Resource textualBodyBNode = f.createBNode();
-		Resource taxonBNode = f.createBNode();
+		
+		BNode targetBNode = f.createBNode();
+		BNode textualBodyBNode = f.createBNode();
+		BNode taxonBNode = f.createBNode();
+		BNode selectorBNode = f.createBNode();
 
 		// query RDF store
 		String query2 = "SELECT ?value WHERE { ?iri rdf:type <" + taxonClass.toString()
@@ -268,7 +269,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(annotatorIRI, RDF.TYPE, FOAF.PERSON);
 			conn.add(targetBNode, DCTERMS.FORMAT, f.createLiteral(mime));
 			conn.add(targetBNode, hasSourceProperty, sourceIRI);
-			conn.add(targetBNode, hasSelectorProperty, selectorIRI);
+			conn.add(targetBNode, hasSelectorProperty, selectorBNode);
 			conn.add(targetBNode, RDF.TYPE, targetClass);
 			conn.add(textualBodyBNode, RDF.TYPE, textualBodyClass);
 			conn.add(textualBodyBNode, DCTERMS.FORMAT, f.createLiteral("text/plain"));
@@ -277,9 +278,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(textualBodyBNode, hasPurposeProperty, f.createIRI(oa, "describing"));
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "StillImage"));
 			conn.add(sourceIRI, RDF.TYPE, FOAF.IMAGE);
-			conn.add(selectorIRI, RDF.TYPE, fragmentSelectorClass);
-			conn.add(selectorIRI, RDF.VALUE, f.createLiteral(selector.replace("#", "")));
-			conn.add(selectorIRI, DCTERMS.CONFORMS_TO, f.createIRI(mf));
+			conn.add(selectorBNode, RDF.TYPE, fragmentSelectorClass);
+			conn.add(selectorBNode, RDF.VALUE, f.createLiteral(selector.replace("#", "")));
+			conn.add(selectorBNode, DCTERMS.CONFORMS_TO, f.createIRI(mf));
 			conn.add(sourceIRI, RDF.TYPE, sourceClass);
 
 			switch (property) {

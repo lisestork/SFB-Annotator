@@ -9,34 +9,34 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/e7500f98-770c-4c9d-ad7b-a37095381887> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/73a81716-34c8-4177-96d5-c6f1b52f8ea3> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody viaf:39377694, _:node1enc0eq55x53 .
+  oa:hasBody viaf:39377694, _:node1enfqdn15x380 .
 
-_:node1enc0eq55x53 a oa:TextualBody;
+_:node1enfqdn15x380 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Diard"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/e7500f98-770c-4c9d-ad7b-a37095381887> oa:hasTarget
-    _:node1enc0eq55x52 .
+<http://localhost:8080/rdf/nc/annotation/73a81716-34c8-4177-96d5-c6f1b52f8ea3> oa:hasTarget
+    _:node1enfqdn15x379 .
 
-_:node1enc0eq55x52 a oa:Target;
+_:node1enfqdn15x379 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064>;
-  oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
+  oa:hasSelector _:node1enfqdn15x382 .
+
+_:node1enfqdn15x382 a oa:FragmentSelector;
+  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
+  rdf:value "xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064" .
+
+_:node1enfqdn15x379 oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> a
     dcmitype:StillImage, oa:Source, foaf:Image .
-
-<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064>
-  a oa:FragmentSelector;
-  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
-  rdf:value "xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064" .
 
 <http://makingsense.liacs.nl/rdf/nc/occurrence1> dwciri:recordedBy viaf:39377694 .
 

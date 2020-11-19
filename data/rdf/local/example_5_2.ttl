@@ -12,34 +12,34 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/d358ce81-9d87-41d3-a988-79730c20f508> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/3de770d4-6da4-4099-8c27-6c5d2af2df90> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1enc0eq55x104 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1enfqdn15x437 .
 
-_:node1enc0eq55x104 a oa:TextualBody;
+_:node1enfqdn15x437 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Color"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/d358ce81-9d87-41d3-a988-79730c20f508> oa:hasTarget
-    _:node1enc0eq55x103 .
+<http://localhost:8080/rdf/nc/annotation/3de770d4-6da4-4099-8c27-6c5d2af2df90> oa:hasTarget
+    _:node1enfqdn15x436 .
 
-_:node1enc0eq55x103 a oa:Target;
+_:node1enfqdn15x436 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726>;
-  oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
+  oa:hasSelector _:node1enfqdn15x439 .
+
+_:node1enfqdn15x439 a oa:FragmentSelector;
+  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
+  rdf:value "xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726" .
+
+_:node1enfqdn15x436 oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> a
     dcmitype:StillImage, oa:Source, foaf:Image .
-
-<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg#xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726>
-  a oa:FragmentSelector;
-  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
-  rdf:value "xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726" .
 
 <http://makingsense.liacs.nl/rdf/nc/humanObservation1> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
 

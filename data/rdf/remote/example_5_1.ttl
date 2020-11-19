@@ -12,34 +12,34 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/d35ed85a-f585-41af-b163-c851fbdb57d3> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/ce090982-85c5-4ea6-b705-781e2ebcac2b> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1enc0eq55x235 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1enfqdn15x272 .
 
-_:node1enc0eq55x235 a oa:TextualBody;
+_:node1enfqdn15x272 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Color"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/d35ed85a-f585-41af-b163-c851fbdb57d3> oa:hasTarget
-    _:node1enc0eq55x234 .
+<http://localhost:8080/rdf/nc/annotation/ce090982-85c5-4ea6-b705-781e2ebcac2b> oa:hasTarget
+    _:node1enfqdn15x271 .
 
-_:node1enc0eq55x234 a oa:Target;
+_:node1enfqdn15x271 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091>;
-  oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
+  oa:hasSelector _:node1enfqdn15x274 .
+
+_:node1enfqdn15x274 a oa:FragmentSelector;
+  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
+  rdf:value "xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091" .
+
+_:node1enfqdn15x271 oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg>
   a dcmitype:StillImage, oa:Source, foaf:Image .
-
-<http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091>
-  a oa:FragmentSelector;
-  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
-  rdf:value "xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091" .
 
 <http://makingsense.liacs.nl/rdf/nc/humanObservation> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
 
@@ -47,8 +47,8 @@ orcid:0000-0002-2146-4803 a foaf:Person .
   nhc:measuresOrDescribes <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>;
   dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation> .
 
-<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a _:node1enc0eq55x230 .
+<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a _:node1enfqdn15x267 .
 
-_:node1enc0eq55x230 rdfs:subClassOf ncit:C20189 .
+_:node1enfqdn15x267 rdfs:subClassOf ncit:C20189 .
 
 <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> rdfs:label "Color"@lat .

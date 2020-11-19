@@ -12,48 +12,48 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix taxonomy: <http://identifiers.org/taxonomy/> .
 
-<http://localhost:8080/rdf/nc/annotation/dc22212b-1ed6-4b1c-95d2-89bddc2e1afa> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/dbef3d54-441e-446a-a1e4-3fc16f32231d> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody _:node1enc0eq55x22 .
+  oa:hasBody _:node1enfqdn15x345 .
 
-_:node1enc0eq55x22 a oa:TextualBody;
+_:node1enfqdn15x345 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/dc22212b-1ed6-4b1c-95d2-89bddc2e1afa> oa:hasBody
-    _:node1enc0eq55x23 .
+<http://localhost:8080/rdf/nc/annotation/dbef3d54-441e-446a-a1e4-3fc16f32231d> oa:hasBody
+    _:node1enfqdn15x346 .
 
-_:node1enc0eq55x23 a dwc:Taxon;
+_:node1enfqdn15x346 a dwc:Taxon;
   nhc:belongsToTaxon taxonomy:9397;
   nhc:taxonRank nhc:genus;
   rdf:value "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   rdfs:label "Pteropus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/dc22212b-1ed6-4b1c-95d2-89bddc2e1afa> oa:hasTarget
-    _:node1enc0eq55x21 .
+<http://localhost:8080/rdf/nc/annotation/dbef3d54-441e-446a-a1e4-3fc16f32231d> oa:hasTarget
+    _:node1enfqdn15x344 .
 
-_:node1enc0eq55x21 a oa:Target;
+_:node1enfqdn15x344 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg#xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658>;
-  oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg> .
+  oa:hasSelector _:node1enfqdn15x347 .
+
+_:node1enfqdn15x347 a oa:FragmentSelector;
+  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
+  rdf:value "xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658" .
+
+_:node1enfqdn15x344 oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg> .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg> a
     dcmitype:StillImage, oa:Source, foaf:Image .
 
-<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg#xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658>
-  a oa:FragmentSelector;
-  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
-  rdf:value "xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658" .
-
 nhc:additionalIdentification rdfs:subPropertyOf nhc:additional .
 
 <http://makingsense.liacs.nl/rdf/nc/identification2_id1> a dwc:Identification;
-  dwciri:toTaxon _:node1enc0eq55x23;
+  dwciri:toTaxon _:node1enfqdn15x346;
   dwc:identificationID "2_id1" .
 
 <http://makingsense.liacs.nl/rdf/nc/organism2> nhc:additionalIdentification <http://makingsense.liacs.nl/rdf/nc/identification2_id1> .
