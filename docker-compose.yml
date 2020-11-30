@@ -4,8 +4,24 @@ services:
   sea:
     image: linnae/sfb-annotator:latest
     container_name: sea
+    depends_on:
+      - melon
     ports:
       - 8080:8080
+
+  melon:
+    image: linnae/cantaloupe:latest
+    container_name: melon
+    ports:
+      - 8182:8182
+
+  mirador:
+    image: linnae/mirador:latest
+    container_name: mirador
+    depends_on:
+      - melon
+    ports:
+      - 8000:80
 
   grlc:
     image: clariah/grlc:latest

@@ -1,0 +1,27 @@
+{
+  "src": "dzi://openseadragon/something",
+  "text": "anatomicalentity",
+  "shapes": [
+    {
+      "type": "rect",
+      "geometry": {
+        "x": 0.5366845889070635,
+        "y": 0.2939686187699841,
+        "width": 0.04048369061255663,
+        "height": 0.028409607447408114
+      },
+      "style": {}
+    }
+  ],
+  "context": "http://localhost:8080/semanticAnnotator/#",
+  "date": "2017-09-21",
+  "annotator": "http://orcid.org/0000-0002-2146-4803",
+  "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
+  "selector": "#xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114",
+  "verbatim": "Dentibus",
+  "language": "lat",
+  "type": "anatomicalentity",
+  "property": "type",
+  "organismID": "",
+  "instance": "http://purl.obolibrary.org/obo/UBERON_0003672"
+}

@@ -5,8 +5,4 @@ Memory Store
 true
 0
 
-set prefixes=nhc http://makingsense.liacs.nl/rdf/nhc/
-set prefixes=oa http://www.w3.org/ns/oa#
-set prefixes=dwc http://rs.tdwg.org/dwc/terms/
-set prefixes
 quit

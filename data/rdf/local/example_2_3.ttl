@@ -1,0 +1,43 @@
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix iso: <http://iso639-3.sil.org/code/> .
+@prefix mf: <http://www.w3.org/TR/media-frags/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix orcid: <http://orcid.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix viaf: <http://viaf.org/viaf/> .
+
+<http://localhost:8080/rdf/nc/annotation/59af3147-beb3-46fb-a6cf-68b4c6b340cb> a oa:Annotation;
+  dcterms:creator orcid:0000-0002-2146-4803;
+  dcterms:date "2017-09-21";
+  oa:hasBody viaf:39377694, _:node1enfqdn15x371 .
+
+_:node1enfqdn15x371 a oa:TextualBody;
+  dcterms:format "text/plain";
+  dcterms:language iso:und;
+  rdf:value "Diard"@und;
+  oa:hasPurpose oa:describing .
+
+<http://localhost:8080/rdf/nc/annotation/59af3147-beb3-46fb-a6cf-68b4c6b340cb> oa:hasTarget
+    _:node1enfqdn15x370 .
+
+_:node1enfqdn15x370 a oa:Target;
+  dcterms:format "image/jpeg";
+  oa:hasSelector _:node1enfqdn15x373 .
+
+_:node1enfqdn15x373 a oa:FragmentSelector;
+  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
+  rdf:value "xywh=0.7453283007676283,0.08173359870928262,0.02509760712606801,0.01573687798175072" .
+
+_:node1enfqdn15x370 oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
+
+orcid:0000-0002-2146-4803 a foaf:Person .
+
+<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> a
+    dcmitype:StillImage, oa:Source, foaf:Image .
+
+<http://makingsense.liacs.nl/rdf/nc/identification1> dwciri:identifiedBy viaf:39377694 .
+
+viaf:39377694 a foaf:Person .

@@ -29,7 +29,7 @@ public class FileServlet extends HttpServlet {
 	public void init() throws ServletException {
 
 		// Define base path somehow. You can define it as init-param of the servlet.
-		this.filePath = "/usr/local/tomcat/data";
+		this.filePath = "/usr/local/tomcat/data/jpg";
 
 	}
 

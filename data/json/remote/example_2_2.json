@@ -1,0 +1,28 @@
+{
+  "src": "dzi://openseadragon/something",
+  "text": "Person",
+  "shapes": [
+    {
+      "type": "rect",
+      "geometry": {
+        "x": 0.6285924932975873,
+        "y": 0.31825775988026184,
+        "width": 0.025649176560704756,
+        "height": 0.017330524703178862
+      },
+      "style": {}
+    }
+  ],
+  "context": "http://localhost:8080/semanticAnnotator/#",
+  "date": "2017-09-21",
+  "annotator": "http://orcid.org/0000-0002-2146-4803",
+  "source": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg",
+  "selector": "#xywh=0.6285924932975873,0.31825775988026184,0.025649176560704756,0.017330524703178862",
+  "verbatim": "Geoff",
+  "language": "",
+  "type": "person",
+  "property": "scientificNameAuthorship",
+  "organismID": "",
+  "person": "http://viaf.org/viaf/39377694",
+  "belongstotaxon": "nc:taxon1"
+}

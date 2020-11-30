@@ -1,0 +1,44 @@
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix iso: <http://iso639-3.sil.org/code/> .
+@prefix mf: <http://www.w3.org/TR/media-frags/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix orcid: <http://orcid.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://localhost:8080/rdf/nc/annotation/e7e4af21-7572-406f-8061-330b709cc247> a oa:Annotation;
+  dcterms:creator orcid:0000-0002-2146-4803;
+  dcterms:date "2017-09-21";
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/date1>, _:node1enfqdn15x319 .
+
+_:node1enfqdn15x319 a oa:TextualBody;
+  dcterms:format "text/plain";
+  dcterms:language iso:dut;
+  rdf:value "10 April 1821"@dut;
+  oa:hasPurpose oa:describing .
+
+<http://localhost:8080/rdf/nc/annotation/e7e4af21-7572-406f-8061-330b709cc247> oa:hasTarget
+    _:node1enfqdn15x318 .
+
+_:node1enfqdn15x318 a oa:Target;
+  dcterms:format "image/jpeg";
+  oa:hasSelector _:node1enfqdn15x321 .
+
+_:node1enfqdn15x321 a oa:FragmentSelector;
+  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
+  rdf:value "xywh=0.6712020824648357,0.177764417868435,0.07131751180401791,0.015538452292495508" .
+
+_:node1enfqdn15x318 oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/max/0/default.jpg> .
+
+orcid:0000-0002-2146-4803 a foaf:Person .
+
+<http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/max/0/default.jpg>
+  a dcmitype:StillImage, oa:Source, foaf:Image .
+
+<http://makingsense.liacs.nl/rdf/nc/date1> dwc:day "10"^^<http://www.w3.org/2001/XMLSchema#int>;
+  dwc:month "4"^^<http://www.w3.org/2001/XMLSchema#int>;
+  dwc:year "1821"^^<http://www.w3.org/2001/XMLSchema#int>;
+  rdfs:label "10 April 1821"@dut .

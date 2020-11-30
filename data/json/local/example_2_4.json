@@ -1,0 +1,27 @@
+{
+  "src": "dzi://openseadragon/something",
+  "text": "Person",
+  "shapes": [
+    {
+      "type": "rect",
+      "geometry": {
+        "x": 0.7440088812582997,
+        "y": 0.07455982948806777,
+        "width": 0.025616647631110823,
+        "height": 0.015342591094569064
+      },
+      "style": {}
+    }
+  ],
+  "context": "http://localhost:8080/semanticAnnotator/#",
+  "date": "2017-09-21",
+  "annotator": "http://orcid.org/0000-0002-2146-4803",
+  "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
+  "selector": "#xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064",
+  "verbatim": "Diard",
+  "language": "",
+  "type": "person",
+  "property": "recordedBy",
+  "organismID": "1",
+  "person": "http://viaf.org/viaf/39377694"
+}

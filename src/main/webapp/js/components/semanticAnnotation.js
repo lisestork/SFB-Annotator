@@ -137,9 +137,9 @@ var semanticAnnotation = {
 
 		storeAnnotationRDF: function(annotation){
 
-			//mandatory annotation info
-				//annotation.date = new Date().toJSON().slice(0,10);
-				annotation.date = "2017-09-21";
+				//mandatory annotation info
+				annotation.date = new Date().toJSON().slice(0,10);  // YYYY-MM-DD
+				//annotation.date = "2017-09-21";  // fixed in data/json/examples_*
 			    annotation.annotator = accounts.person[0].IRI;
 
 			    //target
@@ -150,10 +150,10 @@ var semanticAnnotation = {
 			    annotation.verbatim = $('#verbatim').val();
 			    annotation.language = $('#language').val();
 
-			//semantic annotation info
+				//semantic annotation info
 			    annotation.type = annotation.text.toLowerCase().trim();
 			    annotation.property = $('select[name=property]').val();
-			    annotation.organismID = "-";
+			    annotation.organismID = '';
 
 			    if(annotation.property === "hasIdentification"){
 					annotation.belongstotaxon = $('#belongstotaxon').val();
@@ -205,21 +205,16 @@ var semanticAnnotation = {
 					annotation.rank = $('#rank').val();
 				}
 
-			    annoString = JSON.stringify(annotation);
-
-			  	annoURI = encodeURIComponent(annoString);
-
 				var request = new XMLHttpRequest();
-				param = "writeAnnotationsToRDF?annotation="+annoURI;
-				request.open("POST",param, true);
+				request.open("POST", "writeAnnotationsToRDF", true);
+				request.setRequestHeader("Content-type", "application/json");
 				request.onreadystatechange = function(e){
-
 					if ( request.readyState == 4 && request.status == 200) {
 					}
 
 				}.bind(this);
 
-				request.send();
+				request.send(JSON.stringify(annotation));
 
 				//this.storeAnnotationSQL(annotation);
 		},

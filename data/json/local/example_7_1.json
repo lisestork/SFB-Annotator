@@ -1,0 +1,27 @@
+{
+  "src": "dzi://openseadragon/something",
+  "text": "date",
+  "shapes": [
+    {
+      "type": "rect",
+      "geometry": {
+        "x": 0.672574339819018,
+        "y": 0.030544471154748218,
+        "width": 0.06203976435935199,
+        "height": 0.01601620029455081
+      },
+      "style": {}
+    }
+  ],
+  "context": "http://localhost:8080/semanticAnnotator/#",
+  "date": "2017-09-21",
+  "annotator": "http://orcid.org/0000-0002-2146-4803",
+  "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg",
+  "selector": "#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081",
+  "verbatim": "10 April 1821",
+  "language": "dut",
+  "type": "date",
+  "property": "type",
+  "organismID": "",
+  "instance": ""
+}

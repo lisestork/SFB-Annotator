@@ -87,9 +87,10 @@ var imageViewer = {
 			        }
 				}
 			}(i));
-			image[i].src = './files/' + this.imageArray[i];
+			// image URL or path (localhost)
+			image[i].src = this.imageArray[i];
 			image[i].url = image[i].src;
-			//console.log(image[i].url);
+			console.log(image[i].url);
 		};
 		anno.makeAnnotatable(this.viewer);
 
@@ -101,11 +102,11 @@ var imageViewer = {
 	createOpenSeadragon: function(){
 
 		this.viewer = OpenSeadragon({
-				  id: "openseadragon",
-				  prefixUrl: "images/openseadragon/",
-				  showNavigator: false,
-				  tileSources: new Array()
-				});
+			id: "openseadragon",
+			prefixUrl: "images/openseadragon/",
+			showNavigator: false,
+			tileSources: new Array()
+		});
 	},
 
 	render: function(pagenumber){
