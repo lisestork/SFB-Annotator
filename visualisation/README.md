@@ -3,8 +3,8 @@
 **1. Install dependencies.**
 
 ```
-conda env create -f environment.yml
-conda activate pbg-ld
+conda env create -n sfb-a -f environment.yml
+conda activate sfb-a
 ```
 
 **2. Run examples.**
