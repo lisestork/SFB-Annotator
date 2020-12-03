@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+dependencies:
+  - jupyter=1.0.0
+  - rdflib=5.0.0
+  - jinja2
+  - pip
+  - pip:
+    - netwulf==0.1.5
