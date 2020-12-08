@@ -3,6 +3,9 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        img_src: ['local', 'remote']
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -12,7 +15,6 @@ jobs:
           CRE: tomcat:tomcat
           BASE: /usr/local/tomcat/webapps/semanticAnnotator/data/
           PREFIX: ./src/main/webapp/data/data
-          IMG_SRC: local
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
@@ -33,4 +35,4 @@ jobs:
         run: |
           docker exec sea ./init.sh
           docker exec sea bash -c \
-            "cp $BASE/data-$IMG_SRC.json $BASE/data.json && cat \$_"
+            "cp $BASE/data-${{ matrix.img_src }}.json $BASE/data.json && cat \$_"
