@@ -13,7 +13,6 @@ jobs:
         run: echo $CRE $BASE $PREFIX $IMG_SRC
         env:
           CRE: tomcat:tomcat
-          BASE: /usr/local/tomcat/webapps/semanticAnnotator/data/
           PREFIX: ./src/main/webapp/data/data
       - name: Set up Python
         uses: actions/setup-python@v1
@@ -36,3 +35,5 @@ jobs:
           docker exec sea ./init.sh
           docker exec sea bash -c \
             "cp $BASE/data-${{ matrix.img_src }}.json $BASE/data.json && cat \$_"
+        env:
+          BASE: /usr/local/tomcat/webapps/semanticAnnotator/data/
