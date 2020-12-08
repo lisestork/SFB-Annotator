@@ -9,11 +9,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-      - name: Echo variables
-        run: echo $CRE $BASE $PREFIX $IMG_SRC
-        env:
-          CRE: tomcat:tomcat
-          PREFIX: ./src/main/webapp/data/data
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
