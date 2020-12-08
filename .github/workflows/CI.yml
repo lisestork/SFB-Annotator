@@ -3,6 +3,11 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      CRE: tomcat:tomcat
+      BASE: /usr/local/tomcat/webapps/semanticAnnotator/data/
+      PREFIX: ./src/main/webapp/data/data
+      IMG_SRC: local
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -23,4 +28,7 @@ jobs:
       - name: Start services
         run: docker-compose up -d
       - name: Configure services
-        run: docker exec sea ./init.sh
+        run: |
+          docker exec sea ./init.sh
+          docker exec sea bash -c \
+            "cp $BASE/data-$IMG_SRC.json $BASE/data.json && cat \$_"
