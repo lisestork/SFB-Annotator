@@ -37,3 +37,13 @@ jobs:
             "cp $BASE/data-${{ matrix.img_src }}.json $BASE/data.json && cat \$_"
         env:
           BASE: /usr/local/tomcat/webapps/semanticAnnotator/data/
+      - name: Access images
+        run: |
+          for url in $(jq -r ".items|.[].item[]" $PREFIX-${{ matrix.img_src }}.json); do
+            echo -ne "$url\t ..."
+            [[ $(curl -s -u "$CRE" -w "%{http_code}" "$url" -o /dev/null) -eq 200 ]] \
+              && echo "OK" || (echo "FAILED" && exit 1)
+          done
+        env:
+          CRE: tomcat:tomcat
+          PREFIX: ./src/main/webapp/data/data
