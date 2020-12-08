@@ -20,3 +20,7 @@ jobs:
           pip install -q jq tripoli
       - name: Show pip list
         run: pip list
+      - name: Start services
+        run: docker-compose up -d
+      - name: Configure services
+        run: docker exec sea ./init.sh
