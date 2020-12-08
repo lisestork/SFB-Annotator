@@ -7,7 +7,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Echo variables
-        runs: echo $CRE $BASE $PREFIX $IMG_SRC
+        run: echo $CRE $BASE $PREFIX $IMG_SRC
         env:
           CRE: tomcat:tomcat
           BASE: /usr/local/tomcat/webapps/semanticAnnotator/data/
