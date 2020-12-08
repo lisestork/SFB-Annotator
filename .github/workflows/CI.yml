@@ -3,14 +3,16 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      CRE: tomcat:tomcat
-      BASE: /usr/local/tomcat/webapps/semanticAnnotator/data/
-      PREFIX: ./src/main/webapp/data/data
-      IMG_SRC: local
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+      - name: Echo variables
+        runs: echo $CRE $BASE $PREFIX $IMG_SRC
+        env:
+          CRE: tomcat:tomcat
+          BASE: /usr/local/tomcat/webapps/semanticAnnotator/data/
+          PREFIX: ./src/main/webapp/data/data
+          IMG_SRC: local
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
