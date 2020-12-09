@@ -58,7 +58,7 @@ for (s, p, o) in g:
     G.add_node(o.n3(g.namespace_manager), group=o.n3(g.namespace_manager))
     G.add_edge(s.n3(g.namespace_manager), o.n3(g.namespace_manager), group=p.n3(g.namespace_manager))
 
-pos = nx.drawing.layout.spring_layout(G, iterations=1000, seed=1234)
+pos = nx.drawing.layout.spring_layout(G, seed=1234)
 plt.figure()
 nx.draw_networkx_edge_labels(G, pos, edge_labels=nx.get_edge_attributes(G, 'group'), font_color='red', font_size=5)
 nx.draw(G, with_labels=True, pos=pos, node_size=12, node_color='lightgreen', edge_color='gray', font_size=5)
