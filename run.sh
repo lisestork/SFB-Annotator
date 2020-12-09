@@ -58,7 +58,7 @@ echo
 
 # plot RDF graphs in SVG
 echo -ne "Plot RDF graphs..."
-./rdf2svg -i $RDF_FILE
+./rdf2svg.py -i $RDF_FILE
 
 # delete triples
 echo -ne "Delete triples\t... "
