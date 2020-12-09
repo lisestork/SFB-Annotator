@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -q jq tripoli
+          pip install -q jq tripoli networkx
       - name: Show pip list
         run: pip list
       - name: Start services
@@ -48,6 +48,13 @@ jobs:
             prefix="$(basename "$json" .json)"
             rdf="$prefix.ttl"
             ./run.sh "$json" "$rdf"
+          done
+      - name: Plot RDF graphs
+        run: |
+          for rdf in $(ls data/rdf/${{ matrix.img_src }}/*.ttl | sort); do
+            prefix="$(basename "$rdf" .ttl)"
+            svg="$prefix.svg"
+            ./rdf2svg.py -i "$rdf" -o "$svg"
           done
       - name: Validate IIIF manifest.json
         run: ./validate.py data/manifest.json
