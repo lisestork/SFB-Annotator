@@ -56,6 +56,10 @@ echo -ne "Dump triples\t... "
 cat "$RDF_FILE"
 echo
 
+# plot RDF graphs in SVG
+echo -ne "Plot RDF graphs..."
+./rdf2svg -i $RDF_FILE
+
 # delete triples
 echo -ne "Delete triples\t... "
 [[ $(curl -s -u "$CRE" -w "%{http_code}" -X DELETE "${URL2}/statements") -eq 204 ]] \
