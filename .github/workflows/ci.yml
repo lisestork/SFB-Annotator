@@ -1,18 +1,19 @@
-name: CI
-on: [push, pull_request]
+name: continuous_integration
+on: ["push", "pull_request"]
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        img_src: ['local', 'remote']
+        img_src: ["local", "remote"]
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
-          python-version: '3.7'
+          python-version: "3.7"
       - name: Python info
         run: |
           which python
