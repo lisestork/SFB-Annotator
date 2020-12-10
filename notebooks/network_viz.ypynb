@@ -1,0 +1,126 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Network visualisation: LINNAE triples\n",
+    "\n",
+    "Note: this notebook was derived from https://github.com/candYgene/notebooks/blob/master/usecase_1/example_2/network_viz.ipynb"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import os\n",
+    "import random as rnd\n",
+    "import networkx as nx\n",
+    "import netwulf as nw\n",
+    "import ipywidgets as iw\n",
+    "import rdflib\n",
+    "from rdflib.namespace import RDF, RDFS, OWL, XSD, FOAF, SKOS, DOAP, DC, DCTERMS, VOID"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ANNO = rdflib.Namespace(\"http://localhost:8080/rdf/nc/annotation/\")\n",
+    "DWC = rdflib.Namespace(\"http://rs.tdwg.org/dwc/terms/\")\n",
+    "NHC = rdflib.Namespace(\"http://makingsense.liacs.nl/rdf/nhc/\")\n",
+    "DWCIRI =rdflib.Namespace(\"http://rs.tdwg.org/dwc/iri/\")\n",
+    "OA =rdflib.Namespace(\"http://www.w3.org/ns/oa#\")\n",
+    "DSW = rdflib.Namespace(\"http://purl.org/dsw/\")\n",
+    "NC = rdflib.Namespace(\"http://makingsense.liacs.nl/rdf/nc/\")\n",
+    "EX = rdflib.Namespace(\"http://localhost:8080/semanticAnnotator/files/\")\n",
+    "DCMITYPE = rdflib.Namespace(\"http://purl.org/dc/dcmitype/\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### select example input RDF\n",
+    "Note: interrupt kernel before selecting new input"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "path = '../data/rdf/local'\n",
+    "files = [f for f in os.listdir(path) if f.endswith('.ttl')]\n",
+    "files.sort(key=str)\n",
+    "w = iw.interactive(lambda fn: os.path.join(path, fn), fn=files)\n",
+    "display(w)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "rdf_infile = w.result\n",
+    "g = rdflib.Graph()\n",
+    "g.parse(rdf_infile, format='ttl')\n",
+    "g.bind(\"foaf\", FOAF)\n",
+    "g.bind(\"rdf\", RDF)\n",
+    "g.bind(\"dwc\", DWC)\n",
+    "g.bind(\"dwciri\", DWCIRI)\n",
+    "g.bind(\"dsw\", DSW)\n",
+    "g.bind(\"nhc\", NHC)\n",
+    "g.bind(\"dc\", DC)\n",
+    "g.bind(\"oa\", OA)\n",
+    "g.bind(\"dcterms\", DCTERMS)\n",
+    "g.bind(\"nc\", NC)\n",
+    "g.bind(\"ex\", EX)\n",
+    "g.bind(\"dcmitype\", DCMITYPE)\n",
+    "g.bind(\"anno\", ANNO)\n",
+    "print(\"graph '{}' has {} statements.\".format(rdf_infile, len(g)))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "G = nx.Graph()\n",
+    "for (s, p, o) in g:\n",
+    "    G.add_node(s.n3(g.namespace_manager), group=s.n3(g.namespace_manager))\n",
+    "    G.add_node(o.n3(g.namespace_manager), group=o.n3(g.namespace_manager))\n",
+    "    G.add_edge(s.n3(g.namespace_manager),o.n3(g.namespace_manager),label=p.n3(g.namespace_manager))\n",
+    "network, config = nw.visualize(G, port=rnd.randint(9000, 9999), is_test=False)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
