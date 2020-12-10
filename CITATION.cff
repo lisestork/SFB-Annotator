@@ -1,4 +1,6 @@
 # YAML 1.2
+# Metadata for citation of this software according to the CFF format
+# (https://citation-file-format.github.io/)
 ---
 authors:
   -
@@ -6,6 +8,11 @@ authors:
     family-names: Stork
     given-names: Lise
     orcid: http://orcid.org/0000-0002-2146-4803
+  -
+    affiliation: "Netherlands eScience Center"
+    family-names: Kuzniar
+    given-names: Arnold
+    orcid: "https://orcid.org/0000-0003-1711-7961"
 
 cff-version: "1.0.3"
 title: "Semantic Field Book Annotator"
@@ -15,7 +22,7 @@ keywords:
   - "natural history"
   - "biodiversity"
   - "ontology"
-version: "0.0.0-alpha0"  # FIXME
+version: "0.1.0"
 date-released: 2020-01-01  # FIXME
-repository-code: https://github.com/lisestork/SFB-Annotator
+repository-code: https://github.com/LINNAE-project/SFB-Annotator
 license: Apache-2.0
