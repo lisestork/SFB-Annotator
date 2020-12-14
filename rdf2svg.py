@@ -28,7 +28,7 @@ DWCIRI =rdflib.Namespace("http://rs.tdwg.org/dwc/iri/")
 OA =rdflib.Namespace("http://www.w3.org/ns/oa#")
 DSW = rdflib.Namespace("http://purl.org/dsw/")
 NC = rdflib.Namespace("http://makingsense.liacs.nl/rdf/nc/")
-EX = rdflib.Namespace("http://localhost:8080/semanticAnnotator/files/")
+IMG = rdflib.Namespace("http://localhost:8080/semanticAnnotator/files/")
 DCMITYPE = rdflib.Namespace("http://purl.org/dc/dcmitype/")
 
 infile = args.input
@@ -48,7 +48,7 @@ g.bind("dc", DC)
 g.bind("oa", OA)
 g.bind("dcterms", DCTERMS)
 g.bind("nc", NC)
-g.bind("ex", EX)
+g.bind("img", IMG)
 g.bind("dcmitype", DCMITYPE)
 g.bind("anno", ANNO)
 
