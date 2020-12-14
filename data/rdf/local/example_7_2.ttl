@@ -2,6 +2,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix img: <http://localhost:8080/semanticAnnotator/files/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
@@ -9,34 +10,33 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/2b69504f-23b2-4452-8bb9-269ff9d39f45> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/c976053e-cb6c-48cd-a602-ce95dd61dabb> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/date1>, _:node1enfqdn15x475 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/date1>, _:node1ephja6d9x310 .
 
-_:node1enfqdn15x475 a oa:TextualBody;
+_:node1ephja6d9x310 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
   rdf:value "10 April 1821"@dut;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/2b69504f-23b2-4452-8bb9-269ff9d39f45> oa:hasTarget
-    _:node1enfqdn15x474 .
+<http://localhost:8080/rdf/nc/annotation/c976053e-cb6c-48cd-a602-ce95dd61dabb> oa:hasTarget
+    _:node1ephja6d9x309 .
 
-_:node1enfqdn15x474 a oa:Target;
+_:node1ephja6d9x309 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1enfqdn15x477 .
+  oa:hasSelector _:node1ephja6d9x312 .
 
-_:node1enfqdn15x477 a oa:FragmentSelector;
+_:node1ephja6d9x312 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6712020824648357,0.177764417868435,0.07131751180401791,0.015538452292495508" .
 
-_:node1enfqdn15x474 oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg> .
+_:node1ephja6d9x309 oa:hasSource img:MMNAT01_AF_NNM001001033_004.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg> a
-    dcmitype:StillImage, oa:Source, foaf:Image .
+img:MMNAT01_AF_NNM001001033_004.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
 <http://makingsense.liacs.nl/rdf/nc/date1> dwc:day "10"^^<http://www.w3.org/2001/XMLSchema#int>;
   dwc:month "4"^^<http://www.w3.org/2001/XMLSchema#int>;

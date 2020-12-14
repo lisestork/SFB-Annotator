@@ -1,6 +1,7 @@
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix img: <http://localhost:8080/semanticAnnotator/files/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
@@ -8,33 +9,32 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/b2a2e495-6a44-4c81-ad4e-fee4fd651d26> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/3a3603ae-1fce-42d8-ab7c-2a6f7f3ac7ec> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody viaf:39377694, _:node1enfqdn15x354 .
+  oa:hasBody viaf:39377694, _:node1ephja6d9x189 .
 
-_:node1enfqdn15x354 a oa:TextualBody;
+_:node1ephja6d9x189 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Geoff"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/b2a2e495-6a44-4c81-ad4e-fee4fd651d26> oa:hasTarget
-    _:node1enfqdn15x353 .
+<http://localhost:8080/rdf/nc/annotation/3a3603ae-1fce-42d8-ab7c-2a6f7f3ac7ec> oa:hasTarget
+    _:node1ephja6d9x188 .
 
-_:node1enfqdn15x353 a oa:Target;
+_:node1ephja6d9x188 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1enfqdn15x356 .
+  oa:hasSelector _:node1ephja6d9x191 .
 
-_:node1enfqdn15x356 a oa:FragmentSelector;
+_:node1ephja6d9x191 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206" .
 
-_:node1enfqdn15x353 oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
+_:node1ephja6d9x188 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> a
-    dcmitype:StillImage, oa:Source, foaf:Image .
+img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
 viaf:39377694 a foaf:Person .

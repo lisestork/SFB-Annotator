@@ -2,6 +2,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix img: <http://localhost:8080/semanticAnnotator/files/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
@@ -11,39 +12,38 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix taxonomy: <http://identifiers.org/taxonomy/> .
 
-<http://localhost:8080/rdf/nc/annotation/08c80890-ba9f-4537-a00b-3e3c3fdbf9aa> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/74fc206b-7e9d-4878-965d-07951f4142d8> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody _:node1enfqdn15x328 .
+  oa:hasBody _:node1ephja6d9x163 .
 
-_:node1enfqdn15x328 a oa:TextualBody;
+_:node1ephja6d9x163 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus minimus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/08c80890-ba9f-4537-a00b-3e3c3fdbf9aa> oa:hasBody
-    _:node1enfqdn15x329 .
+<http://localhost:8080/rdf/nc/annotation/74fc206b-7e9d-4878-965d-07951f4142d8> oa:hasBody
+    _:node1ephja6d9x164 .
 
-_:node1enfqdn15x329 a dwc:Taxon;
+_:node1ephja6d9x164 a dwc:Taxon;
   nhc:belongsToTaxon taxonomy:9397;
   nhc:taxonRank nhc:scientificName;
   rdfs:label "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/08c80890-ba9f-4537-a00b-3e3c3fdbf9aa> oa:hasTarget
-    _:node1enfqdn15x327 .
+<http://localhost:8080/rdf/nc/annotation/74fc206b-7e9d-4878-965d-07951f4142d8> oa:hasTarget
+    _:node1ephja6d9x162 .
 
-_:node1enfqdn15x327 a oa:Target;
+_:node1ephja6d9x162 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1enfqdn15x330 .
+  oa:hasSelector _:node1ephja6d9x165 .
 
-_:node1enfqdn15x330 a oa:FragmentSelector;
+_:node1ephja6d9x165 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" .
 
-_:node1enfqdn15x327 oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
+_:node1ephja6d9x162 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> a
-    dcmitype:StillImage, oa:Source, foaf:Image .
+img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image .

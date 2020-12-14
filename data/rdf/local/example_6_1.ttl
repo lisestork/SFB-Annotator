@@ -3,6 +3,7 @@
 @prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix img: <http://localhost:8080/semanticAnnotator/files/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
@@ -12,38 +13,37 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/50f29122-78c9-4a43-863a-9514859f8122> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/43c9edab-8329-438c-9b1a-d52bee612754> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1enfqdn15x446 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1ephja6d9x281 .
 
-_:node1enfqdn15x446 a oa:TextualBody;
+_:node1ephja6d9x281 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Dentibus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/50f29122-78c9-4a43-863a-9514859f8122> oa:hasTarget
-    _:node1enfqdn15x445 .
+<http://localhost:8080/rdf/nc/annotation/43c9edab-8329-438c-9b1a-d52bee612754> oa:hasTarget
+    _:node1ephja6d9x280 .
 
-_:node1enfqdn15x445 a oa:Target;
+_:node1ephja6d9x280 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1enfqdn15x448 .
+  oa:hasSelector _:node1ephja6d9x283 .
 
-_:node1enfqdn15x448 a oa:FragmentSelector;
+_:node1ephja6d9x283 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" .
 
-_:node1enfqdn15x445 oa:hasSource <http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> .
+_:node1ephja6d9x280 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-<http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg> a
-    dcmitype:StillImage, oa:Source, foaf:Image .
+img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
-<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a _:node1enfqdn15x440 .
+<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a _:node1ephja6d9x275 .
 
-_:node1enfqdn15x440 rdfs:subClassOf obo:UBERON_0001062 .
+_:node1ephja6d9x275 rdfs:subClassOf obo:UBERON_0001062 .
 
 <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> rdfs:label "Dentibus"@lat .
 

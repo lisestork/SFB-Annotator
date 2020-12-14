@@ -1,39 +1,39 @@
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix img: <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/fa10fcdf-4cb9-4440-9288-89371062dcae> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/05a4b8a7-689c-432c-8997-7998fd4beed9> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2017-09-21";
-  oa:hasBody <http://sws.geonames.org/1648473/>, _:node1enfqdn15x233 .
+  oa:hasBody <http://sws.geonames.org/1648473/>, _:node1ephja6d9x380 .
 
-_:node1enfqdn15x233 a oa:TextualBody;
+_:node1ephja6d9x380 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
   rdf:value "Buitenzorg"@dut;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/fa10fcdf-4cb9-4440-9288-89371062dcae> oa:hasTarget
-    _:node1enfqdn15x232 .
+<http://localhost:8080/rdf/nc/annotation/05a4b8a7-689c-432c-8997-7998fd4beed9> oa:hasTarget
+    _:node1ephja6d9x379 .
 
-_:node1enfqdn15x232 a oa:Target;
+_:node1ephja6d9x379 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1enfqdn15x235 .
+  oa:hasSelector _:node1ephja6d9x382 .
 
-_:node1enfqdn15x235 a oa:FragmentSelector;
+_:node1ephja6d9x382 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445" .
 
-_:node1enfqdn15x232 oa:hasSource <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg> .
+_:node1ephja6d9x379 oa:hasSource img:default.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-<http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg>
-  a dcmitype:StillImage, oa:Source, foaf:Image .
+img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
 <http://sws.geonames.org/1648473/> a dcterms:Location .
