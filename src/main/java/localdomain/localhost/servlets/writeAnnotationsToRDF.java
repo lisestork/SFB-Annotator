@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
+import java.util.Arrays;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -55,9 +56,10 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		Integer month = (json.isNull("month")) ? null : json.getInt("month");
 		Integer day = (json.isNull("day")) ? null : json.getInt("day");
 
+		String mime;
 		String date = (json.isNull("date")) ? "" : json.getString("date").trim();
 		String annotator = (json.isNull("annotator")) ? "" : json.getString("annotator").trim();
-		String source = (json.isNull("source")) ? "" : json.getString("source").trim();
+		String source = (json.isNull("source")) ? "" : json.getString("source").replaceAll("/$|\\s+$", "");
 		String selector = (json.isNull("selector")) ? "" : json.getString("selector").trim();
 		String belongstotaxon = (json.isNull("belongstotaxon")) ? "" : json.getString("belongstotaxon").trim();
 		String rank = (json.isNull("rank")) ? "" : json.getString("rank").trim();
@@ -77,7 +79,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String lang = (json.isNull("language")) ? "" : json.getString("language").trim();
 		String uuid = UUID.randomUUID().toString();
 		String filext = source.substring(source.lastIndexOf(".") + 1).toLowerCase();
-		String mime;
+		String[] arr = source.split("/");
 
 		switch (filext) {
 			case "jpeg" :
@@ -103,7 +105,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		try { // return well-formed IETF BCP 47 language tag
 			lang = Locale.forLanguageTag(lang).toLanguageTag();
 		} catch (Exception e) {
-			//
+			e.printStackTrace();
 		}
 
 		// namespace prefixes
@@ -113,6 +115,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String dwciri = "http://rs.tdwg.org/dwc/iri/";
 		String gn = "http://www.geonames.org/ontology#";
 		String iso = "http://iso639-3.sil.org/code/";
+		String img = String.join("/", Arrays.copyOfRange(arr, 0, arr.length - 1)) + "/";
 		String mf = "http://www.w3.org/TR/media-frags/";
 		String ncit = "http://identifiers.org/ncit/";
 		String nc = "http://makingsense.liacs.nl/rdf/nc/";
@@ -214,7 +217,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		Resource personIRI = (person.equals("")) ? f.createBNode() : f.createIRI(person);
 		Resource belongsToTaxonIRI = (belongstotaxon.equals("")) ? f.createBNode() : f.createIRI(belongstotaxon);
 		Resource geonamesFeatureIRI = (geonamesfeature.equals("")) ? f.createBNode() : f.createIRI(geonamesfeature);
-		
+
 		BNode targetBNode = f.createBNode();
 		BNode textualBodyBNode = f.createBNode();
 		BNode taxonBNode = f.createBNode();
@@ -250,6 +253,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.setNamespace("dwciri", dwciri);
 			conn.setNamespace(FOAF.PREFIX, FOAF.NAMESPACE);
 			conn.setNamespace("iso", iso);
+			conn.setNamespace("img", img);
 			conn.setNamespace("mf", mf);
 			conn.setNamespace("ncit", ncit);
 			conn.setNamespace("nhc", nhc);
