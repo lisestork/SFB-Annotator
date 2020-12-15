@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -56,12 +57,13 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		Integer month = (json.isNull("month")) ? null : json.getInt("month");
 		Integer day = (json.isNull("day")) ? null : json.getInt("day");
 
-		String mime;
 		String date = (json.isNull("date")) ? "" : json.getString("date").trim();
 		String annotator = (json.isNull("annotator")) ? "" : json.getString("annotator").replaceAll("/$|\\s+$", "");
 		String source = (json.isNull("source")) ? "" : json.getString("source").replaceAll("/$|\\s+$", "");
 		String selector = (json.isNull("selector")) ? "" : json.getString("selector").trim();
-		String belongstotaxon = (json.isNull("belongstotaxon")) ? "" : json.getString("belongstotaxon").replaceAll("/$|\\s+$", "");
+		String belongstotaxon = (json.isNull("belongstotaxon"))
+				? ""
+				: json.getString("belongstotaxon").replaceAll("/$|\\s+$", "");
 		String rank = (json.isNull("rank")) ? "" : json.getString("rank").trim();
 		String person = (json.isNull("person")) ? "" : json.getString("person").replaceAll("/$|\\s+$", "");
 		String organismID = (json.isNull("organismID")) ? "" : json.getString("organismID").trim();
@@ -80,29 +82,22 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String uuid = UUID.randomUUID().toString();
 		String filext = source.substring(source.lastIndexOf(".") + 1).toLowerCase();
 		String[] arr = source.split("/");
+		String mime = "application/octet-stream"; // default: unknown file type
 
-		switch (filext) {
-			case "jpeg" :
-				mime = "image/jpeg";
-				break;
-			case "jpg" :
-				mime = "image/jpeg";
-				break;
-			case "tiff" :
-				mime = "image/tiff";
-				break;
-			case "tif" :
-				mime = "image/tiff";
-				break;
-			case "png" :
-				mime = "image/png";
-				break;
-			default :
-				mime = "";
-				break;
+		// set MIME type based on file suffix
+		HashMap<String, String> mapMime = new HashMap<>();
+		mapMime.put("jpeg", "image/jpeg");
+		mapMime.put("jpg", "image/jpeg");
+		mapMime.put("tiff", "image/tiff");
+		mapMime.put("tif", "image/tiff");
+		mapMime.put("png", "image/png");
+
+		if (mapMime.containsKey(filext)) {
+			mime = mapMime.get(filext);
 		}
 
-		try { // return well-formed IETF BCP 47 language tag
+		// return well-formed IETF BCP 47 language tag
+		try {
 			lang = Locale.forLanguageTag(lang).toLanguageTag();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -130,7 +125,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String host = "http://localhost:8080/";
 		String repositoryID = "mem-rdf";
 		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
-		// repo.initialize()
 		ValueFactory f = repo.getValueFactory();
 
 		// init class
