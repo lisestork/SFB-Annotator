@@ -2,7 +2,6 @@ package localdomain.localhost.servlets;
 
 import java.io.IOException;
 
-import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 import java.util.Arrays;
@@ -24,15 +23,11 @@ import org.eclipse.rdf4j.model.vocabulary.FOAF;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
 import org.eclipse.rdf4j.query.BindingSet;
-import org.eclipse.rdf4j.query.QueryLanguage;
-import org.eclipse.rdf4j.query.QueryResults;
 import org.eclipse.rdf4j.query.TupleQuery;
 import org.eclipse.rdf4j.query.TupleQueryResult;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.http.HTTPRepository;
-import org.eclipse.rdf4j.repository.manager.RemoteRepositoryManager;
-import org.eclipse.rdf4j.repository.manager.RepositoryManager;
 
 import org.apache.commons.io.IOUtils;
 
@@ -43,14 +38,13 @@ import org.json.JSONObject;
  */
 public class writeAnnotationsToRDF extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		// get httpRequest parameters
 		String anno = IOUtils.toString(request.getReader());
 		JSONObject json = new JSONObject(anno);
-		// System.out.println(json);
 
 		// retrieve key-value pairs
 		Integer year = (json.isNull("year")) ? null : json.getInt("year");
@@ -220,21 +214,21 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		// query RDF store
 		String query2 = "SELECT ?value WHERE { ?iri rdf:type <" + taxonClass.toString()
 				+ "> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
-		int taxonNr = QueryTripleStore(query2, repo, "value");
+		int taxonNr = QueryTripleStore(query2, repo);
 
 		String query3 = "SELECT (COUNT(DISTINCT ?measurements) AS ?totalNumberOfInstances) WHERE { ?measurements rdf:type <"
 				+ measurementOrFactClass.toString() + "> . }";
-		int measurementOrFactNr = QueryTripleStore(query3, repo, "totalNumberOfInstances");
+		int measurementOrFactNr = QueryTripleStore(query3, repo);
 		IRI measurementOrFactIRI = f.createIRI(nc, "measurementOrFact" + measurementOrFactNr);
 
 		String query4 = "SELECT (COUNT(DISTINCT ?propertyorattribute) AS ?totalNumberOfInstances) WHERE { ?propertyorattribute rdf:type ?type . ?type rdfs:subClassOf <"
 				+ propertyOrAttributeTopClass.toString() + "> . }";
-		int propertyOrAttributeNr = QueryTripleStore(query4, repo, "totalNumberOfInstances");
+		int propertyOrAttributeNr = QueryTripleStore(query4, repo);
 		IRI propertyOrAttributeIRI = f.createIRI(nc, "propertyOrAttribute" + propertyOrAttributeNr);
 
 		String query5 = "SELECT (COUNT(DISTINCT ?anatomicalentity) AS ?totalNumberOfInstances) WHERE { ?anatomicalentity rdf:type ?type . ?type rdfs:subClassOf <"
 				+ anatomicalEntityTopClass.toString() + "> . }";
-		int anatomicalEntityNr = QueryTripleStore(query5, repo, "totalNumberOfInstances");
+		int anatomicalEntityNr = QueryTripleStore(query5, repo);
 		IRI anatomicalEntityIRI = f.createIRI(nc, "anatomicalEntity" + anatomicalEntityNr);
 
 		try (RepositoryConnection conn = repo.getConnection()) {
@@ -451,7 +445,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		}
 	}
 
-	public int QueryTripleStore(String query, Repository repo, String valueOf) {
+	public int QueryTripleStore(String query, Repository repo) {
 		Value count = null;
 		int c = 0;
 
@@ -472,10 +466,5 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			c = 1;
 		}
 		return c;
-	}
-
-	public String retrieveValues(String type) {
-		String values = new String();
-		return values;
 	}
 }

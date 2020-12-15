@@ -2,7 +2,6 @@ package localdomain.localhost.servlets;
 
 import java.io.IOException;
 import java.util.List;
-import java.lang.Object;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +25,7 @@ import org.eclipse.rdf4j.repository.http.HTTPRepository;
  */
 public class removeAnnotationsFromRDF extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -67,8 +66,7 @@ public class removeAnnotationsFromRDF extends HttpServlet {
 	}
 
 	public String QueryTripleStoreString(String query, Repository repo, String valueOf) {
-		String annotation = new String();
-
+		String annotation;
 		try (RepositoryConnection conn = repo.getConnection()) {
 			TupleQuery tupleQuery = conn.prepareTupleQuery(QueryLanguage.SPARQL, query);
 			List<BindingSet> resultList;
