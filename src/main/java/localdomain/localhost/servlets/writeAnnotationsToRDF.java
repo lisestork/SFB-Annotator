@@ -102,11 +102,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 
 		// return date/time in ISO 8601 format
 		try {
-			ZonedDateTime zdt = ZonedDateTime.parse(date);
-			String tmp = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX").format(zdt);
-			if (!tmp.equals(date)) {
-				date = "";
-			}
+			date = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX").format(ZonedDateTime.parse(date));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
