@@ -138,8 +138,7 @@ var semanticAnnotation = {
 		storeAnnotationRDF: function(annotation){
 
 				//mandatory annotation info
-				annotation.date = new Date().toJSON().slice(0,10);  // YYYY-MM-DD
-				//annotation.date = "2017-09-21";  // fixed in data/json/examples_*
+				annotation.date = new Date().toISOString();  // ISO 8601 (e.g. 2021-01-12T14:23:11.646Z)
 			    annotation.annotator = accounts.person[0].IRI;
 
 			    //target

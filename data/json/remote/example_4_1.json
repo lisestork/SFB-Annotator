@@ -14,7 +14,7 @@
     }
   ],
   "context": "http://localhost:8080/semanticAnnotator/#",
-  "date": "2017-09-21",
+  "date": "2021-01-12T14:23:11.646Z",
   "annotator": "http://orcid.org/0000-0002-2146-4803",
   "source": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg",
   "selector": "#xywh=0.5614033197022136,0.11586327570674965,0.14027982326951394,0.0625920471281296",
