@@ -128,7 +128,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String orcid = "http://orcid.org/";
 		String taxonomy = "http://identifiers.org/taxonomy/";
 		String viaf = "http://viaf.org/viaf/";
-		String w3cdtf = "http://www.w3.org/TR/NOTE-datetime";
 
 		// Connect to RDF server
 		String host = "http://localhost:8080/";
