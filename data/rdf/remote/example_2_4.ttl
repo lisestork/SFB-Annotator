@@ -10,29 +10,29 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/5530c8df-544a-412a-9696-ea4194efa46b> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/f53262f3-8073-45e8-9224-102db047b6a0> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
-  dcterms:date "2017-09-21";
-  oa:hasBody viaf:39377694, _:node1ephja6d9x371 .
+  dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
+  oa:hasBody viaf:39377694, _:node1errvue1qx371 .
 
-_:node1ephja6d9x371 a oa:TextualBody;
+_:node1errvue1qx371 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Diard"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/5530c8df-544a-412a-9696-ea4194efa46b> oa:hasTarget
-    _:node1ephja6d9x370 .
+<http://localhost:8080/rdf/nc/annotation/f53262f3-8073-45e8-9224-102db047b6a0> oa:hasTarget
+    _:node1errvue1qx370 .
 
-_:node1ephja6d9x370 a oa:Target;
+_:node1errvue1qx370 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1ephja6d9x373 .
+  oa:hasSelector _:node1errvue1qx373 .
 
-_:node1ephja6d9x373 a oa:FragmentSelector;
+_:node1errvue1qx373 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064" .
 
-_:node1ephja6d9x370 oa:hasSource img:default.jpg .
+_:node1errvue1qx370 oa:hasSource img:default.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 

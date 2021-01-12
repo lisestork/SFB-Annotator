@@ -13,29 +13,29 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/b33ce4b1-1624-40ee-b3e5-2c19c1101e8c> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/5d892b23-92c1-4f21-87a8-7d2016a19550> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
-  dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1ephja6d9x263 .
+  dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1errvue1qx107 .
 
-_:node1ephja6d9x263 a oa:TextualBody;
+_:node1errvue1qx107 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Color"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/b33ce4b1-1624-40ee-b3e5-2c19c1101e8c> oa:hasTarget
-    _:node1ephja6d9x262 .
+<http://localhost:8080/rdf/nc/annotation/5d892b23-92c1-4f21-87a8-7d2016a19550> oa:hasTarget
+    _:node1errvue1qx106 .
 
-_:node1ephja6d9x262 a oa:Target;
+_:node1errvue1qx106 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1ephja6d9x265 .
+  oa:hasSelector _:node1errvue1qx109 .
 
-_:node1ephja6d9x265 a oa:FragmentSelector;
+_:node1errvue1qx109 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091" .
 
-_:node1ephja6d9x262 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1errvue1qx106 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
@@ -47,8 +47,8 @@ img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image
   nhc:measuresOrDescribes <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>;
   dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation> .
 
-<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a _:node1ephja6d9x258 .
+<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a _:node1errvue1qx102 .
 
-_:node1ephja6d9x258 rdfs:subClassOf ncit:C20189 .
+_:node1errvue1qx102 rdfs:subClassOf ncit:C20189 .
 
 <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> rdfs:label "Color"@lat .

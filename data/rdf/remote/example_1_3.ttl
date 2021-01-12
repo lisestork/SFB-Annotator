@@ -13,38 +13,38 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix taxonomy: <http://identifiers.org/taxonomy/> .
 
-<http://localhost:8080/rdf/nc/annotation/fe29494e-1f4c-4bcb-a0d0-d7062f6317ef> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/9ad967e8-837c-429b-8569-ab08849baf1e> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
-  dcterms:date "2017-09-21";
-  oa:hasBody _:node1ephja6d9x336 .
+  dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
+  oa:hasBody _:node1errvue1qx336 .
 
-_:node1ephja6d9x336 a oa:TextualBody;
+_:node1errvue1qx336 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/fe29494e-1f4c-4bcb-a0d0-d7062f6317ef> oa:hasBody
-    _:node1ephja6d9x337 .
+<http://localhost:8080/rdf/nc/annotation/9ad967e8-837c-429b-8569-ab08849baf1e> oa:hasBody
+    _:node1errvue1qx337 .
 
-_:node1ephja6d9x337 a dwc:Taxon;
+_:node1errvue1qx337 a dwc:Taxon;
   nhc:belongsToTaxon taxonomy:9397;
   nhc:taxonRank nhc:genus;
   rdf:value "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   rdfs:label "Pteropus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/fe29494e-1f4c-4bcb-a0d0-d7062f6317ef> oa:hasTarget
-    _:node1ephja6d9x335 .
+<http://localhost:8080/rdf/nc/annotation/9ad967e8-837c-429b-8569-ab08849baf1e> oa:hasTarget
+    _:node1errvue1qx335 .
 
-_:node1ephja6d9x335 a oa:Target;
+_:node1errvue1qx335 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1ephja6d9x338 .
+  oa:hasSelector _:node1errvue1qx338 .
 
-_:node1ephja6d9x338 a oa:FragmentSelector;
+_:node1errvue1qx338 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658" .
 
-_:node1ephja6d9x335 oa:hasSource img:default.jpg .
+_:node1errvue1qx335 oa:hasSource img:default.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
@@ -53,7 +53,7 @@ img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 nhc:additionalIdentification rdfs:subPropertyOf nhc:additional .
 
 <http://makingsense.liacs.nl/rdf/nc/identification2_id1> a dwc:Identification;
-  dwciri:toTaxon _:node1ephja6d9x337;
+  dwciri:toTaxon _:node1errvue1qx337;
   dwc:identificationID "2_id1" .
 
 <http://makingsense.liacs.nl/rdf/nc/organism2> nhc:additionalIdentification <http://makingsense.liacs.nl/rdf/nc/identification2_id1> .

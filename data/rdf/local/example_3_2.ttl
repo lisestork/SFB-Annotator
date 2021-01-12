@@ -10,36 +10,36 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/b870dd22-f782-4039-b6ef-bfb3fd1e5b30> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/d6a62dd2-4b0e-49e4-bacf-3e96fc5fd503> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
-  dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location1>, _:node1ephja6d9x234 .
+  dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location1>, _:node1errvue1qx78 .
 
-_:node1ephja6d9x234 a oa:TextualBody;
+_:node1errvue1qx78 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Bagalonga"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/b870dd22-f782-4039-b6ef-bfb3fd1e5b30> oa:hasTarget
-    _:node1ephja6d9x233 .
+<http://localhost:8080/rdf/nc/annotation/d6a62dd2-4b0e-49e4-bacf-3e96fc5fd503> oa:hasTarget
+    _:node1errvue1qx77 .
 
-_:node1ephja6d9x233 a oa:Target;
+_:node1errvue1qx77 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1ephja6d9x236 .
+  oa:hasSelector _:node1errvue1qx80 .
 
-_:node1ephja6d9x236 a oa:FragmentSelector;
+_:node1errvue1qx80 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597" .
 
-_:node1ephja6d9x233 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1errvue1qx77 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
-<http://makingsense.liacs.nl/rdf/nc/location1> dwciri:inDescribedPlace _:node1ephja6d9x232 .
+<http://makingsense.liacs.nl/rdf/nc/location1> dwciri:inDescribedPlace _:node1errvue1qx76 .
 
-_:node1ephja6d9x232 a <http://www.geonames.org/ontology#Feature> .
+_:node1errvue1qx76 a <http://www.geonames.org/ontology#Feature> .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> rdfs:label "Bagalonga"@und .

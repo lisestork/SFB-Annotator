@@ -7,6 +7,9 @@ import java.util.UUID;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -97,6 +100,17 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		// return date/time in ISO 8601 format
+		try {
+			ZonedDateTime zdt = ZonedDateTime.parse(date);
+			String tmp = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX").format(zdt);
+			if (!tmp.equals(date)) {
+				date = "";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		// namespace prefixes
 		String dcmitype = "http://purl.org/dc/dcmitype/";
 		String dsw = "http://purl.org/dsw/";
@@ -114,6 +128,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String orcid = "http://orcid.org/";
 		String taxonomy = "http://identifiers.org/taxonomy/";
 		String viaf = "http://viaf.org/viaf/";
+		String w3cdtf = "http://www.w3.org/TR/NOTE-datetime";
 
 		// Connect to RDF server
 		String host = "http://localhost:8080/";
@@ -257,7 +272,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(annotationIRI, hasBodyProperty, textualBodyBNode);
 			conn.add(annotationIRI, hasTargetProperty, targetBNode);
 			conn.add(annotationIRI, DCTERMS.CREATOR, annotatorIRI);
-			conn.add(annotationIRI, DCTERMS.DATE, f.createLiteral(date));
+			conn.add(annotationIRI, DCTERMS.DATE, f.createLiteral(date, DCTERMS.W3CDTF));
 			conn.add(annotatorIRI, RDF.TYPE, FOAF.PERSON);
 			conn.add(targetBNode, DCTERMS.FORMAT, f.createLiteral(mime));
 			conn.add(targetBNode, hasSourceProperty, sourceIRI);

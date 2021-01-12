@@ -13,29 +13,29 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/d624a278-172d-443b-9913-bab307d2c5fe> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/1be01e70-fc49-4925-bbc5-3330e52fabb7> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
-  dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1ephja6d9x446 .
+  dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1errvue1qx446 .
 
-_:node1ephja6d9x446 a oa:TextualBody;
+_:node1errvue1qx446 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Dentibus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/d624a278-172d-443b-9913-bab307d2c5fe> oa:hasTarget
-    _:node1ephja6d9x445 .
+<http://localhost:8080/rdf/nc/annotation/1be01e70-fc49-4925-bbc5-3330e52fabb7> oa:hasTarget
+    _:node1errvue1qx445 .
 
-_:node1ephja6d9x445 a oa:Target;
+_:node1errvue1qx445 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1ephja6d9x448 .
+  oa:hasSelector _:node1errvue1qx448 .
 
-_:node1ephja6d9x448 a oa:FragmentSelector;
+_:node1errvue1qx448 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747" .
 
-_:node1ephja6d9x445 oa:hasSource img:default.jpg .
+_:node1errvue1qx445 oa:hasSource img:default.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 

@@ -13,38 +13,38 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix taxonomy: <http://identifiers.org/taxonomy/> .
 
-<http://localhost:8080/rdf/nc/annotation/2c6c3a1c-8d62-42b1-ad7e-8fc3be975b51> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/5e15074b-36f4-4acb-8ec1-2e5d01ab630c> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
-  dcterms:date "2017-09-21";
-  oa:hasBody _:node1ephja6d9x180 .
+  dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
+  oa:hasBody _:node1errvue1qx24 .
 
-_:node1ephja6d9x180 a oa:TextualBody;
+_:node1errvue1qx24 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/2c6c3a1c-8d62-42b1-ad7e-8fc3be975b51> oa:hasBody
-    _:node1ephja6d9x181 .
+<http://localhost:8080/rdf/nc/annotation/5e15074b-36f4-4acb-8ec1-2e5d01ab630c> oa:hasBody
+    _:node1errvue1qx25 .
 
-_:node1ephja6d9x181 a dwc:Taxon;
+_:node1errvue1qx25 a dwc:Taxon;
   nhc:belongsToTaxon taxonomy:9397;
   nhc:taxonRank nhc:genus;
   rdf:value "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   rdfs:label "Pteropus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/2c6c3a1c-8d62-42b1-ad7e-8fc3be975b51> oa:hasTarget
-    _:node1ephja6d9x179 .
+<http://localhost:8080/rdf/nc/annotation/5e15074b-36f4-4acb-8ec1-2e5d01ab630c> oa:hasTarget
+    _:node1errvue1qx23 .
 
-_:node1ephja6d9x179 a oa:Target;
+_:node1errvue1qx23 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1ephja6d9x182 .
+  oa:hasSelector _:node1errvue1qx26 .
 
-_:node1ephja6d9x182 a oa:FragmentSelector;
+_:node1errvue1qx26 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6771047234506185,0.36476036241449844,0.07125296417355642,0.026719861565083658" .
 
-_:node1ephja6d9x179 oa:hasSource img:MMNAT01_AF_NNM001001033_008.jpg .
+_:node1errvue1qx23 oa:hasSource img:MMNAT01_AF_NNM001001033_008.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
@@ -53,7 +53,7 @@ img:MMNAT01_AF_NNM001001033_008.jpg a dcmitype:StillImage, oa:Source, foaf:Image
 nhc:additionalIdentification rdfs:subPropertyOf nhc:additional .
 
 <http://makingsense.liacs.nl/rdf/nc/identification2_id1> a dwc:Identification;
-  dwciri:toTaxon _:node1ephja6d9x181;
+  dwciri:toTaxon _:node1errvue1qx25;
   dwc:identificationID "2_id1" .
 
 <http://makingsense.liacs.nl/rdf/nc/organism2> nhc:additionalIdentification <http://makingsense.liacs.nl/rdf/nc/identification2_id1> .

@@ -13,37 +13,37 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/b4f18315-9870-4e38-9e37-770e785f89f4> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/5e2d8352-55c4-4fc8-a33e-84306fea211b> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
-  dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1ephja6d9x437 .
+  dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1errvue1qx437 .
 
-_:node1ephja6d9x437 a oa:TextualBody;
+_:node1errvue1qx437 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Dentibus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/b4f18315-9870-4e38-9e37-770e785f89f4> oa:hasTarget
-    _:node1ephja6d9x436 .
+<http://localhost:8080/rdf/nc/annotation/5e2d8352-55c4-4fc8-a33e-84306fea211b> oa:hasTarget
+    _:node1errvue1qx436 .
 
-_:node1ephja6d9x436 a oa:Target;
+_:node1errvue1qx436 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1ephja6d9x439 .
+  oa:hasSelector _:node1errvue1qx439 .
 
-_:node1ephja6d9x439 a oa:FragmentSelector;
+_:node1errvue1qx439 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" .
 
-_:node1ephja6d9x436 oa:hasSource img:default.jpg .
+_:node1errvue1qx436 oa:hasSource img:default.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
-<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a _:node1ephja6d9x431 .
+<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a _:node1errvue1qx431 .
 
-_:node1ephja6d9x431 rdfs:subClassOf obo:UBERON_0001062 .
+_:node1errvue1qx431 rdfs:subClassOf obo:UBERON_0001062 .
 
 <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> rdfs:label "Dentibus"@lat .
 

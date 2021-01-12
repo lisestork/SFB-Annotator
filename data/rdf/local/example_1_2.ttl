@@ -15,38 +15,38 @@
 @prefix taxonomy: <http://identifiers.org/taxonomy/> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/0a0d9659-40de-4434-857a-1d3f706c3216> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/2ab12f1a-5202-40d9-80b4-4be6caac577d> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
-  dcterms:date "2017-09-21";
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation1>, _:node1ephja6d9x171 .
+  dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation1>, _:node1errvue1qx15 .
 
-_:node1ephja6d9x171 a oa:TextualBody;
+_:node1errvue1qx15 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus minimus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/0a0d9659-40de-4434-857a-1d3f706c3216> oa:hasBody
-    _:node1ephja6d9x172 .
+<http://localhost:8080/rdf/nc/annotation/2ab12f1a-5202-40d9-80b4-4be6caac577d> oa:hasBody
+    _:node1errvue1qx16 .
 
-_:node1ephja6d9x172 a dwc:Taxon;
+_:node1errvue1qx16 a dwc:Taxon;
   nhc:belongsToTaxon taxonomy:9397;
   nhc:taxonRank nhc:scientificName;
   rdf:value "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   rdfs:label "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/0a0d9659-40de-4434-857a-1d3f706c3216> oa:hasTarget
-    img:MMNAT01_AF_NNM001001033_003.jpg, _:node1ephja6d9x170 .
+<http://localhost:8080/rdf/nc/annotation/2ab12f1a-5202-40d9-80b4-4be6caac577d> oa:hasTarget
+    img:MMNAT01_AF_NNM001001033_003.jpg, _:node1errvue1qx14 .
 
-_:node1ephja6d9x170 a oa:Target;
+_:node1errvue1qx14 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1ephja6d9x173 .
+  oa:hasSelector _:node1errvue1qx17 .
 
-_:node1ephja6d9x173 a oa:FragmentSelector;
+_:node1errvue1qx17 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862" .
 
-_:node1ephja6d9x170 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1errvue1qx14 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
@@ -68,7 +68,7 @@ img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image
   dsw:identifies <http://makingsense.liacs.nl/rdf/nc/organism1>;
   dsw:isBasedOn <http://makingsense.liacs.nl/rdf/nc/humanObservation1>;
   dwciri:identifiedBy viaf:45106482;
-  dwciri:toTaxon _:node1ephja6d9x172;
+  dwciri:toTaxon _:node1errvue1qx16;
   dwc:identificationID "1" .
 
 <http://makingsense.liacs.nl/rdf/nc/location1> a dcterms:Location;
