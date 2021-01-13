@@ -324,20 +324,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(taxonBNode, RDF.TYPE, taxonClass);
 					conn.add(taxonBNode, RDF.VALUE, f.createLiteral(taxonNr));
 					break;
-				case "additionalIdentification" :
-					conn.add(additionalIdentificationProperty, RDFS.SUBPROPERTYOF, additionalProperty);
-					conn.add(addIdentificationIRI, toTaxonProperty, taxonBNode);
-					conn.add(addIdentificationIRI, identificationIDProperty,
-							f.createLiteral(organismID + "_id" + identificationID));
-					conn.add(addIdentificationIRI, RDF.TYPE, identificationClass);
-					conn.add(annotationIRI, hasBodyProperty, taxonBNode);
-					conn.add(organismIRI, additionalIdentificationProperty, addIdentificationIRI);
-					conn.add(taxonBNode, RDFS.LABEL, f.createLiteral(verbatim, lang));
-					conn.add(taxonBNode, RDF.TYPE, taxonClass);
-					conn.add(taxonBNode, belongsToTaxonProperty, belongsToTaxonIRI);
-					conn.add(taxonBNode, taxonRankProperty, taxonRankIRI);
-					conn.add(taxonBNode, RDF.VALUE, f.createLiteral(taxonNr));
-					break;
+				/* case "additionalIdentification" :
+					break; */
 				case "verbatimEventDate" :
 					conn.add(annotationIRI, hasBodyProperty, dateIRI);
 					conn.add(dateIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
