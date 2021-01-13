@@ -6,7 +6,6 @@ Field notes are collections of observation records ([`dwc:HumanObservation`](htt
 |---|---|---
 |`dwc:Taxon`|`rdf:type`|[`1_1`](#Example-1_1)
 ||`dsw:hasIdentification`|[`1_2`](#Example-1_2)
-||`nhc:additionalIdentification`|[`1_3`](#Example-1_3)
 |`foaf:Person`|`rdf:type`|[`2_1`](#Example-2_1)
 ||`nhc:scientificNameAuthorship`|[`2_2`](#Example-2_2)
 ||`dwciri:identifiedBy`|[`2_3`](#Example-2_3)
@@ -87,39 +86,6 @@ Steps:
 | Organism ID/`organismID` | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:organismID). Should be generated automatically, used to link all information belonging to an observation record of a single organism occurrence together. `1` is a placeholder; an unique ID should be generated for the organism record.\* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?
 
 \* In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the ID globally unique. Examples: http://arctos.database.museum/guid/MSB:Mamm:233627, 000866d2-c177-4648-a200-ead4007051b9, urn:catalog:UWBM:Bird:89776.
-
-
-### Example 1_3
-
-Property: [`nhc:additionalIdentification`](http://makingsense.liacs.nl/rdf/nhc/additionalIdentification)
-
-Input: [JSON](/data/json/remote/example_1_3.json)
-
-Output: [RDF/Turtle](/data/rdf/remote/example_1_3.ttl)|[JSON-LD](/data/rdf/remote/example_1_3.jsonld)
-
-Steps:
-
-* Go to http://localhost:8080/semanticAnnotator/
-
-* Register -> Save
-
-* Collections -> manuscript MMNAT01_AF -> page 8
-
-* Annotate -> Click and Drag -> draw a bounding box around the written text _Pteropus_
-
-* Fill in the pop-up form/table:
-
-|Key|Value|Notes|Diff Expected
-|---|-----|-----|-----
-| Entity type/`text` | `Taxon` | The handwritten text contains a taxon name. |
-| verbatim text/`verbatim` | _Pteropus_ | The verbatim text as written in the bounding box |
-| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ | add autocomplete/drop down menu
-| Select property/`property` | Additional identification to/`additionalIdentification` | The annotation of an entity that refers to an _additional_ (secondary) identification of an organism (a scientific name as the initialisation of a field observation record). Usually, this is a second identification performed at a later stage (with availability of more knowledge for identification). Within this field note, the organism is first identified in the field as a new taxon _Gymnonotus_. |
-| type/`type` | `taxon` | auto-fill from entity type |
-| Belongs to taxon/`belongstotaxon` | `https://identifiers.org/taxonomy/9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) (question: who do we allow to annotate, and who to interpret the data) |
-| Taxon rank | `genus` | from list (`kingdom`,`class`,`order`,`family`,`genus`, `specificEpithet`, `scientificName`)|
-| Organism ID/`organismsID`| `2` | Matches to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:organismID). Should be generated automatically. `2` is a placeholder; an unique ID should be generated for the organism record.\*| This additional identification should refer to the same organism ID as the first identification (`dsw:hasIdentification`). **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?
-| Occurrence ID/`identificationID` _AK_: `occurenceID`?| `1` | Maps to [`dwc:identificationID`](https://dwc.tdwg.org/terms/#dwc:identificationID) _AK_: `dwc:occurenceID`?. Should be generated automatically. `1` is a placeholder; some unique ID should be generated for the organism record.\* | Should potentially be removed, or should be the same as the occurrence ID generated for the first identification, as it is based on information from the same organism occurrence. Right now, the pop-up table for example_1_2 does not prompt for occurrenceID.
 
 
 ### Example 2_1
