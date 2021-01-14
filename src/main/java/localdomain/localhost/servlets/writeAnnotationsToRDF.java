@@ -61,7 +61,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String belongstotaxon = (json.isNull("belongstotaxon"))
 				? ""
 				: json.getString("belongstotaxon").replaceAll("/$|\\s+$", "");
-		String rank = (json.isNull("rank")) ? "" : json.getString("rank").trim();
+		String rank = (json.isNull("rank")) ? "" : json.getString("rank").replaceAll("/$|\\s+$", "");
 		String person = (json.isNull("person")) ? "" : json.getString("person").replaceAll("/$|\\s+$", "");
 		String organismID = (json.isNull("organismID")) ? "" : json.getString("organismID").trim();
 		String occurrenceID = (json.isNull("occurrenceID")) ? "" : json.getString("occurrenceID").trim();
@@ -122,7 +122,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String oa = "http://www.w3.org/ns/oa#";
 		String obo = "http://purl.obolibrary.org/obo/";
 		String orcid = "http://orcid.org/";
-		String taxonomy = "http://identifiers.org/taxonomy/";
+		String taxonomy = "http://identifotaaaaiers.org/taxonomy/";
 		String viaf = "http://viaf.org/viaf/";
 
 		// Connect to RDF server
@@ -183,12 +183,12 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI locatedAtProperty = f.createIRI(dsw, "locatedAt");
 		IRI verbatimEventDateProperty = f.createIRI(nhc, "verbatimEventDate");
 		IRI belongsToTaxonProperty = f.createIRI(nhc, "belongsToTaxon");
-		IRI taxonRankProperty = f.createIRI(nhc, "taxonRank");
+		IRI taxonRankProperty = f.createIRI(dwc, "taxonRank");
 		IRI identifiedByProperty = f.createIRI(dwciri, "identifiedBy");
 		IRI recordedByProperty = f.createIRI(dwciri, "recordedBy");
 		IRI measuresOrDescribesProperty = f.createIRI(nhc, "measuresOrDescribes");
 		IRI inDescribedPlaceProperty = f.createIRI(dwciri, "inDescribedPlace");
-		IRI scientificNameAuthorshipProperty = f.createIRI(nhc, "scientificNameAuthorship");
+		IRI scientificNameAuthorshipProperty = f.createIRI(dwc, "scientificNameAuthorship");
 		Resource propertyOrAttributeClass = (propertyorattribute.equals(""))
 				? f.createBNode()
 				: f.createIRI(propertyorattribute);
@@ -202,7 +202,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI occurrenceIRI = f.createIRI(nc, "occurrence" + organismID);
 		IRI eventIRI = f.createIRI(nc, "event" + organismID);
 		IRI dateIRI = f.createIRI(nc, "date" + organismID);
-		IRI taxonRankIRI = f.createIRI(nhc, rank);
 		IRI locationIRI = f.createIRI(nc, "location" + organismID);
 		IRI addIdentificationIRI = f.createIRI(nc, "identification" + organismID + "_id" + identificationID);
 		IRI addOccurrenceIRI = f.createIRI(nc, "occurrence" + organismID + "_occ" + occurrenceID);
@@ -213,6 +212,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		Resource instanceIRI = (instance.equals("")) ? f.createBNode() : f.createIRI(instance);
 		Resource annotatorIRI = (annotator.equals("")) ? f.createBNode() : f.createIRI(annotator);
 		Resource personIRI = (person.equals("")) ? f.createBNode() : f.createIRI(person);
+		Resource taxonRankIRI = (rank.equals("")) ? f.createBNode() : f.createIRI(rank);
 		Resource belongsToTaxonIRI = (belongstotaxon.equals("")) ? f.createBNode() : f.createIRI(belongstotaxon);
 		Resource geonamesFeatureIRI = (geonamesfeature.equals("")) ? f.createBNode() : f.createIRI(geonamesfeature);
 
