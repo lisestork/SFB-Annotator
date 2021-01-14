@@ -24,6 +24,6 @@
   "property": "hasIdentification",
   "organismID": "1",
   "belongstotaxon": "http://identifiers.org/taxonomy/9397",
-  "rank": "scientificName",
+  "rank": "http://purl.obolibrary.org/obo/TAXRANK_0000006",
   "person": "http://viaf.org/viaf/45106482"
 }
