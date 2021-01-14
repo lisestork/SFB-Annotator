@@ -8,29 +8,29 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/af518868-0d18-4b8b-89c8-fd20235c4cb1> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/619ccdb0-de99-4861-949d-61cbf2ba0bc0> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1errvue1qx144 .
+  oa:hasBody _:node1es1hl1d3x148 .
 
-_:node1errvue1qx144 a oa:TextualBody;
+_:node1es1hl1d3x148 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
   rdf:value "10 April 1821"@dut;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/af518868-0d18-4b8b-89c8-fd20235c4cb1> oa:hasTarget
-    _:node1errvue1qx143 .
+<http://localhost:8080/rdf/nc/annotation/619ccdb0-de99-4861-949d-61cbf2ba0bc0> oa:hasTarget
+    _:node1es1hl1d3x147 .
 
-_:node1errvue1qx143 a oa:Target;
+_:node1es1hl1d3x147 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1errvue1qx146 .
+  oa:hasSelector _:node1es1hl1d3x150 .
 
-_:node1errvue1qx146 a oa:FragmentSelector;
+_:node1es1hl1d3x150 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081" .
 
-_:node1errvue1qx143 oa:hasSource img:MMNAT01_AF_NNM001001033_004.jpg .
+_:node1es1hl1d3x147 oa:hasSource img:MMNAT01_AF_NNM001001033_004.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 

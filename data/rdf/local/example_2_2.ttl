@@ -1,43 +1,43 @@
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix img: <http://localhost:8080/semanticAnnotator/files/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
-@prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/bb435ea9-0be3-4da3-ae8e-909e03132bef> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/92e390ed-5dcc-40b5-babb-1e087300831c> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody viaf:39377694, _:node1errvue1qx41 .
+  oa:hasBody viaf:39377694, _:node1es1hl1d3x34 .
 
-_:node1errvue1qx41 a oa:TextualBody;
+_:node1es1hl1d3x34 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Geoff"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/bb435ea9-0be3-4da3-ae8e-909e03132bef> oa:hasTarget
-    _:node1errvue1qx40 .
+<http://localhost:8080/rdf/nc/annotation/92e390ed-5dcc-40b5-babb-1e087300831c> oa:hasTarget
+    _:node1es1hl1d3x33 .
 
-_:node1errvue1qx40 a oa:Target;
+_:node1es1hl1d3x33 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1errvue1qx43 .
+  oa:hasSelector _:node1es1hl1d3x36 .
 
-_:node1errvue1qx43 a oa:FragmentSelector;
+_:node1es1hl1d3x36 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6285924932975873,0.31825775988026184,0.025649176560704756,0.017330524703178862" .
 
-_:node1errvue1qx40 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1es1hl1d3x33 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
-<nc:taxon1> nhc:scientificNameAuthorship viaf:39377694 .
+<nc:taxon1> dwc:scientificNameAuthorship viaf:39377694 .
 
 viaf:39377694 a foaf:Person .

@@ -7,42 +7,42 @@
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix taxonomy: <http://identifiers.org/taxonomy/> .
 
-<http://localhost:8080/rdf/nc/annotation/fad4ddbd-bb8d-411a-b850-050c29c5b6b5> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/170df1df-aadd-4901-a36c-58659c3e7b3e> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1errvue1qx319 .
+  oa:hasBody _:node1es1hl1d3x168 .
 
-_:node1errvue1qx319 a oa:TextualBody;
+_:node1es1hl1d3x168 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus minimus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/fad4ddbd-bb8d-411a-b850-050c29c5b6b5> oa:hasBody
-    _:node1errvue1qx320 .
+<http://localhost:8080/rdf/nc/annotation/170df1df-aadd-4901-a36c-58659c3e7b3e> oa:hasBody
+    _:node1es1hl1d3x169 .
 
-_:node1errvue1qx320 a dwc:Taxon;
-  nhc:belongsToTaxon taxonomy:9397;
-  nhc:taxonRank nhc:scientificName;
+_:node1es1hl1d3x169 a dwc:Taxon;
+  nhc:belongsToTaxon <http://identifiers.org/taxonomy/9397>;
+  dwc:taxonRank obo:TAXRANK_0000006;
   rdfs:label "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/fad4ddbd-bb8d-411a-b850-050c29c5b6b5> oa:hasTarget
-    _:node1errvue1qx318 .
+<http://localhost:8080/rdf/nc/annotation/170df1df-aadd-4901-a36c-58659c3e7b3e> oa:hasTarget
+    _:node1es1hl1d3x167 .
 
-_:node1errvue1qx318 a oa:Target;
+_:node1es1hl1d3x167 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1errvue1qx321 .
+  oa:hasSelector _:node1es1hl1d3x170 .
 
-_:node1errvue1qx321 a oa:FragmentSelector;
+_:node1es1hl1d3x170 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" .
 
-_:node1errvue1qx318 oa:hasSource img:default.jpg .
+_:node1es1hl1d3x167 oa:hasSource img:default.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
