@@ -83,7 +83,6 @@ Steps:
 | Belongs to taxon/`belongstotaxon` | `https://identifiers.org/taxonomy/9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) | **question:** who do we allow to annotate, and who to interpret the data
 | Taxon rank/`rank` | `http://purl.obolibrary.org/obo/TAXRANK_0000006` (species) | from list ([`kingdom`](http://purl.obolibrary.org/obo/TAXRANK_0000017),[`class`](http://purl.obolibrary.org/obo/TAXRANK_0000002),[`order`](http://purl.obolibrary.org/obo/TAXRANK_0000003),[`family`](http://purl.obolibrary.org/obo/TAXRANK_0000004),[`genus`](http://purl.obolibrary.org/obo/TAXRANK_0000005), [`species`](`http://purl.obolibrary.org/obo/TAXRANK_0000006`)) | should be drop-down menu
 | Identified by/`person` | `https://viaf.org/viaf/45106482/` | Corresponds to meaning of [`dwc:identifiedBy`](https://dwc.tdwg.org/terms/#dwc:identifiedBy) (people, groups, or organizations who assigned the Taxon to the subject). Preferably enter an instance of the class `foaf:Person` (or organization). Here, the writer of the field book is known (_Heinrich Kuhl_), but leave empty if unknown. | should be retrievable from pre-populated triple store
-| Organism ID/`organismID` | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:organismID). Should be generated automatically, used to link all information belonging to an observation record of a single organism occurrence together. `1` is a placeholder; an unique ID should be generated for the organism record.\* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?
 
 \* In the absence of a persistent global unique identifier, construct one from a combination of identifiers in the record that will most closely make the ID globally unique. Examples: http://arctos.database.museum/guid/MSB:Mamm:233627, 000866d2-c177-4648-a200-ead4007051b9, urn:catalog:UWBM:Bird:89776.
 
@@ -176,7 +175,6 @@ Steps:
 | language | | | _AK_: remove
 | Select property/`property` | Organism identified by/`identifiedBy` | Maps to `dwciri:identifiedBy`
 | type | `taxon` | auto-fill from entity type |
-| Organism ID/`organismID` | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:organismID). Should be generated automatically, used to link all information belonging to an observation record of a single organism occurrence together. `1` is a placeholder; an unique ID should be generated for the organism record.\* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?
 | viaf IRI/`person` | `http://viaf.org/viaf/39377694` | the persistent identifier for the person. | Prompt should be changed to, e.g., person IRI instead of viaf IRI, as it could also be an orcid or other persistent identifier.
 
 
@@ -268,7 +266,6 @@ Steps:
 | Select property | `Occurrence located at` | The annotation of an entity that refers to the location where the observation of the organism occurrence took place. Maps to `dsw:locatedAt`. The prompt `Additional occurrence located at` should be merged with this one. |
 | type | `taxon` | auto-fill from entity type |
 | gn:geonamesfeature IRI |  | if known, the persistent identifier for the location from the geonames ontology, e.g., `http://sws.geonames.org/1648473/` (stands for _Buitenzorg_, also _Bogor_) |
-| organism ID | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `1` is a placeholder; an unique ID should be generated for the organism record.* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?
 
 
 ### Example 4_1
@@ -328,7 +325,6 @@ Steps:
 | language | | | add autocomplete/drop down menu |
 | Select property | `Identification based on (table)` |  should be table _or_ paragraph| |
 | type | `measurementorfact` | auto-fill from entity type |
-| organism ID | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `1` is a placeholder; an unique ID should be generated for the organism record.* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?  |
 
 
 ### Example 5_1
@@ -391,7 +387,6 @@ Steps:
 | Select property | `Table/paragraph measures or describes` | Indicating that a table or a paragraph describes the certain property or attribute, here the _Color_ of the animal | |
 | type | `propertyOrAttribute` | auto-fill from entity type |
 | `ncit:propertyorattribute subclass IRI` | `http://identifiers.org/ncit/C37927` | A subclass of `http://identifiers.org/ncit/C20189` or `propertyOrAttribute` from the NCIT ontology.
-| organism ID | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `1` is a placeholder; an unique ID should be generated for the organism record.* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?  |
 
 
 ### Example 6_1
@@ -454,7 +449,7 @@ Steps:
 | Select property | `Table/paragraph measures or describes` | Indicating that a table or a paragraph describes the certain anatomical entity, here the _Dentibus_ (teeth) of the animal | |
 | type | `anatomicalEntity` | auto-fill from entity type |
 | `uberon:anatomicalentity subclass IRI` | `http://purl.obolibrary.org/obo/UBERON_0003672` | A subclass of `http://purl.obolibrary.org/obo/UBERON_0001062` or `anatomical entity` from the uberon ontology.
-| organism ID | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `1` is a placeholder; an unique ID should be generated for the organism record.* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend? |
+
 
 
 ### Example 7_1
@@ -519,7 +514,6 @@ Steps:
 | Year (yyyy) | 1821 || should not be auto-filled with a 0
 | Month (mm) | 04 | |should not be auto-filled with a 0
 | Day (dd) | 10 | |should not be auto-filled with a 0
-| organism ID | `1` | Maps to [`dwc:organismID`](https://dwc.tdwg.org/terms/#dwc:occurrenceID). Should be generated automatically. `1` is a placeholder; an unique ID should be generated for the organism record.* | **important note**: when is this organism and possibly also occurrence ID generated? It allows all information belonging to the occurrence or organism observation to be linked together. Hence, how will we enforce this in the backend?  |
 
 
 \* For the `rdf:type` variant of `nhc:Date`, the fields should be the same, only omitting the field `organism ID`.
