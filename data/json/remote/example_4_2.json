@@ -21,6 +21,5 @@
   "verbatim": "",
   "language": "",
   "type": "measurementorfact",
-  "property": "basedOn",
-  "organismID": "1"
+  "property": "basedOn"
 }

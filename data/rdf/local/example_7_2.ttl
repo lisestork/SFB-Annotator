@@ -10,35 +10,35 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/9a215b18-54b5-47e1-8c47-64754780fb11> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/fdc497f2-8a7f-43ef-a43b-542591185e37> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/date1>, _:node1es1hl1d3x159 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/date>, _:node1esd5s8brx159 .
 
-_:node1es1hl1d3x159 a oa:TextualBody;
+_:node1esd5s8brx159 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
   rdf:value "10 April 1821"@dut;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/9a215b18-54b5-47e1-8c47-64754780fb11> oa:hasTarget
-    _:node1es1hl1d3x158 .
+<http://localhost:8080/rdf/nc/annotation/fdc497f2-8a7f-43ef-a43b-542591185e37> oa:hasTarget
+    _:node1esd5s8brx158 .
 
-_:node1es1hl1d3x158 a oa:Target;
+_:node1esd5s8brx158 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1es1hl1d3x161 .
+  oa:hasSelector _:node1esd5s8brx161 .
 
-_:node1es1hl1d3x161 a oa:FragmentSelector;
+_:node1esd5s8brx161 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6712020824648357,0.177764417868435,0.07131751180401791,0.015538452292495508" .
 
-_:node1es1hl1d3x158 oa:hasSource img:MMNAT01_AF_NNM001001033_004.jpg .
+_:node1esd5s8brx158 oa:hasSource img:MMNAT01_AF_NNM001001033_004.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:MMNAT01_AF_NNM001001033_004.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
-<http://makingsense.liacs.nl/rdf/nc/date1> dwc:day "10"^^<http://www.w3.org/2001/XMLSchema#int>;
+<http://makingsense.liacs.nl/rdf/nc/date> dwc:day "10"^^<http://www.w3.org/2001/XMLSchema#int>;
   dwc:month "4"^^<http://www.w3.org/2001/XMLSchema#int>;
   dwc:year "1821"^^<http://www.w3.org/2001/XMLSchema#int>;
   rdfs:label "10 April 1821"@dut .

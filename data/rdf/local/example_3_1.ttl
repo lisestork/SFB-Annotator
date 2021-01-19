@@ -8,29 +8,29 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/bf1311ff-f630-4b34-b34b-f748180baeb3> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/7accf819-e60f-463b-a951-6f1bbc96d56e> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://sws.geonames.org/1648473/>, _:node1es1hl1d3x64 .
+  oa:hasBody <http://sws.geonames.org/1648473/>, _:node1esd5s8brx64 .
 
-_:node1es1hl1d3x64 a oa:TextualBody;
+_:node1esd5s8brx64 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
   rdf:value "Buitenzorg"@dut;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/bf1311ff-f630-4b34-b34b-f748180baeb3> oa:hasTarget
-    _:node1es1hl1d3x63 .
+<http://localhost:8080/rdf/nc/annotation/7accf819-e60f-463b-a951-6f1bbc96d56e> oa:hasTarget
+    _:node1esd5s8brx63 .
 
-_:node1es1hl1d3x63 a oa:Target;
+_:node1esd5s8brx63 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1es1hl1d3x66 .
+  oa:hasSelector _:node1esd5s8brx66 .
 
-_:node1es1hl1d3x66 a oa:FragmentSelector;
+_:node1esd5s8brx66 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445" .
 
-_:node1es1hl1d3x63 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1esd5s8brx63 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 

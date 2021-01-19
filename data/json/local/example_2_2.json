@@ -22,7 +22,6 @@
   "language": "",
   "type": "person",
   "property": "scientificNameAuthorship",
-  "organismID": "",
   "person": "http://viaf.org/viaf/39377694",
   "belongstotaxon": "nc:taxon1"
 }

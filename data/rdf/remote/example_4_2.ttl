@@ -10,35 +10,35 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/4fed8c75-fff0-4609-b373-60b5e546c7f2> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/231ded93-5fbd-4dcd-b820-4bc5c9ed56dd> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1>, _:node1es1hl1d3x258 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1>, _:node1esd5s8brx258 .
 
-_:node1es1hl1d3x258 a oa:TextualBody;
+_:node1esd5s8brx258 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value ""@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/4fed8c75-fff0-4609-b373-60b5e546c7f2> oa:hasTarget
-    _:node1es1hl1d3x257 .
+<http://localhost:8080/rdf/nc/annotation/231ded93-5fbd-4dcd-b820-4bc5c9ed56dd> oa:hasTarget
+    _:node1esd5s8brx257 .
 
-_:node1es1hl1d3x257 a oa:Target;
+_:node1esd5s8brx257 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1es1hl1d3x260 .
+  oa:hasSelector _:node1esd5s8brx260 .
 
-_:node1es1hl1d3x260 a oa:FragmentSelector;
+_:node1esd5s8brx260 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5644329896907211,0.10470473364690311,0.1377025036818852,0.06369661266568483" .
 
-_:node1es1hl1d3x257 oa:hasSource img:default.jpg .
+_:node1esd5s8brx257 oa:hasSource img:default.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
-<http://makingsense.liacs.nl/rdf/nc/humanObservation1> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
+<http://makingsense.liacs.nl/rdf/nc/humanObservation> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
 
 <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> a dwc:MeasurementOrFact;
-  dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation1> .
+  dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation> .

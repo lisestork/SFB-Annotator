@@ -13,29 +13,29 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/481ee254-0099-44cf-8e8d-d46ba252e2f8> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/61fee67e-d7b2-446f-a79a-c75556ed4c78> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1es1hl1d3x298 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1esd5s8brx298 .
 
-_:node1es1hl1d3x298 a oa:TextualBody;
+_:node1esd5s8brx298 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Dentibus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/481ee254-0099-44cf-8e8d-d46ba252e2f8> oa:hasTarget
-    _:node1es1hl1d3x297 .
+<http://localhost:8080/rdf/nc/annotation/61fee67e-d7b2-446f-a79a-c75556ed4c78> oa:hasTarget
+    _:node1esd5s8brx297 .
 
-_:node1es1hl1d3x297 a oa:Target;
+_:node1esd5s8brx297 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1es1hl1d3x300 .
+  oa:hasSelector _:node1esd5s8brx300 .
 
-_:node1es1hl1d3x300 a oa:FragmentSelector;
+_:node1esd5s8brx300 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5387114644113724,0.4611607439462596,0.042861499334355235,0.030406020895311747" .
 
-_:node1es1hl1d3x297 oa:hasSource img:default.jpg .
+_:node1esd5s8brx297 oa:hasSource img:default.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
@@ -46,8 +46,8 @@ img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
 obo:UBERON_0003672 rdfs:subClassOf obo:UBERON_0001062 .
 
-<http://makingsense.liacs.nl/rdf/nc/humanObservation1> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
+<http://makingsense.liacs.nl/rdf/nc/humanObservation> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
 
 <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> a dwc:MeasurementOrFact;
   nhc:measuresOrDescribes <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>;
-  dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation1> .
+  dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation> .

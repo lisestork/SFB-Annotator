@@ -10,36 +10,36 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/36ee9590-03cb-428c-9a11-97d8b5ea6952> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/93d6f698-4835-47ad-8a29-6851977d2d9f> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location1>, _:node1es1hl1d3x236 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location>, _:node1esd5s8brx236 .
 
-_:node1es1hl1d3x236 a oa:TextualBody;
+_:node1esd5s8brx236 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Bagalonga"@und;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/36ee9590-03cb-428c-9a11-97d8b5ea6952> oa:hasTarget
-    _:node1es1hl1d3x235 .
+<http://localhost:8080/rdf/nc/annotation/93d6f698-4835-47ad-8a29-6851977d2d9f> oa:hasTarget
+    _:node1esd5s8brx235 .
 
-_:node1es1hl1d3x235 a oa:Target;
+_:node1esd5s8brx235 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1es1hl1d3x238 .
+  oa:hasSelector _:node1esd5s8brx238 .
 
-_:node1es1hl1d3x238 a oa:FragmentSelector;
+_:node1esd5s8brx238 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597" .
 
-_:node1es1hl1d3x235 oa:hasSource img:default.jpg .
+_:node1esd5s8brx235 oa:hasSource img:default.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
-<http://makingsense.liacs.nl/rdf/nc/location1> dwciri:inDescribedPlace _:node1es1hl1d3x234 .
+<http://makingsense.liacs.nl/rdf/nc/location> dwciri:inDescribedPlace _:node1esd5s8brx234 .
 
-_:node1es1hl1d3x234 a <http://www.geonames.org/ontology#Feature> .
+_:node1esd5s8brx234 a <http://www.geonames.org/ontology#Feature> .
 
-<http://makingsense.liacs.nl/rdf/nc/location1> rdfs:label "Bagalonga"@und .
+<http://makingsense.liacs.nl/rdf/nc/location> rdfs:label "Bagalonga"@und .

@@ -22,6 +22,5 @@
   "language": "lat",
   "type": "anatomicalentity",
   "property": "measuresOrDescribes",
-  "organismID": "1",
   "anatomicalentity": "http://purl.obolibrary.org/obo/UBERON_0003672"
 }

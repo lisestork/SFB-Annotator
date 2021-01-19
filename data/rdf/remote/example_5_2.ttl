@@ -13,39 +13,39 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/c98e5e9d-ed4d-4738-885f-215da73713fa> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/6a5bc7e6-763b-4eed-ad95-b2389b5bfc39> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1es1hl1d3x278 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1esd5s8brx278 .
 
-_:node1es1hl1d3x278 a oa:TextualBody;
+_:node1esd5s8brx278 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Color"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/c98e5e9d-ed4d-4738-885f-215da73713fa> oa:hasTarget
-    _:node1es1hl1d3x277 .
+<http://localhost:8080/rdf/nc/annotation/6a5bc7e6-763b-4eed-ad95-b2389b5bfc39> oa:hasTarget
+    _:node1esd5s8brx277 .
 
-_:node1es1hl1d3x277 a oa:Target;
+_:node1esd5s8brx277 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1es1hl1d3x280 .
+  oa:hasSelector _:node1esd5s8brx280 .
 
-_:node1es1hl1d3x280 a oa:FragmentSelector;
+_:node1esd5s8brx280 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726" .
 
-_:node1es1hl1d3x277 oa:hasSource img:default.jpg .
+_:node1esd5s8brx277 oa:hasSource img:default.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
-<http://makingsense.liacs.nl/rdf/nc/humanObservation1> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
+<http://makingsense.liacs.nl/rdf/nc/humanObservation> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
 
 <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> a dwc:MeasurementOrFact;
   nhc:measuresOrDescribes <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>;
-  dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation1> .
+  dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation> .
 
 <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a ncit:C37927;
   rdfs:label "Color"@lat .

@@ -15,75 +15,74 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/480b2a9c-2c05-4282-a46a-523768e14149> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/82d6a1c0-2f4a-435f-b7de-002a10948ccf> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation1>, _:node1es1hl1d3x15 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation>, _:node1esd5s8brx15 .
 
-_:node1es1hl1d3x15 a oa:TextualBody;
+_:node1esd5s8brx15 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus minimus"@lat;
   oa:hasPurpose oa:describing .
 
-<http://localhost:8080/rdf/nc/annotation/480b2a9c-2c05-4282-a46a-523768e14149> oa:hasBody
-    _:node1es1hl1d3x16 .
+<http://localhost:8080/rdf/nc/annotation/82d6a1c0-2f4a-435f-b7de-002a10948ccf> oa:hasBody
+    _:node1esd5s8brx16 .
 
-_:node1es1hl1d3x16 a dwc:Taxon;
+_:node1esd5s8brx16 a dwc:Taxon;
   nhc:belongsToTaxon <http://identifiers.org/taxonomy/9397>;
   dwc:taxonRank obo:TAXRANK_0000006;
-  rdf:value "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   rdfs:label "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/480b2a9c-2c05-4282-a46a-523768e14149> oa:hasTarget
-    img:MMNAT01_AF_NNM001001033_003.jpg, _:node1es1hl1d3x14 .
+<http://localhost:8080/rdf/nc/annotation/82d6a1c0-2f4a-435f-b7de-002a10948ccf> oa:hasTarget
+    img:MMNAT01_AF_NNM001001033_003.jpg, _:node1esd5s8brx14 .
 
-_:node1es1hl1d3x14 a oa:Target;
+_:node1esd5s8brx14 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1es1hl1d3x17 .
+  oa:hasSelector _:node1esd5s8brx17 .
 
-_:node1es1hl1d3x17 a oa:FragmentSelector;
+_:node1esd5s8brx17 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862" .
 
-_:node1es1hl1d3x14 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1esd5s8brx14 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
-<http://makingsense.liacs.nl/rdf/nc/event1> a dwc:Event;
-  nhc:verbatimEventDate <http://makingsense.liacs.nl/rdf/nc/date1>;
-  dsw:eventOf <http://makingsense.liacs.nl/rdf/nc/occurrence1>;
-  dsw:locatedAt <http://makingsense.liacs.nl/rdf/nc/location1> .
+<http://makingsense.liacs.nl/rdf/nc/event> a dwc:Event;
+  nhc:verbatimEventDate <http://makingsense.liacs.nl/rdf/nc/date>;
+  dsw:eventOf <http://makingsense.liacs.nl/rdf/nc/occurrence>;
+  dsw:locatedAt <http://makingsense.liacs.nl/rdf/nc/location> .
 
-<http://makingsense.liacs.nl/rdf/nc/date1> a dcterms:date .
+<http://makingsense.liacs.nl/rdf/nc/date> a dcterms:date .
 
-<http://makingsense.liacs.nl/rdf/nc/humanObservation1> a dwc:HumanObservation;
-  dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/organism1>;
-  dsw:evidenceFor <http://makingsense.liacs.nl/rdf/nc/occurrence1>;
-  dsw:isBasisForId <http://makingsense.liacs.nl/rdf/nc/identification1> .
+<http://makingsense.liacs.nl/rdf/nc/humanObservation> a dwc:HumanObservation;
+  dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/organism>;
+  dsw:evidenceFor <http://makingsense.liacs.nl/rdf/nc/occurrence>;
+  dsw:isBasisForId <http://makingsense.liacs.nl/rdf/nc/identification> .
 
-<http://makingsense.liacs.nl/rdf/nc/identification1> a dwc:Identification;
-  dsw:identifies <http://makingsense.liacs.nl/rdf/nc/organism1>;
-  dsw:isBasedOn <http://makingsense.liacs.nl/rdf/nc/humanObservation1>;
+<http://makingsense.liacs.nl/rdf/nc/identification> a dwc:Identification;
+  dsw:identifies <http://makingsense.liacs.nl/rdf/nc/organism>;
+  dsw:isBasedOn <http://makingsense.liacs.nl/rdf/nc/humanObservation>;
   dwciri:identifiedBy viaf:45106482;
-  dwciri:toTaxon _:node1es1hl1d3x16;
-  dwc:identificationID "1" .
+  dwciri:toTaxon _:node1esd5s8brx16;
+  dwc:identificationID "" .
 
-<http://makingsense.liacs.nl/rdf/nc/location1> a dcterms:Location;
-  dsw:locates <http://makingsense.liacs.nl/rdf/nc/event1> .
+<http://makingsense.liacs.nl/rdf/nc/location> a dcterms:Location;
+  dsw:locates <http://makingsense.liacs.nl/rdf/nc/event> .
 
-<http://makingsense.liacs.nl/rdf/nc/occurrence1> a dwc:Occurrence;
-  dsw:atEvent <http://makingsense.liacs.nl/rdf/nc/event1>;
-  dsw:hasEvidence <http://makingsense.liacs.nl/rdf/nc/humanObservation1>;
-  dsw:occurrenceOf <http://makingsense.liacs.nl/rdf/nc/organism1>;
+<http://makingsense.liacs.nl/rdf/nc/occurrence> a dwc:Occurrence;
+  dsw:atEvent <http://makingsense.liacs.nl/rdf/nc/event>;
+  dsw:hasEvidence <http://makingsense.liacs.nl/rdf/nc/humanObservation>;
+  dsw:occurrenceOf <http://makingsense.liacs.nl/rdf/nc/organism>;
   dwciri:recordedBy viaf:45106482 .
 
-<http://makingsense.liacs.nl/rdf/nc/organism1> a dwc:Organism;
-  dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/humanObservation1>;
-  dsw:hasIdentification <http://makingsense.liacs.nl/rdf/nc/identification1>;
-  dsw:hasOccurrence <http://makingsense.liacs.nl/rdf/nc/occurrence1>;
-  dwc:organismID "1" .
+<http://makingsense.liacs.nl/rdf/nc/organism> a dwc:Organism;
+  dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/humanObservation>;
+  dsw:hasIdentification <http://makingsense.liacs.nl/rdf/nc/identification>;
+  dsw:hasOccurrence <http://makingsense.liacs.nl/rdf/nc/occurrence>;
+  dwc:organismID "" .
 
 viaf:45106482 a foaf:Person .

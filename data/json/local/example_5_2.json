@@ -22,6 +22,5 @@
   "language": "lat",
   "type": "propertyorattribute",
   "property": "measuresOrDescribes",
-  "organismID": "1",
   "propertyorattribute": "http://identifiers.org/ncit/C37927"
 }
