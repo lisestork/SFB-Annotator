@@ -224,8 +224,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		// query RDF store
 		String query2 = "SELECT ?value WHERE { ?iri rdf:type <" + taxonClass.toString()
 				+ "> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
-		int taxonNr = QueryTripleStore(query2, repo);
-
 		String query3 = "SELECT (COUNT(DISTINCT ?measurements) AS ?totalNumberOfInstances) WHERE { ?measurements rdf:type <"
 				+ measurementOrFactClass.toString() + "> . }";
 		int measurementOrFactNr = QueryTripleStore(query3, repo);
@@ -322,7 +320,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(taxonBNode, taxonRankProperty, taxonRankIRI);
 					conn.add(taxonBNode, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					conn.add(taxonBNode, RDF.TYPE, taxonClass);
-					conn.add(taxonBNode, RDF.VALUE, f.createLiteral(taxonNr));
 					break;
 				/* case "additionalIdentification" :
 					break; */
