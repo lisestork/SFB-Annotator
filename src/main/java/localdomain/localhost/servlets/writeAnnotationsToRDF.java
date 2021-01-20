@@ -260,6 +260,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.setNamespace("oa", oa);
 			conn.setNamespace("taxonomy", taxonomy);
 			conn.setNamespace("viaf", viaf);
+			conn.setNamespace("gn", gn);
 			// add triples
 			conn.add(annotationIRI, RDF.TYPE, annotationClass);
 			conn.add(annotationIRI, hasBodyProperty, textualBodyBNode);
