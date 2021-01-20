@@ -66,7 +66,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String organismID = (json.isNull("organismID")) ? "" : json.getString("organismID").trim();
 		String occurrenceID = (json.isNull("occurrenceID")) ? "" : json.getString("occurrenceID").trim();
 		String identificationID = (json.isNull("identificationID")) ? "" : json.getString("identificationID").trim();
-		String geonamesfeature = (json.isNull("geonamesfeature")) ? "" : json.getString("geonamesfeature").trim();
+		String geonamesfeature = (json.isNull("geonamesfeature")) ? "" : json.getString("geonamesfeature").replaceAll("/$|\\s+$", "");
 		String anatomicalentity = (json.isNull("anatomicalentity")) ? "" : json.getString("anatomicalentity").trim();
 		String verbatim = (json.isNull("verbatim")) ? "" : json.getString("verbatim").trim();
 		String type = (json.isNull("type")) ? "" : json.getString("type").trim();
