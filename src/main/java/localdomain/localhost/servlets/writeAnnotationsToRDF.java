@@ -112,7 +112,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String dsw = "http://purl.org/dsw/";
 		String dwc = "http://rs.tdwg.org/dwc/terms/";
 		String dwciri = "http://rs.tdwg.org/dwc/iri/";
-		String gn = "http://www.geonames.org/ontology#";
+		String gn = "http://sws.geonames.org/";
 		String iso = "http://iso639-3.sil.org/code/";
 		String img = String.join("/", Arrays.copyOfRange(arr, 0, arr.length - 1)) + "/";
 		String mf = "http://www.w3.org/TR/media-frags/";
