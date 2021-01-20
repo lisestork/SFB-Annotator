@@ -264,8 +264,9 @@ Steps:
 | verbatim text | _Bagalonga_ | The verbatim text as written in the bounding box |
 | language | | |add autocomplete/drop down menu
 | Select property | `Occurrence located at` | The annotation of an entity that refers to the location where the observation of the organism occurrence took place. Maps to `dsw:locatedAt`. The prompt `Additional occurrence located at` should be merged with this one. |
-| type | `taxon` | auto-fill from entity type |
-| gn:geonamesfeature IRI |  | if known, the persistent identifier for the location from the geonames ontology, e.g., `http://sws.geonames.org/1648473/` (stands for _Buitenzorg_, also _Bogor_) |
+| type | `location` | auto-fill from entity type |
+| gn:geonamesfeature IRI/`geonamesfeature` | ? | Link the bounding box to the place IRI if known (_Bagalonga_ not found via https://www.geonames.org/)
+| Organism ID | | |
 
 
 ### Example 4_1
