@@ -23,6 +23,6 @@
   "type": "taxon",
   "property": "hasIdentification",
   "belongstotaxon": "http://identifiers.org/taxonomy/9397",
-  "rank": "http://purl.obolibrary.org/obo/TAXRANK_0000006",
+  "rank": "http://purl.obolibrary.org/obo/TAXRANK_0000003",
   "person": "http://viaf.org/viaf/45106482"
 }

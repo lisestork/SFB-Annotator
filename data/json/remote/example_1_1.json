@@ -23,5 +23,5 @@
   "type": "taxon",
   "property": "type",
   "belongstotaxon": "http://identifiers.org/taxonomy/9397",
-  "rank": "http://purl.obolibrary.org/obo/TAXRANK_0000006"
+  "rank": "http://purl.obolibrary.org/obo/TAXRANK_0000003"
 }
