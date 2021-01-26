@@ -10,30 +10,30 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/62df4c80-e354-4b93-80c0-ff04dd73438e> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/37b26a56-4b21-4782-ac00-d408a9271950> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/date>, _:node1esv4qc2nx642 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/date>, _:node1et0abus4x320 .
 
-_:node1esv4qc2nx642 a oa:TextualBody;
+_:node1et0abus4x320 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
   rdf:value "10 April 1821"@dut .
 
-<http://localhost:8080/rdf/nc/annotation/62df4c80-e354-4b93-80c0-ff04dd73438e> oa:hasTarget
-    _:node1esv4qc2nx641 .
+<http://localhost:8080/rdf/nc/annotation/37b26a56-4b21-4782-ac00-d408a9271950> oa:hasTarget
+    _:node1et0abus4x319 .
 
-_:node1esv4qc2nx641 a oa:Target;
+_:node1et0abus4x319 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1esv4qc2nx644 .
+  oa:hasSelector _:node1et0abus4x322 .
 
-_:node1esv4qc2nx644 a oa:FragmentSelector;
+_:node1et0abus4x322 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6712020824648357,0.177764417868435,0.07131751180401791,0.015538452292495508" .
 
-_:node1esv4qc2nx641 oa:hasSource img:default.jpg .
+_:node1et0abus4x319 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/62df4c80-e354-4b93-80c0-ff04dd73438e> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/37b26a56-4b21-4782-ac00-d408a9271950> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .

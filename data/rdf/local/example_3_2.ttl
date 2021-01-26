@@ -11,38 +11,38 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/c7232f73-0fc8-42c4-b6ba-55334bd5ab57> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/ba168687-c9d8-49e7-807a-4d916e3a32d2> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location>, _:node1esv4qc2nx397 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location>, _:node1et0abus4x75 .
 
-_:node1esv4qc2nx397 a oa:TextualBody;
+_:node1et0abus4x75 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Bagalonga"@und .
 
-<http://localhost:8080/rdf/nc/annotation/c7232f73-0fc8-42c4-b6ba-55334bd5ab57> oa:hasTarget
-    _:node1esv4qc2nx396 .
+<http://localhost:8080/rdf/nc/annotation/ba168687-c9d8-49e7-807a-4d916e3a32d2> oa:hasTarget
+    _:node1et0abus4x74 .
 
-_:node1esv4qc2nx396 a oa:Target;
+_:node1et0abus4x74 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1esv4qc2nx399 .
+  oa:hasSelector _:node1et0abus4x77 .
 
-_:node1esv4qc2nx399 a oa:FragmentSelector;
+_:node1et0abus4x77 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597" .
 
-_:node1esv4qc2nx396 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1et0abus4x74 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/c7232f73-0fc8-42c4-b6ba-55334bd5ab57> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/ba168687-c9d8-49e7-807a-4d916e3a32d2> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
-<http://makingsense.liacs.nl/rdf/nc/location> dwciri:inDescribedPlace _:node1esv4qc2nx395 .
+<http://makingsense.liacs.nl/rdf/nc/location> dwciri:inDescribedPlace _:node1et0abus4x73 .
 
-_:node1esv4qc2nx395 a gn:Feature .
+_:node1et0abus4x73 a gn:Feature .
 
 <http://makingsense.liacs.nl/rdf/nc/location> rdfs:label "Bagalonga"@und .
