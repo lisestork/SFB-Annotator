@@ -124,7 +124,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String oa = "http://www.w3.org/ns/oa#";
 		String obo = "http://purl.obolibrary.org/obo/";
 		String orcid = "http://orcid.org/";
-		String taxonomy = "http://identifotaaaaiers.org/taxonomy/";
+		String taxon = "http://identifiers.org/taxonomy/";
 		String viaf = "http://viaf.org/viaf/";
 
 		// Connect to RDF server
@@ -261,7 +261,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.setNamespace("obo", obo);
 			conn.setNamespace("orcid", orcid);
 			conn.setNamespace("oa", oa);
-			conn.setNamespace("taxonomy", taxonomy);
+			conn.setNamespace("taxon", taxon);
 			conn.setNamespace("viaf", viaf);
 			conn.setNamespace("gn", gn);
 			// add triples
@@ -280,8 +280,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(textualBodyBNode, DCTERMS.FORMAT, f.createLiteral("text/plain"));
 			conn.add(textualBodyBNode, DCTERMS.LANGUAGE, f.createIRI(iso, lang));
 			conn.add(textualBodyBNode, RDF.VALUE, f.createLiteral(verbatim, lang));
-			// conn.add(textualBodyBNode, hasPurposeProperty, f.createIRI(oa,
-			// "describing"));
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "StillImage"));
 			conn.add(sourceIRI, RDF.TYPE, FOAF.IMAGE);
 			conn.add(selectorBNode, RDF.TYPE, fragmentSelectorClass);
@@ -402,11 +400,10 @@ public class writeAnnotationsToRDF extends HttpServlet {
 						conn.add(annotationIRI, hasBodyProperty, instanceIRI);
 						conn.add(instanceIRI, RDF.TYPE, DCTERMS.LOCATION);
 					} else if (type.equals("taxon")) {
-						conn.add(annotationIRI, hasBodyProperty, taxonBNode);
-						conn.add(taxonBNode, RDF.TYPE, taxonClass);
-						conn.add(taxonBNode, belongsToTaxonProperty, belongsToTaxonIRI);
-						conn.add(taxonBNode, taxonRankProperty, taxonRankIRI);
-						conn.add(taxonBNode, RDFS.LABEL, f.createLiteral(verbatim, lang));
+						conn.add(annotationIRI, hasBodyProperty, belongsToTaxonIRI);
+						conn.add(belongsToTaxonIRI, RDF.TYPE, taxonClass);
+						conn.add(textualBodyBNode, belongsToTaxonProperty, belongsToTaxonIRI);
+						conn.add(belongsToTaxonIRI, taxonRankProperty, taxonRankIRI);
 					}
 					break;
 				default :
