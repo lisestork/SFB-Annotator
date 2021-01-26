@@ -12,37 +12,39 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/63d39382-507c-4192-b0bf-6c2e65521b01> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/84328f6c-3804-4270-a625-7793c0fbd0f1> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1esd5s8brx168 .
+  oa:hasBody _:node1esv4qc2nx490 .
 
-_:node1esd5s8brx168 a oa:TextualBody;
+_:node1esv4qc2nx490 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
-  rdf:value "Pteropus minimus"@lat;
-  oa:hasPurpose oa:describing .
+  rdf:value "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/63d39382-507c-4192-b0bf-6c2e65521b01> oa:hasBody
-    _:node1esd5s8brx169 .
+<http://localhost:8080/rdf/nc/annotation/84328f6c-3804-4270-a625-7793c0fbd0f1> oa:hasBody
+    _:node1esv4qc2nx491 .
 
-_:node1esd5s8brx169 a dwc:Taxon;
+_:node1esv4qc2nx491 a dwc:Taxon;
   nhc:belongsToTaxon <http://identifiers.org/taxonomy/9397>;
   dwc:taxonRank obo:TAXRANK_0000006;
   rdfs:label "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/63d39382-507c-4192-b0bf-6c2e65521b01> oa:hasTarget
-    _:node1esd5s8brx167 .
+<http://localhost:8080/rdf/nc/annotation/84328f6c-3804-4270-a625-7793c0fbd0f1> oa:hasTarget
+    _:node1esv4qc2nx489 .
 
-_:node1esd5s8brx167 a oa:Target;
+_:node1esv4qc2nx489 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1esd5s8brx170 .
+  oa:hasSelector _:node1esv4qc2nx492 .
 
-_:node1esd5s8brx170 a oa:FragmentSelector;
+_:node1esv4qc2nx492 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" .
 
-_:node1esd5s8brx167 oa:hasSource img:default.jpg .
+_:node1esv4qc2nx489 oa:hasSource img:default.jpg .
+
+<http://localhost:8080/rdf/nc/annotation/84328f6c-3804-4270-a625-7793c0fbd0f1> oa:motivatedBy
+    oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 

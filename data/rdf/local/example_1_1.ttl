@@ -12,37 +12,39 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/6d9484f8-7c58-41ff-8707-cafa83ae53f7> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/3188dcfc-39ef-4aba-a0c2-11ede492b078> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1esd5s8brx7 .
+  oa:hasBody _:node1esv4qc2nx329 .
 
-_:node1esd5s8brx7 a oa:TextualBody;
+_:node1esv4qc2nx329 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
-  rdf:value "Pteropus minimus"@lat;
-  oa:hasPurpose oa:describing .
+  rdf:value "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/6d9484f8-7c58-41ff-8707-cafa83ae53f7> oa:hasBody
-    _:node1esd5s8brx8 .
+<http://localhost:8080/rdf/nc/annotation/3188dcfc-39ef-4aba-a0c2-11ede492b078> oa:hasBody
+    _:node1esv4qc2nx330 .
 
-_:node1esd5s8brx8 a dwc:Taxon;
+_:node1esv4qc2nx330 a dwc:Taxon;
   nhc:belongsToTaxon <http://identifiers.org/taxonomy/9397>;
   dwc:taxonRank obo:TAXRANK_0000006;
   rdfs:label "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/6d9484f8-7c58-41ff-8707-cafa83ae53f7> oa:hasTarget
-    _:node1esd5s8brx6 .
+<http://localhost:8080/rdf/nc/annotation/3188dcfc-39ef-4aba-a0c2-11ede492b078> oa:hasTarget
+    _:node1esv4qc2nx328 .
 
-_:node1esd5s8brx6 a oa:Target;
+_:node1esv4qc2nx328 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1esd5s8brx9 .
+  oa:hasSelector _:node1esv4qc2nx331 .
 
-_:node1esd5s8brx9 a oa:FragmentSelector;
+_:node1esv4qc2nx331 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" .
 
-_:node1esd5s8brx6 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1esv4qc2nx328 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+
+<http://localhost:8080/rdf/nc/annotation/3188dcfc-39ef-4aba-a0c2-11ede492b078> oa:motivatedBy
+    oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 

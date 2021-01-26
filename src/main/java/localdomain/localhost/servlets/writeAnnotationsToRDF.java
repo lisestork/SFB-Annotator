@@ -66,7 +66,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String organismID = (json.isNull("organismID")) ? "" : json.getString("organismID").trim();
 		String occurrenceID = (json.isNull("occurrenceID")) ? "" : json.getString("occurrenceID").trim();
 		String identificationID = (json.isNull("identificationID")) ? "" : json.getString("identificationID").trim();
-		String geonamesfeature = (json.isNull("geonamesfeature")) ? "" : json.getString("geonamesfeature").replaceAll("/$|\\s+$", "");
+		String geonamesfeature = (json.isNull("geonamesfeature"))
+				? ""
+				: json.getString("geonamesfeature").replaceAll("/$|\\s+$", "");
 		String anatomicalentity = (json.isNull("anatomicalentity")) ? "" : json.getString("anatomicalentity").trim();
 		String verbatim = (json.isNull("verbatim")) ? "" : json.getString("verbatim").trim();
 		String type = (json.isNull("type")) ? "" : json.getString("type").trim();
@@ -162,7 +164,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI hasSelectorProperty = f.createIRI(oa, "hasSelector");
 		IRI hasBodyProperty = f.createIRI(oa, "hasBody");
 		IRI hasTargetProperty = f.createIRI(oa, "hasTarget");
-		IRI hasPurposeProperty = f.createIRI(oa, "hasPurpose");
+		// IRI hasPurposeProperty = f.createIRI(oa, "hasPurpose");
+		IRI motivatedByProperty = f.createIRI(oa, "motivatedBy");
 		IRI hasDerivativeProperty = f.createIRI(dsw, "hasDerivative");
 		IRI derivedFromProperty = f.createIRI(dsw, "derivedFrom");
 		IRI identifiesProperty = f.createIRI(dsw, "identifies");
@@ -265,6 +268,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(annotationIRI, RDF.TYPE, annotationClass);
 			conn.add(annotationIRI, hasBodyProperty, textualBodyBNode);
 			conn.add(annotationIRI, hasTargetProperty, targetBNode);
+			conn.add(annotationIRI, motivatedByProperty, f.createIRI(oa, "describing"));
 			conn.add(annotationIRI, DCTERMS.CREATOR, annotatorIRI);
 			conn.add(annotationIRI, DCTERMS.DATE, f.createLiteral(date, DCTERMS.W3CDTF));
 			conn.add(annotatorIRI, RDF.TYPE, FOAF.PERSON);
@@ -276,7 +280,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(textualBodyBNode, DCTERMS.FORMAT, f.createLiteral("text/plain"));
 			conn.add(textualBodyBNode, DCTERMS.LANGUAGE, f.createIRI(iso, lang));
 			conn.add(textualBodyBNode, RDF.VALUE, f.createLiteral(verbatim, lang));
-			conn.add(textualBodyBNode, hasPurposeProperty, f.createIRI(oa, "describing"));
+			// conn.add(textualBodyBNode, hasPurposeProperty, f.createIRI(oa,
+			// "describing"));
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "StillImage"));
 			conn.add(sourceIRI, RDF.TYPE, FOAF.IMAGE);
 			conn.add(selectorBNode, RDF.TYPE, fragmentSelectorClass);
@@ -322,8 +327,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(taxonBNode, RDFS.LABEL, f.createLiteral(verbatim, lang));
 					conn.add(taxonBNode, RDF.TYPE, taxonClass);
 					break;
-				/* case "additionalIdentification" :
-					break; */
+				/*
+				 * case "additionalIdentification" : break;
+				 */
 				case "verbatimEventDate" :
 					conn.add(annotationIRI, hasBodyProperty, dateIRI);
 					conn.add(dateIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));

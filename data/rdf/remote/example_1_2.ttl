@@ -15,37 +15,39 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/c4912f0f-ecc5-4538-ac3a-a9128706fabb> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/e591bdf3-c174-4c6c-a677-374091e6ebb6> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation>, _:node1esd5s8brx176 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation>, _:node1esv4qc2nx498 .
 
-_:node1esd5s8brx176 a oa:TextualBody;
+_:node1esv4qc2nx498 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
-  rdf:value "Pteropus minimus"@lat;
-  oa:hasPurpose oa:describing .
+  rdf:value "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/c4912f0f-ecc5-4538-ac3a-a9128706fabb> oa:hasBody
-    _:node1esd5s8brx177 .
+<http://localhost:8080/rdf/nc/annotation/e591bdf3-c174-4c6c-a677-374091e6ebb6> oa:hasBody
+    _:node1esv4qc2nx499 .
 
-_:node1esd5s8brx177 a dwc:Taxon;
+_:node1esv4qc2nx499 a dwc:Taxon;
   nhc:belongsToTaxon <http://identifiers.org/taxonomy/9397>;
   dwc:taxonRank obo:TAXRANK_0000006;
   rdfs:label "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/c4912f0f-ecc5-4538-ac3a-a9128706fabb> oa:hasTarget
-    img:default.jpg, _:node1esd5s8brx175 .
+<http://localhost:8080/rdf/nc/annotation/e591bdf3-c174-4c6c-a677-374091e6ebb6> oa:hasTarget
+    img:default.jpg, _:node1esv4qc2nx497 .
 
-_:node1esd5s8brx175 a oa:Target;
+_:node1esv4qc2nx497 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1esd5s8brx178 .
+  oa:hasSelector _:node1esv4qc2nx500 .
 
-_:node1esd5s8brx178 a oa:FragmentSelector;
+_:node1esv4qc2nx500 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862" .
 
-_:node1esd5s8brx175 oa:hasSource img:default.jpg .
+_:node1esv4qc2nx497 oa:hasSource img:default.jpg .
+
+<http://localhost:8080/rdf/nc/annotation/e591bdf3-c174-4c6c-a677-374091e6ebb6> oa:motivatedBy
+    oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
@@ -67,7 +69,7 @@ img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
   dsw:identifies <http://makingsense.liacs.nl/rdf/nc/organism>;
   dsw:isBasedOn <http://makingsense.liacs.nl/rdf/nc/humanObservation>;
   dwciri:identifiedBy viaf:45106482;
-  dwciri:toTaxon _:node1esd5s8brx177;
+  dwciri:toTaxon _:node1esv4qc2nx499;
   dwc:identificationID "" .
 
 <http://makingsense.liacs.nl/rdf/nc/location> a dcterms:Location;

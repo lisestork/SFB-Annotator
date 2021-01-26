@@ -2,6 +2,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gn: <http://sws.geonames.org/> .
 @prefix img: <http://localhost:8080/semanticAnnotator/files/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
@@ -10,36 +11,38 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/8608f772-25f6-49ca-8ba9-cba96605f523> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/c7232f73-0fc8-42c4-b6ba-55334bd5ab57> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location>, _:node1esd5s8brx75 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/location>, _:node1esv4qc2nx397 .
 
-_:node1esd5s8brx75 a oa:TextualBody;
+_:node1esv4qc2nx397 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
-  rdf:value "Bagalonga"@und;
-  oa:hasPurpose oa:describing .
+  rdf:value "Bagalonga"@und .
 
-<http://localhost:8080/rdf/nc/annotation/8608f772-25f6-49ca-8ba9-cba96605f523> oa:hasTarget
-    _:node1esd5s8brx74 .
+<http://localhost:8080/rdf/nc/annotation/c7232f73-0fc8-42c4-b6ba-55334bd5ab57> oa:hasTarget
+    _:node1esv4qc2nx396 .
 
-_:node1esd5s8brx74 a oa:Target;
+_:node1esv4qc2nx396 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1esd5s8brx77 .
+  oa:hasSelector _:node1esv4qc2nx399 .
 
-_:node1esd5s8brx77 a oa:FragmentSelector;
+_:node1esv4qc2nx399 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597" .
 
-_:node1esd5s8brx74 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1esv4qc2nx396 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+
+<http://localhost:8080/rdf/nc/annotation/c7232f73-0fc8-42c4-b6ba-55334bd5ab57> oa:motivatedBy
+    oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
 
-<http://makingsense.liacs.nl/rdf/nc/location> dwciri:inDescribedPlace _:node1esd5s8brx73 .
+<http://makingsense.liacs.nl/rdf/nc/location> dwciri:inDescribedPlace _:node1esv4qc2nx395 .
 
-_:node1esd5s8brx73 a <http://www.geonames.org/ontology#Feature> .
+_:node1esv4qc2nx395 a gn:Feature .
 
 <http://makingsense.liacs.nl/rdf/nc/location> rdfs:label "Bagalonga"@und .
