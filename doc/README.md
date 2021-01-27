@@ -212,9 +212,9 @@ Steps:
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/remote/example_3_1.json)
+Input: [JSON](/data/json/local/example_3_1.json)
 
-Output: [RDF/Turtle](/data/rdf/remote/example_3_1.ttl)|[JSON-LD](/data/rdf/remote/example_3_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/local/example_3_1.ttl)
 
 Steps:
 
@@ -231,11 +231,11 @@ Steps:
 |Key|Value |Notes | Diff Expected
 |---|-----|-----|-----
 | Entity type | `Location` |  The handwritten text contains a location name. | Should be a drop-down menu with all possible classes
-| verbatim text | _Buitenzorg_ | The verbatim text as written in the bounding box |
-| language/`language` | _dut_ | [ISO 639-3 code](https://iso639-3.sil.org/code/latl) for _Dutch_ |
+| verbatim text | `Buitenzorg` | The verbatim text as written in the bounding box |
+| language/`language` | `dut` | [ISO 639-3 code](https://iso639-3.sil.org/code/latl) for _Dutch_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a location. |
 | type | `location` |  auto-fill from entity type |
-| instance | `http://sws.geonames.org/1648473/` | Link the bounding box to the IRI if known. Here the location _Buitenzorg_, currently called _Bogor_. | Preferably these instances can be retrieved with semantic autocomplete
+| instance | `http://sws.geonames.org/1648473` | Link the bounding box to the IRI if known. Here the location _Buitenzorg_, currently called _Bogor_. | Preferably these instances can be retrieved with semantic autocomplete
 
 
 ### Example 3_2
