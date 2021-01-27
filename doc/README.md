@@ -109,9 +109,9 @@ Steps:
 
 |Key|Value|Notes|Diff Expected
 |---|-----|-----|-----
-| Entity type/`text` | Person |  The handwritten text contains a person name. | Should be a drop-down menu with all possible classes
-| verbatim text/`verbatim` | Geoff | The verbatim text as written in the bounding box |
-| language | | NA |
+| Entity type/`text` | `Person` |  The handwritten text contains a person name. | Should be a drop-down menu with all possible classes
+| verbatim text/`verbatim` | `Geoff` | The verbatim text as written in the bounding box |
+| language | | NA (default: und) |
 | Select property/`property` | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a person. |
 | type | `person` |  auto-fill from entity type |
 | Instance/`instance` | `http://viaf.org/viaf/39377694` | Link the bounding box to the IRI if known. Here the person Étienne Geoffroy-Saint-Hilaire. | Preferably these can be retrieved with semantic autocomplete
