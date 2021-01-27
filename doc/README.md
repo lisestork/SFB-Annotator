@@ -26,9 +26,9 @@ Field notes are collections of observation records ([`dwc:HumanObservation`](htt
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/remote/example_1_1.json)
+Input: [JSON](/data/json/local/example_1_1.json)
 
-Output: [RDF/Turtle](/data/rdf/remote/example_1_1.ttl)|[JSON-LD](/data/rdf/remote/example_1_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/local/example_1_1.ttl)
 
 Steps:
 
@@ -45,12 +45,12 @@ Steps:
 |Key|Value|Notes|Diff Expected
 |---|-----|-----|-----
 | Entity type/`text` | `Taxon` |  The handwritten text contains a taxon name. | Should be a drop-down menu with all possible classes
-| verbatim text/`verbatim` | _Pteropus minimus_ | The verbatim text as written in the bounding box |
-| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |  add autocomplete/drop down menu
-| Select property/`property` | `type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a taxon. |
-| type/`type` | `taxon` |  auto-fill from entity type |
-| Belongs to taxon/`belongstotaxon` | `https://identifiers.org/taxonomy/9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) | **question:** who do we allow to annotate, and who to interpret the data
-| Taxon rank/`rank` | `http://purl.obolibrary.org/obo/TAXRANK_0000006` (species) | from list ([`kingdom`](http://purl.obolibrary.org/obo/TAXRANK_0000017),[`class`](http://purl.obolibrary.org/obo/TAXRANK_0000002),[`order`](http://purl.obolibrary.org/obo/TAXRANK_0000003),[`family`](http://purl.obolibrary.org/obo/TAXRANK_0000004),[`genus`](http://purl.obolibrary.org/obo/TAXRANK_0000005), [`species`](`http://purl.obolibrary.org/obo/TAXRANK_0000006`)) | should be drop-down menu
+| verbatim text/`verbatim` | `Pteropus minimus` | The verbatim text as written in the bounding box |
+| language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |  add autocomplete/drop down menu
+| Select property/`property` | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a taxon. |
+| type/`type` | `taxon` |  auto-fill according to the Entity type |
+| Belongs to taxon/`belongstotaxon` | `http://identifiers.org/taxonomy/9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) | **question:** who do we allow to annotate, and who to interpret the data
+| Taxon rank/`rank` | `http://purl.obolibrary.org/obo/TAXRANK_0000003` (order) | from list ([`kingdom`](http://purl.obolibrary.org/obo/TAXRANK_0000017),[`class`](http://purl.obolibrary.org/obo/TAXRANK_0000002),[`order`](http://purl.obolibrary.org/obo/TAXRANK_0000003),[`family`](http://purl.obolibrary.org/obo/TAXRANK_0000004),[`genus`](http://purl.obolibrary.org/obo/TAXRANK_0000005) or [`species`](http://purl.obolibrary.org/obo/TAXRANK_0000006)) | should be drop-down menu according to the taxon IRI above
 
 
 ### Example 1_2
@@ -91,9 +91,9 @@ Steps:
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/remote/example_2_1.json)
+Input: [JSON](/data/json/local/example_2_1.json)
 
-Output: [RDF/Turtle](/data/rdf/remote/example_2_1.ttl)|[JSON-LD](/data/rdf/remote/example_2_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/local/example_2_1.ttl)
 
 Steps:
 
@@ -109,9 +109,9 @@ Steps:
 
 |Key|Value|Notes|Diff Expected
 |---|-----|-----|-----
-| Entity type/`text` | `Person` |  The handwritten text contains a person name. | Should be a drop-down menu with all possible classes
-| verbatim text/`verbatim` | _Geoff_ | The verbatim text as written in the bounding box |
-| language | | | _AK_: remove
+| Entity type/`text` | Person |  The handwritten text contains a person name. | Should be a drop-down menu with all possible classes
+| verbatim text/`verbatim` | Geoff | The verbatim text as written in the bounding box |
+| language | | NA |
 | Select property/`property` | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a person. |
 | type | `person` |  auto-fill from entity type |
 | Instance/`instance` | `http://viaf.org/viaf/39377694` | Link the bounding box to the IRI if known. Here the person Étienne Geoffroy-Saint-Hilaire. | Preferably these can be retrieved with semantic autocomplete
