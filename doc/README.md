@@ -4,22 +4,22 @@ Field notes are collections of observation records ([`dwc:HumanObservation`](htt
 **Table 1.** List of examples with annotation classes and properties.
 |class| property | example |
 |---|---|---
-|`dwc:Taxon`|`rdf:type`|[`1_1`](#Example-1_1)
-||`dsw:hasIdentification`|[`1_2`](#Example-1_2)
-|`foaf:Person`|`rdf:type`|[`2_1`](#Example-2_1)
-||`nhc:scientificNameAuthorship`|[`2_2`](#Example-2_2)
-||`dwciri:identifiedBy`|[`2_3`](#Example-2_3)
-|| `dwciri:recordedBy`|[`2_4`](#Example-2_4)
-|`dwc:Location`|`rdf:type`|[`3_1`](#Example-3_1)
-|| `dsw:locatedAt`|[`3_2`](#Example-3_2)
-|`dwc:MeasurementOrFact`|`rdf:type`|[`4_1`](#Example-4_1)
-||`dsw:derivedFrom`|[`4_2`](#Example-4_2) |
+|[`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)|`rdf:type`|[`1_1`](#Example-1_1)
+|`dsw:hasIdentification`|[`1_2`](#Example-1_2)
+|[`foaf:Person`](http://xmlns.com/foaf/spec/#term_Person)|`rdf:type`|[`2_1`](#Example-2_1)
+|`nhc:scientificNameAuthorship`|[`2_2`](#Example-2_2)
+|`dwciri:identifiedBy`|[`2_3`](#Example-2_3)
+|`dwciri:recordedBy`|[`2_4`](#Example-2_4)
+|[`dwc:Location`](https://dwc.tdwg.org/terms/#location)|`rdf:type`|[`3_1`](#Example-3_1)
+|`dsw:locatedAt`|[`3_2`](#Example-3_2)
+|[`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)|`rdf:type`|[`4_1`](#Example-4_1)
+|`dsw:derivedFrom`|[`4_2`](#Example-4_2) |
 |`ncit:C20189` (propertyOrAttribute)|`rdf:type`|[`5_1`](#Example-5_1)
-||`nhc:measuresOrDescribes`|[`5_2`](#Example-5_2)|
+|`nhc:measuresOrDescribes`|[`5_2`](#Example-5_2)|
 |`UBERON:0001062` (anatomicalEntity)|`rdf:type`|[`6_1`](#Example-6_1)
-||`nhc:measuresOrDescribes`|[`6_2`](#Example-6_2) |
+|`nhc:measuresOrDescribes`|[`6_2`](#Example-6_2) |
 |`nhc:Date`|`rdf:type`|[`7_1`](#Example-7_1)
-||`nhc:verbatimDate`|[`7_2`](#Example-7_2)|
+|`nhc:verbatimDate`|[`7_2`](#Example-7_2)|
 
 
 ### Example 1_1
@@ -273,9 +273,9 @@ Steps:
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/remote/example_4_1.json)
+Input: [JSON](/data/json/local/example_4_1.json)
 
-Output: [RDF/Turtle](/data/rdf/remote/example_4_1.ttl)|[JSON-LD](/data/rdf/remote/example_4_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/local/example_4_1.ttl)
 
 Steps:
 
