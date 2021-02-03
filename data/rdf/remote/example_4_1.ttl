@@ -10,37 +10,33 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/f4f73828-cef2-4c54-82ed-c565effd242c> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/ac9efb64-a585-4dd0-8a6a-948bc513d06e> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1>, _:node1et0abus4x247 .
+  oa:hasBody _:node1etk4qv41x247 .
 
-_:node1et0abus4x247 a oa:TextualBody;
+_:node1etk4qv41x247 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
+  dsw:derivedFrom img:default.jpg;
   rdf:value ""@und .
 
-<http://localhost:8080/rdf/nc/annotation/f4f73828-cef2-4c54-82ed-c565effd242c> oa:hasTarget
-    _:node1et0abus4x246 .
+<http://localhost:8080/rdf/nc/annotation/ac9efb64-a585-4dd0-8a6a-948bc513d06e> oa:hasTarget
+    _:node1etk4qv41x246 .
 
-_:node1et0abus4x246 a oa:Target;
+_:node1etk4qv41x246 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1et0abus4x249 .
+  oa:hasSelector _:node1etk4qv41x249 .
 
-_:node1et0abus4x249 a oa:FragmentSelector;
+_:node1etk4qv41x249 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5614033197022136,0.11586327570674965,0.14027982326951394,0.0625920471281296" .
 
-_:node1et0abus4x246 oa:hasSource img:default.jpg .
+_:node1etk4qv41x246 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/f4f73828-cef2-4c54-82ed-c565effd242c> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/ac9efb64-a585-4dd0-8a6a-948bc513d06e> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
-
-<http://makingsense.liacs.nl/rdf/nc/humanObservation> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
-
-<http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> a dwc:MeasurementOrFact;
-  dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation> .
+img:default.jpg a dcmitype:StillImage, dwc:HumanObservation, oa:Source, foaf:Image .

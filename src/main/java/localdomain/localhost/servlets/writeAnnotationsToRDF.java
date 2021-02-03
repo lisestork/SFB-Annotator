@@ -412,10 +412,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 
 			switch (type) {
 				case "measurementorfact" :
-					conn.add(annotationIRI, hasBodyProperty, measurementOrFactIRI);
-					conn.add(humanObservationIRI, hasDerivativeProperty, measurementOrFactIRI);
-					conn.add(measurementOrFactIRI, derivedFromProperty, humanObservationIRI);
-					conn.add(measurementOrFactIRI, RDF.TYPE, measurementOrFactClass);
+					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
+					conn.add(sourceIRI, RDF.TYPE, humanObservationClass);
 					break;
 				case "propertyorattribute" :
 					conn.add(annotationIRI, hasBodyProperty, propertyOrAttributeIRI);
