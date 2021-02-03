@@ -148,6 +148,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI organismClass = f.createIRI(dwc, "Organism");
 		IRI eventClass = f.createIRI(dwc, "Event");
 		IRI taxonClass = f.createIRI(dwc, "Taxon");
+		IRI tokenClass = f.createIRI(dsw, "Token");
 		IRI propertyOrAttributeTopClass = f.createIRI(ncit, "C20189");
 		Resource anatomicalEntityClass = (anatomicalentity.equals(""))
 				? f.createBNode()
@@ -414,6 +415,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				case "measurementorfact" :
 					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
 					conn.add(sourceIRI, RDF.TYPE, humanObservationClass);
+					conn.add(sourceIRI, RDF.TYPE, tokenClass);
 					break;
 				case "propertyorattribute" :
 					conn.add(annotationIRI, hasBodyProperty, propertyOrAttributeIRI);
