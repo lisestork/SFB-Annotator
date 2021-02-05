@@ -194,6 +194,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI recordedByProperty = f.createIRI(dwciri, "recordedBy");
 		IRI inDescribedPlaceProperty = f.createIRI(dwciri, "inDescribedPlace");
 		IRI scientificNameAuthorshipProperty = f.createIRI(dwc, "scientificNameAuthorship");
+		IRI measurementTypeProperty = f.createIRI(dwc, "measurementType");
 
 		// init instances
 		IRI annotationIRI = f.createIRI(host, "rdf/nc/annotation/" + uuid);
@@ -409,7 +410,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
 					if (propertyOrAttributeClass.isIRI()) {
 						conn.add(textualBodyBNode, RDF.TYPE, propertyOrAttributeClass);
-						conn.add(propertyOrAttributeClass, RDFS.LABEL, f.createLiteral(verbatim, lang));
+						conn.add(measurementOrFactClass, measurementTypeProperty, propertyOrAttributeClass);
+					} else {
+						conn.add(measurementOrFactClass, measurementTypeProperty, f.createLiteral(verbatim, lang));
 					}
 					break;
 				case "anatomicalentity" :
