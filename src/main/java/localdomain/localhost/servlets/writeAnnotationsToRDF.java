@@ -76,7 +76,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String propertyorattribute = (json.isNull("propertyorattribute"))
 				? ""
 				: json.getString("propertyorattribute").trim();
-		String instance = (json.isNull("instance")) ? "" : json.getString("instance").trim();
+		String instance = (json.isNull("instance")) ? "" : json.getString("instance").replaceAll("/$|\\s+$", "");
 		String lang = (json.isNull("language")) ? "" : json.getString("language").trim();
 		String uuid = UUID.randomUUID().toString();
 		String filext = source.substring(source.lastIndexOf(".") + 1).toLowerCase();
@@ -149,7 +149,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI eventClass = f.createIRI(dwc, "Event");
 		IRI taxonClass = f.createIRI(dwc, "Taxon");
 		IRI tokenClass = f.createIRI(dsw, "Token");
-		IRI propertyOrAttributeTopClass = f.createIRI(ncit, "C20189");
+		Resource propertyOrAttributeClass = (instance.equals(""))
+				? f.createBNode()
+				: f.createIRI(instance);
 		Resource anatomicalEntityClass = (anatomicalentity.equals(""))
 				? f.createBNode()
 				: f.createIRI(anatomicalentity);
@@ -190,12 +192,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI taxonRankProperty = f.createIRI(dwc, "taxonRank");
 		IRI identifiedByProperty = f.createIRI(dwciri, "identifiedBy");
 		IRI recordedByProperty = f.createIRI(dwciri, "recordedBy");
-		IRI measuresOrDescribesProperty = f.createIRI(nhc, "measuresOrDescribes");
 		IRI inDescribedPlaceProperty = f.createIRI(dwciri, "inDescribedPlace");
 		IRI scientificNameAuthorshipProperty = f.createIRI(dwc, "scientificNameAuthorship");
-		Resource propertyOrAttributeClass = (propertyorattribute.equals(""))
-				? f.createBNode()
-				: f.createIRI(propertyorattribute);
 
 		// init instances
 		IRI annotationIRI = f.createIRI(host, "rdf/nc/annotation/" + uuid);
@@ -226,18 +224,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		BNode selectorBNode = f.createBNode();
 
 		// query RDF store
-		String query2 = "SELECT ?value WHERE { ?iri rdf:type <" + taxonClass.toString()
-				+ "> . ?iri rdf:value ?value } ORDER BY DESC(?value) LIMIT 1";
-		String query3 = "SELECT (COUNT(DISTINCT ?measurements) AS ?totalNumberOfInstances) WHERE { ?measurements rdf:type <"
-				+ measurementOrFactClass.toString() + "> . }";
-		int measurementOrFactNr = QueryTripleStore(query3, repo);
-		IRI measurementOrFactIRI = f.createIRI(nc, "measurementOrFact" + measurementOrFactNr);
-
-		String query4 = "SELECT (COUNT(DISTINCT ?propertyorattribute) AS ?totalNumberOfInstances) WHERE { ?propertyorattribute rdf:type ?type . ?type rdfs:subClassOf <"
-				+ propertyOrAttributeTopClass.toString() + "> . }";
-		int propertyOrAttributeNr = QueryTripleStore(query4, repo);
-		IRI propertyOrAttributeIRI = f.createIRI(nc, "propertyOrAttribute" + propertyOrAttributeNr);
-
 		String query5 = "SELECT (COUNT(DISTINCT ?anatomicalentity) AS ?totalNumberOfInstances) WHERE { ?anatomicalentity rdf:type ?type . ?type rdfs:subClassOf <"
 				+ anatomicalEntityTopClass.toString() + "> . }";
 		int anatomicalEntityNr = QueryTripleStore(query5, repo);
@@ -419,24 +405,22 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
 					break;
 				case "propertyorattribute" :
-					conn.add(annotationIRI, hasBodyProperty, propertyOrAttributeIRI);
-					conn.add(humanObservationIRI, hasDerivativeProperty, measurementOrFactIRI);
-					conn.add(measurementOrFactIRI, measuresOrDescribesProperty, propertyOrAttributeIRI);
-					conn.add(measurementOrFactIRI, derivedFromProperty, humanObservationIRI);
-					conn.add(measurementOrFactIRI, RDF.TYPE, measurementOrFactClass);
-					conn.add(propertyOrAttributeIRI, RDF.TYPE, propertyOrAttributeClass);
-					conn.add(propertyOrAttributeClass, RDFS.SUBCLASSOF, propertyOrAttributeTopClass);
-					conn.add(propertyOrAttributeIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
+					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
+					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
+					if (propertyOrAttributeClass.isIRI()) {
+						conn.add(textualBodyBNode, RDF.TYPE, propertyOrAttributeClass);
+						conn.add(propertyOrAttributeClass, RDFS.LABEL, f.createLiteral(verbatim, lang));
+					}
 					break;
 				case "anatomicalentity" :
 					conn.add(annotationIRI, hasBodyProperty, anatomicalEntityIRI);
 					conn.add(anatomicalEntityIRI, RDF.TYPE, anatomicalEntityClass);
 					conn.add(anatomicalEntityClass, RDFS.SUBCLASSOF, anatomicalEntityTopClass);
 					conn.add(anatomicalEntityIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
-					conn.add(humanObservationIRI, hasDerivativeProperty, measurementOrFactIRI);
-					conn.add(measurementOrFactIRI, measuresOrDescribesProperty, anatomicalEntityIRI);
-					conn.add(measurementOrFactIRI, derivedFromProperty, humanObservationIRI);
-					conn.add(measurementOrFactIRI, RDF.TYPE, measurementOrFactClass);
+					//conn.add(humanObservationIRI, hasDerivativeProperty, measurementOrFactIRI);
+					//conn.add(measurementOrFactIRI, measuresOrDescribesProperty, anatomicalEntityIRI);
+					//conn.add(measurementOrFactIRI, derivedFromProperty, humanObservationIRI);
+					//conn.add(measurementOrFactIRI, RDF.TYPE, measurementOrFactClass);
 					break;
 				default :
 					break;
