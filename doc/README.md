@@ -292,11 +292,11 @@ Steps:
 |Key|Value |Notes | Diff Expected
 |---|-----|-----|-----
 | Entity type | `MeasurementOrFact` |  The handwritten text contains a measurement or fact. | Should be a drop-down menu with all possible classes
-| verbatim text | | leave empty |
-| language | | | should be removed here
+| verbatim text | [Markdown](https://www.markdownguide.org/) table (or list) ||
+| language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a measurement or fact. |
 | type | `measurementorfact` |  auto-fill from entity type |
-| instance |  | Should be left empty | This field should be removed here.
+| instance ||| Remove this field.
 
 
 ### Example 4_2
@@ -351,13 +351,11 @@ Steps:
 |Key|Value |Notes | Diff Expected
 |---|-----|-----|-----
 | Entity type | `PropertyOrAttribute` |  The handwritten text contains a property or attribute name. | Should be a drop-down menu with all possible classes
-| verbatim text | _Color_ | The verbatim text as written in the bounding box |
-| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
+| verbatim text | `Color` | The verbatim text as written in the bounding box |
+| language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a property or attribute name. |
 | type | `propertyOrAttribute` |  auto-fill from entity type |
-| instance | `http://identifiers.org/ncit/C37927` | Link the bounding box to the IRI if known. Here the property _Color_. | Preferably these instances can be retrieved with semantic autocomplete
-
-* Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
+| instance | `http://identifiers.org/ncit/C37927` (Color) | Link the bounding box to the IRI if known. | Preferably these instances can be retrieved with semantic autocomplete
 
 
 ### Example 5_2
