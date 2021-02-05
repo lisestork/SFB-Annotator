@@ -1,5 +1,7 @@
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dsw: <http://purl.org/dsw/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gn: <http://sws.geonames.org/> .
 @prefix img: <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/> .
@@ -9,34 +11,35 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/23c383ba-df17-4ff4-9c10-703755af3445> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/fdc2bc45-6f01-44f5-964b-7de8f0712c89> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody gn:1648473, _:node1et0abus4x225 .
+  oa:hasBody gn:1648473, _:node1etov1ae3x386 .
 
-_:node1et0abus4x225 a oa:TextualBody;
+_:node1etov1ae3x386 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
   rdf:value "Buitenzorg"@dut .
 
-<http://localhost:8080/rdf/nc/annotation/23c383ba-df17-4ff4-9c10-703755af3445> oa:hasTarget
-    _:node1et0abus4x224 .
+<http://localhost:8080/rdf/nc/annotation/fdc2bc45-6f01-44f5-964b-7de8f0712c89> oa:hasTarget
+    _:node1etov1ae3x385 .
 
-_:node1et0abus4x224 a oa:Target;
+_:node1etov1ae3x385 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1et0abus4x227 .
+  oa:hasSelector _:node1etov1ae3x388 .
 
-_:node1et0abus4x227 a oa:FragmentSelector;
+_:node1etov1ae3x388 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445" .
 
-_:node1et0abus4x224 oa:hasSource img:default.jpg .
+_:node1etov1ae3x385 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/23c383ba-df17-4ff4-9c10-703755af3445> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/fdc2bc45-6f01-44f5-964b-7de8f0712c89> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
+img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Source,
+    foaf:Image .
 
 gn:1648473 a dcterms:Location .

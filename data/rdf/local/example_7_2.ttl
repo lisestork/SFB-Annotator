@@ -1,5 +1,6 @@
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix img: <http://localhost:8080/semanticAnnotator/files/> .
@@ -10,35 +11,36 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/8dd40ba0-3b58-4262-a02a-dac7f9dad140> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/2532019b-ac43-4e8a-aecd-36ea99beee40> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/date>, _:node1et0abus4x159 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/date>, _:node1etov1ae3x320 .
 
-_:node1et0abus4x159 a oa:TextualBody;
+_:node1etov1ae3x320 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
   rdf:value "10 April 1821"@dut .
 
-<http://localhost:8080/rdf/nc/annotation/8dd40ba0-3b58-4262-a02a-dac7f9dad140> oa:hasTarget
-    _:node1et0abus4x158 .
+<http://localhost:8080/rdf/nc/annotation/2532019b-ac43-4e8a-aecd-36ea99beee40> oa:hasTarget
+    _:node1etov1ae3x319 .
 
-_:node1et0abus4x158 a oa:Target;
+_:node1etov1ae3x319 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1et0abus4x161 .
+  oa:hasSelector _:node1etov1ae3x322 .
 
-_:node1et0abus4x161 a oa:FragmentSelector;
+_:node1etov1ae3x322 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6712020824648357,0.177764417868435,0.07131751180401791,0.015538452292495508" .
 
-_:node1et0abus4x158 oa:hasSource img:MMNAT01_AF_NNM001001033_004.jpg .
+_:node1etov1ae3x319 oa:hasSource img:MMNAT01_AF_NNM001001033_004.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/8dd40ba0-3b58-4262-a02a-dac7f9dad140> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/2532019b-ac43-4e8a-aecd-36ea99beee40> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-img:MMNAT01_AF_NNM001001033_004.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
+img:MMNAT01_AF_NNM001001033_004.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation,
+    oa:Source, foaf:Image .
 
 <http://makingsense.liacs.nl/rdf/nc/date> dwc:day "10"^^<http://www.w3.org/2001/XMLSchema#int>;
   dwc:month "4"^^<http://www.w3.org/2001/XMLSchema#int>;

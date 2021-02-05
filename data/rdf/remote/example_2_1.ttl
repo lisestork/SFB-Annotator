@@ -1,5 +1,7 @@
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dsw: <http://purl.org/dsw/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix img: <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
@@ -9,34 +11,35 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/89e13960-dde7-40f3-9090-50c544933362> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/e0505b9d-5452-4a5d-9b73-313e6dd8de8a> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody viaf:39377694, _:node1et0abus4x186 .
+  oa:hasBody viaf:39377694, _:node1etov1ae3x347 .
 
-_:node1et0abus4x186 a oa:TextualBody;
+_:node1etov1ae3x347 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Geoff"@und .
 
-<http://localhost:8080/rdf/nc/annotation/89e13960-dde7-40f3-9090-50c544933362> oa:hasTarget
-    _:node1et0abus4x185 .
+<http://localhost:8080/rdf/nc/annotation/e0505b9d-5452-4a5d-9b73-313e6dd8de8a> oa:hasTarget
+    _:node1etov1ae3x346 .
 
-_:node1et0abus4x185 a oa:Target;
+_:node1etov1ae3x346 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1et0abus4x188 .
+  oa:hasSelector _:node1etov1ae3x349 .
 
-_:node1et0abus4x188 a oa:FragmentSelector;
+_:node1etov1ae3x349 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6222427138577663,0.025690113172811516,0.024116347569955843,0.01804123711340206" .
 
-_:node1et0abus4x185 oa:hasSource img:default.jpg .
+_:node1etov1ae3x346 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/89e13960-dde7-40f3-9090-50c544933362> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/e0505b9d-5452-4a5d-9b73-313e6dd8de8a> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
+img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Source,
+    foaf:Image .
 
 viaf:39377694 a foaf:Person .

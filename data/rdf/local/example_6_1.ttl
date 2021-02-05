@@ -13,39 +13,40 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/9d31178b-ba51-46e6-aa15-bc3905df2ae0> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/1e6eedf4-e2cb-4e19-b677-29a4053c970c> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1et0abus4x127 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1etov1ae3x288 .
 
-_:node1et0abus4x127 a oa:TextualBody;
+_:node1etov1ae3x288 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Dentibus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/9d31178b-ba51-46e6-aa15-bc3905df2ae0> oa:hasTarget
-    _:node1et0abus4x126 .
+<http://localhost:8080/rdf/nc/annotation/1e6eedf4-e2cb-4e19-b677-29a4053c970c> oa:hasTarget
+    _:node1etov1ae3x287 .
 
-_:node1et0abus4x126 a oa:Target;
+_:node1etov1ae3x287 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1et0abus4x129 .
+  oa:hasSelector _:node1etov1ae3x290 .
 
-_:node1et0abus4x129 a oa:FragmentSelector;
+_:node1etov1ae3x290 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" .
 
-_:node1et0abus4x126 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1etov1ae3x287 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/9d31178b-ba51-46e6-aa15-bc3905df2ae0> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/1e6eedf4-e2cb-4e19-b677-29a4053c970c> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
+img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation,
+    oa:Source, foaf:Image .
 
-<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a _:node1et0abus4x120 .
+<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a _:node1etov1ae3x281 .
 
-_:node1et0abus4x120 rdfs:subClassOf obo:UBERON_0001062 .
+_:node1etov1ae3x281 rdfs:subClassOf obo:UBERON_0001062 .
 
 <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> rdfs:label "Dentibus"@lat .
 

@@ -1,5 +1,6 @@
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix img: <http://localhost:8080/semanticAnnotator/files/> .
@@ -12,36 +13,37 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix taxon: <http://identifiers.org/taxonomy/> .
 
-<http://localhost:8080/rdf/nc/annotation/c4b81016-fa46-499c-b85a-574e1c6be294> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/b7b54768-0dd6-48d8-8dbd-1719fc6db9ef> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody taxon:9397, _:node1et0abus4x7 .
+  oa:hasBody taxon:9397, _:node1etov1ae3x168 .
 
-_:node1et0abus4x7 a oa:TextualBody;
+_:node1etov1ae3x168 a oa:TextualBody;
   nhc:belongsToTaxon taxon:9397;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/c4b81016-fa46-499c-b85a-574e1c6be294> oa:hasTarget
-    _:node1et0abus4x6 .
+<http://localhost:8080/rdf/nc/annotation/b7b54768-0dd6-48d8-8dbd-1719fc6db9ef> oa:hasTarget
+    _:node1etov1ae3x167 .
 
-_:node1et0abus4x6 a oa:Target;
+_:node1etov1ae3x167 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1et0abus4x9 .
+  oa:hasSelector _:node1etov1ae3x170 .
 
-_:node1et0abus4x9 a oa:FragmentSelector;
+_:node1etov1ae3x170 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" .
 
-_:node1et0abus4x6 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1etov1ae3x167 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/c4b81016-fa46-499c-b85a-574e1c6be294> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/b7b54768-0dd6-48d8-8dbd-1719fc6db9ef> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
+img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation,
+    oa:Source, foaf:Image .
 
 taxon:9397 a dwc:Taxon;
   dwc:taxonRank obo:TAXRANK_0000003 .

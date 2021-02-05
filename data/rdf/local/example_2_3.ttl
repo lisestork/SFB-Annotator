@@ -1,5 +1,7 @@
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dsw: <http://purl.org/dsw/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix img: <http://localhost:8080/semanticAnnotator/files/> .
@@ -10,35 +12,36 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/0dde40cc-1b71-47e6-b78c-16231ddbef20> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/4d42ebd7-fa6b-44bf-a7ff-6dc540f819dd> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody viaf:39377694, _:node1et0abus4x44 .
+  oa:hasBody viaf:39377694, _:node1etov1ae3x205 .
 
-_:node1et0abus4x44 a oa:TextualBody;
+_:node1etov1ae3x205 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
   rdf:value "Diard"@und .
 
-<http://localhost:8080/rdf/nc/annotation/0dde40cc-1b71-47e6-b78c-16231ddbef20> oa:hasTarget
-    _:node1et0abus4x43 .
+<http://localhost:8080/rdf/nc/annotation/4d42ebd7-fa6b-44bf-a7ff-6dc540f819dd> oa:hasTarget
+    _:node1etov1ae3x204 .
 
-_:node1et0abus4x43 a oa:Target;
+_:node1etov1ae3x204 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1et0abus4x46 .
+  oa:hasSelector _:node1etov1ae3x207 .
 
-_:node1et0abus4x46 a oa:FragmentSelector;
+_:node1etov1ae3x207 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.7453283007676283,0.08173359870928262,0.02509760712606801,0.01573687798175072" .
 
-_:node1et0abus4x43 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1etov1ae3x204 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/0dde40cc-1b71-47e6-b78c-16231ddbef20> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/4d42ebd7-fa6b-44bf-a7ff-6dc540f819dd> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
+img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation,
+    oa:Source, foaf:Image .
 
 <http://makingsense.liacs.nl/rdf/nc/identification> dwciri:identifiedBy viaf:39377694 .
 

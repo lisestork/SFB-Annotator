@@ -283,6 +283,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(textualBodyBNode, RDF.VALUE, f.createLiteral(verbatim, lang));
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "StillImage"));
 			conn.add(sourceIRI, RDF.TYPE, FOAF.IMAGE);
+			conn.add(sourceIRI, RDF.TYPE, humanObservationClass);
+			conn.add(sourceIRI, RDF.TYPE, tokenClass);
 			conn.add(selectorBNode, RDF.TYPE, fragmentSelectorClass);
 			conn.add(selectorBNode, RDF.VALUE, f.createLiteral(selector.replace("#", "")));
 			conn.add(selectorBNode, DCTERMS.CONFORMS_TO, f.createIRI(mf));
@@ -415,8 +417,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				case "measurementorfact" :
 					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
-					conn.add(sourceIRI, RDF.TYPE, humanObservationClass);
-					conn.add(sourceIRI, RDF.TYPE, tokenClass);
 					break;
 				case "propertyorattribute" :
 					conn.add(annotationIRI, hasBodyProperty, propertyOrAttributeIRI);

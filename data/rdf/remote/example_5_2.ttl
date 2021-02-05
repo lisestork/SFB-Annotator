@@ -13,35 +13,36 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/97f28b7f-c345-46bf-950f-29905c803d1f> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/21a7da2b-eba3-40f3-9fc1-0f19118f5cdb> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1et0abus4x278 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1etov1ae3x439 .
 
-_:node1et0abus4x278 a oa:TextualBody;
+_:node1etov1ae3x439 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Color"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/97f28b7f-c345-46bf-950f-29905c803d1f> oa:hasTarget
-    _:node1et0abus4x277 .
+<http://localhost:8080/rdf/nc/annotation/21a7da2b-eba3-40f3-9fc1-0f19118f5cdb> oa:hasTarget
+    _:node1etov1ae3x438 .
 
-_:node1et0abus4x277 a oa:Target;
+_:node1etov1ae3x438 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1et0abus4x280 .
+  oa:hasSelector _:node1etov1ae3x441 .
 
-_:node1et0abus4x280 a oa:FragmentSelector;
+_:node1etov1ae3x441 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726" .
 
-_:node1et0abus4x277 oa:hasSource img:default.jpg .
+_:node1etov1ae3x438 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/97f28b7f-c345-46bf-950f-29905c803d1f> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/21a7da2b-eba3-40f3-9fc1-0f19118f5cdb> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
+img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Source,
+    foaf:Image .
 
 <http://makingsense.liacs.nl/rdf/nc/humanObservation> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
 

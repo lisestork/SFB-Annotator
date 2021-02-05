@@ -16,43 +16,44 @@
 @prefix taxon: <http://identifiers.org/taxonomy/> .
 @prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/338f0d93-09cf-4219-825d-74e4da2ce20f> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/3d7a205d-8324-4454-a99e-00baab5e792a> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation>, _:node1et0abus4x176 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation>, _:node1etov1ae3x337 .
 
-_:node1et0abus4x176 a oa:TextualBody;
+_:node1etov1ae3x337 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/338f0d93-09cf-4219-825d-74e4da2ce20f> oa:hasBody
-    _:node1et0abus4x177 .
+<http://localhost:8080/rdf/nc/annotation/3d7a205d-8324-4454-a99e-00baab5e792a> oa:hasBody
+    _:node1etov1ae3x338 .
 
-_:node1et0abus4x177 a dwc:Taxon;
+_:node1etov1ae3x338 a dwc:Taxon;
   nhc:belongsToTaxon taxon:9397;
   dwc:taxonRank obo:TAXRANK_0000003;
   rdfs:label "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/338f0d93-09cf-4219-825d-74e4da2ce20f> oa:hasTarget
-    img:default.jpg, _:node1et0abus4x175 .
+<http://localhost:8080/rdf/nc/annotation/3d7a205d-8324-4454-a99e-00baab5e792a> oa:hasTarget
+    img:default.jpg, _:node1etov1ae3x336 .
 
-_:node1et0abus4x175 a oa:Target;
+_:node1etov1ae3x336 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1et0abus4x178 .
+  oa:hasSelector _:node1etov1ae3x339 .
 
-_:node1et0abus4x178 a oa:FragmentSelector;
+_:node1etov1ae3x339 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862" .
 
-_:node1et0abus4x175 oa:hasSource img:default.jpg .
+_:node1etov1ae3x336 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/338f0d93-09cf-4219-825d-74e4da2ce20f> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/3d7a205d-8324-4454-a99e-00baab5e792a> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
+img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Source,
+    foaf:Image .
 
 <http://makingsense.liacs.nl/rdf/nc/event> a dwc:Event;
   nhc:verbatimEventDate <http://makingsense.liacs.nl/rdf/nc/date>;
@@ -70,7 +71,7 @@ img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
   dsw:identifies <http://makingsense.liacs.nl/rdf/nc/organism>;
   dsw:isBasedOn <http://makingsense.liacs.nl/rdf/nc/humanObservation>;
   dwciri:identifiedBy viaf:45106482;
-  dwciri:toTaxon _:node1et0abus4x177;
+  dwciri:toTaxon _:node1etov1ae3x338;
   dwc:identificationID "" .
 
 <http://makingsense.liacs.nl/rdf/nc/location> a dcterms:Location;

@@ -10,37 +10,34 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/f8a9f13c-6a9f-48c9-9c6a-0754b19275ed> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/9e714658-4021-41d9-a9e0-f92a906657b8> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1>, _:node1et0abus4x97 .
+  oa:hasBody _:node1etov1ae3x258 .
 
-_:node1et0abus4x97 a oa:TextualBody;
+_:node1etov1ae3x258 a dwc:MeasurementOrFact, oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:und;
+  dsw:derivedFrom img:MMNAT01_AF_NNM001001033_003.jpg;
   rdf:value ""@und .
 
-<http://localhost:8080/rdf/nc/annotation/f8a9f13c-6a9f-48c9-9c6a-0754b19275ed> oa:hasTarget
-    _:node1et0abus4x96 .
+<http://localhost:8080/rdf/nc/annotation/9e714658-4021-41d9-a9e0-f92a906657b8> oa:hasTarget
+    _:node1etov1ae3x257 .
 
-_:node1et0abus4x96 a oa:Target;
+_:node1etov1ae3x257 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1et0abus4x99 .
+  oa:hasSelector _:node1etov1ae3x260 .
 
-_:node1et0abus4x99 a oa:FragmentSelector;
+_:node1etov1ae3x260 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5644329896907211,0.10470473364690311,0.1377025036818852,0.06369661266568483" .
 
-_:node1et0abus4x96 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1etov1ae3x257 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/f8a9f13c-6a9f-48c9-9c6a-0754b19275ed> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/9e714658-4021-41d9-a9e0-f92a906657b8> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
-
-<http://makingsense.liacs.nl/rdf/nc/humanObservation> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
-
-<http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> a dwc:MeasurementOrFact;
-  dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation> .
+img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation,
+    oa:Source, foaf:Image .

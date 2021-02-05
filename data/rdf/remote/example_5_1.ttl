@@ -13,35 +13,36 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/215948f3-0009-4b32-81ed-5a61a7e44c44> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/585ca34a-9583-4155-829f-40681fd55575> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1et0abus4x268 .
+  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>, _:node1etov1ae3x429 .
 
-_:node1et0abus4x268 a oa:TextualBody;
+_:node1etov1ae3x429 a oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   rdf:value "Color"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/215948f3-0009-4b32-81ed-5a61a7e44c44> oa:hasTarget
-    _:node1et0abus4x267 .
+<http://localhost:8080/rdf/nc/annotation/585ca34a-9583-4155-829f-40681fd55575> oa:hasTarget
+    _:node1etov1ae3x428 .
 
-_:node1et0abus4x267 a oa:Target;
+_:node1etov1ae3x428 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1et0abus4x270 .
+  oa:hasSelector _:node1etov1ae3x431 .
 
-_:node1et0abus4x270 a oa:FragmentSelector;
+_:node1etov1ae3x431 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091" .
 
-_:node1et0abus4x267 oa:hasSource img:default.jpg .
+_:node1etov1ae3x428 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/215948f3-0009-4b32-81ed-5a61a7e44c44> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/585ca34a-9583-4155-829f-40681fd55575> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
-img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
+img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Source,
+    foaf:Image .
 
 <http://makingsense.liacs.nl/rdf/nc/humanObservation> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
 
@@ -49,8 +50,8 @@ img:default.jpg a dcmitype:StillImage, oa:Source, foaf:Image .
   nhc:measuresOrDescribes <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1>;
   dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation> .
 
-<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a _:node1et0abus4x262 .
+<http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> a _:node1etov1ae3x423 .
 
-_:node1et0abus4x262 rdfs:subClassOf ncit:C20189 .
+_:node1etov1ae3x423 rdfs:subClassOf ncit:C20189 .
 
 <http://makingsense.liacs.nl/rdf/nc/propertyOrAttribute1> rdfs:label "Color"@lat .
