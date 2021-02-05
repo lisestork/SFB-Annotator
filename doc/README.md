@@ -28,7 +28,7 @@ Property: `rdf:type`
 
 Input: [JSON](/data/json/local/example_1_1.json)
 
-Output: [RDF/Turtle](/data/rdf/local/example_1_1.ttl)
+Output: [RDF/Turtle](/data/rdf/local/example_1_1.ttl)|[SVG](/data/rdf/local/example_1_1.svg)
 
 Steps:
 
@@ -93,7 +93,7 @@ Property: `rdf:type`
 
 Input: [JSON](/data/json/local/example_2_1.json)
 
-Output: [RDF/Turtle](/data/rdf/local/example_2_1.ttl)
+Output: [RDF/Turtle](/data/rdf/local/example_2_1.ttl)|[SVG](/data/rdf/local/example_2_1.svg)
 
 Steps:
 
@@ -214,7 +214,7 @@ Property: `rdf:type`
 
 Input: [JSON](/data/json/local/example_3_1.json)
 
-Output: [RDF/Turtle](/data/rdf/local/example_3_1.ttl)
+Output: [RDF/Turtle](/data/rdf/local/example_3_1.ttl)|[SVG](/data/rdf/local/example_3_1.svg)
 
 Steps:
 
@@ -275,7 +275,7 @@ Property: `rdf:type`
 
 Input: [JSON](/data/json/local/example_4_1.json)
 
-Output: [RDF/Turtle](/data/rdf/local/example_4_1.ttl)
+Output: [RDF/Turtle](/data/rdf/local/example_4_1.ttl)|[SVG](/data/rdf/local/example_4_1.svg)
 
 Steps:
 
@@ -334,7 +334,7 @@ Property: `rdf:type`
 
 Input: [JSON](/data/json/remote/example_5_1.json)
 
-Output: [RDF/Turtle](/data/rdf/remote/example_5_1.ttl)|[JSON-LD](/data/rdf/remote/example_5_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_5_1.ttl)|[SVG](/data/rdf/local/example_5_1.svg)
 
 Steps:
 
@@ -396,7 +396,7 @@ Property: `rdf:type`
 
 Input: [JSON](/data/json/remote/example_6_1.json)
 
-Output: [RDF/Turtle](/data/rdf/remote/example_6_1.ttl)|[JSON-LD](/data/rdf/remote/example_6_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_6_1.ttl)|[SVG](/data/rdf/local/example_6_1.svg)
 
 Steps:
 
@@ -459,7 +459,7 @@ Property: `rdf:type`
 
 Input: [JSON](/data/json/remote/example_7_1.json)
 
-Output: [RDF/Turtle](/data/rdf/remote/example_7_1.ttl)|[JSON-LD](/data/rdf/remote/example_7_1.jsonld)
+Output: [RDF/Turtle](/data/rdf/remote/example_7_1.ttl)|[SVG](/data/rdf/local/example_7_1.svg)
 
 Steps:
 
