@@ -409,7 +409,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
 					if (propertyOrAttributeClass.isIRI()) {
-						conn.add(textualBodyBNode, RDF.TYPE, propertyOrAttributeClass);
 						conn.add(measurementOrFactClass, measurementTypeProperty, propertyOrAttributeClass);
 					} else {
 						conn.add(measurementOrFactClass, measurementTypeProperty, f.createLiteral(verbatim, lang));
