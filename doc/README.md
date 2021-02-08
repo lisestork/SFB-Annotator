@@ -2,8 +2,8 @@
 Field notes are collections of observation records ([`dwc:HumanObservation`](https://dwc.tdwg.org/terms/#humanobservation)) that describe the occurrence ([`dwc:Occurrence`](https://dwc.tdwg.org/terms/#occurrence)) of an organism ([`dwc:Organism`](http://rs.tdwg.org/dwc/terms/Organism)) at a certain location ([`dwc:Location`](https://dwc.tdwg.org/terms/#location)) and date ([`nhc:Date`](http://makingsense.liacs.nl/rdf/nhc-content/2018-04-04.html#Date)). An observation record most often includes  an identification ([`dwc:Identification`](https://dwc.tdwg.org/terms/#identification)) to a taxon ([`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)), and accompanying measurements and facts ([`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact), [`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062), [`ncit:C20189`](http://purl.obolibrary.org/obo/NCIT_C20189)) that were used for identification. These observation records usually span multiple field notes, but can also be very short utterances such as on page 3: _Sci. Diard Buitenzorg_, most likely referring to the occurrence of another organism with the same identification.
 
 **Table 1.** List of examples with annotation classes and properties.
-| class| property | example | notes
-|---|---|---
+| class | property | example | comments |
+|---|---|---|---|
 |[`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)|`rdf:type`|[`1_1`](#Example-1_1)|revised
 ||`dsw:hasIdentification`|[`1_2`](#Example-1_2)| -
 |[`foaf:Person`](http://xmlns.com/foaf/spec/#term_Person)|`rdf:type`|[`2_1`](#Example-2_1)|revised
