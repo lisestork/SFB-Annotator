@@ -134,7 +134,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		ValueFactory f = repo.getValueFactory();
 
 		// init class
-		IRI anatomicalEntityTopClass = f.createIRI(obo, "UBERON_0001062");
 		IRI annotationClass = f.createIRI(oa, "Annotation");
 		IRI featureClass = f.createIRI(gn, "Feature");
 		IRI targetClass = f.createIRI(oa, "Target");
@@ -223,12 +222,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		BNode textualBodyBNode = f.createBNode();
 		BNode taxonBNode = f.createBNode();
 		BNode selectorBNode = f.createBNode();
-
-		// query RDF store
-		String query5 = "SELECT (COUNT(DISTINCT ?anatomicalentity) AS ?totalNumberOfInstances) WHERE { ?anatomicalentity rdf:type ?type . ?type rdfs:subClassOf <"
-				+ anatomicalEntityTopClass.toString() + "> . }";
-		int anatomicalEntityNr = QueryTripleStore(query5, repo);
-		IRI anatomicalEntityIRI = f.createIRI(nc, "anatomicalEntity" + anatomicalEntityNr);
 
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();
@@ -415,42 +408,18 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					}
 					break;
 				case "anatomicalentity" :
-					conn.add(annotationIRI, hasBodyProperty, anatomicalEntityIRI);
-					conn.add(anatomicalEntityIRI, RDF.TYPE, anatomicalEntityClass);
-					conn.add(anatomicalEntityClass, RDFS.SUBCLASSOF, anatomicalEntityTopClass);
-					conn.add(anatomicalEntityIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
-					//conn.add(humanObservationIRI, hasDerivativeProperty, measurementOrFactIRI);
-					//conn.add(measurementOrFactIRI, measuresOrDescribesProperty, anatomicalEntityIRI);
-					//conn.add(measurementOrFactIRI, derivedFromProperty, humanObservationIRI);
-					//conn.add(measurementOrFactIRI, RDF.TYPE, measurementOrFactClass);
+					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
+					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
+					if (propertyOrAttributeClass.isIRI()) {
+						conn.add(measurementOrFactClass, measurementTypeProperty, propertyOrAttributeClass);
+					} else {
+						conn.add(measurementOrFactClass, measurementTypeProperty, f.createLiteral(verbatim, lang));
+					}
 					break;
 				default :
 					break;
 			}
 			conn.commit();
 		}
-	}
-
-	public int QueryTripleStore(String query, Repository repo) {
-		Value count = null;
-		int c = 0;
-
-		try (RepositoryConnection conn = repo.getConnection()) {
-			TupleQuery tupleQuery = conn.prepareTupleQuery(query);
-			try (TupleQueryResult result = tupleQuery.evaluate()) {
-				while (result.hasNext()) { // iterate over the result
-					BindingSet bindingSet = result.next();
-					count = bindingSet.getValue("valueOf");
-				}
-			}
-		}
-
-		if (count != null) {
-			Literal literal = (Literal) count;
-			c = literal.intValue() + 1;
-		} else {
-			c = 1;
-		}
-		return c;
 	}
 }
