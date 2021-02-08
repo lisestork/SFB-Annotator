@@ -2,24 +2,24 @@
 Field notes are collections of observation records ([`dwc:HumanObservation`](https://dwc.tdwg.org/terms/#humanobservation)) that describe the occurrence ([`dwc:Occurrence`](https://dwc.tdwg.org/terms/#occurrence)) of an organism ([`dwc:Organism`](http://rs.tdwg.org/dwc/terms/Organism)) at a certain location ([`dwc:Location`](https://dwc.tdwg.org/terms/#location)) and date ([`nhc:Date`](http://makingsense.liacs.nl/rdf/nhc-content/2018-04-04.html#Date)). An observation record most often includes  an identification ([`dwc:Identification`](https://dwc.tdwg.org/terms/#identification)) to a taxon ([`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)), and accompanying measurements and facts ([`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact), [`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062), [`ncit:C20189`](http://purl.obolibrary.org/obo/NCIT_C20189)) that were used for identification. These observation records usually span multiple field notes, but can also be very short utterances such as on page 3: _Sci. Diard Buitenzorg_, most likely referring to the occurrence of another organism with the same identification.
 
 **Table 1.** List of examples with annotation classes and properties.
-|class| property | example |
+| class| property | example | notes
 |---|---|---
-|[`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)|`rdf:type`|[`1_1`](#Example-1_1)
-||`dsw:hasIdentification`|[`1_2`](#Example-1_2)
-|[`foaf:Person`](http://xmlns.com/foaf/spec/#term_Person)|`rdf:type`|[`2_1`](#Example-2_1)
-||`nhc:scientificNameAuthorship`|[`2_2`](#Example-2_2)
-||`dwciri:identifiedBy`|[`2_3`](#Example-2_3)
-||`dwciri:recordedBy`|[`2_4`](#Example-2_4)
-|[`dwc:Location`](https://dwc.tdwg.org/terms/#location)|`rdf:type`|[`3_1`](#Example-3_1)
-||`dsw:locatedAt`|[`3_2`](#Example-3_2)
-|[`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)|`rdf:type`|[`4_1`](#Example-4_1)
-||`dsw:derivedFrom`|[`4_2`](#Example-4_2) |
-|[`ncit:C20189`](http://identifiers.org/ncit/C37927) (propertyOrAttribute)|`rdf:type`|[`5_1`](#Example-5_1)
-||`nhc:measuresOrDescribes`|[`5_2`](#Example-5_2)|
-|[`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062) (anatomicalEntity)|`rdf:type`|[`6_1`](#Example-6_1)
-||`nhc:measuresOrDescribes`|[`6_2`](#Example-6_2) |
-|`nhc:Date`|`rdf:type`|[`7_1`](#Example-7_1)
-||`nhc:verbatimDate`|[`7_2`](#Example-7_2)|
+|[`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)|`rdf:type`|[`1_1`](#Example-1_1)|revised
+||`dsw:hasIdentification`|[`1_2`](#Example-1_2)| -
+|[`foaf:Person`](http://xmlns.com/foaf/spec/#term_Person)|`rdf:type`|[`2_1`](#Example-2_1)|revised
+||`nhc:scientificNameAuthorship`|[`2_2`](#Example-2_2)| -
+||`dwciri:identifiedBy`|[`2_3`](#Example-2_3)| -
+||`dwciri:recordedBy`|[`2_4`](#Example-2_4)| -
+|[`dwc:Location`](https://dwc.tdwg.org/terms/#location)|`rdf:type`|[`3_1`](#Example-3_1)|revised
+||`dsw:locatedAt`|[`3_2`](#Example-3_2)| -
+|[`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)|`rdf:type`|[`4_1`(#Example-4_1)|revised
+||`dsw:derivedFrom`|[`4_2`](#Example-4_2)| -
+|[`ncit:C20189`](http://identifiers.org/ncit/C37927) (propertyOrAttribute)|`rdf:type`|[`5_1`](#Example-5_1)|revised
+||`nhc:measuresOrDescribes`|[`5_2`](#Example-5_2)| -
+|[`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062) (anatomicalEntity)|`rdf:type`|[`6_1`](#Example-6_1)|revised
+||`nhc:measuresOrDescribes`|[`6_2`](#Example-6_2)| -
+|`nhc:Date`|`rdf:type`|[`7_1`](#Example-7_1) -
+||`nhc:verbatimDate`|[`7_2`](#Example-7_2)| -
 
 
 ### Example 1_1
@@ -411,11 +411,11 @@ Steps:
 |Key|Value |Notes | Diff Expected
 |---|-----|-----|-----
 | Entity type | `AnatomicalEntity` |  The handwritten text contains the name of an anatomical entity. | Should be a drop-down menu with all possible classes
-| verbatim text | _Dentibus_ | The verbatim text as written in the bounding box |
-| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
+| verbatim text | `Dentibus` | The verbatim text as written in the bounding box |
+| language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains the name of an anatomical entity. |
 | type | `anatomicalentity` |  auto-fill from entity type |
-| instance | `http://purl.obolibrary.org/obo/UBERON_0003672` | Link the bounding box to the IRI if known. Here the anatomical entity _Dentibus_. | Preferably these instances can be retrieved with semantic autocomplete
+| instance | `http://purl.obolibrary.org/obo/UBERON_0001062` (dentition)| Link the bounding box to the IRI if known. Here the anatomical entity _Dentibus_. | Preferably these instances can be retrieved with semantic autocomplete
 
 * Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
 
