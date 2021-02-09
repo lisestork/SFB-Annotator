@@ -10,7 +10,7 @@ Field notes are collections of observation records ([`dwc:HumanObservation`](htt
 ||`nhc:scientificNameAuthorship`|[`2_2`](#Example-2_2)| -
 ||`dwciri:identifiedBy`|[`2_3`](#Example-2_3)| -
 ||`dwciri:recordedBy`|[`2_4`](#Example-2_4)| -
-|[`dwc:Location`](https://dwc.tdwg.org/terms/#location)|`rdf:type`|[`3_1`](#Example-3_1)|revised
+|[`dwc:Location`](https://dwc.tdwg.org/terms/#location), [`dcterms:Location`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/Location)|`rdf:type`|[`3_1`](#Example-3_1)|revised
 ||`dsw:locatedAt`|[`3_2`](#Example-3_2)| -
 |[`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)|`rdf:type`|[`4_1`](#Example-4_1)|revised
 ||`dsw:derivedFrom`|[`4_2`](#Example-4_2)| -
