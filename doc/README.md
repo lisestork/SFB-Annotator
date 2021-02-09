@@ -18,7 +18,7 @@ Field notes are collections of observation records ([`dwc:HumanObservation`](htt
 ||`nhc:measuresOrDescribes`|[`5_2`](#Example-5_2)| -
 |[`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062) (anatomicalEntity)|`rdf:type`|[`6_1`](#Example-6_1)|revised
 ||`nhc:measuresOrDescribes`|[`6_2`](#Example-6_2)| -
-|`dwc:Event`|`rdf:type`|[`7_1`](#Example-7_1)|revised
+|[`dwc:Event`](https://dwc.tdwg.org/terms/#dwc:Event)|`rdf:type`|[`7_1`](#Example-7_1)|revised
 ||`nhc:verbatimDate`|[`7_2`](#Example-7_2)| -
 
 
@@ -478,7 +478,7 @@ Steps:
 | language/`language` | `ger` | [ISO 639-3 code](https://iso639-3.sil.org/code/ger) for _German_ |
 | Select property | `Type` | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a date. |
 | type | `date` | auto-fill from entity type |
-| instance | | this field should be removed |
+| instance | | This field is currently not used. |
 
 
 ### Example 7_2
