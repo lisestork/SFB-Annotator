@@ -189,8 +189,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI identifiedByProperty = f.createIRI(dwciri, "identifiedBy");
 		IRI recordedByProperty = f.createIRI(dwciri, "recordedBy");
 		IRI inDescribedPlaceProperty = f.createIRI(dwciri, "inDescribedPlace");
+		IRI measurementTypeProperty = f.createIRI(dwciri, "measurementType");
 		IRI scientificNameAuthorshipProperty = f.createIRI(dwc, "scientificNameAuthorship");
-		IRI measurementTypeProperty = f.createIRI(dwc, "measurementType");
 		IRI verbatimEventDateProperty = f.createIRI(dwc, "verbatimEventDate");
 		IRI verbatimLocalityProperty = f.createIRI(dwc, "verbatimLocality");
 		// init instances
@@ -399,6 +399,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(textualBodyBNode, RDF.TYPE, DCTERMS.LOCATION);
 					conn.add(textualBodyBNode, RDF.TYPE, locationClass);
 					if (instanceIRI.isIRI()) {
+						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceIRI);
 						conn.add(textualBodyBNode, inDescribedPlaceProperty, instanceIRI);
 					}
 					break;
@@ -410,18 +411,16 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
 					if (propertyOrAttributeClass.isIRI()) {
+						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceIRI);
 						conn.add(measurementOrFactClass, measurementTypeProperty, propertyOrAttributeClass);
-					} else {
-						conn.add(measurementOrFactClass, measurementTypeProperty, f.createLiteral(verbatim, lang));
 					}
 					break;
 				case "anatomicalentity" :
 					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
 					if (propertyOrAttributeClass.isIRI()) {
+						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceIRI);
 						conn.add(measurementOrFactClass, measurementTypeProperty, propertyOrAttributeClass);
-					} else {
-						conn.add(measurementOrFactClass, measurementTypeProperty, f.createLiteral(verbatim, lang));
 					}
 					break;
 				case "date" :
