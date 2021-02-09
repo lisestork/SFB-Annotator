@@ -147,6 +147,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI organismClass = f.createIRI(dwc, "Organism");
 		IRI eventClass = f.createIRI(dwc, "Event");
 		IRI taxonClass = f.createIRI(dwc, "Taxon");
+		IRI locationClass = f.createIRI(dwc, "Location");
 		IRI tokenClass = f.createIRI(dsw, "Token");
 		Resource propertyOrAttributeClass = (instance.equals("")) ? f.createBNode() : f.createIRI(instance);
 		Resource anatomicalEntityClass = (anatomicalentity.equals(""))
@@ -191,7 +192,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI scientificNameAuthorshipProperty = f.createIRI(dwc, "scientificNameAuthorship");
 		IRI measurementTypeProperty = f.createIRI(dwc, "measurementType");
 		IRI verbatimEventDateProperty = f.createIRI(dwc, "verbatimEventDate");
-
+		IRI verbatimLocalityProperty = f.createIRI(dwc, "verbatimLocality");
 		// init instances
 		IRI annotationIRI = f.createIRI(host, "rdf/nc/annotation/" + uuid);
 		IRI sourceIRI = f.createIRI(source);
@@ -376,9 +377,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					if (type.equals("person")) {
 						conn.add(annotationIRI, hasBodyProperty, instanceIRI);
 						conn.add(instanceIRI, RDF.TYPE, FOAF.PERSON);
-					} else if (type.equals("location")) {
-						conn.add(annotationIRI, hasBodyProperty, instanceIRI);
-						conn.add(instanceIRI, RDF.TYPE, DCTERMS.LOCATION);
 					} else if (type.equals("taxon")) {
 						conn.add(annotationIRI, hasBodyProperty, belongsToTaxonIRI);
 						conn.add(belongsToTaxonIRI, RDF.TYPE, taxonClass);
@@ -391,6 +389,15 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			}
 
 			switch (type) {
+				case "location" :
+					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
+					conn.add(textualBodyBNode, verbatimLocalityProperty, f.createLiteral(verbatim, lang));
+					conn.add(textualBodyBNode, RDF.TYPE, DCTERMS.LOCATION);
+					conn.add(textualBodyBNode, RDF.TYPE, locationClass);
+					if (instanceIRI.isIRI()) {
+						conn.add(textualBodyBNode, inDescribedPlaceProperty, instanceIRI);
+					}
+					break;
 				case "measurementorfact" :
 					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);

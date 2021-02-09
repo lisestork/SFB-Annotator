@@ -2,6 +2,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gn: <http://sws.geonames.org/> .
 @prefix img: <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/> .
@@ -11,35 +12,36 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/fdc2bc45-6f01-44f5-964b-7de8f0712c89> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/b8f9bcca-4a5c-44c6-ae4e-0f9931e65500> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody gn:1648473, _:node1etov1ae3x386 .
+  dsw:derivedFrom img:default.jpg;
+  oa:hasBody _:node1eu499f85x16 .
 
-_:node1etov1ae3x386 a oa:TextualBody;
+_:node1eu499f85x16 a dcterms:Location, dwc:Location, oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:dut;
+  dwciri:inDescribedPlace gn:1648473;
+  dwc:verbatimLocality "Buitenzorg"@dut;
   rdf:value "Buitenzorg"@dut .
 
-<http://localhost:8080/rdf/nc/annotation/fdc2bc45-6f01-44f5-964b-7de8f0712c89> oa:hasTarget
-    _:node1etov1ae3x385 .
+<http://localhost:8080/rdf/nc/annotation/b8f9bcca-4a5c-44c6-ae4e-0f9931e65500> oa:hasTarget
+    _:node1eu499f85x15 .
 
-_:node1etov1ae3x385 a oa:Target;
+_:node1eu499f85x15 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1etov1ae3x388 .
+  oa:hasSelector _:node1eu499f85x18 .
 
-_:node1etov1ae3x388 a oa:FragmentSelector;
+_:node1eu499f85x18 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445" .
 
-_:node1etov1ae3x385 oa:hasSource img:default.jpg .
+_:node1eu499f85x15 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/fdc2bc45-6f01-44f5-964b-7de8f0712c89> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/b8f9bcca-4a5c-44c6-ae4e-0f9931e65500> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Source,
     foaf:Image .
-
-gn:1648473 a dcterms:Location .
