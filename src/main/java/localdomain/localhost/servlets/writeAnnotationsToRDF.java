@@ -148,9 +148,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI eventClass = f.createIRI(dwc, "Event");
 		IRI taxonClass = f.createIRI(dwc, "Taxon");
 		IRI tokenClass = f.createIRI(dsw, "Token");
-		Resource propertyOrAttributeClass = (instance.equals(""))
-				? f.createBNode()
-				: f.createIRI(instance);
+		Resource propertyOrAttributeClass = (instance.equals("")) ? f.createBNode() : f.createIRI(instance);
 		Resource anatomicalEntityClass = (anatomicalentity.equals(""))
 				? f.createBNode()
 				: f.createIRI(anatomicalentity);
@@ -166,7 +164,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI hasSelectorProperty = f.createIRI(oa, "hasSelector");
 		IRI hasBodyProperty = f.createIRI(oa, "hasBody");
 		IRI hasTargetProperty = f.createIRI(oa, "hasTarget");
-		// IRI hasPurposeProperty = f.createIRI(oa, "hasPurpose");
 		IRI motivatedByProperty = f.createIRI(oa, "motivatedBy");
 		IRI hasDerivativeProperty = f.createIRI(dsw, "hasDerivative");
 		IRI derivedFromProperty = f.createIRI(dsw, "derivedFrom");
@@ -186,7 +183,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI toTaxonProperty = f.createIRI(dwciri, "toTaxon");
 		IRI locatesProperty = f.createIRI(dsw, "locates");
 		IRI locatedAtProperty = f.createIRI(dsw, "locatedAt");
-		IRI verbatimEventDateProperty = f.createIRI(nhc, "verbatimEventDate");
 		IRI belongsToTaxonProperty = f.createIRI(nhc, "belongsToTaxon");
 		IRI taxonRankProperty = f.createIRI(dwc, "taxonRank");
 		IRI identifiedByProperty = f.createIRI(dwciri, "identifiedBy");
@@ -194,6 +190,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI inDescribedPlaceProperty = f.createIRI(dwciri, "inDescribedPlace");
 		IRI scientificNameAuthorshipProperty = f.createIRI(dwc, "scientificNameAuthorship");
 		IRI measurementTypeProperty = f.createIRI(dwc, "measurementType");
+		IRI verbatimEventDateProperty = f.createIRI(dwc, "verbatimEventDate");
 
 		// init instances
 		IRI annotationIRI = f.createIRI(host, "rdf/nc/annotation/" + uuid);
@@ -415,6 +412,11 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					} else {
 						conn.add(measurementOrFactClass, measurementTypeProperty, f.createLiteral(verbatim, lang));
 					}
+					break;
+				case "date" :
+					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
+					conn.add(textualBodyBNode, RDF.TYPE, eventClass);
+					conn.add(eventClass, verbatimEventDateProperty, f.createLiteral(verbatim, lang));
 					break;
 				default :
 					break;
