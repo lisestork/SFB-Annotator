@@ -12,7 +12,7 @@ Field notes are collections of observation records ([`dwc:HumanObservation`](htt
 ||`dwciri:recordedBy`|[`2_4`](#Example-2_4)| -
 |[`dwc:Location`](https://dwc.tdwg.org/terms/#location)|`rdf:type`|[`3_1`](#Example-3_1)|revised
 ||`dsw:locatedAt`|[`3_2`](#Example-3_2)| -
-|[`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)|`rdf:type`|[`4_1`(#Example-4_1)|revised
+|[`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)|`rdf:type`|[`4_1`](#Example-4_1)|revised
 ||`dsw:derivedFrom`|[`4_2`](#Example-4_2)| -
 |[`ncit:C20189`](http://identifiers.org/ncit/C37927) (propertyOrAttribute)|`rdf:type`|[`5_1`](#Example-5_1)|revised
 ||`nhc:measuresOrDescribes`|[`5_2`](#Example-5_2)| -
