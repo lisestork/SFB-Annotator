@@ -19,7 +19,7 @@
   "source": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/max/0/default.jpg",
   "selector": "#xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081",
   "verbatim": "10 April 1821",
-  "language": "dut",
+  "language": "ger",
   "type": "date",
   "property": "type",
   "instance": ""

@@ -18,7 +18,7 @@ Field notes are collections of observation records ([`dwc:HumanObservation`](htt
 ||`nhc:measuresOrDescribes`|[`5_2`](#Example-5_2)| -
 |[`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062) (anatomicalEntity)|`rdf:type`|[`6_1`](#Example-6_1)|revised
 ||`nhc:measuresOrDescribes`|[`6_2`](#Example-6_2)| -
-|`nhc:Date`|`rdf:type`|[`7_1`](#Example-7_1) -
+|`dwc:Event`|`rdf:type`|[`7_1`](#Example-7_1)|revised
 ||`nhc:verbatimDate`|[`7_2`](#Example-7_2)| -
 
 
@@ -46,7 +46,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type/`text` | `Taxon` |  The handwritten text contains a taxon name. | Should be a drop-down menu with all possible classes
 | verbatim text/`verbatim` | `Pteropus minimus` | The verbatim text as written in the bounding box |
-| language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |  add autocomplete/drop down menu
+| language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _Latin_ |  add autocomplete/drop down menu
 | Select property/`property` | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a taxon. |
 | type/`type` | `taxon` |  auto-fill according to the Entity type |
 | Belongs to taxon/`belongstotaxon` | `http://identifiers.org/taxonomy/9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) | **question:** who do we allow to annotate, and who to interpret the data
@@ -293,7 +293,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type | `MeasurementOrFact` |  The handwritten text contains a measurement or fact. | Should be a drop-down menu with all possible classes
 | verbatim text | [Markdown](https://www.markdownguide.org/) table (or list) ||
-| language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
+| language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _Latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a measurement or fact. |
 | type | `measurementorfact` |  auto-fill from entity type |
 | instance ||| Remove this field.
@@ -352,7 +352,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type | `PropertyOrAttribute` |  The handwritten text contains a property or attribute name. | Should be a drop-down menu with all possible classes
 | verbatim text | `Color` | The verbatim text as written in the bounding box |
-| language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
+| language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _Latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a property or attribute name. |
 | type | `propertyOrAttribute` |  auto-fill from entity type |
 | instance | `http://identifiers.org/ncit/C37927` (Color) | Link the bounding box to the IRI if known. | Preferably these instances can be retrieved with semantic autocomplete
@@ -412,7 +412,7 @@ Steps:
 |---|-----|-----|-----
 | Entity type | `AnatomicalEntity` |  The handwritten text contains the name of an anatomical entity. | Should be a drop-down menu with all possible classes
 | verbatim text | `Dentibus` | The verbatim text as written in the bounding box |
-| language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
+| language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _Latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains the name of an anatomical entity. |
 | type | `anatomicalentity` |  auto-fill from entity type |
 | instance | `http://purl.obolibrary.org/obo/UBERON_0001062` (dentition)| Link the bounding box to the IRI if known. Here the anatomical entity _Dentibus_. | Preferably these instances can be retrieved with semantic autocomplete
@@ -474,13 +474,11 @@ Steps:
 |Key|Value |Notes | Diff Expected
 |---|-----|-----|-----
 | Entity type | `date` |  The handwritten text contains a date. | Should be a drop-down menu with all possible classes
-| verbatim text | _10 April 1821_ | The verbatim text as written in the bounding box |
-| language/`language` | _lat_ | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _latin_ |
-| Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a date. |
-| type | `date` |  auto-fill from entity type |
-| instance | | this field should be removed | instead of the instance field, we would like to see the same fields as when the property `Organism described on` is selected, minus the organism ID field. See example [`example 7_2`](#Example-7_2) and corresponding ttl file [`example_7_2.ttl`](/data/rdf/remote/example_7_2.ttl) file.
-
-* Check generated triples in the [RDF store](http://localhost:8080/rdf4j-workbench/repositories/mem-rdf/query).
+| verbatim text | `10 April 1821` | The verbatim text as written in the bounding box |
+| language/`language` | `ger` | [ISO 639-3 code](https://iso639-3.sil.org/code/ger) for _German_ |
+| Select property | `Type` | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a date. |
+| type | `date` | auto-fill from entity type |
+| instance | | this field should be removed |
 
 
 ### Example 7_2
