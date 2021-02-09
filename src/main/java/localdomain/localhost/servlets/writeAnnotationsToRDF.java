@@ -395,11 +395,11 @@ public class writeAnnotationsToRDF extends HttpServlet {
 
 			switch (type) {
 				case "measurementorfact" :
-					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
+					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
 					break;
 				case "propertyorattribute" :
-					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
+					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
 					if (propertyOrAttributeClass.isIRI()) {
 						conn.add(measurementOrFactClass, measurementTypeProperty, propertyOrAttributeClass);
@@ -408,7 +408,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					}
 					break;
 				case "anatomicalentity" :
-					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
+					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
 					if (propertyOrAttributeClass.isIRI()) {
 						conn.add(measurementOrFactClass, measurementTypeProperty, propertyOrAttributeClass);

@@ -11,31 +11,31 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/81d5afea-0c52-405e-9310-0149bb8ea062> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/11ff515d-ad0b-46a3-ac8f-9ff9bc921326> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1eu1oq31fx25 .
+  dsw:derivedFrom img:default.jpg;
+  oa:hasBody _:node1eu32tc5bx34 .
 
-_:node1eu1oq31fx25 a dwc:MeasurementOrFact, oa:TextualBody;
+_:node1eu32tc5bx34 a dwc:MeasurementOrFact, oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
-  dsw:derivedFrom img:default.jpg;
   rdf:value "Dentibus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/81d5afea-0c52-405e-9310-0149bb8ea062> oa:hasTarget
-    _:node1eu1oq31fx24 .
+<http://localhost:8080/rdf/nc/annotation/11ff515d-ad0b-46a3-ac8f-9ff9bc921326> oa:hasTarget
+    _:node1eu32tc5bx33 .
 
-_:node1eu1oq31fx24 a oa:Target;
+_:node1eu32tc5bx33 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1eu1oq31fx27 .
+  oa:hasSelector _:node1eu32tc5bx36 .
 
-_:node1eu1oq31fx27 a oa:FragmentSelector;
+_:node1eu32tc5bx36 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" .
 
-_:node1eu1oq31fx24 oa:hasSource img:default.jpg .
+_:node1eu32tc5bx33 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/81d5afea-0c52-405e-9310-0149bb8ea062> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/11ff515d-ad0b-46a3-ac8f-9ff9bc921326> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
