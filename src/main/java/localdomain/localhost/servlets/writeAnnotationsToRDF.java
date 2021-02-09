@@ -374,10 +374,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
 					break;
 				case "type" :
-					if (type.equals("person")) {
-						conn.add(annotationIRI, hasBodyProperty, instanceIRI);
-						conn.add(instanceIRI, RDF.TYPE, FOAF.PERSON);
-					} else if (type.equals("taxon")) {
+					if (type.equals("taxon")) {
 						conn.add(annotationIRI, hasBodyProperty, belongsToTaxonIRI);
 						conn.add(belongsToTaxonIRI, RDF.TYPE, taxonClass);
 						conn.add(textualBodyBNode, belongsToTaxonProperty, belongsToTaxonIRI);
@@ -389,6 +386,13 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			}
 
 			switch (type) {
+				case "person" :
+					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
+					conn.add(textualBodyBNode, RDF.TYPE, FOAF.PERSON);
+					if (instanceIRI.isIRI()) {
+						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceIRI);
+					}
+					break;
 				case "location" :
 					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, verbatimLocalityProperty, f.createLiteral(verbatim, lang));
