@@ -2,24 +2,24 @@
 Field notes are collections of observation records ([`dwc:HumanObservation`](https://dwc.tdwg.org/terms/#humanobservation)) that describe the occurrence ([`dwc:Occurrence`](https://dwc.tdwg.org/terms/#occurrence)) of an organism ([`dwc:Organism`](http://rs.tdwg.org/dwc/terms/Organism)) at a certain location ([`dwc:Location`](https://dwc.tdwg.org/terms/#location)) and date ([`nhc:Date`](http://makingsense.liacs.nl/rdf/nhc-content/2018-04-04.html#Date)). An observation record most often includes  an identification ([`dwc:Identification`](https://dwc.tdwg.org/terms/#identification)) to a taxon ([`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)), and accompanying measurements and facts ([`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact), [`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062), [`ncit:C20189`](http://purl.obolibrary.org/obo/NCIT_C20189)) that were used for identification. These observation records usually span multiple field notes, but can also be very short utterances such as on page 3: _Sci. Diard Buitenzorg_, most likely referring to the occurrence of another organism with the same identification.
 
 **Table 1.** List of examples with annotation classes and properties.
-| class | property | example | comments |
+| class | property | example | revised |
 |---|---|---|---|
-|[`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)|`rdf:type`|[`1_1`](#Example-1_1)|revised
-||`dsw:hasIdentification`|[`1_2`](#Example-1_2)| -
-|[`foaf:Person`](http://xmlns.com/foaf/spec/#term_Person)|`rdf:type`|[`2_1`](#Example-2_1)|revised
-||`nhc:scientificNameAuthorship`|[`2_2`](#Example-2_2)| -
-||`dwciri:identifiedBy`|[`2_3`](#Example-2_3)| -
-||`dwciri:recordedBy`|[`2_4`](#Example-2_4)| -
-|[`dwc:Location`](https://dwc.tdwg.org/terms/#location), [`dcterms:Location`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/Location)|`rdf:type`|[`3_1`](#Example-3_1)|revised
-||`dsw:locatedAt`|[`3_2`](#Example-3_2)| -
-|[`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)|`rdf:type`|[`4_1`](#Example-4_1)|revised
-||`dsw:derivedFrom`|[`4_2`](#Example-4_2)| -
-|[`ncit:C20189`](http://identifiers.org/ncit/C37927) (propertyOrAttribute)|`rdf:type`|[`5_1`](#Example-5_1)|revised
-||`nhc:measuresOrDescribes`|[`5_2`](#Example-5_2)| -
-|[`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062) (anatomicalEntity)|`rdf:type`|[`6_1`](#Example-6_1)|revised
-||`nhc:measuresOrDescribes`|[`6_2`](#Example-6_2)| -
-|[`dwc:Event`](https://dwc.tdwg.org/terms/#dwc:Event)|`rdf:type`|[`7_1`](#Example-7_1)|revised
-||`nhc:verbatimDate`|[`7_2`](#Example-7_2)| -
+|[`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)|`rdf:type`|[`1_1`](#Example-1_1)|:x:
+||`dsw:hasIdentification`|[`1_2`](#Example-1_2)| :x:
+|[`foaf:Person`](http://xmlns.com/foaf/spec/#term_Person)|`rdf:type`|[`2_1`](#Example-2_1)|:heavy_check_mark:
+||`nhc:scientificNameAuthorship`|[`2_2`](#Example-2_2)|:x:
+||`dwciri:identifiedBy`|[`2_3`](#Example-2_3)|:x:
+||`dwciri:recordedBy`|[`2_4`](#Example-2_4)|:x:
+|[`dwc:Location`](https://dwc.tdwg.org/terms/#location), [`dcterms:Location`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/Location)|`rdf:type`|[`3_1`](#Example-3_1)|:heavy_check_mark:
+||`dsw:locatedAt`|[`3_2`](#Example-3_2)|:x:
+|[`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)|`rdf:type`|[`4_1`](#Example-4_1)|:heavy_check_mark:
+||`dsw:derivedFrom`|[`4_2`](#Example-4_2)|:x:
+|[`ncit:C20189`](http://identifiers.org/ncit/C37927)|`rdf:type`|[`5_1`](#Example-5_1)|:heavy_check_mark:
+||`nhc:measuresOrDescribes`|[`5_2`](#Example-5_2)|:x:
+|[`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062)|`rdf:type`|[`6_1`](#Example-6_1)|:heavy_check_mark:
+||`nhc:measuresOrDescribes`|[`6_2`](#Example-6_2)|:x:
+|[`dwc:Event`](https://dwc.tdwg.org/terms/#event)|`rdf:type`|[`7_1`](#Example-7_1)|:heavy_check_mark:
+||`nhc:verbatimDate`|[`7_2`](#Example-7_2)|:x:
 
 
 ### Example 1_1
