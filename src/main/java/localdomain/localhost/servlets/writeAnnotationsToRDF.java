@@ -190,6 +190,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI recordedByProperty = f.createIRI(dwciri, "recordedBy");
 		IRI inDescribedPlaceProperty = f.createIRI(dwciri, "inDescribedPlace");
 		IRI measurementTypeProperty = f.createIRI(dwciri, "measurementType");
+		IRI scientificNameProperty = f.createIRI(dwc, "scientificName");
 		IRI scientificNameAuthorshipProperty = f.createIRI(dwc, "scientificNameAuthorship");
 		IRI verbatimEventDateProperty = f.createIRI(dwc, "verbatimEventDate");
 		IRI verbatimLocalityProperty = f.createIRI(dwc, "verbatimLocality");
@@ -268,124 +269,15 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(selectorBNode, DCTERMS.CONFORMS_TO, f.createIRI(mf));
 			conn.add(sourceIRI, RDF.TYPE, sourceClass);
 
-			switch (property) {
-				case "hasIdentification" :
-					conn.add(annotationIRI, hasBodyProperty, taxonBNode);
-					conn.add(annotationIRI, hasBodyProperty, humanObservationIRI);
-					conn.add(annotationIRI, hasTargetProperty, sourceIRI);
-					conn.add(eventIRI, verbatimEventDateProperty, dateIRI);
-					conn.add(eventIRI, locatedAtProperty, locationIRI);
-					conn.add(eventIRI, eventOfProperty, occurrenceIRI);
-					conn.add(eventIRI, RDF.TYPE, eventClass);
-					conn.add(dateIRI, RDF.TYPE, DCTERMS.DATE);
-					conn.add(humanObservationIRI, isBasisForIdProperty, identificationIRI);
-					conn.add(humanObservationIRI, derivedFromProperty, organismIRI);
-					conn.add(humanObservationIRI, evidenceForProperty, occurrenceIRI);
-					conn.add(humanObservationIRI, RDF.TYPE, humanObservationClass);
-					conn.add(identificationIRI, toTaxonProperty, taxonBNode);
-					conn.add(identificationIRI, isBasedOnProperty, humanObservationIRI);
-					conn.add(identificationIRI, identifiedByProperty, personIRI);
-					conn.add(identificationIRI, identifiesProperty, organismIRI);
-					conn.add(identificationIRI, identificationIDProperty, f.createLiteral(organismID));
-					conn.add(identificationIRI, RDF.TYPE, identificationClass);
-					conn.add(locationIRI, locatesProperty, eventIRI);
-					conn.add(locationIRI, RDF.TYPE, DCTERMS.LOCATION);
-					conn.add(occurrenceIRI, hasEvidenceProperty, humanObservationIRI);
-					conn.add(occurrenceIRI, atEventProperty, eventIRI);
-					conn.add(occurrenceIRI, occurrenceOfProperty, organismIRI);
-					conn.add(occurrenceIRI, recordedByProperty, personIRI);
-					conn.add(occurrenceIRI, RDF.TYPE, occurrenceClass);
-					conn.add(organismIRI, hasIdentificationProperty, identificationIRI);
-					conn.add(organismIRI, hasOccurrenceProperty, occurrenceIRI);
-					conn.add(organismIRI, hasDerivativeProperty, humanObservationIRI);
-					conn.add(organismIRI, organismIDProperty, f.createLiteral(organismID));
-					conn.add(organismIRI, RDF.TYPE, organismClass);
-					conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
-					conn.add(taxonBNode, belongsToTaxonProperty, belongsToTaxonIRI);
-					conn.add(taxonBNode, taxonRankProperty, taxonRankIRI);
-					conn.add(taxonBNode, RDFS.LABEL, f.createLiteral(verbatim, lang));
-					conn.add(taxonBNode, RDF.TYPE, taxonClass);
-					break;
-				/*
-				 * case "additionalIdentification" : break;
-				 */
-				case "verbatimEventDate" :
-					conn.add(annotationIRI, hasBodyProperty, dateIRI);
-					conn.add(dateIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
-
-					if (year != null) {
-						conn.add(dateIRI, yearProperty, f.createLiteral(year));
-					}
-					if (month != null) {
-						conn.add(dateIRI, monthProperty, f.createLiteral(month));
-					}
-					if (day != null) {
-						conn.add(dateIRI, dayProperty, f.createLiteral(day));
-					}
-					break;
-				case "locatedAt" :
-					conn.add(annotationIRI, hasBodyProperty, locationIRI);
-					conn.add(geonamesFeatureIRI, RDF.TYPE, featureClass);
-					conn.add(locationIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
-					conn.add(locationIRI, inDescribedPlaceProperty, geonamesFeatureIRI);
-					break;
-				case "additionalLocatedAt" :
-					conn.add(additionalOccurrenceProperty, RDFS.SUBPROPERTYOF, additionalProperty);
-					conn.add(addEventIRI, verbatimEventDateProperty, addDateIRI);
-					conn.add(addEventIRI, locatedAtProperty, addLocationIRI);
-					conn.add(addEventIRI, eventOfProperty, addOccurrenceIRI);
-					conn.add(addEventIRI, RDF.TYPE, eventClass);
-					conn.add(addOccurrenceIRI, atEventProperty, addEventIRI);
-					conn.add(addOccurrenceIRI, occurrenceIDProperty,
-							f.createLiteral(organismID + "_occ" + occurrenceID));
-					conn.add(addOccurrenceIRI, RDF.TYPE, occurrenceClass);
-					conn.add(addLocationIRI, locatesProperty, addEventIRI);
-					conn.add(addLocationIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
-					conn.add(addLocationIRI, RDF.TYPE, DCTERMS.LOCATION);
-					conn.add(addLocationIRI, inDescribedPlaceProperty, geonamesFeatureIRI);
-					conn.add(annotationIRI, hasBodyProperty, addLocationIRI);
-					conn.add(organismIRI, additionalOccurrenceProperty, addOccurrenceIRI);
-					conn.add(geonamesFeatureIRI, RDF.TYPE, featureClass);
-					break;
-				case "scientificNameAuthorship" :
-					conn.add(annotationIRI, hasBodyProperty, personIRI);
-					conn.add(belongsToTaxonIRI, scientificNameAuthorshipProperty, personIRI);
-					conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
-					break;
-				case "identifiedBy" :
-					conn.add(annotationIRI, hasBodyProperty, personIRI);
-					conn.add(identificationIRI, identifiedByProperty, personIRI);
-					conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
-					break;
-				case "recordedBy" :
-					conn.add(annotationIRI, hasBodyProperty, personIRI);
-					conn.add(occurrenceIRI, recordedByProperty, personIRI);
-					conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
-					break;
-				case "additionalRecordedBy" :
-					conn.add(additionalOccurrenceProperty, RDFS.SUBPROPERTYOF, additionalProperty);
-					conn.add(addOccurrenceIRI, recordedByProperty, personIRI);
-					conn.add(addOccurrenceIRI, occurrenceIDProperty,
-							f.createLiteral(organismID + "_occ" + occurrenceID));
-					conn.add(addOccurrenceIRI, RDF.TYPE, occurrenceClass);
-					conn.add(additionalOccurrenceProperty, RDFS.SUBPROPERTYOF, additionalProperty);
-					conn.add(annotationIRI, hasBodyProperty, personIRI);
-					conn.add(organismIRI, additionalOccurrenceProperty, addOccurrenceIRI);
-					conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
-					break;
-				case "type" :
-					if (type.equals("taxon")) {
-						conn.add(annotationIRI, hasBodyProperty, belongsToTaxonIRI);
-						conn.add(belongsToTaxonIRI, RDF.TYPE, taxonClass);
-						conn.add(textualBodyBNode, belongsToTaxonProperty, belongsToTaxonIRI);
-						conn.add(belongsToTaxonIRI, taxonRankProperty, taxonRankIRI);
-					}
-					break;
-				default :
-					break;
-			}
-
 			switch (type) {
+				case "taxon" :
+					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
+					conn.add(textualBodyBNode, RDF.TYPE, taxonClass);
+					conn.add(textualBodyBNode, scientificNameProperty, f.createLiteral(verbatim, lang));
+					// conn.add(belongsToTaxonIRI, RDF.TYPE, taxonClass);
+					// conn.add(textualBodyBNode, belongsToTaxonProperty, belongsToTaxonIRI);
+					// conn.add(belongsToTaxonIRI, taxonRankProperty, taxonRankIRI);
+					break;
 				case "person" :
 					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, FOAF.PERSON);
@@ -431,6 +323,82 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				default :
 					break;
 			}
+
+			/*
+			 * switch (property) { case "hasIdentification" : conn.add(annotationIRI,
+			 * hasBodyProperty, taxonBNode); conn.add(annotationIRI, hasBodyProperty,
+			 * humanObservationIRI); conn.add(annotationIRI, hasTargetProperty, sourceIRI);
+			 * conn.add(eventIRI, verbatimEventDateProperty, dateIRI); conn.add(eventIRI,
+			 * locatedAtProperty, locationIRI); conn.add(eventIRI, eventOfProperty,
+			 * occurrenceIRI); conn.add(eventIRI, RDF.TYPE, eventClass); conn.add(dateIRI,
+			 * RDF.TYPE, DCTERMS.DATE); conn.add(humanObservationIRI, isBasisForIdProperty,
+			 * identificationIRI); conn.add(humanObservationIRI, derivedFromProperty,
+			 * organismIRI); conn.add(humanObservationIRI, evidenceForProperty,
+			 * occurrenceIRI); conn.add(humanObservationIRI, RDF.TYPE,
+			 * humanObservationClass); conn.add(identificationIRI, toTaxonProperty,
+			 * taxonBNode); conn.add(identificationIRI, isBasedOnProperty,
+			 * humanObservationIRI); conn.add(identificationIRI, identifiedByProperty,
+			 * personIRI); conn.add(identificationIRI, identifiesProperty, organismIRI);
+			 * conn.add(identificationIRI, identificationIDProperty,
+			 * f.createLiteral(organismID)); conn.add(identificationIRI, RDF.TYPE,
+			 * identificationClass); conn.add(locationIRI, locatesProperty, eventIRI);
+			 * conn.add(locationIRI, RDF.TYPE, DCTERMS.LOCATION); conn.add(occurrenceIRI,
+			 * hasEvidenceProperty, humanObservationIRI); conn.add(occurrenceIRI,
+			 * atEventProperty, eventIRI); conn.add(occurrenceIRI, occurrenceOfProperty,
+			 * organismIRI); conn.add(occurrenceIRI, recordedByProperty, personIRI);
+			 * conn.add(occurrenceIRI, RDF.TYPE, occurrenceClass); conn.add(organismIRI,
+			 * hasIdentificationProperty, identificationIRI); conn.add(organismIRI,
+			 * hasOccurrenceProperty, occurrenceIRI); conn.add(organismIRI,
+			 * hasDerivativeProperty, humanObservationIRI); conn.add(organismIRI,
+			 * organismIDProperty, f.createLiteral(organismID)); conn.add(organismIRI,
+			 * RDF.TYPE, organismClass); conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
+			 * conn.add(taxonBNode, belongsToTaxonProperty, belongsToTaxonIRI);
+			 * conn.add(taxonBNode, taxonRankProperty, taxonRankIRI); conn.add(taxonBNode,
+			 * RDFS.LABEL, f.createLiteral(verbatim, lang)); conn.add(taxonBNode, RDF.TYPE,
+			 * taxonClass); break; case "additionalIdentification" : break; case
+			 * "verbatimEventDate" : conn.add(annotationIRI, hasBodyProperty, dateIRI);
+			 * conn.add(dateIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
+			 * 
+			 * if (year != null) { conn.add(dateIRI, yearProperty, f.createLiteral(year)); }
+			 * if (month != null) { conn.add(dateIRI, monthProperty,
+			 * f.createLiteral(month)); } if (day != null) { conn.add(dateIRI, dayProperty,
+			 * f.createLiteral(day)); } break; case "locatedAt" : conn.add(annotationIRI,
+			 * hasBodyProperty, locationIRI); conn.add(geonamesFeatureIRI, RDF.TYPE,
+			 * featureClass); conn.add(locationIRI, RDFS.LABEL, f.createLiteral(verbatim,
+			 * lang)); conn.add(locationIRI, inDescribedPlaceProperty, geonamesFeatureIRI);
+			 * break; case "additionalLocatedAt" : conn.add(additionalOccurrenceProperty,
+			 * RDFS.SUBPROPERTYOF, additionalProperty); conn.add(addEventIRI,
+			 * verbatimEventDateProperty, addDateIRI); conn.add(addEventIRI,
+			 * locatedAtProperty, addLocationIRI); conn.add(addEventIRI, eventOfProperty,
+			 * addOccurrenceIRI); conn.add(addEventIRI, RDF.TYPE, eventClass);
+			 * conn.add(addOccurrenceIRI, atEventProperty, addEventIRI);
+			 * conn.add(addOccurrenceIRI, occurrenceIDProperty, f.createLiteral(organismID +
+			 * "_occ" + occurrenceID)); conn.add(addOccurrenceIRI, RDF.TYPE,
+			 * occurrenceClass); conn.add(addLocationIRI, locatesProperty, addEventIRI);
+			 * conn.add(addLocationIRI, RDFS.LABEL, f.createLiteral(verbatim, lang));
+			 * conn.add(addLocationIRI, RDF.TYPE, DCTERMS.LOCATION);
+			 * conn.add(addLocationIRI, inDescribedPlaceProperty, geonamesFeatureIRI);
+			 * conn.add(annotationIRI, hasBodyProperty, addLocationIRI);
+			 * conn.add(organismIRI, additionalOccurrenceProperty, addOccurrenceIRI);
+			 * conn.add(geonamesFeatureIRI, RDF.TYPE, featureClass); break; case
+			 * "scientificNameAuthorship" : conn.add(annotationIRI, hasBodyProperty,
+			 * personIRI); conn.add(belongsToTaxonIRI, scientificNameAuthorshipProperty,
+			 * personIRI); conn.add(personIRI, RDF.TYPE, FOAF.PERSON); break; case
+			 * "identifiedBy" : conn.add(annotationIRI, hasBodyProperty, personIRI);
+			 * conn.add(identificationIRI, identifiedByProperty, personIRI);
+			 * conn.add(personIRI, RDF.TYPE, FOAF.PERSON); break; case "recordedBy" :
+			 * conn.add(annotationIRI, hasBodyProperty, personIRI); conn.add(occurrenceIRI,
+			 * recordedByProperty, personIRI); conn.add(personIRI, RDF.TYPE, FOAF.PERSON);
+			 * break; case "additionalRecordedBy" : conn.add(additionalOccurrenceProperty,
+			 * RDFS.SUBPROPERTYOF, additionalProperty); conn.add(addOccurrenceIRI,
+			 * recordedByProperty, personIRI); conn.add(addOccurrenceIRI,
+			 * occurrenceIDProperty, f.createLiteral(organismID + "_occ" + occurrenceID));
+			 * conn.add(addOccurrenceIRI, RDF.TYPE, occurrenceClass);
+			 * conn.add(additionalOccurrenceProperty, RDFS.SUBPROPERTYOF,
+			 * additionalProperty); conn.add(annotationIRI, hasBodyProperty, personIRI);
+			 * conn.add(organismIRI, additionalOccurrenceProperty, addOccurrenceIRI);
+			 * conn.add(personIRI, RDF.TYPE, FOAF.PERSON); break; default : break; }
+			 */
 			conn.commit();
 		}
 	}
