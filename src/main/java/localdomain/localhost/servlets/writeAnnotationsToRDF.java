@@ -209,14 +209,13 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI addEventIRI = f.createIRI(nc, "event" + organismID + "_occ" + occurrenceID);
 		IRI addLocationIRI = f.createIRI(nc, "location" + organismID + "_occ" + occurrenceID);
 		IRI addDateIRI = f.createIRI(nc, "date" + organismID + "_occ" + occurrenceID);
-
+		Literal verbatimLiteral = f.createLiteral(verbatim, lang);
 		Resource instanceIRI = (instance.equals("")) ? f.createBNode() : f.createIRI(instance);
 		Resource annotatorIRI = (annotator.equals("")) ? f.createBNode() : f.createIRI(annotator);
 		Resource personIRI = (person.equals("")) ? f.createBNode() : f.createIRI(person);
 		Resource taxonRankIRI = (rank.equals("")) ? f.createBNode() : f.createIRI(rank);
 		Resource belongsToTaxonIRI = (belongstotaxon.equals("")) ? f.createBNode() : f.createIRI(belongstotaxon);
 		Resource geonamesFeatureIRI = (geonamesfeature.equals("")) ? f.createBNode() : f.createIRI(geonamesfeature);
-
 		BNode targetBNode = f.createBNode();
 		BNode textualBodyBNode = f.createBNode();
 		BNode taxonBNode = f.createBNode();
@@ -259,7 +258,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.add(textualBodyBNode, RDF.TYPE, textualBodyClass);
 			conn.add(textualBodyBNode, DCTERMS.FORMAT, f.createLiteral("text/plain"));
 			conn.add(textualBodyBNode, DCTERMS.LANGUAGE, f.createIRI(iso, lang));
-			conn.add(textualBodyBNode, RDF.VALUE, f.createLiteral(verbatim, lang));
+			conn.add(textualBodyBNode, RDF.VALUE, verbatimLiteral);
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "StillImage"));
 			conn.add(sourceIRI, RDF.TYPE, FOAF.IMAGE);
 			conn.add(sourceIRI, RDF.TYPE, humanObservationClass);
@@ -273,7 +272,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				case "taxon" :
 					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, taxonClass);
-					conn.add(textualBodyBNode, scientificNameProperty, f.createLiteral(verbatim, lang));
+					conn.add(textualBodyBNode, scientificNameProperty, verbatimLiteral);
 					// conn.add(belongsToTaxonIRI, RDF.TYPE, taxonClass);
 					// conn.add(textualBodyBNode, belongsToTaxonProperty, belongsToTaxonIRI);
 					// conn.add(belongsToTaxonIRI, taxonRankProperty, taxonRankIRI);
@@ -281,13 +280,14 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				case "person" :
 					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, FOAF.PERSON);
+					conn.add(textualBodyBNode, FOAF.NAME, verbatimLiteral);
 					if (instanceIRI.isIRI()) {
 						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceIRI);
 					}
 					break;
 				case "location" :
 					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
-					conn.add(textualBodyBNode, verbatimLocalityProperty, f.createLiteral(verbatim, lang));
+					conn.add(textualBodyBNode, verbatimLocalityProperty, verbatimLiteral);
 					conn.add(textualBodyBNode, RDF.TYPE, DCTERMS.LOCATION);
 					conn.add(textualBodyBNode, RDF.TYPE, locationClass);
 					if (instanceIRI.isIRI()) {
@@ -318,7 +318,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				case "date" :
 					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, eventClass);
-					conn.add(eventClass, verbatimEventDateProperty, f.createLiteral(verbatim, lang));
+					conn.add(eventClass, verbatimEventDateProperty, verbatimLiteral);
 					break;
 				default :
 					break;
