@@ -22,5 +22,5 @@
   "language": "lat",
   "type": "propertyorattribute",
   "property": "type",
-  "instance": "http://identifiers.org/ncit/C37927"
+  "instance": "http://purl.obolibrary.org/obo/NCIT_C37927"
 }

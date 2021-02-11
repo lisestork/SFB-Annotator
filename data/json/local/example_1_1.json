@@ -22,6 +22,6 @@
   "language": "lat",
   "type": "taxon",
   "property": "type",
-  "belongstotaxon": "http://identifiers.org/taxonomy/9397",
+  "belongstotaxon": "http://purl.obolibrary.org/obo/NCBITaxon_9397",
   "rank": "http://purl.obolibrary.org/obo/TAXRANK_0000003"
 }
