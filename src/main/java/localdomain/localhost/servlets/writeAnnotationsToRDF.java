@@ -1,5 +1,8 @@
 package localdomain.localhost.servlets;
 
+import java.net.URL;
+import java.net.MalformedURLException;
+
 import java.io.IOException;
 
 import java.util.Locale;
@@ -91,24 +94,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		mapMime.put("tif", "image/tiff");
 		mapMime.put("png", "image/png");
 
-		if (mapMime.containsKey(filext)) {
-			mime = mapMime.get(filext);
-		}
-
-		// return well-formed IETF BCP 47 language tag
-		try {
-			lang = Locale.forLanguageTag(lang).toLanguageTag();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// return date/time in ISO 8601 format
-		try {
-			date = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX").format(ZonedDateTime.parse(date));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
 		// namespace prefixes
 		String dcmitype = "http://purl.org/dc/dcmitype/";
 		String dsw = "http://purl.org/dsw/";
@@ -118,16 +103,12 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String iso = "http://iso639-3.sil.org/code/";
 		String img = String.join("/", Arrays.copyOfRange(arr, 0, arr.length - 1)) + "/";
 		String mf = "http://www.w3.org/TR/media-frags/";
-		String ncit = "http://identifiers.org/ncit/";
-		String nc = "http://makingsense.liacs.nl/rdf/nc/";
-		String nhc = "http://makingsense.liacs.nl/rdf/nhc/";
 		String oa = "http://www.w3.org/ns/oa#";
 		String obo = "http://purl.obolibrary.org/obo/";
 		String orcid = "http://orcid.org/";
-		String taxon = "http://identifiers.org/taxonomy/";
 		String viaf = "http://viaf.org/viaf/";
 
-		// Connect to RDF server
+		// connect to RDF server
 		String host = "http://localhost:8080/";
 		String repositoryID = "mem-rdf";
 		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
@@ -149,15 +130,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI taxonClass = f.createIRI(dwc, "Taxon");
 		IRI locationClass = f.createIRI(dwc, "Location");
 		IRI tokenClass = f.createIRI(dsw, "Token");
-		Resource propertyOrAttributeClass = (instance.equals("")) ? f.createBNode() : f.createIRI(instance);
-		Resource anatomicalEntityClass = (anatomicalentity.equals(""))
-				? f.createBNode()
-				: f.createIRI(anatomicalentity);
 
 		// init properties
-		IRI additionalOccurrenceProperty = f.createIRI(nhc, "additionalOccurrence");
-		IRI additionalProperty = f.createIRI(nhc, "additional");
-		IRI additionalIdentificationProperty = f.createIRI(nhc, "additionalIdentification");
 		IRI yearProperty = f.createIRI(dwc, "year");
 		IRI monthProperty = f.createIRI(dwc, "month");
 		IRI dayProperty = f.createIRI(dwc, "day");
@@ -184,7 +158,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI toTaxonProperty = f.createIRI(dwciri, "toTaxon");
 		IRI locatesProperty = f.createIRI(dsw, "locates");
 		IRI locatedAtProperty = f.createIRI(dsw, "locatedAt");
-		IRI belongsToTaxonProperty = f.createIRI(nhc, "belongsToTaxon");
 		IRI taxonRankProperty = f.createIRI(dwc, "taxonRank");
 		IRI identifiedByProperty = f.createIRI(dwciri, "identifiedBy");
 		IRI recordedByProperty = f.createIRI(dwciri, "recordedBy");
@@ -194,23 +167,17 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI scientificNameAuthorshipProperty = f.createIRI(dwc, "scientificNameAuthorship");
 		IRI verbatimEventDateProperty = f.createIRI(dwc, "verbatimEventDate");
 		IRI verbatimLocalityProperty = f.createIRI(dwc, "verbatimLocality");
+		// IRI additionalOccurrenceProperty = f.createIRI(nhc, "additionalOccurrence");
+		// IRI additionalProperty = f.createIRI(nhc, "additional");
+		// IRI additionalIdentificationProperty = f.createIRI(nhc,
+		// "additionalIdentification");
+		// IRI belongsToTaxonProperty = f.createIRI(nhc, "belongsToTaxon");
+
 		// init instances
+		Literal verbatimLiteral = f.createLiteral(verbatim, lang);
 		IRI annotationIRI = f.createIRI(host, "rdf/nc/annotation/" + uuid);
 		IRI sourceIRI = f.createIRI(source);
-		IRI identificationIRI = f.createIRI(nc, "identification" + organismID);
-		IRI humanObservationIRI = f.createIRI(nc, "humanObservation" + organismID);
-		IRI organismIRI = f.createIRI(nc, "organism" + organismID);
-		IRI occurrenceIRI = f.createIRI(nc, "occurrence" + organismID);
-		IRI eventIRI = f.createIRI(nc, "event" + organismID);
-		IRI dateIRI = f.createIRI(nc, "date" + organismID);
-		IRI locationIRI = f.createIRI(nc, "location" + organismID);
-		IRI addIdentificationIRI = f.createIRI(nc, "identification" + organismID + "_id" + identificationID);
-		IRI addOccurrenceIRI = f.createIRI(nc, "occurrence" + organismID + "_occ" + occurrenceID);
-		IRI addEventIRI = f.createIRI(nc, "event" + organismID + "_occ" + occurrenceID);
-		IRI addLocationIRI = f.createIRI(nc, "location" + organismID + "_occ" + occurrenceID);
-		IRI addDateIRI = f.createIRI(nc, "date" + organismID + "_occ" + occurrenceID);
-		Literal verbatimLiteral = f.createLiteral(verbatim, lang);
-		Resource instanceIRI = (instance.equals("")) ? f.createBNode() : f.createIRI(instance);
+		Resource instanceRes;
 		Resource annotatorIRI = (annotator.equals("")) ? f.createBNode() : f.createIRI(annotator);
 		Resource personIRI = (person.equals("")) ? f.createBNode() : f.createIRI(person);
 		Resource taxonRankIRI = (rank.equals("")) ? f.createBNode() : f.createIRI(rank);
@@ -220,7 +187,54 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		BNode textualBodyBNode = f.createBNode();
 		BNode taxonBNode = f.createBNode();
 		BNode selectorBNode = f.createBNode();
+		// IRI identificationIRI = f.createIRI(nc, "identification" + organismID);
+		// IRI humanObservationIRI = f.createIRI(nc, "humanObservation" + organismID);
+		// IRI organismIRI = f.createIRI(nc, "organism" + organismID);
+		// IRI occurrenceIRI = f.createIRI(nc, "occurrence" + organismID);
+		// IRI eventIRI = f.createIRI(nc, "event" + organismID);
+		// IRI dateIRI = f.createIRI(nc, "date" + organismID);
+		// IRI locationIRI = f.createIRI(nc, "location" + organismID);
+		// IRI addIdentificationIRI = f.createIRI(nc, "identification" + organismID +
+		// "_id" + identificationID);
+		// IRI addOccurrenceIRI = f.createIRI(nc, "occurrence" + organismID + "_occ" +
+		// occurrenceID);
+		// IRI addEventIRI = f.createIRI(nc, "event" + organismID + "_occ" +
+		// occurrenceID);
+		// IRI addLocationIRI = f.createIRI(nc, "location" + organismID + "_occ" +
+		// occurrenceID);
+		// IRI addDateIRI = f.createIRI(nc, "date" + organismID + "_occ" +
+		// occurrenceID);
 
+		// return MIME type given file suffix
+		try {
+			mime = mapMime.get(filext);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// return well-formed IETF BCP 47 language tag
+		try {
+			lang = Locale.forLanguageTag(lang).toLanguageTag();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// return date/time in ISO 8601 format
+		try {
+			date = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX").format(ZonedDateTime.parse(date));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// return IRI if the URL is valid otherwise Bnode
+		try {
+			URL url = new URL(instance);
+			instanceRes = f.createIRI(url.toString());
+		} catch (MalformedURLException e) {
+			instanceRes = f.createBNode();
+		}
+
+		// construct RDF graph
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();
 			// add namespace prefixes
@@ -233,14 +247,11 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.setNamespace("iso", iso);
 			conn.setNamespace("img", img);
 			conn.setNamespace("mf", mf);
-			conn.setNamespace("ncit", ncit);
-			conn.setNamespace("nhc", nhc);
 			conn.setNamespace(RDF.PREFIX, RDF.NAMESPACE);
 			conn.setNamespace(RDFS.PREFIX, RDFS.NAMESPACE);
 			conn.setNamespace("obo", obo);
 			conn.setNamespace("orcid", orcid);
 			conn.setNamespace("oa", oa);
-			conn.setNamespace("taxon", taxon);
 			conn.setNamespace("viaf", viaf);
 			conn.setNamespace("gn", gn);
 			// add triples
@@ -281,8 +292,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, FOAF.PERSON);
 					conn.add(textualBodyBNode, FOAF.NAME, verbatimLiteral);
-					if (instanceIRI.isIRI()) {
-						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceIRI);
+					if (instanceRes.isIRI()) {
+						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
 					}
 					break;
 				case "location" :
@@ -290,9 +301,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(textualBodyBNode, verbatimLocalityProperty, verbatimLiteral);
 					conn.add(textualBodyBNode, RDF.TYPE, DCTERMS.LOCATION);
 					conn.add(textualBodyBNode, RDF.TYPE, locationClass);
-					if (instanceIRI.isIRI()) {
-						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceIRI);
-						conn.add(textualBodyBNode, inDescribedPlaceProperty, instanceIRI);
+					if (instanceRes.isIRI()) {
+						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
+						conn.add(textualBodyBNode, inDescribedPlaceProperty, instanceRes);
 					}
 					break;
 				case "measurementorfact" :
@@ -302,17 +313,17 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				case "propertyorattribute" :
 					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
-					if (propertyOrAttributeClass.isIRI()) {
-						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceIRI);
-						conn.add(measurementOrFactClass, measurementTypeProperty, propertyOrAttributeClass);
+					if (instanceRes.isIRI()) {
+						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
+						conn.add(measurementOrFactClass, measurementTypeProperty, instanceRes);
 					}
 					break;
 				case "anatomicalentity" :
 					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
-					if (propertyOrAttributeClass.isIRI()) {
-						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceIRI);
-						conn.add(measurementOrFactClass, measurementTypeProperty, propertyOrAttributeClass);
+					if (instanceRes.isIRI()) {
+						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
+						conn.add(measurementOrFactClass, measurementTypeProperty, instanceRes);
 					}
 					break;
 				case "date" :

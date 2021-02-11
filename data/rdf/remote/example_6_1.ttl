@@ -2,6 +2,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix img: <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
@@ -11,32 +12,32 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/c57390a3-0ade-4026-bc82-2181f32a0856> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/1895343f-3a65-4335-96a9-472a8a9f9ddf> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
   dsw:derivedFrom img:default.jpg;
-  oa:hasBody _:node1eu4i2mhkx52 .
+  oa:hasBody _:node1eu8qnl47x46 .
 
-_:node1eu4i2mhkx52 a dwc:MeasurementOrFact, oa:TextualBody;
+_:node1eu8qnl47x46 a dwc:MeasurementOrFact, oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:identifier obo:UBERON_0001062;
   dcterms:language iso:lat;
   rdf:value "Dentibus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/c57390a3-0ade-4026-bc82-2181f32a0856> oa:hasTarget
-    _:node1eu4i2mhkx51 .
+<http://localhost:8080/rdf/nc/annotation/1895343f-3a65-4335-96a9-472a8a9f9ddf> oa:hasTarget
+    _:node1eu8qnl47x45 .
 
-_:node1eu4i2mhkx51 a oa:Target;
+_:node1eu8qnl47x45 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1eu4i2mhkx54 .
+  oa:hasSelector _:node1eu8qnl47x48 .
 
-_:node1eu4i2mhkx54 a oa:FragmentSelector;
+_:node1eu8qnl47x48 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" .
 
-_:node1eu4i2mhkx51 oa:hasSource img:default.jpg .
+_:node1eu8qnl47x45 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/c57390a3-0ade-4026-bc82-2181f32a0856> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/1895343f-3a65-4335-96a9-472a8a9f9ddf> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
@@ -44,4 +45,4 @@ orcid:0000-0002-2146-4803 a foaf:Person .
 img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Source,
     foaf:Image .
 
-dwc:MeasurementOrFact dwc:measurementType obo:UBERON_0001062 .
+dwc:MeasurementOrFact dwciri:measurementType obo:UBERON_0001062 .

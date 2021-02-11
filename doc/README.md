@@ -1,5 +1,5 @@
 ### Use cases
-Field notes are collections of observation records ([`dwc:HumanObservation`](https://dwc.tdwg.org/terms/#humanobservation)) that describe the occurrence ([`dwc:Occurrence`](https://dwc.tdwg.org/terms/#occurrence)) of an organism ([`dwc:Organism`](http://rs.tdwg.org/dwc/terms/Organism)) at some location ([`dwc:Location`](https://dwc.tdwg.org/terms/#location)) during some time ([`dwc:Event`](https://dwc.tdwg.org/terms/#event)). An observation record most often includes an identification ([`dwc:Identification`](https://dwc.tdwg.org/terms/#identification)) to a taxon ([`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)), and accompanying measurements and facts ([`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact), [`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062) or [`ncit:C20189`](http://purl.obolibrary.org/obo/NCIT_C20189)) that were used for identification. These observation records usually span multiple field notes, but can also be very short utterances such as _Sci. Diard Buitenzorg_ (on [page 3](https://github.com/LINNAE-project/SFB-Annotator/blob/master/data/jpg/MMNAT01_AF_NNM001001033_003.jpg)), most likely referring to the occurrence of another organism with the same identification.
+Field notes are collections of observation records ([`dwc:HumanObservation`](https://dwc.tdwg.org/terms/#humanobservation)) that describe the occurrence ([`dwc:Occurrence`](https://dwc.tdwg.org/terms/#occurrence)) of an organism ([`dwc:Organism`](http://rs.tdwg.org/dwc/terms/Organism)) at some location ([`dwc:Location`](https://dwc.tdwg.org/terms/#location)) during some time ([`dwc:Event`](https://dwc.tdwg.org/terms/#event)). An observation record most often includes an identification ([`dwc:Identification`](https://dwc.tdwg.org/terms/#identification)) to a taxon ([`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)), and accompanying measurements and facts ([`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact), [`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062) or [`ncit:C20189`](http://purl.obolibrary.org/obo/NCIT_C20189)) that were used for identification. These observation records usually span multiple field notes, but can also be very short utterances such as _Sci. Diard Buitenzorg_ (on [page 3](data/jpg/MMNAT01_AF_NNM001001033_003.jpg)), most likely referring to the occurrence of another organism with the same identification.
 
 **Table 1.** List of examples with annotation classes and properties.
 | class | property | example | revised |
@@ -49,7 +49,7 @@ Steps:
 | language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _Latin_ |  add autocomplete/drop down menu
 | Select property/`property` | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a taxon. |
 | type/`type` | `taxon` |  auto-fill according to the Entity type |
-| Belongs to taxon/`belongstotaxon` | `http://identifiers.org/taxonomy/9397` | refers to _Chiroptera_ (order) in NCBI Taxonomy. Choice should be made whether this can be an IRI from an external database, or whether it should point to an already annotated verbatim entity. (such as _Chiroptera_ on page 2) | **question:** who do we allow to annotate, and who to interpret the data
+| Belongs to taxon/`belongstotaxon` | `http://purl.obolibrary.org/obo/NCBITaxon_9397` (Chiroptera) | Point to an IRI, if known (e.g., using NCBI Taxonomy), or to an exisiting (verbatim) annotation such as _Chiroptera_ (on [page 2](data/jpg/MMNAT01_AF_NNM001001033_002.jpg)).| A distinction should be made between transcription and interpretation.
 | Taxon rank/`rank` | `http://purl.obolibrary.org/obo/TAXRANK_0000003` (order) | from list ([`kingdom`](http://purl.obolibrary.org/obo/TAXRANK_0000017),[`class`](http://purl.obolibrary.org/obo/TAXRANK_0000002),[`order`](http://purl.obolibrary.org/obo/TAXRANK_0000003),[`family`](http://purl.obolibrary.org/obo/TAXRANK_0000004),[`genus`](http://purl.obolibrary.org/obo/TAXRANK_0000005) or [`species`](http://purl.obolibrary.org/obo/TAXRANK_0000006)) | should be drop-down menu according to the taxon IRI above
 
 
@@ -355,7 +355,7 @@ Steps:
 | language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _Latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a property or attribute name. |
 | type | `propertyOrAttribute` |  auto-fill from entity type |
-| instance | `http://identifiers.org/ncit/C37927` (Color) | Link the bounding box to the IRI if known. | Preferably these instances can be retrieved with semantic autocomplete
+| instance | `purl.obolibrary.org/obo/NCIT_C37927` (Color) | Link the bounding box to the IRI if known. | Preferably these instances can be retrieved with semantic autocomplete
 
 
 ### Example 5_2
