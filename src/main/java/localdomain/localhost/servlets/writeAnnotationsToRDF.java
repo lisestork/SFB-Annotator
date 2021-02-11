@@ -9,6 +9,7 @@ import java.util.Locale;
 import java.util.UUID;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.MissingResourceException;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -174,7 +175,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		// IRI belongsToTaxonProperty = f.createIRI(nhc, "belongsToTaxon");
 
 		// init instances
-		Literal verbatimLiteral = f.createLiteral(verbatim, lang);
+		Literal verbatimLiteral;
 		IRI annotationIRI = f.createIRI(host, "rdf/nc/annotation/" + uuid);
 		IRI sourceIRI = f.createIRI(source);
 		Resource instanceRes;
@@ -205,28 +206,31 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		// IRI addDateIRI = f.createIRI(nc, "date" + organismID + "_occ" +
 		// occurrenceID);
 
-		// return MIME type given file suffix
-		try {
+		// get MIME type given file suffix
+		if (mapMime.containsKey(filext)) {
 			mime = mapMime.get(filext);
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 
-		// return well-formed IETF BCP 47 language tag
+		// get well-formed ISO 639-3 language tag
 		try {
-			lang = Locale.forLanguageTag(lang).toLanguageTag();
-		} catch (Exception e) {
-			e.printStackTrace();
+			lang = Locale.forLanguageTag(lang).getISO3Language();
+		} catch (MissingResourceException e) {
+			lang = "und";
+		} finally {
+			if (lang.equals("")) {
+				lang = "und";
+			}
+			verbatimLiteral = f.createLiteral(verbatim, lang);
 		}
 
-		// return date/time in ISO 8601 format
+		// get datetime in ISO 8601 format
 		try {
 			date = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX").format(ZonedDateTime.parse(date));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		// return IRI if the URL is valid otherwise Bnode
+		// get IRI for valid URL otherwise Bnode
 		try {
 			URL url = new URL(instance);
 			instanceRes = f.createIRI(url.toString());
