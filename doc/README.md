@@ -14,9 +14,9 @@ Field notes are collections of observation records ([`dwc:HumanObservation`](htt
 ||`dsw:locatedAt`|[`3_2`](#Example-3_2)|:x:
 |[`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)|`rdf:type`|[`4_1`](#Example-4_1)|:heavy_check_mark:
 ||`dsw:derivedFrom`|[`4_2`](#Example-4_2)|:x:
-|[`ncit:C20189`](http://purl.obolibrary.org/obo/NCIT_C20189)|`rdf:type`|[`5_1`](#Example-5_1)|:heavy_check_mark:
+|[`PATO:0000014`](http://purl.obolibrary.org/obo/PATO_0000014) (color)|`rdf:type`|[`5_1`](#Example-5_1)|:heavy_check_mark:
 ||`nhc:measuresOrDescribes`|[`5_2`](#Example-5_2)|:x:
-|[`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062)|`rdf:type`|[`6_1`](#Example-6_1)|:heavy_check_mark:
+|[`UBERON:0001062`](http://purl.obolibrary.org/obo/UBERON_0001062) (anatomical entity)|`rdf:type`|[`6_1`](#Example-6_1)|:heavy_check_mark:
 ||`nhc:measuresOrDescribes`|[`6_2`](#Example-6_2)|:x:
 |[`dwc:Event`](https://dwc.tdwg.org/terms/#event)|`rdf:type`|[`7_1`](#Example-7_1)|:heavy_check_mark:
 ||`nhc:verbatimDate`|[`7_2`](#Example-7_2)|:x:
@@ -355,7 +355,7 @@ Steps:
 | language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _Latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a property or attribute name. |
 | type | `propertyOrAttribute` |  auto-fill from entity type |
-| instance | `purl.obolibrary.org/obo/NCIT_C37927` (Color) | Link the bounding box to the IRI if known. | Preferably these instances can be retrieved with semantic autocomplete
+| instance | `http://purl.obolibrary.org/obo/PATO_0000014` (color) | Link the bounding box to the IRI if known. | Preferably these instances can be retrieved with semantic autocomplete
 
 
 ### Example 5_2
