@@ -285,7 +285,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 
 			switch (type) {
 				case "taxon" :
-					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
+					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, taxonClass);
 					conn.add(textualBodyBNode, scientificNameProperty, verbatimLiteral);
 					// conn.add(belongsToTaxonIRI, RDF.TYPE, taxonClass);
@@ -293,7 +293,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					// conn.add(belongsToTaxonIRI, taxonRankProperty, taxonRankIRI);
 					break;
 				case "person" :
-					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, FOAF.PERSON);
 					conn.add(textualBodyBNode, FOAF.NAME, verbatimLiteral);
 					if (instanceRes.isIRI()) {
@@ -301,7 +300,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					}
 					break;
 				case "location" :
-					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, verbatimLocalityProperty, verbatimLiteral);
 					conn.add(textualBodyBNode, RDF.TYPE, DCTERMS.LOCATION);
 					conn.add(textualBodyBNode, RDF.TYPE, locationClass);
@@ -311,11 +309,11 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					}
 					break;
 				case "measurementorfact" :
-					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
+					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
 					break;
 				case "propertyorattribute" :
-					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
+					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
 					if (instanceRes.isIRI()) {
 						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
@@ -323,7 +321,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					}
 					break;
 				case "anatomicalentity" :
-					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
+					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
 					if (instanceRes.isIRI()) {
 						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
@@ -331,7 +329,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					}
 					break;
 				case "date" :
-					conn.add(annotationIRI, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, eventClass);
 					conn.add(eventClass, verbatimEventDateProperty, verbatimLiteral);
 					break;
