@@ -6,8 +6,7 @@ import os
 import matplotlib.pyplot as plt
 import networkx as nx
 import rdflib
-from rdflib.namespace import (DC, DCTERMS, DOAP, FOAF, OWL, RDF, RDFS, SKOS,
-                              VOID, XSD)
+from rdflib.namespace import (RDF, RDFS, FOAF, DCTERMS)
 
 # CLI
 parser = argp.ArgumentParser(description='Plot RDF graph in SVG.')
@@ -34,31 +33,23 @@ DSW = rdflib.Namespace("http://purl.org/dsw/")
 DWC = rdflib.Namespace("http://rs.tdwg.org/dwc/terms/")
 DWCIRI = rdflib.Namespace("http://rs.tdwg.org/dwc/iri/")
 GN = rdflib.Namespace("http://sws.geonames.org/")
+GBIF = rdflib.Namespace("http://www.gbif.org/species/")
 IMG = rdflib.Namespace("http://localhost:8080/semanticAnnotator/files/")
-NC = rdflib.Namespace("http://makingsense.liacs.nl/rdf/nc/")
-NHC = rdflib.Namespace("http://makingsense.liacs.nl/rdf/nhc/")
 OA = rdflib.Namespace("http://www.w3.org/ns/oa#")
-OBO= rdflib.Namespace("http://purl.obolibrary.org/obo/")
-TAXON = rdflib.Namespace("http://identifiers.org/taxonomy/")
+OBO = rdflib.Namespace("http://purl.obolibrary.org/obo/")
 
 # populate RDF graph
 g = rdflib.Graph()
 g.parse(infile, format='ttl')
 g.bind("anno", ANNO)
-g.bind("dc", DC)
 g.bind("dcterms", DCTERMS)
 g.bind("dcmitype", DCMITYPE)
-g.bind("dsw", DSW)
-g.bind("dwc", DWC)
-g.bind("dwciri", DWCIRI)
-g.bind("foaf", FOAF)
+g.bind("dsw", DSW), FOAF
 g.bind("img", IMG)
-g.bind("nc", NC)
-g.bind("nhc", NHC)
 g.bind("oa", OA)
 g.bind("obo", OBO)
 g.bind("rdf", RDF)
-g.bind("taxon", TAXON)
+g.bind("rdfs", RDFS)
 
 # plot the graph
 G = nx.DiGraph()
@@ -67,7 +58,7 @@ for (s, p, o) in g:
     G.add_node(o.n3(g.namespace_manager), group=o.n3(g.namespace_manager))
     G.add_edge(s.n3(g.namespace_manager), o.n3(g.namespace_manager),
                group=p.n3(g.namespace_manager))
-pos = nx.drawing.layout.spring_layout(G, iterations=10)
+pos = nx.drawing.layout.spring_layout(G, iterations=50)
 plt.figure()
 nx.draw(G, pos, with_labels=True, node_shape='o', node_size=10,
         node_color='lightblue', edge_color="gray", width=0.2, font_size=4)
