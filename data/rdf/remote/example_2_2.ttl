@@ -9,39 +9,35 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/de8578f8-db76-4d7f-aeb7-bd7667d43112> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/28f3638d-9921-4d2d-b3d9-ea59c5eb2e57> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody viaf:39377694, _:node1etov1ae3x356 .
+  oa:hasBody _:node1euqlam8lx330 .
 
-_:node1etov1ae3x356 a oa:TextualBody;
+_:node1euqlam8lx330 a oa:TextualBody, foaf:Person;
   dcterms:format "text/plain";
   dcterms:language iso:und;
-  rdf:value "Geoff"@und .
+  rdf:value "Geoff"@und;
+  foaf:name "Geoff"@und .
 
-<http://localhost:8080/rdf/nc/annotation/de8578f8-db76-4d7f-aeb7-bd7667d43112> oa:hasTarget
-    _:node1etov1ae3x355 .
+<http://localhost:8080/rdf/nc/annotation/28f3638d-9921-4d2d-b3d9-ea59c5eb2e57> oa:hasTarget
+    _:node1euqlam8lx329 .
 
-_:node1etov1ae3x355 a oa:Target;
+_:node1euqlam8lx329 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1etov1ae3x358 .
+  oa:hasSelector _:node1euqlam8lx332 .
 
-_:node1etov1ae3x358 a oa:FragmentSelector;
+_:node1euqlam8lx332 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.6285924932975873,0.31825775988026184,0.025649176560704756,0.017330524703178862" .
 
-_:node1etov1ae3x355 oa:hasSource img:default.jpg .
+_:node1euqlam8lx329 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/de8578f8-db76-4d7f-aeb7-bd7667d43112> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/28f3638d-9921-4d2d-b3d9-ea59c5eb2e57> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Source,
     foaf:Image .
-
-<nc:taxon1> dwc:scientificNameAuthorship viaf:39377694 .
-
-viaf:39377694 a foaf:Person .

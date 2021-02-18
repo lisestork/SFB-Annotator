@@ -2,7 +2,6 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
-@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix img: <http://localhost:8080/semanticAnnotator/files/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
@@ -10,39 +9,35 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/ddbc57ca-a5a2-4246-8ddb-c87c018b633e> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/dab8f596-83cf-4e33-9d27-0d78094ada8b> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody viaf:39377694, _:node1etov1ae3x215 .
+  oa:hasBody _:node1euqlam8lx240 .
 
-_:node1etov1ae3x215 a oa:TextualBody;
+_:node1euqlam8lx240 a oa:TextualBody, foaf:Person;
   dcterms:format "text/plain";
   dcterms:language iso:und;
-  rdf:value "Diard"@und .
+  rdf:value "Diard"@und;
+  foaf:name "Diard"@und .
 
-<http://localhost:8080/rdf/nc/annotation/ddbc57ca-a5a2-4246-8ddb-c87c018b633e> oa:hasTarget
-    _:node1etov1ae3x214 .
+<http://localhost:8080/rdf/nc/annotation/dab8f596-83cf-4e33-9d27-0d78094ada8b> oa:hasTarget
+    _:node1euqlam8lx239 .
 
-_:node1etov1ae3x214 a oa:Target;
+_:node1euqlam8lx239 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1etov1ae3x217 .
+  oa:hasSelector _:node1euqlam8lx242 .
 
-_:node1etov1ae3x217 a oa:FragmentSelector;
+_:node1euqlam8lx242 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.7440088812582997,0.07455982948806777,0.025616647631110823,0.015342591094569064" .
 
-_:node1etov1ae3x214 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1euqlam8lx239 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/ddbc57ca-a5a2-4246-8ddb-c87c018b633e> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/dab8f596-83cf-4e33-9d27-0d78094ada8b> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation,
     oa:Source, foaf:Image .
-
-<http://makingsense.liacs.nl/rdf/nc/occurrence> dwciri:recordedBy viaf:39377694 .
-
-viaf:39377694 a foaf:Person .

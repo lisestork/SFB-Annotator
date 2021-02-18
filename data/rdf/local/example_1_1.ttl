@@ -4,6 +4,7 @@
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gbif: <http://www.gbif.org/species/> .
 @prefix img: <http://localhost:8080/semanticAnnotator/files/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
@@ -12,32 +13,32 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/aded8c22-f06b-418a-ac6f-aaa69865a303> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/686c2d79-e500-42bf-95bf-1a9be249544f> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1euosh2f2x2 .
+  oa:hasBody _:node1euqlam8lx210 .
 
-_:node1euosh2f2x2 a dwc:Taxon, oa:TextualBody;
+_:node1euqlam8lx210 a dwc:Taxon, oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   dsw:derivedFrom img:MMNAT01_AF_NNM001001033_003.jpg;
   dwc:scientificName "Pteropus minimus"@lat;
   rdf:value "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/aded8c22-f06b-418a-ac6f-aaa69865a303> oa:hasTarget
-    _:node1euosh2f2x1 .
+<http://localhost:8080/rdf/nc/annotation/686c2d79-e500-42bf-95bf-1a9be249544f> oa:hasTarget
+    _:node1euqlam8lx209 .
 
-_:node1euosh2f2x1 a oa:Target;
+_:node1euqlam8lx209 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1euosh2f2x4 .
+  oa:hasSelector _:node1euqlam8lx212 .
 
-_:node1euosh2f2x4 a oa:FragmentSelector;
+_:node1euqlam8lx212 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" .
 
-_:node1euosh2f2x1 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1euqlam8lx209 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/aded8c22-f06b-418a-ac6f-aaa69865a303> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/686c2d79-e500-42bf-95bf-1a9be249544f> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
@@ -45,6 +46,6 @@ orcid:0000-0002-2146-4803 a foaf:Person .
 img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation,
     oa:Source, foaf:Image .
 
-<http://www.gbif.org/species/9180402> a dwc:Identification;
-  dwciri:toTaxon _:node1euosh2f2x2;
+gbif:9180402 a dwc:Identification;
+  dwciri:toTaxon _:node1euqlam8lx210;
   dwc:taxonRank obo:TAXRANK_0000006 .

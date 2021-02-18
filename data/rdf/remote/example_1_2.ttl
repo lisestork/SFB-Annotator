@@ -7,47 +7,37 @@
 @prefix img: <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
-@prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix taxon: <http://identifiers.org/taxonomy/> .
-@prefix viaf: <http://viaf.org/viaf/> .
 
-<http://localhost:8080/rdf/nc/annotation/3d7a205d-8324-4454-a99e-00baab5e792a> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/9a801949-5318-4cdd-ab7c-2a3ad42b88b9> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/humanObservation>, _:node1etov1ae3x337 .
+  oa:hasBody _:node1euqlam8lx319 .
 
-_:node1etov1ae3x337 a oa:TextualBody;
+_:node1euqlam8lx319 a dwc:Taxon, oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
+  dsw:derivedFrom img:default.jpg;
+  dwc:scientificName "Pteropus minimus"@lat;
   rdf:value "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/3d7a205d-8324-4454-a99e-00baab5e792a> oa:hasBody
-    _:node1etov1ae3x338 .
+<http://localhost:8080/rdf/nc/annotation/9a801949-5318-4cdd-ab7c-2a3ad42b88b9> oa:hasTarget
+    _:node1euqlam8lx318 .
 
-_:node1etov1ae3x338 a dwc:Taxon;
-  nhc:belongsToTaxon taxon:9397;
-  dwc:taxonRank obo:TAXRANK_0000003;
-  rdfs:label "Pteropus minimus"@lat .
-
-<http://localhost:8080/rdf/nc/annotation/3d7a205d-8324-4454-a99e-00baab5e792a> oa:hasTarget
-    img:default.jpg, _:node1etov1ae3x336 .
-
-_:node1etov1ae3x336 a oa:Target;
+_:node1euqlam8lx318 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1etov1ae3x339 .
+  oa:hasSelector _:node1euqlam8lx321 .
 
-_:node1etov1ae3x339 a oa:FragmentSelector;
+_:node1euqlam8lx321 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5564975105323632,0.15035962809369469,0.07070854078896982,0.017330524703178862" .
 
-_:node1etov1ae3x336 oa:hasSource img:default.jpg .
+_:node1euqlam8lx318 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/3d7a205d-8324-4454-a99e-00baab5e792a> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/9a801949-5318-4cdd-ab7c-2a3ad42b88b9> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
@@ -55,38 +45,6 @@ orcid:0000-0002-2146-4803 a foaf:Person .
 img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Source,
     foaf:Image .
 
-<http://makingsense.liacs.nl/rdf/nc/event> a dwc:Event;
-  nhc:verbatimEventDate <http://makingsense.liacs.nl/rdf/nc/date>;
-  dsw:eventOf <http://makingsense.liacs.nl/rdf/nc/occurrence>;
-  dsw:locatedAt <http://makingsense.liacs.nl/rdf/nc/location> .
-
-<http://makingsense.liacs.nl/rdf/nc/date> a dcterms:date .
-
-<http://makingsense.liacs.nl/rdf/nc/humanObservation> a dwc:HumanObservation;
-  dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/organism>;
-  dsw:evidenceFor <http://makingsense.liacs.nl/rdf/nc/occurrence>;
-  dsw:isBasisForId <http://makingsense.liacs.nl/rdf/nc/identification> .
-
-<http://makingsense.liacs.nl/rdf/nc/identification> a dwc:Identification;
-  dsw:identifies <http://makingsense.liacs.nl/rdf/nc/organism>;
-  dsw:isBasedOn <http://makingsense.liacs.nl/rdf/nc/humanObservation>;
-  dwciri:identifiedBy viaf:45106482;
-  dwciri:toTaxon _:node1etov1ae3x338;
-  dwc:identificationID "" .
-
-<http://makingsense.liacs.nl/rdf/nc/location> a dcterms:Location;
-  dsw:locates <http://makingsense.liacs.nl/rdf/nc/event> .
-
-<http://makingsense.liacs.nl/rdf/nc/occurrence> a dwc:Occurrence;
-  dsw:atEvent <http://makingsense.liacs.nl/rdf/nc/event>;
-  dsw:hasEvidence <http://makingsense.liacs.nl/rdf/nc/humanObservation>;
-  dsw:occurrenceOf <http://makingsense.liacs.nl/rdf/nc/organism>;
-  dwciri:recordedBy viaf:45106482 .
-
-<http://makingsense.liacs.nl/rdf/nc/organism> a dwc:Organism;
-  dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/humanObservation>;
-  dsw:hasIdentification <http://makingsense.liacs.nl/rdf/nc/identification>;
-  dsw:hasOccurrence <http://makingsense.liacs.nl/rdf/nc/occurrence>;
-  dwc:organismID "" .
-
-viaf:45106482 a foaf:Person .
+<http://identifiers.org/taxonomy/9397> a dwc:Identification;
+  dwciri:toTaxon _:node1euqlam8lx319;
+  dwc:taxonRank obo:TAXRANK_0000003 .

@@ -92,13 +92,20 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		mapMime.put("tif", "image/tiff");
 		mapMime.put("png", "image/png");
 
+		// connect to RDF server
+		String host = "http://localhost:8080/";
+		String repositoryID = "mem-rdf";
+		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
+		ValueFactory f = repo.getValueFactory();
+
 		// namespace prefixes
+		String annot = host + "rdf/nc/annotation/" + uuid;
 		String dcmitype = "http://purl.org/dc/dcmitype/";
 		String dsw = "http://purl.org/dsw/";
 		String dwc = "http://rs.tdwg.org/dwc/terms/";
 		String dwciri = "http://rs.tdwg.org/dwc/iri/";
 		String gn = "http://sws.geonames.org/";
-		String gbif = "http://www.gbif.org/species/9180402";
+		String gbif = "http://www.gbif.org/species/";
 		String iso = "http://iso639-3.sil.org/code/";
 		String img = String.join("/", Arrays.copyOfRange(arr, 0, arr.length - 1)) + "/";
 		String mf = "http://www.w3.org/TR/media-frags/";
@@ -106,12 +113,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String obo = "http://purl.obolibrary.org/obo/";
 		String orcid = "http://orcid.org/";
 		String viaf = "http://viaf.org/viaf/";
-
-		// connect to RDF server
-		String host = "http://localhost:8080/";
-		String repositoryID = "mem-rdf";
-		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
-		ValueFactory f = repo.getValueFactory();
 
 		// init class
 		IRI annotationClass = f.createIRI(oa, "Annotation");
@@ -151,7 +152,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		BNode textualBodyBNode = f.createBNode();
 		BNode taxonBNode = f.createBNode();
 		BNode selectorBNode = f.createBNode();
-		IRI annotationIRI = f.createIRI(host, "rdf/nc/annotation/" + uuid);
+		IRI annotationIRI = f.createIRI(annot);
 		IRI sourceIRI = f.createIRI(source);
 		Resource instanceRes;
 		Resource annotatorRes;
@@ -215,6 +216,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();
 			// add namespace prefixes
+			conn.setNamespace("annot", annot);
 			conn.setNamespace("dsw", dsw);
 			conn.setNamespace(DCTERMS.PREFIX, DCTERMS.NAMESPACE);
 			conn.setNamespace("dcmitype", dcmitype);
@@ -231,6 +233,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.setNamespace("oa", oa);
 			conn.setNamespace("viaf", viaf);
 			conn.setNamespace("gn", gn);
+			conn.setNamespace("gbif", gbif);
+
 			// add triples
 			conn.add(annotationIRI, RDF.TYPE, annotationClass);
 			conn.add(annotationIRI, hasBodyProperty, textualBodyBNode);

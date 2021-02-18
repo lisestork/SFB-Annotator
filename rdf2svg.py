@@ -27,7 +27,7 @@ title = os.path.basename(infile)
 print(outfile)
 
 # set namespace prefixes
-ANNO = rdflib.Namespace("http://localhost:8080/rdf/nc/annotation/")
+ANNOT = rdflib.Namespace("http://localhost:8080/rdf/nc/annotation/")
 DCMITYPE = rdflib.Namespace("http://purl.org/dc/dcmitype/")
 DSW = rdflib.Namespace("http://purl.org/dsw/")
 DWC = rdflib.Namespace("http://rs.tdwg.org/dwc/terms/")
@@ -41,7 +41,7 @@ OBO = rdflib.Namespace("http://purl.obolibrary.org/obo/")
 # populate RDF graph
 g = rdflib.Graph()
 g.parse(infile, format='ttl')
-g.bind("anno", ANNO)
+g.bind("annot", ANNOT)
 g.bind("dcterms", DCTERMS)
 g.bind("dcmitype", DCMITYPE)
 g.bind("dsw", DSW), FOAF
