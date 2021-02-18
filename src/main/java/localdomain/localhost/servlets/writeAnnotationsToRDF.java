@@ -13,6 +13,7 @@ import java.util.MissingResourceException;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.DateTimeException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -54,10 +55,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		JSONObject json = new JSONObject(anno);
 
 		// retrieve key-value pairs
-		Integer year = (json.isNull("year")) ? null : json.getInt("year");
-		Integer month = (json.isNull("month")) ? null : json.getInt("month");
-		Integer day = (json.isNull("day")) ? null : json.getInt("day");
-
 		String date = (json.isNull("date")) ? "" : json.getString("date").trim();
 		String annotator = (json.isNull("annotator")) ? "" : json.getString("annotator").replaceAll("/$|\\s+$", "");
 		String source = (json.isNull("source")) ? "" : json.getString("source").replaceAll("/$|\\s+$", "");
@@ -179,8 +176,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		// get datetime in ISO 8601 format
 		try {
 			date = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX").format(ZonedDateTime.parse(date));
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (DateTimeException e) {
+			ZonedDateTime d = ZonedDateTime.now();
+			date = DateTimeFormatter.ISO_INSTANT.format(d);
 		}
 
 		// get IRI for valid URL otherwise Bnode
