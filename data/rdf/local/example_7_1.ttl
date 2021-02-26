@@ -10,30 +10,30 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/19b229b0-b068-499f-98b2-0e05007f4d52> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/87512277-50cc-4b2c-b3cb-475a36b6d93e> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1euqlam8lx300 .
+  oa:hasBody _:node1evfck18lx51 .
 
-_:node1euqlam8lx300 a dwc:Event, oa:TextualBody;
+_:node1evfck18lx51 a dwc:Event, oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:ger;
   rdf:value "10 April 1821"@ger .
 
-<http://localhost:8080/rdf/nc/annotation/19b229b0-b068-499f-98b2-0e05007f4d52> oa:hasTarget
-    _:node1euqlam8lx299 .
+<http://localhost:8080/rdf/nc/annotation/87512277-50cc-4b2c-b3cb-475a36b6d93e> oa:hasTarget
+    _:node1evfck18lx50 .
 
-_:node1euqlam8lx299 a oa:Target;
+_:node1evfck18lx50 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1euqlam8lx302 .
+  oa:hasSelector _:node1evfck18lx53 .
 
-_:node1euqlam8lx302 a oa:FragmentSelector;
+_:node1evfck18lx53 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.672574339819018,0.030544471154748218,0.06203976435935199,0.01601620029455081" .
 
-_:node1euqlam8lx299 oa:hasSource img:MMNAT01_AF_NNM001001033_004.jpg .
+_:node1evfck18lx50 oa:hasSource img:MMNAT01_AF_NNM001001033_004.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/19b229b0-b068-499f-98b2-0e05007f4d52> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/87512277-50cc-4b2c-b3cb-475a36b6d93e> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
@@ -41,4 +41,5 @@ orcid:0000-0002-2146-4803 a foaf:Person .
 img:MMNAT01_AF_NNM001001033_004.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation,
     oa:Source, foaf:Image .
 
-dwc:Event dwc:verbatimEventDate "10 April 1821"@ger .
+dwc:Event dwc:eventDate "1821-04-10"^^dcterms:W3CDTF;
+  dwc:verbatimEventDate "10 April 1821"@ger .

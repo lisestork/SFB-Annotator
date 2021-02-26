@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.MissingResourceException;
 
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.DateTimeException;
@@ -140,6 +141,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI measurementTypeProperty = f.createIRI(dwciri, "measurementType");
 		IRI toTaxonProperty = f.createIRI(dwciri, "toTaxon");
 		IRI scientificNameProperty = f.createIRI(dwc, "scientificName");
+		IRI eventDateProperty = f.createIRI(dwc, "eventDate");
 		IRI verbatimEventDateProperty = f.createIRI(dwc, "verbatimEventDate");
 		IRI verbatimLocalityProperty = f.createIRI(dwc, "verbatimLocality");
 
@@ -179,6 +181,12 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		} catch (DateTimeException e) {
 			ZonedDateTime d = ZonedDateTime.now();
 			date = DateTimeFormatter.ISO_INSTANT.format(d);
+		}
+
+		try {
+			instance = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDate.parse(instance));
+		} catch (DateTimeException e) {
+			instance = "";
 		}
 
 		// get IRI for valid URL otherwise Bnode
@@ -308,6 +316,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				case "date" :
 					conn.add(textualBodyBNode, RDF.TYPE, eventClass);
 					conn.add(eventClass, verbatimEventDateProperty, verbatimLiteral);
+					if (!instance.equals("")) {
+						conn.add(eventClass, eventDateProperty, f.createLiteral(instance, DCTERMS.W3CDTF));
+					}
 					break;
 				default :
 					break;

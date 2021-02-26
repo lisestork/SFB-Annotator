@@ -478,7 +478,7 @@ Steps:
 | language/`language` | `ger` | [ISO 639-3 code](https://iso639-3.sil.org/code/ger) for _German_ |
 | Select property | `Type` | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a date. |
 | type | `date` | auto-fill from entity type |
-| instance | | This field is currently not used. |
+| instance | `1821-04-10` | [ISO 8601](https://www.w3.org/TR/NOTE-datetime) date/time format (`YYYY-MM-DD`) |
 
 
 ### Example 7_2
