@@ -31,6 +31,7 @@ import org.eclipse.rdf4j.model.vocabulary.DCTERMS;
 import org.eclipse.rdf4j.model.vocabulary.FOAF;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
+import org.eclipse.rdf4j.model.vocabulary.OWL;
 import org.eclipse.rdf4j.query.BindingSet;
 import org.eclipse.rdf4j.query.TupleQuery;
 import org.eclipse.rdf4j.query.TupleQueryResult;
@@ -111,6 +112,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String obo = "http://purl.obolibrary.org/obo/";
 		String orcid = "http://orcid.org/";
 		String viaf = "http://viaf.org/viaf/";
+		String owl = "http://www.w3.org/2002/07/owl#";
 
 		// init class
 		IRI annotationClass = f.createIRI(oa, "Annotation");
@@ -147,6 +149,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 
 		// init instances
 		Literal verbatimLiteral;
+		BNode identificationBNode = f.createBNode();
 		BNode targetBNode = f.createBNode();
 		BNode textualBodyBNode = f.createBNode();
 		BNode taxonBNode = f.createBNode();
@@ -237,6 +240,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.setNamespace("obo", obo);
 			conn.setNamespace("orcid", orcid);
 			conn.setNamespace("oa", oa);
+			conn.setNamespace("owl", owl);
 			conn.setNamespace("viaf", viaf);
 			conn.setNamespace("gn", gn);
 			conn.setNamespace("gbif", gbif);
@@ -268,12 +272,13 @@ public class writeAnnotationsToRDF extends HttpServlet {
 
 			switch (type) {
 				case "taxon" :
-					conn.add(identificationRes, RDF.TYPE, identificationClass);
-					conn.add(identificationRes, toTaxonProperty, textualBodyBNode);
 					conn.add(textualBodyBNode, RDF.TYPE, taxonClass);
 					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, scientificNameProperty, verbatimLiteral);
+					conn.add(identificationBNode, toTaxonProperty, textualBodyBNode);
+					conn.add(identificationBNode, RDF.TYPE, identificationClass);
 					if (taxonRankRes.isIRI()) {
+						conn.add(identificationRes, OWL.SAMEAS, textualBodyBNode);
 						conn.add(identificationRes, taxonRankProperty, taxonRankRes);
 					}
 					break;

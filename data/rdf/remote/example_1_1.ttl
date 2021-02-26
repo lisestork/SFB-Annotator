@@ -11,34 +11,35 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix orcid: <http://orcid.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/fff1ca14-6c89-49d4-9aee-889a979790cb> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/0172d459-cf25-45be-b7a5-723a9beb7896> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1euqlam8lx314 .
+  oa:hasBody _:node1evfpueffx9 .
 
-_:node1euqlam8lx314 a dwc:Taxon, oa:TextualBody;
+_:node1evfpueffx9 a dwc:Taxon, oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
   dsw:derivedFrom img:default.jpg;
   dwc:scientificName "Pteropus minimus"@lat;
   rdf:value "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/fff1ca14-6c89-49d4-9aee-889a979790cb> oa:hasTarget
-    _:node1euqlam8lx313 .
+<http://localhost:8080/rdf/nc/annotation/0172d459-cf25-45be-b7a5-723a9beb7896> oa:hasTarget
+    _:node1evfpueffx8 .
 
-_:node1euqlam8lx313 a oa:Target;
+_:node1evfpueffx8 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1euqlam8lx316 .
+  oa:hasSelector _:node1evfpueffx11 .
 
-_:node1euqlam8lx316 a oa:FragmentSelector;
+_:node1evfpueffx11 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" .
 
-_:node1euqlam8lx313 oa:hasSource img:default.jpg .
+_:node1evfpueffx8 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/fff1ca14-6c89-49d4-9aee-889a979790cb> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/0172d459-cf25-45be-b7a5-723a9beb7896> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
@@ -46,6 +47,8 @@ orcid:0000-0002-2146-4803 a foaf:Person .
 img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Source,
     foaf:Image .
 
-gbif:9180402 a dwc:Identification;
-  dwciri:toTaxon _:node1euqlam8lx314;
-  dwc:taxonRank obo:TAXRANK_0000006 .
+gbif:9180402 dwc:taxonRank obo:TAXRANK_0000006;
+  owl:sameAs _:node1evfpueffx9 .
+
+_:node1evfpueffx7 a dwc:Identification;
+  dwciri:toTaxon _:node1evfpueffx9 .
