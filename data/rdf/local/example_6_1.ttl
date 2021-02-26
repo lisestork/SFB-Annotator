@@ -2,47 +2,42 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
-@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix img: <http://localhost:8080/semanticAnnotator/files/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/320454ac-e8eb-4e06-a927-3bc74a0b4cd3> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/c30e96b6-e015-4830-add3-b3850cd2819d> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1euqlam8lx287 .
+  oa:hasBody _:node1evfesn2mx16 .
 
-_:node1euqlam8lx287 a dwc:MeasurementOrFact, oa:TextualBody;
+_:node1evfesn2mx16 a dsw:Token, dwc:MeasurementOrFact, oa:TextualBody;
   dcterms:format "text/plain";
-  dcterms:identifier obo:UBERON_0001062;
   dcterms:language iso:lat;
   dsw:derivedFrom img:MMNAT01_AF_NNM001001033_003.jpg;
   rdf:value "Dentibus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/320454ac-e8eb-4e06-a927-3bc74a0b4cd3> oa:hasTarget
-    _:node1euqlam8lx286 .
+<http://localhost:8080/rdf/nc/annotation/c30e96b6-e015-4830-add3-b3850cd2819d> oa:hasTarget
+    _:node1evfesn2mx15 .
 
-_:node1euqlam8lx286 a oa:Target;
+_:node1evfesn2mx15 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1euqlam8lx289 .
+  oa:hasSelector _:node1evfesn2mx18 .
 
-_:node1euqlam8lx289 a oa:FragmentSelector;
+_:node1evfesn2mx18 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" .
 
-_:node1euqlam8lx286 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1evfesn2mx15 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/320454ac-e8eb-4e06-a927-3bc74a0b4cd3> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/c30e96b6-e015-4830-add3-b3850cd2819d> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation,
     oa:Source, foaf:Image .
-
-dwc:MeasurementOrFact dwciri:measurementType obo:UBERON_0001062 .
