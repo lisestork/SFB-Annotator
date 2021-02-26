@@ -186,7 +186,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		try {
 			instance = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDate.parse(instance));
 		} catch (DateTimeException e) {
-			instance = "";
+			//
 		}
 
 		// get IRI for valid URL otherwise Bnode
@@ -195,6 +195,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			instanceRes = f.createIRI(url.toString());
 		} catch (MalformedURLException e) {
 			instanceRes = f.createBNode();
+			instance = "";
 		}
 
 		try {
@@ -304,7 +305,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(textualBodyBNode, RDF.TYPE, tokenClass);
 					if (instanceRes.isIRI()) {
 						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
-						conn.add(measurementOrFactClass, measurementTypeProperty, instanceRes);
+						conn.add(textualBodyBNode, measurementTypeProperty, instanceRes);
 					}
 					break;
 				case "anatomicalentity" :
@@ -313,7 +314,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(textualBodyBNode, RDF.TYPE, tokenClass);
 					if (instanceRes.isIRI()) {
 						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
-						conn.add(measurementOrFactClass, measurementTypeProperty, instanceRes);
+						conn.add(textualBodyBNode, measurementTypeProperty, instanceRes);
 					}
 					break;
 				case "date" :
