@@ -175,27 +175,12 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			verbatimLiteral = f.createLiteral(verbatim, lang);
 		}
 
-		// get datetime in ISO 8601 format
-		try {
-			date = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX").format(ZonedDateTime.parse(date));
-		} catch (DateTimeException e) {
-			ZonedDateTime d = ZonedDateTime.now();
-			date = DateTimeFormatter.ISO_INSTANT.format(d);
-		}
-
-		try {
-			instance = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDate.parse(instance));
-		} catch (DateTimeException e) {
-			//
-		}
-
 		// get IRI for valid URL otherwise Bnode
 		try {
 			URL url = new URL(instance);
 			instanceRes = f.createIRI(url.toString());
 		} catch (MalformedURLException e) {
 			instanceRes = f.createBNode();
-			instance = "";
 		}
 
 		try {
@@ -217,6 +202,20 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			taxonRankRes = f.createIRI(url.toString());
 		} catch (MalformedURLException e) {
 			taxonRankRes = f.createBNode();
+		}
+
+		// get date/time in ISO 8601 format
+		try {
+			date = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX").format(ZonedDateTime.parse(date));
+		} catch (DateTimeException e) {
+			ZonedDateTime d = ZonedDateTime.now();
+			date = DateTimeFormatter.ISO_INSTANT.format(d);
+		}
+
+		try {
+			instance = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDate.parse(instance));
+		} catch (DateTimeException e) {
+			instance = "";
 		}
 
 		// construct RDF graph
@@ -319,9 +318,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					break;
 				case "date" :
 					conn.add(textualBodyBNode, RDF.TYPE, eventClass);
-					conn.add(eventClass, verbatimEventDateProperty, verbatimLiteral);
+					conn.add(textualBodyBNode, verbatimEventDateProperty, verbatimLiteral);
 					if (!instance.equals("")) {
-						conn.add(eventClass, eventDateProperty, f.createLiteral(instance, DCTERMS.W3CDTF));
+						conn.add(textualBodyBNode, eventDateProperty, f.createLiteral(instance, DCTERMS.W3CDTF));
 					}
 					break;
 				default :
