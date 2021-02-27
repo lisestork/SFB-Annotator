@@ -49,7 +49,7 @@ Steps:
 | language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _Latin_ |  add autocomplete/drop down menu
 | Select property/`property` | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a taxon. |
 | type/`type` | `taxon` |  auto-fill according to the Entity type |
-| Belongs to taxon/`belongstotaxon` | `https://www.gbif.org/species/9180402` | Point to an IRI, if known (e.g., using GBIF or NCBI Taxonomy), or to an exisiting (verbatim) annotation such as _Chiroptera_ (on [page 2](data/jpg/MMNAT01_AF_NNM001001033_002.jpg)).| A distinction should be made between transcription and interpretation.
+| Belongs to taxon/`belongstotaxon` | `http://www.gbif.org/species/9180402` | Point to an IRI, if known (e.g., using GBIF or NCBI Taxonomy), or to an exisiting (verbatim) annotation such as _Chiroptera_ (on [page 2](data/jpg/MMNAT01_AF_NNM001001033_002.jpg)).| A distinction should be made between transcription and interpretation.
 | Taxon rank/`rank` | `http://purl.obolibrary.org/obo/TAXRANK_0000006` (species) | from list ([`kingdom`](http://purl.obolibrary.org/obo/TAXRANK_0000017),[`class`](http://purl.obolibrary.org/obo/TAXRANK_0000002),[`order`](http://purl.obolibrary.org/obo/TAXRANK_0000003),[`family`](http://purl.obolibrary.org/obo/TAXRANK_0000004),[`genus`](http://purl.obolibrary.org/obo/TAXRANK_0000005) or [`species`](http://purl.obolibrary.org/obo/TAXRANK_0000006)) | should be drop-down menu according to the taxon IRI above
 
 
