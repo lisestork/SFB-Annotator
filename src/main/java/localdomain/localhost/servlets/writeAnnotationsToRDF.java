@@ -273,7 +273,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			switch (type) {
 				case "taxon" :
 					conn.add(textualBodyBNode, RDF.TYPE, taxonClass);
-					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
 					conn.add(textualBodyBNode, scientificNameProperty, verbatimLiteral);
 					conn.add(identificationBNode, toTaxonProperty, textualBodyBNode);
 					conn.add(identificationBNode, RDF.TYPE, identificationClass);

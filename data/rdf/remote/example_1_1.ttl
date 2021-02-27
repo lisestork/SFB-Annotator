@@ -14,32 +14,31 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/0172d459-cf25-45be-b7a5-723a9beb7896> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/79ab13ca-14c4-44e3-926e-4114c9e875a9> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1evfpueffx9 .
+  oa:hasBody _:node1evgqka3hx3 .
 
-_:node1evfpueffx9 a dwc:Taxon, oa:TextualBody;
+_:node1evgqka3hx3 a dwc:Taxon, oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:language iso:lat;
-  dsw:derivedFrom img:default.jpg;
   dwc:scientificName "Pteropus minimus"@lat;
   rdf:value "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/0172d459-cf25-45be-b7a5-723a9beb7896> oa:hasTarget
-    _:node1evfpueffx8 .
+<http://localhost:8080/rdf/nc/annotation/79ab13ca-14c4-44e3-926e-4114c9e875a9> oa:hasTarget
+    _:node1evgqka3hx2 .
 
-_:node1evfpueffx8 a oa:Target;
+_:node1evgqka3hx2 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1evfpueffx11 .
+  oa:hasSelector _:node1evgqka3hx5 .
 
-_:node1evfpueffx11 a oa:FragmentSelector;
+_:node1evgqka3hx5 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" .
 
-_:node1evfpueffx8 oa:hasSource img:default.jpg .
+_:node1evgqka3hx2 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/0172d459-cf25-45be-b7a5-723a9beb7896> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/79ab13ca-14c4-44e3-926e-4114c9e875a9> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
@@ -48,7 +47,7 @@ img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Sourc
     foaf:Image .
 
 gbif:9180402 dwc:taxonRank obo:TAXRANK_0000006;
-  owl:sameAs _:node1evfpueffx9 .
+  owl:sameAs _:node1evgqka3hx3 .
 
-_:node1evfpueffx7 a dwc:Identification;
-  dwciri:toTaxon _:node1evfpueffx9 .
+_:node1evgqka3hx1 a dwc:Identification;
+  dwciri:toTaxon _:node1evgqka3hx3 .
