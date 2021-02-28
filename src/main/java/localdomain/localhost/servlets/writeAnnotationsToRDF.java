@@ -112,7 +112,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String obo = "http://purl.obolibrary.org/obo/";
 		String orcid = "http://orcid.org/";
 		String viaf = "http://viaf.org/viaf/";
-		String owl = "http://www.w3.org/2002/07/owl#";
+		String owl = OWL.NAMESPACE;
 
 		// init class
 		IRI annotationClass = f.createIRI(oa, "Annotation");
