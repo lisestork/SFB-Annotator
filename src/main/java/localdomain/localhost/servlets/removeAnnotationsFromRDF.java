@@ -1,7 +1,6 @@
 package localdomain.localhost.servlets;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.rdf4j.model.IRI;
-import org.eclipse.rdf4j.model.Value;
 import org.eclipse.rdf4j.model.ValueFactory;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
+import org.eclipse.rdf4j.model.vocabulary.XSD;
 import org.eclipse.rdf4j.query.BindingSet;
-import org.eclipse.rdf4j.query.QueryLanguage;
-import org.eclipse.rdf4j.query.QueryResults;
 import org.eclipse.rdf4j.query.TupleQuery;
 import org.eclipse.rdf4j.query.TupleQueryResult;
+import org.eclipse.rdf4j.query.QueryEvaluationException;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
 import org.eclipse.rdf4j.repository.http.HTTPRepository;
 
 /**
@@ -42,9 +41,12 @@ public class removeAnnotationsFromRDF extends HttpServlet {
 
 		String queryStr = "PREFIX rdf: <" + RDF.NAMESPACE + "> \n";
 		queryStr += "PREFIX oa: <http://www.w3.org/ns/oa#> \n";
+		queryStr += "PREFIX xsd: <" + XSD.NAMESPACE + "> \n";
 		queryStr += "SELECT DISTINCT ?annot WHERE { \n";
-		queryStr += "	?annot oa:hasTarget/oa:hasSelector/rdf:value ?selector. \n";
-		queryStr += "	FILTER(?selector = \"" + selector + "\")}";
+		queryStr += "	?annot oa:hasTarget ?bnode . \n";
+		queryStr += "   ?bnode oa:hasSource <" + source + "> . \n";
+		queryStr += "   ?bnode oa:hasSelector/rdf:value ?selector . \n";
+		queryStr += "	FILTER(?selector = xsd:string(\"" + selector + "\"))}";
 
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();
@@ -56,12 +58,12 @@ public class removeAnnotationsFromRDF extends HttpServlet {
 				}
 				conn.remove(annotationIRI, null, null);
 				conn.commit();
-			} catch (Exception e) {
+			} catch (QueryEvaluationException e) {
 				e.printStackTrace();
 			} finally {
 				conn.close();
 			}
-		} catch (Exception e) {
+		} catch (RepositoryException e) {
 			e.printStackTrace();
 		} finally {
 			repo.shutDown();
