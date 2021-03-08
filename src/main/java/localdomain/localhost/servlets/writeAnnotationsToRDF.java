@@ -277,8 +277,8 @@ public class writeAnnotationsToRDF extends HttpServlet {
 					conn.add(identificationBNode, toTaxonProperty, textualBodyBNode);
 					conn.add(identificationBNode, RDF.TYPE, identificationClass);
 					if (taxonRankRes.isIRI()) {
-						conn.add(identificationRes, OWL.SAMEAS, textualBodyBNode);
 						conn.add(identificationRes, taxonRankProperty, taxonRankRes);
+						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, identificationRes);
 					}
 					break;
 				case "person" :

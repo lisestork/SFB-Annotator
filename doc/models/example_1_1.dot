@@ -2,25 +2,26 @@ digraph {
 	rankdir = LR;
 	charset="utf-8";
 
-	"Rhttp://localhost:8080/rdf/nc/annotation/b52c7aa5-a200-4442-b53f-14daaa60100b" -> "Roa:Annotation" [ label="rdf:type" ];
-	"Rhttp://localhost:8080/rdf/nc/annotation/b52c7aa5-a200-4442-b53f-14daaa60100b" -> "Rorcid:0000-0002-2146-4803" [ label="dcterms:creator" ];
-	"Rhttp://localhost:8080/rdf/nc/annotation/b52c7aa5-a200-4442-b53f-14daaa60100b" -> "L2021-01-12T14:23:11.646Z|Datatype: dcterms:W3CDTF" [ label="dcterms:date" ];
-	"Rhttp://localhost:8080/rdf/nc/annotation/b52c7aa5-a200-4442-b53f-14daaa60100b" -> "B_:node1evgqka3hx9" [ label="oa:hasBody" ];
-	"B_:node1evgqka3hx9" -> "Rdwc:Taxon" [ label="rdf:type" ];
-	"B_:node1evgqka3hx9" -> "Roa:TextualBody" [ label="rdf:type" ];
-	"B_:node1evgqka3hx9" -> "Ltext/plain" [ label="dcterms:format" ];
-	"B_:node1evgqka3hx9" -> "Riso:lat" [ label="dcterms:language" ];
-	"B_:node1evgqka3hx9" -> "LPteropus minimus|Language: lat" [ label="dwc:scientificName" ];
-	"B_:node1evgqka3hx9" -> "LPteropus minimus|Language: lat" [ label="rdf:value" ];
-	"Rhttp://localhost:8080/rdf/nc/annotation/b52c7aa5-a200-4442-b53f-14daaa60100b" -> "B_:node1evgqka3hx8" [ label="oa:hasTarget" ];
-	"B_:node1evgqka3hx8" -> "Roa:Target" [ label="rdf:type" ];
-	"B_:node1evgqka3hx8" -> "Limage/jpeg" [ label="dcterms:format" ];
-	"B_:node1evgqka3hx8" -> "B_:node1evgqka3hx11" [ label="oa:hasSelector" ];
-	"B_:node1evgqka3hx11" -> "Roa:FragmentSelector" [ label="rdf:type" ];
-	"B_:node1evgqka3hx11" -> "Rmf:" [ label="dcterms:conformsTo" ];
-	"B_:node1evgqka3hx11" -> "Lxywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" [ label="rdf:value" ];
-	"B_:node1evgqka3hx8" -> "Rimg:MMNAT01_AF_NNM001001033_003.jpg" [ label="oa:hasSource" ];
-	"Rhttp://localhost:8080/rdf/nc/annotation/b52c7aa5-a200-4442-b53f-14daaa60100b" -> "Roa:describing" [ label="oa:motivatedBy" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/287eacf3-f149-4190-84b9-468b90c807f1" -> "Roa:Annotation" [ label="rdf:type" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/287eacf3-f149-4190-84b9-468b90c807f1" -> "Rorcid:0000-0002-2146-4803" [ label="dcterms:creator" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/287eacf3-f149-4190-84b9-468b90c807f1" -> "L2021-01-12T14:23:11.646Z|Datatype: dcterms:W3CDTF" [ label="dcterms:date" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/287eacf3-f149-4190-84b9-468b90c807f1" -> "B_:node1f09255tgx9" [ label="oa:hasBody" ];
+	"B_:node1f09255tgx9" -> "Rdwc:Taxon" [ label="rdf:type" ];
+	"B_:node1f09255tgx9" -> "Roa:TextualBody" [ label="rdf:type" ];
+	"B_:node1f09255tgx9" -> "Ltext/plain" [ label="dcterms:format" ];
+	"B_:node1f09255tgx9" -> "Rgbif:9180402" [ label="dcterms:identifier" ];
+	"B_:node1f09255tgx9" -> "Riso:lat" [ label="dcterms:language" ];
+	"B_:node1f09255tgx9" -> "LPteropus minimus|Language: lat" [ label="dwc:scientificName" ];
+	"B_:node1f09255tgx9" -> "LPteropus minimus|Language: lat" [ label="rdf:value" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/287eacf3-f149-4190-84b9-468b90c807f1" -> "B_:node1f09255tgx8" [ label="oa:hasTarget" ];
+	"B_:node1f09255tgx8" -> "Roa:Target" [ label="rdf:type" ];
+	"B_:node1f09255tgx8" -> "Limage/jpeg" [ label="dcterms:format" ];
+	"B_:node1f09255tgx8" -> "B_:node1f09255tgx11" [ label="oa:hasSelector" ];
+	"B_:node1f09255tgx11" -> "Roa:FragmentSelector" [ label="rdf:type" ];
+	"B_:node1f09255tgx11" -> "Rmf:" [ label="dcterms:conformsTo" ];
+	"B_:node1f09255tgx11" -> "Lxywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" [ label="rdf:value" ];
+	"B_:node1f09255tgx8" -> "Rimg:MMNAT01_AF_NNM001001033_003.jpg" [ label="oa:hasSource" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/287eacf3-f149-4190-84b9-468b90c807f1" -> "Roa:describing" [ label="oa:motivatedBy" ];
 	"Rorcid:0000-0002-2146-4803" -> "Rfoaf:Person" [ label="rdf:type" ];
 	"Rimg:MMNAT01_AF_NNM001001033_003.jpg" -> "Rdcmitype:StillImage" [ label="rdf:type" ];
 	"Rimg:MMNAT01_AF_NNM001001033_003.jpg" -> "Rdsw:Token" [ label="rdf:type" ];
@@ -28,16 +29,16 @@ digraph {
 	"Rimg:MMNAT01_AF_NNM001001033_003.jpg" -> "Roa:Source" [ label="rdf:type" ];
 	"Rimg:MMNAT01_AF_NNM001001033_003.jpg" -> "Rfoaf:Image" [ label="rdf:type" ];
 	"Rgbif:9180402" -> "Robo:TAXRANK_0000006" [ label="dwc:taxonRank" ];
-	"Rgbif:9180402" -> "B_:node1evgqka3hx9" [ label="owl:sameAs" ];
-	"B_:node1evgqka3hx7" -> "Rdwc:Identification" [ label="rdf:type" ];
-	"B_:node1evgqka3hx7" -> "B_:node1evgqka3hx9" [ label="dwciri:toTaxon" ];
+	"B_:node1f09255tgx7" -> "Rdwc:Identification" [ label="rdf:type" ];
+	"B_:node1f09255tgx7" -> "B_:node1f09255tgx9" [ label="dwciri:toTaxon" ];
 
 	// Resources
-	"Rhttp://localhost:8080/rdf/nc/annotation/b52c7aa5-a200-4442-b53f-14daaa60100b" [ label="http://localhost:8080/rdf/nc/annotation/b52c7aa5-a200-4442-b53f-14daaa60100b", shape = ellipse, color = blue ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/287eacf3-f149-4190-84b9-468b90c807f1" [ label="http://localhost:8080/rdf/nc/annotation/287eacf3-f149-4190-84b9-468b90c807f1", shape = ellipse, color = blue ];
 	"Roa:Annotation" [ label="oa:Annotation", shape = ellipse, color = blue ];
 	"Rorcid:0000-0002-2146-4803" [ label="orcid:0000-0002-2146-4803", shape = ellipse, color = blue ];
 	"Rdwc:Taxon" [ label="dwc:Taxon", shape = ellipse, color = blue ];
 	"Roa:TextualBody" [ label="oa:TextualBody", shape = ellipse, color = blue ];
+	"Rgbif:9180402" [ label="gbif:9180402", shape = ellipse, color = blue ];
 	"Riso:lat" [ label="iso:lat", shape = ellipse, color = blue ];
 	"Roa:Target" [ label="oa:Target", shape = ellipse, color = blue ];
 	"Roa:FragmentSelector" [ label="oa:FragmentSelector", shape = ellipse, color = blue ];
@@ -50,15 +51,14 @@ digraph {
 	"Rdwc:HumanObservation" [ label="dwc:HumanObservation", shape = ellipse, color = blue ];
 	"Roa:Source" [ label="oa:Source", shape = ellipse, color = blue ];
 	"Rfoaf:Image" [ label="foaf:Image", shape = ellipse, color = blue ];
-	"Rgbif:9180402" [ label="gbif:9180402", shape = ellipse, color = blue ];
 	"Robo:TAXRANK_0000006" [ label="obo:TAXRANK_0000006", shape = ellipse, color = blue ];
 	"Rdwc:Identification" [ label="dwc:Identification", shape = ellipse, color = blue ];
 
 	// Anonymous nodes
-	"B_:node1evgqka3hx9" [ label="", shape = circle, color = green ];
-	"B_:node1evgqka3hx8" [ label="", shape = circle, color = green ];
-	"B_:node1evgqka3hx11" [ label="", shape = circle, color = green ];
-	"B_:node1evgqka3hx7" [ label="", shape = circle, color = green ];
+	"B_:node1f09255tgx9" [ label="", shape = circle, color = green ];
+	"B_:node1f09255tgx8" [ label="", shape = circle, color = green ];
+	"B_:node1f09255tgx11" [ label="", shape = circle, color = green ];
+	"B_:node1f09255tgx7" [ label="", shape = circle, color = green ];
 
 	// Literals
 	"L2021-01-12T14:23:11.646Z|Datatype: dcterms:W3CDTF" [ label="2021-01-12T14:23:11.646Z|Datatype: dcterms:W3CDTF", shape = record ];
@@ -67,5 +67,5 @@ digraph {
 	"Limage/jpeg" [ label="image/jpeg", shape = record ];
 	"Lxywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" [ label="xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122", shape = record ];
 
-	label="\n\nModel:\n(Unknown)\n\nNamespaces:\ndcmitype: http://purl.org/dc/dcmitype/\ndcterms: http://purl.org/dc/terms/\ndsw: http://purl.org/dsw/\ndwc: http://rs.tdwg.org/dwc/terms/\ndwciri: http://rs.tdwg.org/dwc/iri/\nfoaf: http://xmlns.com/foaf/0.1/\ngbif: http://www.gbif.org/species/\nimg: http://localhost:8080/semanticAnnotator/files/\niso: http://iso639-3.sil.org/code/\nmf: http://www.w3.org/TR/media-frags/\noa: http://www.w3.org/ns/oa#\nobo: http://purl.obolibrary.org/obo/\norcid: http://orcid.org/\nowl: http://www.w3.org/2002/07/owl#\nrdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#\n";
+	label="\n\nModel:\n(Unknown)\n\nNamespaces:\ndcmitype: http://purl.org/dc/dcmitype/\ndcterms: http://purl.org/dc/terms/\ndsw: http://purl.org/dsw/\ndwc: http://rs.tdwg.org/dwc/terms/\ndwciri: http://rs.tdwg.org/dwc/iri/\nfoaf: http://xmlns.com/foaf/0.1/\ngbif: http://www.gbif.org/species/\nimg: http://localhost:8080/semanticAnnotator/files/\niso: http://iso639-3.sil.org/code/\nmf: http://www.w3.org/TR/media-frags/\noa: http://www.w3.org/ns/oa#\nobo: http://purl.obolibrary.org/obo/\norcid: http://orcid.org/\nrdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#\n";
 }
