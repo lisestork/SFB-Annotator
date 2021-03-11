@@ -2,39 +2,43 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix img: <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/c3dba356-d769-4b43-9b64-1afd84cc448e> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/432dfd1d-c57a-4e28-90e4-96b2a1726326> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1evfesn2mx23 .
+  oa:hasBody _:node1f0gq2gelx75 .
 
-_:node1evfesn2mx23 a dsw:Token, dwc:MeasurementOrFact, oa:TextualBody;
+_:node1f0gq2gelx75 a dsw:Token, dwc:MeasurementOrFact, oa:TextualBody;
   dcterms:format "text/plain";
+  dcterms:identifier obo:UBERON_0001062;
   dcterms:language iso:lat;
   dsw:derivedFrom img:default.jpg;
+  dwciri:measurementType obo:UBERON_0001062;
   rdf:value "Dentibus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/c3dba356-d769-4b43-9b64-1afd84cc448e> oa:hasTarget
-    _:node1evfesn2mx22 .
+<http://localhost:8080/rdf/nc/annotation/432dfd1d-c57a-4e28-90e4-96b2a1726326> oa:hasTarget
+    _:node1f0gq2gelx74 .
 
-_:node1evfesn2mx22 a oa:Target;
+_:node1f0gq2gelx74 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1evfesn2mx25 .
+  oa:hasSelector _:node1f0gq2gelx77 .
 
-_:node1evfesn2mx25 a oa:FragmentSelector;
+_:node1f0gq2gelx77 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" .
 
-_:node1evfesn2mx22 oa:hasSource img:default.jpg .
+_:node1f0gq2gelx74 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/c3dba356-d769-4b43-9b64-1afd84cc448e> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/432dfd1d-c57a-4e28-90e4-96b2a1726326> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
