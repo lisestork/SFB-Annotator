@@ -18,7 +18,7 @@
   "annotator": "http://orcid.org/0000-0002-2146-4803",
   "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
   "selector": "#xywh=0.5614033197022136,0.11586327570674965,0.14027982326951394,0.0625920471281296",
-  "verbatim": "Markdown table or list.\n- item1\n- item2\n",
+  "verbatim": "- Longitud. tota --- 1,0,3\n- corporis --- 0,2,9\n- tota --- 0,2,9\n- capitis --- 0,1,1\n- caudae --- 0,0,1\n- digit. medii --- 0,3,0\n",
   "language": "lat",
   "type": "measurementorfact",
   "property": "basedOn"
