@@ -121,7 +121,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI fragmentSelectorClass = f.createIRI(oa, "FragmentSelector");
 		IRI sourceClass = f.createIRI(oa, "Source");
 		IRI textualBodyClass = f.createIRI(oa, "TextualBody");
-		IRI identificationClass = f.createIRI(dwc, "Identification");
 		IRI occurrenceClass = f.createIRI(dwc, "Occurrence");
 		IRI humanObservationClass = f.createIRI(dwc, "HumanObservation");
 		IRI measurementOrFactClass = f.createIRI(dwc, "MeasurementOrFact");
@@ -141,7 +140,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI taxonRankProperty = f.createIRI(dwc, "taxonRank");
 		IRI inDescribedPlaceProperty = f.createIRI(dwciri, "inDescribedPlace");
 		IRI measurementTypeProperty = f.createIRI(dwciri, "measurementType");
-		IRI toTaxonProperty = f.createIRI(dwciri, "toTaxon");
 		IRI scientificNameProperty = f.createIRI(dwc, "scientificName");
 		IRI eventDateProperty = f.createIRI(dwc, "eventDate");
 		IRI verbatimEventDateProperty = f.createIRI(dwc, "verbatimEventDate");
@@ -149,7 +147,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 
 		// init instances
 		Literal verbatimLiteral;
-		BNode identificationBNode = f.createBNode();
 		BNode targetBNode = f.createBNode();
 		BNode textualBodyBNode = f.createBNode();
 		BNode taxonBNode = f.createBNode();
@@ -274,8 +271,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 				case "taxon" :
 					conn.add(textualBodyBNode, RDF.TYPE, taxonClass);
 					conn.add(textualBodyBNode, scientificNameProperty, verbatimLiteral);
-					conn.add(identificationBNode, toTaxonProperty, textualBodyBNode);
-					conn.add(identificationBNode, RDF.TYPE, identificationClass);
 					if (taxonRankRes.isIRI()) {
 						conn.add(identificationRes, taxonRankProperty, taxonRankRes);
 						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, identificationRes);

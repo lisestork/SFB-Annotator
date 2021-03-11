@@ -2,26 +2,26 @@ digraph {
 	rankdir = LR;
 	charset="utf-8";
 
-	"Rhttp://localhost:8080/rdf/nc/annotation/1484146e-a555-4291-b256-e48d5663c7a0" -> "Roa:Annotation" [ label="rdf:type" ];
-	"Rhttp://localhost:8080/rdf/nc/annotation/1484146e-a555-4291-b256-e48d5663c7a0" -> "Rorcid:0000-0002-2146-4803" [ label="dcterms:creator" ];
-	"Rhttp://localhost:8080/rdf/nc/annotation/1484146e-a555-4291-b256-e48d5663c7a0" -> "L2021-01-12T14:23:11.646Z|Datatype: dcterms:W3CDTF" [ label="dcterms:date" ];
-	"Rhttp://localhost:8080/rdf/nc/annotation/1484146e-a555-4291-b256-e48d5663c7a0" -> "B_:node1evfesn2mx2" [ label="oa:hasBody" ];
-	"B_:node1evfesn2mx2" -> "Rdsw:Token" [ label="rdf:type" ];
-	"B_:node1evfesn2mx2" -> "Rdwc:MeasurementOrFact" [ label="rdf:type" ];
-	"B_:node1evfesn2mx2" -> "Roa:TextualBody" [ label="rdf:type" ];
-	"B_:node1evfesn2mx2" -> "Ltext/plain" [ label="dcterms:format" ];
-	"B_:node1evfesn2mx2" -> "Riso:lat" [ label="dcterms:language" ];
-	"B_:node1evfesn2mx2" -> "Rimg:MMNAT01_AF_NNM001001033_003.jpg" [ label="dsw:derivedFrom" ];
-	"B_:node1evfesn2mx2" -> "LMarkdown table or list.\n- item1\n- item2|Language: lat" [ label="rdf:value" ];
-	"Rhttp://localhost:8080/rdf/nc/annotation/1484146e-a555-4291-b256-e48d5663c7a0" -> "B_:node1evfesn2mx1" [ label="oa:hasTarget" ];
-	"B_:node1evfesn2mx1" -> "Roa:Target" [ label="rdf:type" ];
-	"B_:node1evfesn2mx1" -> "Limage/jpeg" [ label="dcterms:format" ];
-	"B_:node1evfesn2mx1" -> "B_:node1evfesn2mx4" [ label="oa:hasSelector" ];
-	"B_:node1evfesn2mx4" -> "Roa:FragmentSelector" [ label="rdf:type" ];
-	"B_:node1evfesn2mx4" -> "Rmf:" [ label="dcterms:conformsTo" ];
-	"B_:node1evfesn2mx4" -> "Lxywh=0.5614033197022136,0.11586327570674965,0.14027982326951394,0.0625920471281296" [ label="rdf:value" ];
-	"B_:node1evfesn2mx1" -> "Rimg:MMNAT01_AF_NNM001001033_003.jpg" [ label="oa:hasSource" ];
-	"Rhttp://localhost:8080/rdf/nc/annotation/1484146e-a555-4291-b256-e48d5663c7a0" -> "Roa:describing" [ label="oa:motivatedBy" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/993a7df9-b27b-4c21-a531-aabacb32e5de" -> "Roa:Annotation" [ label="rdf:type" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/993a7df9-b27b-4c21-a531-aabacb32e5de" -> "Rorcid:0000-0002-2146-4803" [ label="dcterms:creator" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/993a7df9-b27b-4c21-a531-aabacb32e5de" -> "L2021-01-12T14:23:11.646Z|Datatype: dcterms:W3CDTF" [ label="dcterms:date" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/993a7df9-b27b-4c21-a531-aabacb32e5de" -> "B_:node1f0go8rutx19" [ label="oa:hasBody" ];
+	"B_:node1f0go8rutx19" -> "Rdsw:Token" [ label="rdf:type" ];
+	"B_:node1f0go8rutx19" -> "Rdwc:MeasurementOrFact" [ label="rdf:type" ];
+	"B_:node1f0go8rutx19" -> "Roa:TextualBody" [ label="rdf:type" ];
+	"B_:node1f0go8rutx19" -> "Ltext/plain" [ label="dcterms:format" ];
+	"B_:node1f0go8rutx19" -> "Riso:lat" [ label="dcterms:language" ];
+	"B_:node1f0go8rutx19" -> "Rimg:MMNAT01_AF_NNM001001033_003.jpg" [ label="dsw:derivedFrom" ];
+	"B_:node1f0go8rutx19" -> "LMarkdown table or list.\n- item1\n- item2|Language: lat" [ label="rdf:value" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/993a7df9-b27b-4c21-a531-aabacb32e5de" -> "B_:node1f0go8rutx18" [ label="oa:hasTarget" ];
+	"B_:node1f0go8rutx18" -> "Roa:Target" [ label="rdf:type" ];
+	"B_:node1f0go8rutx18" -> "Limage/jpeg" [ label="dcterms:format" ];
+	"B_:node1f0go8rutx18" -> "B_:node1f0go8rutx21" [ label="oa:hasSelector" ];
+	"B_:node1f0go8rutx21" -> "Roa:FragmentSelector" [ label="rdf:type" ];
+	"B_:node1f0go8rutx21" -> "Rmf:" [ label="dcterms:conformsTo" ];
+	"B_:node1f0go8rutx21" -> "Lxywh=0.5614033197022136,0.11586327570674965,0.14027982326951394,0.0625920471281296" [ label="rdf:value" ];
+	"B_:node1f0go8rutx18" -> "Rimg:MMNAT01_AF_NNM001001033_003.jpg" [ label="oa:hasSource" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/993a7df9-b27b-4c21-a531-aabacb32e5de" -> "Roa:describing" [ label="oa:motivatedBy" ];
 	"Rorcid:0000-0002-2146-4803" -> "Rfoaf:Person" [ label="rdf:type" ];
 	"Rimg:MMNAT01_AF_NNM001001033_003.jpg" -> "Rdcmitype:StillImage" [ label="rdf:type" ];
 	"Rimg:MMNAT01_AF_NNM001001033_003.jpg" -> "Rdsw:Token" [ label="rdf:type" ];
@@ -30,7 +30,7 @@ digraph {
 	"Rimg:MMNAT01_AF_NNM001001033_003.jpg" -> "Rfoaf:Image" [ label="rdf:type" ];
 
 	// Resources
-	"Rhttp://localhost:8080/rdf/nc/annotation/1484146e-a555-4291-b256-e48d5663c7a0" [ label="http://localhost:8080/rdf/nc/annotation/1484146e-a555-4291-b256-e48d5663c7a0", shape = ellipse, color = blue ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/993a7df9-b27b-4c21-a531-aabacb32e5de" [ label="http://localhost:8080/rdf/nc/annotation/993a7df9-b27b-4c21-a531-aabacb32e5de", shape = ellipse, color = blue ];
 	"Roa:Annotation" [ label="oa:Annotation", shape = ellipse, color = blue ];
 	"Rorcid:0000-0002-2146-4803" [ label="orcid:0000-0002-2146-4803", shape = ellipse, color = blue ];
 	"Rdsw:Token" [ label="dsw:Token", shape = ellipse, color = blue ];
@@ -49,9 +49,9 @@ digraph {
 	"Rfoaf:Image" [ label="foaf:Image", shape = ellipse, color = blue ];
 
 	// Anonymous nodes
-	"B_:node1evfesn2mx2" [ label="", shape = circle, color = green ];
-	"B_:node1evfesn2mx1" [ label="", shape = circle, color = green ];
-	"B_:node1evfesn2mx4" [ label="", shape = circle, color = green ];
+	"B_:node1f0go8rutx19" [ label="", shape = circle, color = green ];
+	"B_:node1f0go8rutx18" [ label="", shape = circle, color = green ];
+	"B_:node1f0go8rutx21" [ label="", shape = circle, color = green ];
 
 	// Literals
 	"L2021-01-12T14:23:11.646Z|Datatype: dcterms:W3CDTF" [ label="2021-01-12T14:23:11.646Z|Datatype: dcterms:W3CDTF", shape = record ];
