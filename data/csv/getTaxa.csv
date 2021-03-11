@@ -1,0 +1,2 @@
+annotation_iri,taxon_name,taxon_iri,taxonrank_iri
+http://localhost:8080/rdf/nc/annotation/1edac771-d911-41fe-950a-7eb47569259e,Pteropus minimus,http://www.gbif.org/species/9180402,http://purl.obolibrary.org/obo/TAXRANK_0000006

@@ -1,0 +1,9 @@
+annotation_iri,measurement,measurement_iri
+http://localhost:8080/rdf/nc/annotation/dc485b4a-91fa-4956-adf7-cfaf594f9938,"- Longitud. tota --- 1,0,3
+- corporis --- 0,2,9
+- tota --- 0,2,9
+- capitis --- 0,1,1
+- caudae --- 0,0,1
+- digit. medii --- 0,3,0",
+http://localhost:8080/rdf/nc/annotation/24b15edb-0a98-4211-a7ac-e58425302791,Color,http://purl.obolibrary.org/obo/PATO_0000014
+http://localhost:8080/rdf/nc/annotation/10d0a453-f6d7-45dd-a601-69f7e59a37a2,Dentibus,http://purl.obolibrary.org/obo/UBERON_0001062
