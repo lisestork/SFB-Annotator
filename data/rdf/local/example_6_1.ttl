@@ -12,12 +12,12 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/314b41bf-7143-4fb4-9894-7beac92a5b8e> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/f9ca3e65-3983-43b0-a671-2566f9e88fcd> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1f0go8rutx32 .
+  oa:hasBody _:node1f0gq2gelx32 .
 
-_:node1f0go8rutx32 a dsw:Token, dwc:MeasurementOrFact, oa:TextualBody;
+_:node1f0gq2gelx32 a dsw:Token, dwc:MeasurementOrFact, oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:identifier obo:UBERON_0001062;
   dcterms:language iso:lat;
@@ -25,20 +25,20 @@ _:node1f0go8rutx32 a dsw:Token, dwc:MeasurementOrFact, oa:TextualBody;
   dwciri:measurementType obo:UBERON_0001062;
   rdf:value "Dentibus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/314b41bf-7143-4fb4-9894-7beac92a5b8e> oa:hasTarget
-    _:node1f0go8rutx31 .
+<http://localhost:8080/rdf/nc/annotation/f9ca3e65-3983-43b0-a671-2566f9e88fcd> oa:hasTarget
+    _:node1f0gq2gelx31 .
 
-_:node1f0go8rutx31 a oa:Target;
+_:node1f0gq2gelx31 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1f0go8rutx34 .
+  oa:hasSelector _:node1f0gq2gelx34 .
 
-_:node1f0go8rutx34 a oa:FragmentSelector;
+_:node1f0gq2gelx34 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" .
 
-_:node1f0go8rutx31 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1f0gq2gelx31 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/314b41bf-7143-4fb4-9894-7beac92a5b8e> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/f9ca3e65-3983-43b0-a671-2566f9e88fcd> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .

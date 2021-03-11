@@ -2,7 +2,6 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
-@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gbif: <http://www.gbif.org/species/> .
 @prefix img: <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/> .
@@ -13,32 +12,32 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/b25b1305-03f3-49d4-b6eb-9ad1fc1466ac> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/28cd1599-b946-4222-adc4-be6b1e9ed13f> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1f09255tgx15 .
+  oa:hasBody _:node1f0gq2gelx45 .
 
-_:node1f09255tgx15 a dwc:Taxon, oa:TextualBody;
+_:node1f0gq2gelx45 a dwc:Taxon, oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:identifier gbif:9180402;
   dcterms:language iso:lat;
   dwc:scientificName "Pteropus minimus"@lat;
   rdf:value "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/b25b1305-03f3-49d4-b6eb-9ad1fc1466ac> oa:hasTarget
-    _:node1f09255tgx14 .
+<http://localhost:8080/rdf/nc/annotation/28cd1599-b946-4222-adc4-be6b1e9ed13f> oa:hasTarget
+    _:node1f0gq2gelx44 .
 
-_:node1f09255tgx14 a oa:Target;
+_:node1f0gq2gelx44 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1f09255tgx17 .
+  oa:hasSelector _:node1f0gq2gelx47 .
 
-_:node1f09255tgx17 a oa:FragmentSelector;
+_:node1f0gq2gelx47 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" .
 
-_:node1f09255tgx14 oa:hasSource img:default.jpg .
+_:node1f0gq2gelx44 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/b25b1305-03f3-49d4-b6eb-9ad1fc1466ac> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/28cd1599-b946-4222-adc4-be6b1e9ed13f> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
@@ -47,6 +46,3 @@ img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Sourc
     foaf:Image .
 
 gbif:9180402 dwc:taxonRank obo:TAXRANK_0000006 .
-
-_:node1f09255tgx13 a dwc:Identification;
-  dwciri:toTaxon _:node1f09255tgx15 .
