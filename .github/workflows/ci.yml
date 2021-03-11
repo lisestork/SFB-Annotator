@@ -65,5 +65,7 @@ jobs:
             dot -Tsvg "$dot" -o "$svg"
             # ./rdf2svg.py -i "$rdf" -o "$svg"
           done
+      - name: Test Web API
+        run: ./test_webapi.sh
       - name: Validate IIIF manifest.json
         run: ./validate.py data/manifest.json

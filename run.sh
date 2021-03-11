@@ -24,8 +24,8 @@ REPO_ID="mem-rdf"
 CRE="tomcat:tomcat"
 PORT="8080"
 BASE_URL="http://localhost:${PORT}"
-URL1="${BASE_URL}/semanticAnnotator/writeAnnotationsToRDF"
-URL2="${BASE_URL}/rdf4j-server/repositories/${REPO_ID}"
+SEA_URL="${BASE_URL}/semanticAnnotator/writeAnnotationsToRDF"
+REPO_URL="${BASE_URL}/rdf4j-server/repositories/${REPO_ID}"
 
 declare -A MIME
 MIME=( [ttl]=text/turtle [jsonld]=application/ld+json )
@@ -40,30 +40,30 @@ echo -ne "Validate $JSON_FILE\t... "
 
 # create triples
 echo -ne "Create triples\t... "
-[[ $(curl -s -u "$CRE" -w "%{http_code}" -H "Content-Type: application/json" -d @"$JSON_FILE" "$URL1") -eq 200 ]] \
+[[ $(curl -s -u "$CRE" -w "%{http_code}" -H "Content-Type: application/json" -d @"$JSON_FILE" "$SEA_URL") -eq 200 ]] \
     && echo "OK" || failed
 
 # count triples
 echo -ne "Count triples\t... "
-N=$(curl -s -u "$CRE" "{$URL2}/size")
+N=$(curl -s -u "$CRE" "${REPO_URL}/size")
 echo "N=$N"
 [[ $N == 0 ]] && exit 1
 
 # dump triples
 echo -ne "Dump triples\t... "
-[[ $(curl -s -u "$CRE" -w "%{http_code}" -H "Accept: ${MIME[$FILEXT]}" "${URL2}/statements" -o "$RDF_FILE") -eq 200 ]] \
+[[ $(curl -s -u "$CRE" -w "%{http_code}" -H "Accept: ${MIME[$FILEXT]}" "${REPO_URL}/statements" -o "$RDF_FILE") -eq 200 ]] \
     && echo "OK" || failed
 cat "$RDF_FILE"
 echo
 
 # delete triples
 echo -ne "Delete triples\t... "
-[[ $(curl -s -u "$CRE" -w "%{http_code}" -X DELETE "${URL2}/statements") -eq 204 ]] \
+[[ $(curl -s -u "$CRE" -w "%{http_code}" -X DELETE "${REPO_URL}/statements") -eq 204 ]] \
     && echo "OK" || failed
 
 # count triples
 echo -ne "Count triples\t... "
-N=$(curl -s -u "$CRE" "{$URL2}/size")
+N=$(curl -s -u "$CRE" "{$REPO_URL}/size")
 echo "N=$N"
 echo "---"
 [[ $N != 0 ]] && exit 1 || exit 0
