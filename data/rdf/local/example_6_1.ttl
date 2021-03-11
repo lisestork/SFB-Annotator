@@ -2,56 +2,46 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dsw: <http://purl.org/dsw/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix img: <http://localhost:8080/semanticAnnotator/files/> .
 @prefix iso: <http://iso639-3.sil.org/code/> .
 @prefix mf: <http://www.w3.org/TR/media-frags/> .
-@prefix nhc: <http://makingsense.liacs.nl/rdf/nhc/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://localhost:8080/rdf/nc/annotation/1e6eedf4-e2cb-4e19-b677-29a4053c970c> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/314b41bf-7143-4fb4-9894-7beac92a5b8e> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>, _:node1etov1ae3x288 .
+  oa:hasBody _:node1f0go8rutx32 .
 
-_:node1etov1ae3x288 a oa:TextualBody;
+_:node1f0go8rutx32 a dsw:Token, dwc:MeasurementOrFact, oa:TextualBody;
   dcterms:format "text/plain";
+  dcterms:identifier obo:UBERON_0001062;
   dcterms:language iso:lat;
+  dsw:derivedFrom img:MMNAT01_AF_NNM001001033_003.jpg;
+  dwciri:measurementType obo:UBERON_0001062;
   rdf:value "Dentibus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/1e6eedf4-e2cb-4e19-b677-29a4053c970c> oa:hasTarget
-    _:node1etov1ae3x287 .
+<http://localhost:8080/rdf/nc/annotation/314b41bf-7143-4fb4-9894-7beac92a5b8e> oa:hasTarget
+    _:node1f0go8rutx31 .
 
-_:node1etov1ae3x287 a oa:Target;
+_:node1f0go8rutx31 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1etov1ae3x290 .
+  oa:hasSelector _:node1f0go8rutx34 .
 
-_:node1etov1ae3x290 a oa:FragmentSelector;
+_:node1f0go8rutx34 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
   rdf:value "xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" .
 
-_:node1etov1ae3x287 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
+_:node1f0go8rutx31 oa:hasSource img:MMNAT01_AF_NNM001001033_003.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/1e6eedf4-e2cb-4e19-b677-29a4053c970c> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/314b41bf-7143-4fb4-9894-7beac92a5b8e> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
 
 img:MMNAT01_AF_NNM001001033_003.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation,
     oa:Source, foaf:Image .
-
-<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> a _:node1etov1ae3x281 .
-
-_:node1etov1ae3x281 rdfs:subClassOf obo:UBERON_0001062 .
-
-<http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1> rdfs:label "Dentibus"@lat .
-
-<http://makingsense.liacs.nl/rdf/nc/humanObservation> dsw:hasDerivative <http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> .
-
-<http://makingsense.liacs.nl/rdf/nc/measurementOrFact1> a dwc:MeasurementOrFact;
-  nhc:measuresOrDescribes <http://makingsense.liacs.nl/rdf/nc/anatomicalEntity1>;
-  dsw:derivedFrom <http://makingsense.liacs.nl/rdf/nc/humanObservation> .

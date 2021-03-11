@@ -75,7 +75,7 @@ var semanticAnnotation = {
 			selectorURI = encodeURIComponent(selector);
 			var request = new XMLHttpRequest();
 			param = "removeAnnotationsFromRDF?source="+annotation.source+"&selector="+selectorURI+"&organismID"+annotation.organismID;
-			request.open("POST",param, true);
+			request.open("DELETE",param, true);
 			request.onreadystatechange = function(e){
 
 				if ( request.readyState == 4 && request.status == 200) {
