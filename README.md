@@ -3,7 +3,7 @@
 ![Build](https://github.com/LINNAE-project/SFB-Annotator/workflows/continuous_integration/badge.svg)
 [![Published in J. Web Semant.](https://img.shields.io/badge/published%20in-JWebSemant-blue.svg)](https://doi.org/10.1016/j.websem.2018.06.002)
 
-The Semantic Field Book Annotator is a web application developed for domain experts to harvest structured annotations from field books, drawings and specimen labels of natural history collections. Users can draw bounding boxes over (zoomable) image scans of historical field notes, to which annotations can be attached. All metadata regarding an annotation event, annotation provenance, transcription and semantic interpretation of the text are stored in a knowledge base using the [Web Annotation Data Model](https://www.w3.org/TR/annotation-model/). The knowledge base is accessible via SPARQL and Web API.
+The Semantic Field Book Annotator is a web application developed for domain experts to harvest structured annotations from field books, drawings and specimen labels of natural history collections. Users can draw bounding boxes over (zoomable) image scans of historical field notes, to which annotations can be attached. All metadata regarding an annotation event, annotation provenance, transcription and semantic interpretation of the text are stored in a knowledge base, which is accessible via a SPARQL endpoint and Web API.
 
 ## Prerequisites
 - [Docker CE](https://docs.docker.com/install/)
@@ -11,12 +11,18 @@ The Semantic Field Book Annotator is a web application developed for domain expe
 
 ## Software used
 - [Eclipse RDF4J Server and Workbench](https://rdf4j.org/documentation/tools/server-workbench/)
+- [grlc](https://www.research-software.nl/software/grlc) Web API
 - [Cantaloupe](https://cantaloupe-project.github.io/) IIIF image server
 - [Mirador](https://projectmirador.org/) IIIF image viewer
-- [grlc](https://www.research-software.nl/software/grlc) Web API
-- JavaScript libraries
-  - [Annotorius](https://annotorious.github.io)
-  - [OpenSeadragon](https://openseadragon.github.io/)
+- [Annotorius](https://annotorious.github.io)
+- [OpenSeadragon](https://openseadragon.github.io/)
+
+## Vocabularies, ontologies & specs used
+- [Web Annotation Vocabulary](https://www.w3.org/TR/annotation-vocab/)
+- [International Image Interoperability Framework](https://iiif.io/) (IIIF)
+- [Darwin Core](https://dwc.tdwg.org/) (DwC)
+- [Darwin Semantic Web](http://purl.org/dsw/) (Darwin-SW)
+- [Dublin Core](http://purl.org/dc/terms/) (DC)
 
 ## Install & deploy
 
