@@ -292,7 +292,7 @@ Steps:
 |Key|Value |Notes | Diff Expected
 |---|-----|-----|-----
 | Entity type | `MeasurementOrFact` |  The handwritten text contains a measurement or fact. | Should be a drop-down menu with all possible classes
-| verbatim text | [Markdown](https://www.markdownguide.org/) table (or list) ||
+| verbatim text | `- Longitud. tota --- 1,0,3\n- corporis --- 0,2,9\n- tota --- 0,2,9\n- capitis --- 0,1,1\n- caudae --- 0,0,1\n- digit. medii --- 0,3,0` | [Markdown](https://www.markdownguide.org/) list or table |
 | language/`language` | `lat` | [ISO 639-3 code](https://iso639-3.sil.org/code/lat) for _Latin_ |
 | Select property | `Type`  | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a measurement or fact. |
 | type | `measurementorfact` |  auto-fill from entity type |
