@@ -92,7 +92,7 @@ done
 ## Web apps & API endpoints
 - http://localhost:8080/semanticAnnotator/
   - requires user/password: `tomcat/tomcat`
-  - _Register_->_Save_
+  - _Register_->_Save_->_Collections_
 - http://localhost:8080/rdf4j-workbench/
   - includes an empty repository: `mem-rdf`
 - http://localhost:8080/rdf4j-server/
