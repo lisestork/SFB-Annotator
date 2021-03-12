@@ -15,7 +15,13 @@
         "semantic annotation",
         "natural history",
         "biodiversity",
-        "ontology"
+        "field notes",
+        "Linked data",
+        "controlled vocabulary",
+        "ontology",
+        "RDF",
+        "OWL",
+        "IIIF"
     ],
     "license": {
         "id": "Apache-2.0"

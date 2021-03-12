@@ -1,5 +1,6 @@
 # Semantic Field Book Annotator
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4602264.svg)](https://doi.org/10.5281/zenodo.4602264)
 ![Build](https://github.com/LINNAE-project/SFB-Annotator/workflows/continuous_integration/badge.svg)
 [![Published in J. Web Semant.](https://img.shields.io/badge/published%20in-JWebSemant-blue.svg)](https://doi.org/10.1016/j.websem.2018.06.002)
 
