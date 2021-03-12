@@ -23,11 +23,9 @@ var semanticAnnotation = {
 				this.pageID = data.pageID;
 			}.bind(this));
 			anno.addHandler('onAnnotationCreated', function(annotation){
-				//this.storeAnnotationSQL(annotation);
 				this.storeAnnotationRDF(annotation);
 			}.bind(this));
 			anno.addHandler('onAnnotationRemoved', function(annotation){
-				//this.removeAnnotationSQL(annotation);
 				this.removeAnnotationRDF(annotation);
 			}.bind(this));
 			events.on('folderSelected', this.loadAnnotations.bind(this));
@@ -74,8 +72,8 @@ var semanticAnnotation = {
 			selector = '#xywh='+annotation.shapes[0].geometry.x+','+annotation.shapes[0].geometry.y+','+annotation.shapes[0].geometry.width+','+annotation.shapes[0].geometry.height;
 			selectorURI = encodeURIComponent(selector);
 			var request = new XMLHttpRequest();
-			param = "removeAnnotationsFromRDF?source="+annotation.source+"&selector="+selectorURI+"&organismID"+annotation.organismID;
-			request.open("DELETE",param, true);
+			param = "removeAnnotationsFromRDF?source="+annotation.source+"&selector="+selectorURI;
+			request.open("DELETE", param, true);
 			request.onreadystatechange = function(e){
 
 				if ( request.readyState == 4 && request.status == 200) {
