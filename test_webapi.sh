@@ -54,3 +54,4 @@ do
    [[ $(curl -sL -H "accept: text/csv" -w "%{http_code}" "$local_url" --data-urlencode "endpoint=${SPARQL_ENDPOINT}" -o "$csv_file") -eq 200 && -s "$csv_file" ]] \
        && echo "OK" || failed
 done
+echo "Done."
