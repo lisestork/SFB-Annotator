@@ -1,0 +1,6 @@
+rdflib
+networkx
+matplotlib
+jq
+tripoli
+

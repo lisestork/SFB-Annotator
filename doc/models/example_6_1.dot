@@ -1,0 +1,67 @@
+digraph {
+	rankdir = LR;
+	charset="utf-8";
+
+	"Rhttp://localhost:8080/rdf/nc/annotation/432dfd1d-c57a-4e28-90e4-96b2a1726326" -> "Roa:Annotation" [ label="rdf:type" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/432dfd1d-c57a-4e28-90e4-96b2a1726326" -> "Rorcid:0000-0002-2146-4803" [ label="dcterms:creator" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/432dfd1d-c57a-4e28-90e4-96b2a1726326" -> "L2021-01-12T14:23:11.646Z|Datatype: dcterms:W3CDTF" [ label="dcterms:date" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/432dfd1d-c57a-4e28-90e4-96b2a1726326" -> "B_:node1f0gq2gelx75" [ label="oa:hasBody" ];
+	"B_:node1f0gq2gelx75" -> "Rdsw:Token" [ label="rdf:type" ];
+	"B_:node1f0gq2gelx75" -> "Rdwc:MeasurementOrFact" [ label="rdf:type" ];
+	"B_:node1f0gq2gelx75" -> "Roa:TextualBody" [ label="rdf:type" ];
+	"B_:node1f0gq2gelx75" -> "Ltext/plain" [ label="dcterms:format" ];
+	"B_:node1f0gq2gelx75" -> "Robo:UBERON_0001062" [ label="dcterms:identifier" ];
+	"B_:node1f0gq2gelx75" -> "Riso:lat" [ label="dcterms:language" ];
+	"B_:node1f0gq2gelx75" -> "Rimg:default.jpg" [ label="dsw:derivedFrom" ];
+	"B_:node1f0gq2gelx75" -> "Robo:UBERON_0001062" [ label="dwciri:measurementType" ];
+	"B_:node1f0gq2gelx75" -> "LDentibus|Language: lat" [ label="rdf:value" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/432dfd1d-c57a-4e28-90e4-96b2a1726326" -> "B_:node1f0gq2gelx74" [ label="oa:hasTarget" ];
+	"B_:node1f0gq2gelx74" -> "Roa:Target" [ label="rdf:type" ];
+	"B_:node1f0gq2gelx74" -> "Limage/jpeg" [ label="dcterms:format" ];
+	"B_:node1f0gq2gelx74" -> "B_:node1f0gq2gelx77" [ label="oa:hasSelector" ];
+	"B_:node1f0gq2gelx77" -> "Roa:FragmentSelector" [ label="rdf:type" ];
+	"B_:node1f0gq2gelx77" -> "Rmf:" [ label="dcterms:conformsTo" ];
+	"B_:node1f0gq2gelx77" -> "Lxywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" [ label="rdf:value" ];
+	"B_:node1f0gq2gelx74" -> "Rimg:default.jpg" [ label="oa:hasSource" ];
+	"Rhttp://localhost:8080/rdf/nc/annotation/432dfd1d-c57a-4e28-90e4-96b2a1726326" -> "Roa:describing" [ label="oa:motivatedBy" ];
+	"Rorcid:0000-0002-2146-4803" -> "Rfoaf:Person" [ label="rdf:type" ];
+	"Rimg:default.jpg" -> "Rdcmitype:StillImage" [ label="rdf:type" ];
+	"Rimg:default.jpg" -> "Rdsw:Token" [ label="rdf:type" ];
+	"Rimg:default.jpg" -> "Rdwc:HumanObservation" [ label="rdf:type" ];
+	"Rimg:default.jpg" -> "Roa:Source" [ label="rdf:type" ];
+	"Rimg:default.jpg" -> "Rfoaf:Image" [ label="rdf:type" ];
+
+	// Resources
+	"Rhttp://localhost:8080/rdf/nc/annotation/432dfd1d-c57a-4e28-90e4-96b2a1726326" [ label="http://localhost:8080/rdf/nc/annotation/432dfd1d-c57a-4e28-90e4-96b2a1726326", shape = ellipse, color = blue ];
+	"Roa:Annotation" [ label="oa:Annotation", shape = ellipse, color = blue ];
+	"Rorcid:0000-0002-2146-4803" [ label="orcid:0000-0002-2146-4803", shape = ellipse, color = blue ];
+	"Rdsw:Token" [ label="dsw:Token", shape = ellipse, color = blue ];
+	"Rdwc:MeasurementOrFact" [ label="dwc:MeasurementOrFact", shape = ellipse, color = blue ];
+	"Roa:TextualBody" [ label="oa:TextualBody", shape = ellipse, color = blue ];
+	"Robo:UBERON_0001062" [ label="obo:UBERON_0001062", shape = ellipse, color = blue ];
+	"Riso:lat" [ label="iso:lat", shape = ellipse, color = blue ];
+	"Rimg:default.jpg" [ label="img:default.jpg", shape = ellipse, color = blue ];
+	"Roa:Target" [ label="oa:Target", shape = ellipse, color = blue ];
+	"Roa:FragmentSelector" [ label="oa:FragmentSelector", shape = ellipse, color = blue ];
+	"Rmf:" [ label="mf:", shape = ellipse, color = blue ];
+	"Roa:describing" [ label="oa:describing", shape = ellipse, color = blue ];
+	"Rfoaf:Person" [ label="foaf:Person", shape = ellipse, color = blue ];
+	"Rdcmitype:StillImage" [ label="dcmitype:StillImage", shape = ellipse, color = blue ];
+	"Rdwc:HumanObservation" [ label="dwc:HumanObservation", shape = ellipse, color = blue ];
+	"Roa:Source" [ label="oa:Source", shape = ellipse, color = blue ];
+	"Rfoaf:Image" [ label="foaf:Image", shape = ellipse, color = blue ];
+
+	// Anonymous nodes
+	"B_:node1f0gq2gelx75" [ label="", shape = circle, color = green ];
+	"B_:node1f0gq2gelx74" [ label="", shape = circle, color = green ];
+	"B_:node1f0gq2gelx77" [ label="", shape = circle, color = green ];
+
+	// Literals
+	"L2021-01-12T14:23:11.646Z|Datatype: dcterms:W3CDTF" [ label="2021-01-12T14:23:11.646Z|Datatype: dcterms:W3CDTF", shape = record ];
+	"Ltext/plain" [ label="text/plain", shape = record ];
+	"LDentibus|Language: lat" [ label="Dentibus|Language: lat", shape = record ];
+	"Limage/jpeg" [ label="image/jpeg", shape = record ];
+	"Lxywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114" [ label="xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114", shape = record ];
+
+	label="\n\nModel:\n(Unknown)\n\nNamespaces:\ndcmitype: http://purl.org/dc/dcmitype/\ndcterms: http://purl.org/dc/terms/\ndsw: http://purl.org/dsw/\ndwc: http://rs.tdwg.org/dwc/terms/\ndwciri: http://rs.tdwg.org/dwc/iri/\nfoaf: http://xmlns.com/foaf/0.1/\nimg: http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/\niso: http://iso639-3.sil.org/code/\nmf: http://www.w3.org/TR/media-frags/\noa: http://www.w3.org/ns/oa#\nobo: http://purl.obolibrary.org/obo/\norcid: http://orcid.org/\nrdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#\n";
+}

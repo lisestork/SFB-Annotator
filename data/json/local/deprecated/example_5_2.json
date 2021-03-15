@@ -1,0 +1,26 @@
+{
+  "src": "dzi://openseadragon/something",
+  "text": "propertyOrAttribute",
+  "shapes": [
+    {
+      "type": "rect",
+      "geometry": {
+        "x": 0.5546807055451607,
+        "y": 0.2902726218015227,
+        "width": 0.02939634895478893,
+        "height": 0.022047261716091726
+      },
+      "style": {}
+    }
+  ],
+  "context": "http://localhost:8080/semanticAnnotator/#",
+  "date": "2021-01-12T14:23:11.646Z",
+  "annotator": "http://orcid.org/0000-0002-2146-4803",
+  "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
+  "selector": "#xywh=0.5546807055451607,0.2902726218015227,0.02939634895478893,0.022047261716091726",
+  "verbatim": "Color",
+  "language": "lat",
+  "type": "propertyorattribute",
+  "property": "measuresOrDescribes",
+  "propertyorattribute": "http://identifiers.org/ncit/C37927"
+}

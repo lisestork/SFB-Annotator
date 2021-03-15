@@ -1,0 +1,8 @@
+create memory
+<REPO_ID>
+Memory Store
+10000
+true
+0
+
+quit

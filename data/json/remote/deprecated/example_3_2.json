@@ -1,0 +1,26 @@
+{
+  "src": "dzi://openseadragon/something",
+  "text": "Location",
+  "shapes": [
+    {
+      "type": "rect",
+      "geometry": {
+        "x": 0.6633333993832923,
+        "y": 0.1642253271806423,
+        "width": 0.054343173382856436,
+        "height": 0.021264720019378597
+      },
+      "style": {}
+    }
+  ],
+  "context": "http://localhost:8080/semanticAnnotator/",
+  "date": "2021-01-12T14:23:11.646Z",
+  "annotator": "http://orcid.org/0000-0002-2146-4803",
+  "source": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/default.jpg",
+  "selector": "#xywh=0.6633333993832923,0.1642253271806423,0.054343173382856436,0.021264720019378597",
+  "verbatim": "Bagalonga",
+  "language": "",
+  "type": "location",
+  "property": "locatedAt",
+  "geonamesfeature": ""
+}

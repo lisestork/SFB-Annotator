@@ -1,0 +1,19 @@
+{
+	"items" : [
+		{
+			"name" : "Example collection",
+			"id" : "MMNAT01_AF",
+			"thumbnail" : "",
+			"item" : [
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_001.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_002.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_004.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_005.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_006.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_007.jpg",
+				"http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_008.jpg"
+			]
+		}
+	]
+}

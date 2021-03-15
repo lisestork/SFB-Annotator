@@ -1,0 +1,47 @@
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dsw: <http://purl.org/dsw/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gn: <http://sws.geonames.org/> .
+@prefix img: <http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_003/full/max/0/> .
+@prefix iso: <http://iso639-3.sil.org/code/> .
+@prefix mf: <http://www.w3.org/TR/media-frags/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix orcid: <http://orcid.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://localhost:8080/rdf/nc/annotation/5aa954aa-e202-4d15-b470-75ef7b6355fe> a oa:Annotation;
+  dcterms:creator orcid:0000-0002-2146-4803;
+  dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
+  oa:hasBody _:node1f0gq2gelx56 .
+
+_:node1f0gq2gelx56 a dcterms:Location, dwc:Location, oa:TextualBody;
+  dcterms:format "text/plain";
+  dcterms:identifier gn:1648473;
+  dcterms:language iso:dut;
+  dwciri:inDescribedPlace gn:1648473;
+  dwc:verbatimLocality "Buitenzorg"@dut;
+  rdf:value "Buitenzorg"@dut .
+
+<http://localhost:8080/rdf/nc/annotation/5aa954aa-e202-4d15-b470-75ef7b6355fe> oa:hasTarget
+    _:node1f0gq2gelx55 .
+
+_:node1f0gq2gelx55 a oa:Target;
+  dcterms:format "image/jpeg";
+  oa:hasSelector _:node1f0gq2gelx58 .
+
+_:node1f0gq2gelx58 a oa:FragmentSelector;
+  dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
+  rdf:value "xywh=0.783509282340829,0.018142248666184174,0.050441826215022134,0.017488954344624445" .
+
+_:node1f0gq2gelx55 oa:hasSource img:default.jpg .
+
+<http://localhost:8080/rdf/nc/annotation/5aa954aa-e202-4d15-b470-75ef7b6355fe> oa:motivatedBy
+    oa:describing .
+
+orcid:0000-0002-2146-4803 a foaf:Person .
+
+img:default.jpg a dcmitype:StillImage, dsw:Token, dwc:HumanObservation, oa:Source,
+    foaf:Image .

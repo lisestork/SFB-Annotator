@@ -24,7 +24,8 @@
     <dependency>
       <groupId>org.eclipse.rdf4j</groupId>
       <artifactId>rdf4j-runtime</artifactId>
-      <version>2.0M2</version>
+      <version>3.5.0</version>
+      <type>pom</type>
     </dependency>
     <!-- logback -->
     <dependency>
@@ -50,12 +51,12 @@
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
-    <!-- mySQL -->
+    <!-- mySQL
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.6</version>
-    </dependency>
+    </dependency> -->
     <!-- JSON.simple -->
     <dependency>
       <groupId>com.googlecode.json-simple</groupId>
@@ -71,7 +72,7 @@
     <dependency>
       <groupId>org.eclipse.rdf4j</groupId>
       <artifactId>rdf4j-repository-sparql</artifactId>
-      <version>2.0M2</version>
+      <version>3.5.0</version>
     </dependency>
     <!-- update jsonld -->
     <dependency>
@@ -84,6 +85,11 @@
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
       <version>20160810</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.5</version>
     </dependency>
   </dependencies>
   <!-- PLUGINS -->
@@ -100,18 +106,25 @@
           <encoding>utf8</encoding>
         </configuration>
       </plugin>
-      <!-- Tomcat plugin -->
       <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat8-maven-plugin</artifactId>
-        <version>2.2</version>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>1.31.0</version>
         <configuration>
-          <server>tomcat8</server>
-          <username>tomcat</username>
-          <password>tomcat</password>
-          <url>http://localhost:8080/manager/html</url>
+          <java>
+            <eclipse>
+              <version>4.7.1</version>
+            </eclipse>
+          </java>
         </configuration>
       </plugin>
     </plugins>
   </build>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.organization>linnae</sonar.organization>
+  </properties>
 </project>

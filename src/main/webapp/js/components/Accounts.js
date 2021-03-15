@@ -25,29 +25,25 @@ var accounts = {
 		addParticipant: function(){
 
 			person = {
-					firstname: this.$firstname.val(),
-					lastname: this.$lastname.val(),
-					IRI: this.$IRI.val(),
-					institution: this.$institution.val(),
-					institutionIRI: this.$institutionIRI.val()
+					IRI: this.$IRI.val(),  // ORCID
 			};
-			this.$navbarIcon.html('<span class="glyphicon glyphicon-user" aria-hidden="true"></span> '+this.$firstname.val()+' '+this.$lastname.val()+'@'+this.$institution.val()+' ');
+			this.$navbarIcon.html('<span class="glyphicon glyphicon-user" aria-hidden="true"></span> '+this.$IRI.val());
 			this.person.push(person);
-			var request = new XMLHttpRequest();
+			// var request = new XMLHttpRequest();
 
-			param = "addUser?firstname="+person.firstname+"&lastname="+person.lastname+"&IRI="+person.IRI+"&institution="+person.institution+"&institutionIRI="+person.institutionIRI;
-			request.open("POST",param, true);
-			request.onreadystatechange = function(e){
+			// param = "addUser?firstname="+person.firstname+"&lastname="+person.lastname+"&IRI="+person.IRI+"&institution="+person.institution+"&institutionIRI="+person.institutionIRI;
+			// request.open("POST",param, true);
+			// request.onreadystatechange = function(e){
 				
-				if ( request.readyState == 4 && request.status == 200) {
+			// 	if ( request.readyState == 4 && request.status == 200) {
 
-					this.onDataLoaded(request.response)
+			// 		this.onDataLoaded(request.response)
 
-				}
+			// 	}
 
-			}.bind(this);
+			// }.bind(this);
 
-			request.send();
+			// request.send();
 		},
 
 		onDataLoaded: function(data){

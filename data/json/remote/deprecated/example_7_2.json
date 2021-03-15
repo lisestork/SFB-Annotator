@@ -1,0 +1,28 @@
+{
+  "src": "dzi://openseadragon/something",
+  "text": "date",
+  "shapes": [
+    {
+      "type": "rect",
+      "geometry": {
+        "x": 0.6712020824648357,
+        "y": 0.177764417868435,
+        "width": 0.07131751180401791,
+        "height": 0.015538452292495508
+      },
+      "style": {}
+    }
+  ],
+  "context": "http://localhost:8080/semanticAnnotator/#",
+  "date": "2021-01-12T14:23:11.646Z",
+  "annotator": "http://orcid.org/0000-0002-2146-4803",
+  "source": "http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_004/full/max/0/default.jpg",
+  "selector": "#xywh=0.6712020824648357,0.177764417868435,0.07131751180401791,0.015538452292495508",
+  "verbatim": "10 April 1821",
+  "language": "dut",
+  "type": "date",
+  "property": "verbatimEventDate",
+  "year": "1821",
+  "month": "04",
+  "day": "10"
+}

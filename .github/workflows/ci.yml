@@ -1,0 +1,71 @@
+name: continuous_integration
+on: ["push", "pull_request"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        img_src: ["local", "remote"]
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Install packages
+        run: |
+          sudo apt-get install raptor2-utils graphviz
+          rapper -v
+          dot -V
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.7"
+      - name: Python info
+        run: |
+          which python
+          python --version
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -q -r requirements.txt
+      - name: Show pip list
+        run: pip list
+      - name: Start services
+        run: docker-compose up -d
+      - name: Configure services
+        run: |
+          docker exec sea ./init.sh
+          docker exec sea bash -c \
+            "cp $BASE/data-${{ matrix.img_src }}.json $BASE/data.json && cat \$_"
+        env:
+          BASE: /usr/local/tomcat/webapps/semanticAnnotator/data/
+      - name: Access images
+        run: |
+          for url in $(jq -r ".items|.[].item[]" $PREFIX-${{ matrix.img_src }}.json); do
+            echo -ne "$url\t ..."
+            [[ $(curl -s -u "$CRE" -w "%{http_code}" "$url" -o /dev/null) -eq 200 ]] \
+              && echo "OK" || (echo "FAILED" && exit 1)
+          done
+        env:
+          CRE: tomcat:tomcat
+          PREFIX: ./src/main/webapp/data/data
+      - name: Write RDF graphs
+        run: |
+          for json in $(ls data/json/${{ matrix.img_src }}/*.json | sort); do
+            prefix="$(basename "$json" .json)"
+            rdf="$prefix.ttl"
+            ./run.sh "$json" "$rdf"
+          done
+      - name: Plot RDF graphs
+        run: |
+          for rdf in $(ls data/rdf/${{ matrix.img_src }}/*.ttl | sort); do
+            prefix="$(basename "$rdf" .ttl)"
+            svg="$prefix.svg"
+            dot="$prefix.dot"
+            rapper --input turtle "$rdf" --output dot > "$dot"
+            dot -Tsvg "$dot" -o "$svg"
+            # ./rdf2svg.py -i "$rdf" -o "$svg"
+          done
+      - name: Test Web API
+        run: ./test_webapi.sh
+      - name: Validate IIIF manifest.json
+        run: ./validate.py data/manifest.json
