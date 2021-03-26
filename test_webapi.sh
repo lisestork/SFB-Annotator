@@ -10,7 +10,7 @@ failed () {
 IMG_SRC=local
 REPO_ID="mem-rdf"
 CRE="tomcat:tomcat"
-SEA_URL="http://localhost:8080/semanticAnnotator/writeAnnotationsToRDF"
+SEA_URL="http://localhost:8080/semanticAnnotator/annotation"
 REPO_URL="http://localhost:8080/rdf4j-server/repositories/${REPO_ID}"
 SPARQL_ENDPOINT="http://sea:8080/rdf4j-server/repositories/${REPO_ID}"
 GRLC_URL="http://localhost:8088/api-local"
@@ -29,7 +29,7 @@ N=$(curl -s -u "$CRE" "{$REPO_URL}/size")
 for json in $(ls data/json/$IMG_SRC/*.json | sort)
 do
     echo -ne "Create triples from $json\t... "
-    [[ $(curl -s -u "$CRE" -w "%{http_code}" -H "Content-Type: application/json" -d @"$json" "$SEA_URL") -eq 200 ]] \
+    [[ $(curl -s -u "$CRE" -w "%{http_code}" -H "Content-Type: application/json" -d @"$json" "$SEA_URL") -eq 201 ]] \
         && echo "OK" || failed
 done
 

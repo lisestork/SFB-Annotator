@@ -24,7 +24,7 @@ REPO_ID="mem-rdf"
 CRE="tomcat:tomcat"
 PORT="8080"
 BASE_URL="http://localhost:${PORT}"
-SEA_URL="${BASE_URL}/semanticAnnotator/writeAnnotationsToRDF"
+SEA_URL="${BASE_URL}/semanticAnnotator/annotation"
 REPO_URL="${BASE_URL}/rdf4j-server/repositories/${REPO_ID}"
 
 declare -A MIME
