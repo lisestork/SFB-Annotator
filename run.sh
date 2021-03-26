@@ -40,7 +40,7 @@ echo -ne "Validate $JSON_FILE\t... "
 
 # create triples
 echo -ne "Create triples\t... "
-[[ $(curl -s -u "$CRE" -w "%{http_code}" -H "Content-Type: application/json" -d @"$JSON_FILE" "$SEA_URL") -eq 200 ]] \
+[[ $(curl -s -u "$CRE" -w "%{http_code}" -H "Content-Type: application/json" -d @"$JSON_FILE" "$SEA_URL") -eq 201 ]] \
     && echo "OK" || failed
 
 # count triples
