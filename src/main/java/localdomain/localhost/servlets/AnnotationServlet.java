@@ -339,9 +339,11 @@ public class AnnotationServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		// get httpRequest parameters
-		String source = request.getParameter("source");
-		String selector = request.getParameter("selector");
-
+		String anno = IOUtils.toString(request.getReader());
+		JSONObject json = new JSONObject(anno);
+		// retrieve key-value pairs
+		String source = json.getString("source");
+		String selector = json.getString("selector");
 		// connect to RDF server
 		String host = "http://localhost:8080/";
 		String repositoryID = "mem-rdf";

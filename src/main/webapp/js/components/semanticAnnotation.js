@@ -34,17 +34,21 @@ var semanticAnnotation = {
 	},
 
 	removeAnnotationRDF: function (annotation) {
-		var selector = '#xywh=' + annotation.shapes[0].geometry.x + ',' + annotation.shapes[0].geometry.y + ',' + annotation.shapes[0].geometry.width + ',' + annotation.shapes[0].geometry.height;
-		var selectorURI = encodeURIComponent(selector);
+		var selector = '#xywh=' + annotation.shapes[0].geometry.x
+		selector += ',' + annotation.shapes[0].geometry.y
+		selector += ',' + annotation.shapes[0].geometry.width
+		selector += ',' + annotation.shapes[0].geometry.height;
+		annotation.selector = selector;
 		var request = new XMLHttpRequest();
-		var param = "annotation?source=" + annotation.source + "&selector=" + selectorURI;
-		request.open("DELETE", param, true);
-		request.onreadystatechange = function (e) {
-			if (request.readyState == 4 && request.status == 200) {
-				//
+		var body = JSON.stringify(annotation)
+		request.open('DELETE', 'annotation', true);
+		request.setRequestHeader('Content-type', 'application/json');
+		request.onreadystatechange = function () {
+			if (this.readyState === XMLHttpRequest.DONE && this.status === 204) {
+				console.log('Deleted RDF triples.');
 			}
-		}.bind(this);
-		request.send();
+		}
+		request.send(body);
 	},
 
 	loadAnnotations: function (folder) {
@@ -163,16 +167,15 @@ var semanticAnnotation = {
 		}
 
 		var request = new XMLHttpRequest();
-		request.open("POST", "annotation", true);
-		request.setRequestHeader("Content-type", "application/json");
-		request.onreadystatechange = function (e) {
-			if (request.readyState == 4 && request.status == 200) {
-				//
+		var body = JSON.stringify(annotation);
+		request.open('POST', 'annotation', true);
+		request.setRequestHeader('Content-type', 'application/json');
+		request.onreadystatechange = function () {
+			if (this.readyState === XMLHttpRequest.DONE && this.status === 201) {
+				console.log('Created RDF triples.');
 			}
-		}.bind(this);
-
-		request.send(JSON.stringify(annotation));
-		//this.storeAnnotationSQL(annotation);
+		}
+		request.send(body);
 	},
 
 	addPlugins: function () {
