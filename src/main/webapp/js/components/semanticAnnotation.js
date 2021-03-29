@@ -34,21 +34,16 @@ var semanticAnnotation = {
 	},
 
 	removeAnnotationRDF: function (annotation) {
-		var selector = '#xywh=' + annotation.shapes[0].geometry.x
-		selector += ',' + annotation.shapes[0].geometry.y
-		selector += ',' + annotation.shapes[0].geometry.width
-		selector += ',' + annotation.shapes[0].geometry.height;
-		annotation.selector = selector;
 		var request = new XMLHttpRequest();
-		var body = JSON.stringify(annotation)
+		var body = JSON.stringify(annotation);
 		request.open('DELETE', 'annotation', true);
 		request.setRequestHeader('Content-type', 'application/json');
+		request.send(body);
 		request.onreadystatechange = function () {
 			if (this.readyState === XMLHttpRequest.DONE && this.status === 204) {
 				console.log('Deleted RDF triples.');
 			}
 		}
-		request.send(body);
 	},
 
 	loadAnnotations: function (folder) {
@@ -104,7 +99,7 @@ var semanticAnnotation = {
 
 		//target
 		annotation.source = this.pageID;
-		annotation.selector = '#xywh=' + annotation.shapes[0].geometry.x + ',' + annotation.shapes[0].geometry.y + ',' + annotation.shapes[0].geometry.width + ',' + annotation.shapes[0].geometry.height;
+		annotation.selector = 'xywh=' + annotation.shapes[0].geometry.x + ',' + annotation.shapes[0].geometry.y + ',' + annotation.shapes[0].geometry.width + ',' + annotation.shapes[0].geometry.height;
 
 		//textual body
 		annotation.verbatim = $('#verbatim').val();

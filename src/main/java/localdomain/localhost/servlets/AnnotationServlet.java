@@ -4,10 +4,12 @@ import java.net.URL;
 import java.net.MalformedURLException;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import java.util.Locale;
 import java.util.UUID;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.MissingResourceException;
 
@@ -37,6 +39,7 @@ import org.eclipse.rdf4j.model.vocabulary.XSD;
 import org.eclipse.rdf4j.query.BindingSet;
 import org.eclipse.rdf4j.query.TupleQuery;
 import org.eclipse.rdf4j.query.TupleQueryResult;
+import org.eclipse.rdf4j.query.QueryLanguage;
 import org.eclipse.rdf4j.query.QueryEvaluationException;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
@@ -45,6 +48,7 @@ import org.eclipse.rdf4j.repository.http.HTTPRepository;
 
 import org.apache.commons.io.IOUtils;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 @WebServlet(loadOnStartup = 1, urlPatterns = "/annotation")
@@ -347,38 +351,38 @@ public class AnnotationServlet extends HttpServlet {
 		// connect to RDF server
 		String host = "http://localhost:8080/";
 		String repositoryID = "mem-rdf";
+		String queryStr = String.join("\n"
+			, "PREFIX rdf: <" + RDF.NAMESPACE + ">"
+			, "PREFIX xsd: <" + XSD.NAMESPACE + ">"
+			, "PREFIX oa: <http://www.w3.org/ns/oa#>"
+			, "SELECT ?annot WHERE {"
+			, "  ?annot oa:hasTarget ?bnode ."
+			, "  ?bnode oa:hasSource <" + source + "> ."
+			, "  ?bnode oa:hasSelector/rdf:value ?selector ."
+			, "	 FILTER(?selector = xsd:string(\"" + selector + "\"))"
+			, "}");
 		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
-		ValueFactory f = repo.getValueFactory();
-
-		String queryStr = "PREFIX rdf: <" + RDF.NAMESPACE + "> \n";
-		queryStr += "PREFIX xsd: <" + XSD.NAMESPACE + "> \n";
-		queryStr += "PREFIX oa: <http://www.w3.org/ns/oa#> \n";
-		queryStr += "SELECT DISTINCT ?annot WHERE { \n";
-		queryStr += "	?annot oa:hasTarget ?bnode . \n";
-		queryStr += "   ?bnode oa:hasSource <" + source + "> . \n";
-		queryStr += "   ?bnode oa:hasSelector/rdf:value ?selector . \n";
-		queryStr += "	FILTER(?selector = xsd:string(\"" + selector + "\"))}";
 
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();
 			IRI annotationIRI = null;
-			TupleQuery tupleQuery = conn.prepareTupleQuery(queryStr);
+			TupleQuery tupleQuery = conn.prepareTupleQuery(QueryLanguage.SPARQL, queryStr);
 			try (TupleQueryResult result = tupleQuery.evaluate()) {
-				for (BindingSet solution : result) {
-					annotationIRI = (IRI) solution.getValue("annot");
+				for (BindingSet bs : result) {
+					annotationIRI = (IRI) bs.getValue("annot");
+					conn.remove(annotationIRI, null, null);
 				}
-				conn.remove(annotationIRI, null, null);
-				conn.commit();
 			} catch (QueryEvaluationException e) {
-				e.printStackTrace();
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
 			} finally {
+				conn.commit();
 				conn.close();
 			}
 		} catch (RepositoryException e) {
-			e.printStackTrace();
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
 		} finally {
 			repo.shutDown();
+			response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 		}
-		response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	}
 }
