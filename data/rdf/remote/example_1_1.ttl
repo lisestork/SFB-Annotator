@@ -12,32 +12,32 @@
 @prefix orcid: <http://orcid.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://localhost:8080/rdf/nc/annotation/28cd1599-b946-4222-adc4-be6b1e9ed13f> a oa:Annotation;
+<http://localhost:8080/rdf/nc/annotation/b7342080-bc90-4a0d-9559-8e4d5c4708aa> a oa:Annotation;
   dcterms:creator orcid:0000-0002-2146-4803;
   dcterms:date "2021-01-12T14:23:11.646Z"^^dcterms:W3CDTF;
-  oa:hasBody _:node1f0gq2gelx45 .
+  oa:hasBody _:node1f22neqo5x189 .
 
-_:node1f0gq2gelx45 a dwc:Taxon, oa:TextualBody;
+_:node1f22neqo5x189 a dwc:Taxon, oa:TextualBody;
   dcterms:format "text/plain";
   dcterms:identifier gbif:9180402;
   dcterms:language iso:lat;
   dwc:scientificName "Pteropus minimus"@lat;
   rdf:value "Pteropus minimus"@lat .
 
-<http://localhost:8080/rdf/nc/annotation/28cd1599-b946-4222-adc4-be6b1e9ed13f> oa:hasTarget
-    _:node1f0gq2gelx44 .
+<http://localhost:8080/rdf/nc/annotation/b7342080-bc90-4a0d-9559-8e4d5c4708aa> oa:hasTarget
+    _:node1f22neqo5x188 .
 
-_:node1f0gq2gelx44 a oa:Target;
+_:node1f22neqo5x188 a oa:Target;
   dcterms:format "image/jpeg";
-  oa:hasSelector _:node1f0gq2gelx47 .
+  oa:hasSelector _:node1f22neqo5x191 .
 
-_:node1f0gq2gelx47 a oa:FragmentSelector;
+_:node1f22neqo5x191 a oa:FragmentSelector;
   dcterms:conformsTo <http://www.w3.org/TR/media-frags/>;
-  rdf:value "xywh=0.5530314055917275,0.3586725350259047,0.07278820375335127,0.018716966679433122" .
+  rdf:value "xywh=0.5517841601392516,0.02345802837896442,0.06701479547432543,0.01914708442123586" .
 
-_:node1f0gq2gelx44 oa:hasSource img:default.jpg .
+_:node1f22neqo5x188 oa:hasSource img:default.jpg .
 
-<http://localhost:8080/rdf/nc/annotation/28cd1599-b946-4222-adc4-be6b1e9ed13f> oa:motivatedBy
+<http://localhost:8080/rdf/nc/annotation/b7342080-bc90-4a0d-9559-8e4d5c4708aa> oa:motivatedBy
     oa:describing .
 
 orcid:0000-0002-2146-4803 a foaf:Person .
