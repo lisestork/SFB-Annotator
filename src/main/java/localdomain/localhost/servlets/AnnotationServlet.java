@@ -385,4 +385,65 @@ public class AnnotationServlet extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 		}
 	}
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// connect to RDF server
+		String host = "http://localhost:8080/";
+		String repositoryID = "mem-rdf";
+		String queryStr = String.join("\n"
+			, "PREFIX oa: <http://www.w3.org/ns/oa#>"
+			, "PREFIX dcterms: <" + DCTERMS.NAMESPACE + ">"
+			, "PREFIX xsd: <" + XSD.NAMESPACE + ">"
+			, "PREFIX foaf: <" + FOAF.NAMESPACE + ">"
+			, "PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>"
+			, "SELECT"
+			, "  ?annotation ?type ?verbatim ?creator ?date ?source ?selector"
+			, "WHERE {"
+			, "  ?annotation oa:hasTarget ?bnodeTarget ;"
+			, "    oa:hasBody ?bnodeBody ;"
+			, "    dcterms:creator ?creator ;"
+			, "    dcterms:date ?date ."
+			, "  ?bnodeBody a ?type ;"
+			, "    rdf:value ?verbatim ."
+			, "  ?bnodeTarget oa:hasSource ?source ;"
+			, "    oa:hasSelector/rdf:value ?selector ."
+			, "  FILTER(?type IN (foaf:Person, dwc:Taxon, dwc:Location, dwc:Event, dwc:MeasurementOrFact))"
+			, "}");
+		String jsonStr = "";
+		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
+
+		try (RepositoryConnection conn = repo.getConnection()) {
+			conn.begin();
+			JSONArray array = new JSONArray();
+			TupleQuery tupleQuery = conn.prepareTupleQuery(QueryLanguage.SPARQL, queryStr);
+			try (TupleQueryResult result = tupleQuery.evaluate()) {
+				for (BindingSet bs : result) {
+					JSONObject item = new JSONObject();
+					item.put("annotation", bs.getValue("annotation").stringValue());
+					item.put("type", bs.getValue("type").stringValue());
+					item.put("verbatim", bs.getValue("verbatim").stringValue());
+					item.put("creator", bs.getValue("creator").stringValue());
+					item.put("date", bs.getValue("date").stringValue());
+					item.put("source", bs.getValue("source").stringValue());
+					item.put("selector", bs.getValue("selector").stringValue());
+					array.put(item);
+				}
+			} catch (QueryEvaluationException e) {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			} finally {
+				jsonStr = array.toString();
+				conn.close();
+			}
+		} catch (RepositoryException e) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+		} finally {
+			repo.shutDown();
+			response.setContentType("application/json");
+			response.getWriter().write(jsonStr);
+			response.setStatus(HttpServletResponse.SC_OK);
+		}
+	}
 }

@@ -46,28 +46,25 @@ var semanticAnnotation = {
 		}
 	},
 
-	loadAnnotations: function (folder) {
+	loadAnnotations: function () {
 		this.annotations = [];
 		var that = this;
 		var request = new XMLHttpRequest();
-		var param = "loadAnnotations?firstname=" + accounts.person[0].firstname + "&lastname=" + accounts.person[0].lastname + "&action=" + accounts.$action;
-		request.open("POST", param, true);
-		request.onreadystatechange = function (e) {
-			if (request.readyState == 4 && request.status == 200) {
-				var response = request.response;
-				response = response.split(';');
-				var annotations = response[1].split('\n');
-				var amount = response[0];
-				for (var i = 0; i < amount; i++) {
-					var annotation = annotations[i].split(',')
+		request.open('GET', 'annotation', true);
+		request.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+				var jsonArray = JSON.parse(request.response);
+				for (let i in jsonArray) {
+					var dim = jsonArray[i].selector.split(',');
+					var source = jsonArray[i].source;
+					var type = jsonArray[i].type;
 					that.annotations.push({
-						source: annotation[0],
-						text: annotation[1],
-						x: parseFloat(annotation[2]),
-						y: parseFloat(annotation[3]),
-						width: parseFloat(annotation[4]),
-						height: parseFloat(annotation[5]),
-						organismID: annotation[6]
+						source: source,
+						text: type,
+						x: parseFloat(dim[0].replace(/\D+/, '')),
+						y: parseFloat(dim[1]),
+						width: parseFloat(dim[2]),
+						height: parseFloat(dim[3])
 					});
 				}
 			}
@@ -86,7 +83,6 @@ var semanticAnnotation = {
 						type: 'rect',
 						geometry: { x: element.x, y: element.y, width: element.width, height: element.height }
 					}],
-					organismID: element.organismID
 				});
 			}
 		})
@@ -182,9 +178,9 @@ var semanticAnnotation = {
 		}
 		annotorious.plugin.annoInformationPlugin.prototype.onInitAnnotator = function (annotator) {
 			// A Field can be an HTML string or a function(annotation) that returns a string
-			annotator.popup.addField(function (annotation) {
-				return '<em> <span class="badge"> organismID:' + annotation.organismID + '</span></em>'
-			});
+			//annotator.popup.addField(function (annotation) {
+			//	return '<em> <span class="badge"> organismID:' + annotation.organismID + '</span></em>'
+			//});
 			annotator.editor.addField(function (annotation) {
 				var field = '<input class="annotorious-editor-text" id="verbatim" placeholder="verbatim text" value ="" style="width:160px;height:20px;display:inline;">'
 				field = field + '<input class="annotorious-editor-text" id="language" placeholder="language" value ="" style="width:40px;height:20px;display:inline;"><br>'
