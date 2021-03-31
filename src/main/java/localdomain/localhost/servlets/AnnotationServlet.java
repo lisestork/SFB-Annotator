@@ -406,11 +406,12 @@ public class AnnotationServlet extends HttpServlet {
 			, "    oa:hasBody ?bnodeBody ;"
 			, "    dcterms:creator ?creator ;"
 			, "    dcterms:date ?date ."
-			, "  ?bnodeBody a ?type ;"
+			, "  ?bnodeBody a ?class ;"
 			, "    rdf:value ?verbatim ."
 			, "  ?bnodeTarget oa:hasSource ?source ;"
 			, "    oa:hasSelector/rdf:value ?selector ."
-			, "  FILTER(?type IN (foaf:Person, dwc:Taxon, dwc:Location, dwc:Event, dwc:MeasurementOrFact))"
+			, "  FILTER(?class IN (foaf:Person, dwc:Taxon, dwc:Location, dwc:Event, dwc:MeasurementOrFact))"
+			, "  BIND(REPLACE(STR(?class), '.+/', '') AS ?type)"
 			, "}");
 		String jsonStr = "";
 		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
