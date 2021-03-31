@@ -5,4 +5,15 @@ Memory Store
 true
 0
 
+show r
+open mem-rdf
+load <LOAD_PATH>/example_1_1.ttl
+load <LOAD_PATH>/example_2_1.ttl
+load <LOAD_PATH>/example_3_1.ttl
+load <LOAD_PATH>/example_4_1.ttl
+load <LOAD_PATH>/example_5_1.ttl
+load <LOAD_PATH>/example_6_1.ttl
+load <LOAD_PATH>/example_7_1.ttl
+sparql select (count(*) as ?n) where { ?s ?p ?o .}
 quit
+~
