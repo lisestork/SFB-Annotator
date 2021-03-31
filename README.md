@@ -59,7 +59,7 @@ docker-compose up -d # or append [SERVICE]
 **4. Configure service(s).**
 
 ```bash
-# populate an empty RDF store (repository)
+# populate RDF store (repository) with example data
 docker-compose exec sea ./init.sh
 
 # configure sea to use a remote image archive (optional)
