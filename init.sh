@@ -1,13 +1,42 @@
 #!/usr/bin/env bash
 
-set -xe
+set -e
 
 REPO_ID=mem-rdf
-CONF=conf/create_store.txt
-LOAD_PATH=/usr/local/tomcat/data/rdf/local/
+LOAD_PATH=data/rdf/local/
 DATA_DIR=/var/rdf4j/server
+CMD=$(
+ cat <<EOF
+create memory
+$REPO_ID
+Memory Store
+10000
+true
+0
 
-sleep 20
-sed -i.org "s:<REPO_ID>:${REPO_ID}:" $CONF
-sed -i.org "s:<LOAD_PATH>:${LOAD_PATH}:" $CONF
-console.sh -e -f -d $DATA_DIR < $CONF
+show r
+open $REPO_ID
+clear
+EOF
+)$'\n'
+
+# load example files in RDF
+for file in "$LOAD_PATH"/*.ttl; do
+ CMD+="load $file"$'\n'
+done
+
+CMD+=$(
+ cat <<EOF
+sparql
+SELECT (COUNT(*) AS ?n_triples)
+WHERE { ?s ?p ?o }
+.
+close
+quit
+EOF
+)
+
+# wait for the server to start
+sleep 20            
+# populate repository with examples
+echo "$CMD" | console.sh -e -f -d "$DATA_DIR"
