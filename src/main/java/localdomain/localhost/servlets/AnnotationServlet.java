@@ -265,7 +265,6 @@ public class AnnotationServlet extends HttpServlet {
 					conn.add(textualBodyBNode, f.createIRI(dwc, "verbatimLocality"), verbatimLiteral);
 					conn.add(textualBodyBNode, RDF.TYPE, DCTERMS.LOCATION);
 					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dwc, "Location"));
-					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dcmitype, "Location"));
 					if (instanceRes.isIRI()) {
 						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
 						conn.add(textualBodyBNode, f.createIRI(dwciri, "inDescribedPlace"), instanceRes);
