@@ -22,10 +22,10 @@ var semanticAnnotation = {
 			this.pageID = data.pageID;
 		}.bind(this));
 		anno.addHandler('onAnnotationCreated', function (annotation) {
-			this.storeAnnotationRDF(annotation);
+			this.storeAnnotation(annotation);
 		}.bind(this));
 		anno.addHandler('onAnnotationRemoved', function (annotation) {
-			this.removeAnnotationRDF(annotation);
+			this.removeAnnotation(annotation);
 		}.bind(this));
 		events.on('folderSelected', this.loadAnnotations.bind(this));
 		events.on('viewerOpened', this.showAnnotations.bind(this));
@@ -33,7 +33,7 @@ var semanticAnnotation = {
 	render: function () {
 	},
 
-	removeAnnotationRDF: function (annotation) {
+	removeAnnotation: function (annotation) {
 		var request = new XMLHttpRequest();
 		var body = JSON.stringify(annotation);
 		request.open('DELETE', 'annotation', true);
@@ -58,9 +58,11 @@ var semanticAnnotation = {
 					var dim = jsonArray[i].selector.split(',');
 					var source = jsonArray[i].source;
 					var type = jsonArray[i].type;
+					var verbatim = jsonArray[i].verbatim;
 					that.annotations.push({
 						source: source,
 						text: type,
+						verbatim: verbatim,
 						x: parseFloat(dim[0].replace(/\D+/, '')),
 						y: parseFloat(dim[1]),
 						width: parseFloat(dim[2]),
@@ -79,6 +81,7 @@ var semanticAnnotation = {
 					src: 'dzi://openseadragon/something',
 					source: element.source,
 					text: element.text,
+					verbatim: element.verbatim,
 					shapes: [{
 						type: 'rect',
 						geometry: { x: element.x, y: element.y, width: element.width, height: element.height }
@@ -88,7 +91,7 @@ var semanticAnnotation = {
 		})
 	},
 
-	storeAnnotationRDF: function (annotation) {
+	storeAnnotation: function (annotation) {
 		//mandatory annotation info
 		annotation.date = new Date().toISOString();  // ISO 8601 (e.g. 2021-01-12T14:23:11.646Z)
 		annotation.annotator = accounts.person[0].IRI;
@@ -178,9 +181,9 @@ var semanticAnnotation = {
 		}
 		annotorious.plugin.annoInformationPlugin.prototype.onInitAnnotator = function (annotator) {
 			// A Field can be an HTML string or a function(annotation) that returns a string
-			//annotator.popup.addField(function (annotation) {
-			//	return '<em> <span class="badge"> organismID:' + annotation.organismID + '</span></em>'
-			//});
+			annotator.popup.addField(function (annotation) {
+				return '<span style="color: white"><pre>' + annotation.verbatim + '</pre></span>';
+			});
 			annotator.editor.addField(function (annotation) {
 				var field = '<input class="annotorious-editor-text" id="verbatim" placeholder="verbatim text" value ="" style="width:160px;height:20px;display:inline;">'
 				field = field + '<input class="annotorious-editor-text" id="language" placeholder="language" value ="" style="width:40px;height:20px;display:inline;"><br>'
