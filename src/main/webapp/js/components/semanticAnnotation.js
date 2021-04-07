@@ -1,11 +1,4 @@
 var semanticAnnotation = {
-	annotatedPersons: [],
-	annotatedTaxa: [],
-	annotatedLocations: [],
-	annotatedAnEntities: [],
-	annotatedProperties: [],
-	organismIDs: [],
-
 	init: function () {
 		this.cacheDom();
 		this.bindEvents();
@@ -56,17 +49,20 @@ var semanticAnnotation = {
 				var jsonArray = JSON.parse(request.response);
 				for (let i in jsonArray) {
 					var dim = jsonArray[i].selector.split(',');
-					var source = jsonArray[i].source;
-					var type = jsonArray[i].type;
-					var verbatim = jsonArray[i].verbatim;
 					that.annotations.push({
-						source: source,
-						text: type,
-						verbatim: verbatim,
-						x: parseFloat(dim[0].replace(/\D+/, '')),
-						y: parseFloat(dim[1]),
-						width: parseFloat(dim[2]),
-						height: parseFloat(dim[3])
+						source: jsonArray[i].source,
+						text: jsonArray[i].type,
+						verbatim: jsonArray[i].verbatim,
+						selector: jsonArray[i].selector,
+						shapes: [{
+							type: 'rect',
+							geometry: {
+								x: parseFloat(dim[0].replace(/\D+/, '')),
+								y: parseFloat(dim[1]),
+								width: parseFloat(dim[2]),
+								height: parseFloat(dim[3])
+							}
+						}],
 					});
 				}
 			}
@@ -75,16 +71,22 @@ var semanticAnnotation = {
 	},
 
 	showAnnotations: function (page) {
-		this.annotations.forEach(function (element) {
-			if (element.source == page) {
+		this.annotations.forEach(function (elem) {
+			if (elem.source == page) {
 				anno.addAnnotation({
 					src: 'dzi://openseadragon/something',
-					source: element.source,
-					text: element.text,
-					verbatim: element.verbatim,
+					source: elem.source,
+					text: elem.text,
+					verbatim: elem.verbatim,
+					selector: elem.selector,
 					shapes: [{
 						type: 'rect',
-						geometry: { x: element.x, y: element.y, width: element.width, height: element.height }
+						geometry: {
+							x: elem.shapes[0].geometry.x,
+							y: elem.shapes[0].geometry.y,
+							width: elem.shapes[0].geometry.width,
+							height: elem.shapes[0].geometry.height
+						}
 					}],
 				});
 			}
