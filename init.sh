@@ -7,6 +7,7 @@ LOAD_PATH=data/rdf/local/
 DATA_DIR=/var/rdf4j/server
 CMD=$(
  cat <<EOF
+drop $REPO_ID
 create memory
 $REPO_ID
 Memory Store
