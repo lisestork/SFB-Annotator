@@ -57,6 +57,9 @@ import org.json.JSONObject;
 public class AnnotationServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	private static final String host = "http://localhost:8080/";
+	private static final String repositoryID = "mem-rdf";
+	private static final Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -101,12 +104,6 @@ public class AnnotationServlet extends HttpServlet {
 		mapMime.put("tif", "image/tiff");
 		mapMime.put("png", "image/png");
 
-		// connect to RDF server
-		String host = "http://localhost:8080/";
-		String repositoryID = "mem-rdf";
-		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
-		ValueFactory f = repo.getValueFactory();
-
 		// namespace prefixes
 		String annot = host + "rdf/nc/annotation/" + uuid;
 		String dcmitype = "http://purl.org/dc/dcmitype/";
@@ -125,6 +122,7 @@ public class AnnotationServlet extends HttpServlet {
 		String owl = OWL.NAMESPACE;
 
 		// init instances
+		ValueFactory f = repo.getValueFactory();
 		Literal verbatimLiteral;
 		BNode targetBNode = f.createBNode();
 		BNode textualBodyBNode = f.createBNode();
@@ -322,9 +320,7 @@ public class AnnotationServlet extends HttpServlet {
 		// retrieve key-value pairs
 		String source = json.getString("source");
 		String selector = json.getString("selector");
-		// connect to RDF server
-		String host = "http://localhost:8080/";
-		String repositoryID = "mem-rdf";
+		// construct DELETE query
 		String queryStr = String.join("\n", "PREFIX dcterms: <" + DCTERMS.NAMESPACE + ">",
 				"PREFIX oa: <http://www.w3.org/ns/oa#>", "PREFIX rdf: <" + RDF.NAMESPACE + ">",
 				"PREFIX xsd: <" + XSD.NAMESPACE + ">", "DELETE {?s ?p ?o} WHERE {", "  SELECT * WHERE {{",
@@ -333,7 +329,6 @@ public class AnnotationServlet extends HttpServlet {
 				"      ?bnode oa:hasSource <" + source + "> .", "      ?bnode oa:hasSelector/rdf:value ?selector .",
 				"      OPTIONAL { ?ss ?pp ?s } .", "	     FILTER(?selector = xsd:string(\"" + selector + "\"))",
 				"    }", "    GROUP BY ?s", "  }", "  ?s ?p ?o .", "  FILTER (?n = 1)}}");
-		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
 
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();
@@ -353,9 +348,8 @@ public class AnnotationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// connect to RDF server
-		String host = "http://localhost:8080/";
-		String repositoryID = "mem-rdf";
+		String jsonStr = "";
+		// construct SELECT query
 		String queryStr = String.join("\n", "PREFIX oa: <http://www.w3.org/ns/oa#>",
 				"PREFIX dcterms: <" + DCTERMS.NAMESPACE + ">", "PREFIX xsd: <" + XSD.NAMESPACE + ">",
 				"PREFIX foaf: <" + FOAF.NAMESPACE + ">", "PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>", "SELECT",
@@ -366,8 +360,6 @@ public class AnnotationServlet extends HttpServlet {
 				"    oa:hasSelector/rdf:value ?selector .",
 				"  FILTER(?class IN (foaf:Person, dwc:Taxon, dwc:Location, dwc:Event, dwc:MeasurementOrFact))",
 				"  BIND(REPLACE(STR(?class), '.+/', '') AS ?type)", "}");
-		String jsonStr = "";
-		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
 
 		try (RepositoryConnection conn = repo.getConnection()) {
 			JSONArray array = new JSONArray();
