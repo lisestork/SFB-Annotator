@@ -370,7 +370,6 @@ public class AnnotationServlet extends HttpServlet {
 		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
 
 		try (RepositoryConnection conn = repo.getConnection()) {
-			conn.begin();
 			JSONArray array = new JSONArray();
 			TupleQuery tupleQuery = conn.prepareTupleQuery(QueryLanguage.SPARQL, queryStr);
 			try (TupleQueryResult result = tupleQuery.evaluate()) {
@@ -385,16 +384,13 @@ public class AnnotationServlet extends HttpServlet {
 					item.put("selector", bs.getValue("selector").stringValue());
 					array.put(item);
 				}
+				jsonStr = array.toString();
 			} catch (QueryEvaluationException e) {
 				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-			} finally {
-				jsonStr = array.toString();
-				conn.close();
 			}
 		} catch (RepositoryException e) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
 		} finally {
-			repo.shutDown();
 			response.setContentType("application/json");
 			response.getWriter().write(jsonStr);
 			response.setStatus(HttpServletResponse.SC_OK);
