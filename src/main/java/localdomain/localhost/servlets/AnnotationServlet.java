@@ -41,6 +41,8 @@ import org.eclipse.rdf4j.query.TupleQuery;
 import org.eclipse.rdf4j.query.TupleQueryResult;
 import org.eclipse.rdf4j.query.QueryLanguage;
 import org.eclipse.rdf4j.query.QueryEvaluationException;
+import org.eclipse.rdf4j.query.MalformedQueryException;
+import org.eclipse.rdf4j.query.Update;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.RepositoryException;
@@ -323,32 +325,26 @@ public class AnnotationServlet extends HttpServlet {
 		// connect to RDF server
 		String host = "http://localhost:8080/";
 		String repositoryID = "mem-rdf";
-		String queryStr = String.join("\n", "PREFIX rdf: <" + RDF.NAMESPACE + ">",
-				"PREFIX xsd: <" + XSD.NAMESPACE + ">", "PREFIX oa: <http://www.w3.org/ns/oa#>", "SELECT ?annot WHERE {",
-				"  ?annot oa:hasTarget ?bnode .", "  ?bnode oa:hasSource <" + source + "> .",
-				"  ?bnode oa:hasSelector/rdf:value ?selector .",
-				"	 FILTER(?selector = xsd:string(\"" + selector + "\"))", "}");
+		String queryStr = String.join("\n", "PREFIX dcterms: <" + DCTERMS.NAMESPACE + ">",
+				"PREFIX oa: <http://www.w3.org/ns/oa#>", "PREFIX rdf: <" + RDF.NAMESPACE + ">",
+				"PREFIX xsd: <" + XSD.NAMESPACE + ">", "DELETE {?s ?p ?o} WHERE {", "  SELECT * WHERE {{",
+				"    SELECT ?s (COUNT(?s) AS ?n) WHERE {", "      ?annot oa:hasTarget ?bnode ;",
+				"        (oa:hasBody|oa:hasTarget|dcterms:creator|oa:hasSource|oa:hasSelector|dcterms:identifier)* ?s .",
+				"      ?bnode oa:hasSource <" + source + "> .", "      ?bnode oa:hasSelector/rdf:value ?selector .",
+				"      OPTIONAL { ?ss ?pp ?s } .", "	     FILTER(?selector = xsd:string(\"" + selector + "\"))",
+				"    }", "    GROUP BY ?s", "  }", "  ?s ?p ?o .", "  FILTER (?n = 1)}}");
 		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
 
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();
-			IRI annotationIRI = null;
-			TupleQuery tupleQuery = conn.prepareTupleQuery(QueryLanguage.SPARQL, queryStr);
-			try (TupleQueryResult result = tupleQuery.evaluate()) {
-				for (BindingSet bs : result) {
-					annotationIRI = (IRI) bs.getValue("annot");
-					conn.remove(annotationIRI, null, null);
-				}
-			} catch (QueryEvaluationException e) {
-				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-			} finally {
-				conn.commit();
-				conn.close();
-			}
+			Update query = conn.prepareUpdate(QueryLanguage.SPARQL, queryStr);
+			query.execute();
+			conn.commit();
+		} catch (MalformedQueryException e) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
 		} catch (RepositoryException e) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
 		} finally {
-			repo.shutDown();
 			response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 		}
 	}
