@@ -39,10 +39,11 @@ import org.eclipse.rdf4j.model.vocabulary.XSD;
 import org.eclipse.rdf4j.query.BindingSet;
 import org.eclipse.rdf4j.query.TupleQuery;
 import org.eclipse.rdf4j.query.TupleQueryResult;
+import org.eclipse.rdf4j.query.Update;
 import org.eclipse.rdf4j.query.QueryLanguage;
 import org.eclipse.rdf4j.query.QueryEvaluationException;
 import org.eclipse.rdf4j.query.MalformedQueryException;
-import org.eclipse.rdf4j.query.Update;
+import org.eclipse.rdf4j.query.UpdateExecutionException;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.RepositoryException;
@@ -306,14 +307,18 @@ public class AnnotationServlet extends HttpServlet {
 					break;
 			}
 			conn.commit();
+		} catch (RepositoryException e) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+		} finally {
+			response.setStatus(HttpServletResponse.SC_CREATED);
 		}
-		response.setStatus(HttpServletResponse.SC_CREATED);
 	}
 
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		long before = 0, after = 0;
 		// get httpRequest parameters
 		String anno = IOUtils.toString(request.getReader());
 		JSONObject json = new JSONObject(anno);
@@ -332,15 +337,23 @@ public class AnnotationServlet extends HttpServlet {
 
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();
+			before = conn.size();
 			Update query = conn.prepareUpdate(QueryLanguage.SPARQL, queryStr);
 			query.execute();
 			conn.commit();
+			after = conn.size();
 		} catch (MalformedQueryException e) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
 		} catch (RepositoryException e) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+		} catch (UpdateExecutionException e) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
 		} finally {
-			response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			if (before == after) {
+				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			} else {
+				response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			}
 		}
 	}
 
