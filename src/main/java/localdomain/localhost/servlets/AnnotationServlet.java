@@ -4,7 +4,6 @@ import java.net.URL;
 import java.net.MalformedURLException;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import java.util.Locale;
 import java.util.UUID;
@@ -319,7 +318,7 @@ public class AnnotationServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		long before = 0, after = 0;
-		// get httpRequest parameters
+		// get HTTP request parameters
 		String anno = IOUtils.toString(request.getReader());
 		JSONObject json = new JSONObject(anno);
 		// retrieve key-value pairs
