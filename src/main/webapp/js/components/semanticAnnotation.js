@@ -96,7 +96,7 @@ var semanticAnnotation = {
 	storeAnnotation: function (annotation) {
 		//mandatory annotation info
 		annotation.date = new Date().toISOString();  // ISO 8601 (e.g. 2021-01-12T14:23:11.646Z)
-		annotation.annotator = accounts.person[0].IRI;
+		annotation.creator = accounts.person[0].IRI;
 
 		//target
 		annotation.source = this.pageID;

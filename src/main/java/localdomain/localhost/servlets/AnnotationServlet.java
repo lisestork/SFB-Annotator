@@ -71,7 +71,7 @@ public class AnnotationServlet extends HttpServlet {
 
 		// retrieve key-value pairs
 		String date = (json.isNull("date")) ? "" : json.getString("date").trim();
-		String annotator = (json.isNull("annotator")) ? "" : json.getString("annotator").replaceAll("/$|\\s+$", "");
+		String creator = (json.isNull("creator")) ? "" : json.getString("creator").replaceAll("/$|\\s+$", "");
 		String source = (json.isNull("source")) ? "" : json.getString("source").replaceAll("/$|\\s+$", "");
 		String selector = (json.isNull("selector")) ? "" : json.getString("selector").trim();
 		String belongstotaxon = (json.isNull("belongstotaxon"))
@@ -131,7 +131,7 @@ public class AnnotationServlet extends HttpServlet {
 		IRI annotationIRI = f.createIRI(annot);
 		IRI sourceIRI = f.createIRI(source);
 		Resource instanceRes;
-		Resource annotatorRes;
+		Resource creatorRes;
 		Resource identificationRes;
 		Resource taxonRankRes;
 
@@ -161,10 +161,10 @@ public class AnnotationServlet extends HttpServlet {
 		}
 
 		try {
-			URL url = new URL(annotator);
-			annotatorRes = f.createIRI(url.toString());
+			URL url = new URL(creator);
+			creatorRes = f.createIRI(url.toString());
 		} catch (MalformedURLException e) {
-			annotatorRes = f.createBNode();
+			creatorRes = f.createBNode();
 		}
 
 		try {
@@ -224,9 +224,9 @@ public class AnnotationServlet extends HttpServlet {
 			conn.add(annotationIRI, f.createIRI(oa, "hasBody"), textualBodyBNode);
 			conn.add(annotationIRI, f.createIRI(oa, "hasTarget"), targetBNode);
 			conn.add(annotationIRI, f.createIRI(oa, "motivatedBy"), f.createIRI(oa, "describing"));
-			conn.add(annotationIRI, DCTERMS.CREATOR, annotatorRes);
+			conn.add(annotationIRI, DCTERMS.CREATOR, creatorRes);
 			conn.add(annotationIRI, DCTERMS.DATE, f.createLiteral(date, DCTERMS.W3CDTF));
-			conn.add(annotatorRes, RDF.TYPE, FOAF.PERSON);
+			conn.add(creatorRes, RDF.TYPE, FOAF.PERSON);
 			conn.add(targetBNode, DCTERMS.FORMAT, f.createLiteral(mime));
 			conn.add(targetBNode, f.createIRI(oa, "hasSource"), sourceIRI);
 			conn.add(targetBNode, f.createIRI(oa, "hasSelector"), selectorBNode);
