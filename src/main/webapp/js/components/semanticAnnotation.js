@@ -109,15 +109,12 @@ var semanticAnnotation = {
 		//semantic annotation info
 		annotation.type = annotation.text.toLowerCase().trim();
 		annotation.property = $('select[name=property]').val();
-		annotation.organismID = '';
 
 		if (annotation.property === "hasIdentification") {
 			annotation.belongstotaxon = $('#belongstotaxon').val();
 			annotation.rank = $('#rank').val();
 			annotation.person = $('#identifiedBy').val();
-			annotation.organismID = $('#organismID').val();
 		} else if (annotation.property === 'additionalIdentification') {
-			annotation.organismID = $('#organismID').val();
 			annotation.identificationID = $('#identificationID').val();
 			annotation.belongstotaxon = $('#belongstotaxon').val();
 			annotation.rank = $('#rank').val();
@@ -125,35 +122,27 @@ var semanticAnnotation = {
 			annotation.year = $('#year').val();
 			annotation.month = $('#month').val();
 			annotation.day = $('#day').val();
-			annotation.organismID = $('#organismID').val();
 		} else if (annotation.property === 'measuresOrDescribes') {
 			if ($('#type').val() === 'propertyorattribute') {
 				annotation.propertyorattribute = $('#propertyorattribute').val();
 			} else if ($('#type').val() === "anatomicalentity") {
 				annotation.anatomicalentity = $('#anatomicalentity').val();
-				annotation.organismID = $('#organismID').val();
 			}
 		} else if (annotation.property === "basedOn") {
-			annotation.organismID = $('#organismID').val();
 		} else if (annotation.property === "locatedAt") {
 			annotation.geonamesfeature = $('#geonamesfeature').val();
-			annotation.organismID = $('#organismID').val();
 		} else if (annotation.property == "additionalLocatedAt") {
 			annotation.geonamesfeature = $('#geonamesfeature').val();
-			annotation.organismID = $('#organismID').val();
 			annotation.occurrenceID = $('#occurrenceID').val();
 		} else if (annotation.property === 'scientificNameAuthorship') {
 			annotation.person = $('#person').val();
 			annotation.belongstotaxon = $('#belongstotaxon').val();
 		} else if (annotation.property === 'identifiedBy') {
 			annotation.person = $('#person').val();
-			annotation.organismID = $('#organismID').val();
 		} else if (annotation.property == 'recordedBy') {
 			annotation.person = $('#person').val();
-			annotation.organismID = $('#organismID').val();
 		} else if (annotation.property === 'additionalRecordedBy') {
 			annotation.person = $('#person').val();
-			annotation.organismID = $('#organismID').val();
 			annotation.occurrenceID = $('#occurrenceID').val();
 		} else if (annotation.property === "type" && annotation.type != 'taxon') {
 			annotation.instance = $('#instance').val();
