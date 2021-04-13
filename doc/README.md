@@ -2,13 +2,13 @@
 Field notes are collections of observation records ([`dwc:HumanObservation`](https://dwc.tdwg.org/terms/#humanobservation)) that describe the occurrence ([`dwc:Occurrence`](https://dwc.tdwg.org/terms/#occurrence)) of an organism ([`dwc:Organism`](http://rs.tdwg.org/dwc/terms/Organism)) at some location ([`dwc:Location`](https://dwc.tdwg.org/terms/#location)) during some time ([`dwc:Event`](https://dwc.tdwg.org/terms/#event)). An observation record most often includes an identification ([`dwc:Identification`](https://dwc.tdwg.org/terms/#identification)) to a taxon ([`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)), and accompanying measurements and facts ([`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)) that were used for identification. These observation records usually span multiple field notes, but can also be very short utterances such as _Sci. Diard Buitenzorg_ (on [page 3](data/jpg/MMNAT01_AF_NNM001001033_003.jpg)), most likely referring to the occurrence of another organism with the same identification.
 
 **Table 1.** List of examples with annotation classes and properties.
-| class                                                                                                                                                                             | property   | example                                           | revised            |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------------------- | ------------------ |
-| [`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)                                                                                                                                  | `rdf:type` | [`1_1`](#Example-1_1)                             | :heavy_check_mark: |
-| [`foaf:Person`](http://xmlns.com/foaf/spec/#term_Person)                                                                                                                          | `rdf:type` | [`2_1`](#Example-2_1)                             | :heavy_check_mark: |
-| [`dwc:Location`](https://dwc.tdwg.org/terms/#location), [`dcterms:Location`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/Location) | `rdf:type` | [`3_1`](#Example-3_1)                             | :heavy_check_mark: |
-| [`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)                                                                                                          | `rdf:type` | [`4_1`](#Example-4_1)(#Example-5_1)(#Example-6_1) | :heavy_check_mark: |
-| [`dwc:Event`](https://dwc.tdwg.org/terms/#event)                                                                                                                                  | `rdf:type` | [`7_1`](#Example-7_1)                             | :heavy_check_mark: |
+| class                                                                                                                                                                             | property   | example                                                         | revised            |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------------------------------------- | ------------------ |
+| [`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)                                                                                                                                  | `rdf:type` | [`1_1`](#Example-1_1)                                           | :heavy_check_mark: |
+| [`foaf:Person`](http://xmlns.com/foaf/spec/#term_Person)                                                                                                                          | `rdf:type` | [`2_1`](#Example-2_1)                                           | :heavy_check_mark: |
+| [`dwc:Location`](https://dwc.tdwg.org/terms/#location), [`dcterms:Location`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/Location) | `rdf:type` | [`3_1`](#Example-3_1)                                           | :heavy_check_mark: |
+| [`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)                                                                                                          | `rdf:type` | [`4_1`](#Example-4_1)[`5_1`](#Example-5_1)[`6_1`](#Example-6_1) | :heavy_check_mark: |
+| [`dwc:Event`](https://dwc.tdwg.org/terms/#event)                                                                                                                                  | `rdf:type` | [`7_1`](#Example-7_1)                                           | :heavy_check_mark: |
 
 
 ### Example 1_1
@@ -62,14 +62,14 @@ Steps:
 
 * Fill in the pop-up form/table:
 
-| Key                        | Value                           | Notes                                                                                                                          | Diff Expected                                                |
-| -------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
-| Entity type/`text`         | `Person`                        | The handwritten text contains a person name.                                                                                   | Should be a drop-down menu with all possible classes         |
+| Key                        | Value                           | Notes                                                                                                                          | Diff Expected                                        |
+| -------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
+| Entity type/`text`         | `Person`                        | The handwritten text contains a person name.                                                                                   | Should be a drop-down menu with all possible classes |
 | verbatim text/`verbatim`   | `Geoff`                         | The verbatim text as written in the bounding box                                                                               |
 | language                   |                                 | NA (default: und)                                                                                                              |
 | Select property/`property` | `Type`                          | This refers to an entity annotation without further interpretation, merely specifying that the bounding box contains a person. |
 | type/`type`                | `person`                        | auto-fill from entity type                                                                                                     |
-| Instance/`instance`        | `http://viaf.org/viaf/39377694` | Link the bounding box to the IRI if known. Here the person Étienne Geoffroy-Saint-Hilaire.                                     | Preferably these can be retrieved with semantic autocomplete |
+| Instance/`instance`        | `http://viaf.org/viaf/39377694` | Add IRI if known (optional). For example, it refers to the person _Étienne Geoffroy-Saint-Hilaire_.                            |                                                      |
 
 
 ### Example 3_1
