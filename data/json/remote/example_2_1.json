@@ -1,6 +1,6 @@
 {
   "src": "dzi://openseadragon/something",
-  "text": "person",
+  "text": "Person",
   "shapes": [
     {
       "type": "rect",
