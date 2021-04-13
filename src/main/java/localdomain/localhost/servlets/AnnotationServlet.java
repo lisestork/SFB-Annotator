@@ -293,7 +293,7 @@ public class AnnotationServlet extends HttpServlet {
 						conn.add(textualBodyBNode, f.createIRI(dwciri, "measurementType"), instanceRes);
 					}
 					break;
-				case "date" :
+				case "event" :
 					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dwc, "Event"));
 					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dcmitype, "Event"));
 					conn.add(textualBodyBNode, f.createIRI(dwc, "verbatimEventDate"), verbatimLiteral);
