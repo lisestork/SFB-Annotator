@@ -1,6 +1,6 @@
 {
   "src": "dzi://openseadragon/something",
-  "text": "measurementorfact",
+  "text": "MeasurementOrFact",
   "shapes": [
     {
       "type": "rect",
@@ -21,5 +21,6 @@
   "verbatim": "- Longitud. tota --- 1,0,3\n- corporis --- 0,2,9\n- tota --- 0,2,9\n- capitis --- 0,1,1\n- caudae --- 0,0,1\n- digit. medii --- 0,3,0\n",
   "language": "lat",
   "type": "measurementorfact",
-  "property": "basedOn"
+  "property": "type",
+  "instance": ""
 }

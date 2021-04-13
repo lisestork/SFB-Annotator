@@ -274,20 +274,6 @@ public class AnnotationServlet extends HttpServlet {
 					conn.add(textualBodyBNode, f.createIRI(dsw, "derivedFrom"), sourceIRI);
 					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dwc, "MeasurementOrFact"));
 					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dsw, "Token"));
-					break;
-				case "propertyorattribute" :
-					conn.add(textualBodyBNode, f.createIRI(dsw, "derivedFrom"), sourceIRI);
-					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dwc, "MeasurementOrFact"));
-					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dsw, "Token"));
-					if (instanceRes.isIRI()) {
-						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
-						conn.add(textualBodyBNode, f.createIRI(dwciri, "measurementType"), instanceRes);
-					}
-					break;
-				case "anatomicalentity" :
-					conn.add(textualBodyBNode, f.createIRI(dsw, "derivedFrom"), sourceIRI);
-					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dwc, "MeasurementOrFact"));
-					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dsw, "Token"));
 					if (instanceRes.isIRI()) {
 						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
 						conn.add(textualBodyBNode, f.createIRI(dwciri, "measurementType"), instanceRes);

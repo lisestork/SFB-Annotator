@@ -1,6 +1,6 @@
 {
   "src": "dzi://openseadragon/something",
-  "text": "anatomicalentity",
+  "text": "MeasurementOrFact",
   "shapes": [
     {
       "type": "rect",
@@ -20,7 +20,7 @@
   "selector": "#xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114",
   "verbatim": "Dentibus",
   "language": "lat",
-  "type": "anatomicalentity",
+  "type": "measurementorfact",
   "property": "type",
   "instance": "http://purl.obolibrary.org/obo/UBERON_0001062"
 }

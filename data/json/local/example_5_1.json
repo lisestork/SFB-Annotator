@@ -1,6 +1,6 @@
 {
   "src": "dzi://openseadragon/something",
-  "text": "propertyorattribute",
+  "text": "MeasurementOrFact",
   "shapes": [
     {
       "type": "rect",
@@ -20,7 +20,7 @@
   "selector": "#xywh=0.5575335827826557,0.16560174792980703,0.02356406480117823,0.02061855670103091",
   "verbatim": "Color",
   "language": "lat",
-  "type": "propertyorattribute",
+  "type": "measurementorfact",
   "property": "type",
   "instance": "http://purl.obolibrary.org/obo/PATO_0000014"
 }
