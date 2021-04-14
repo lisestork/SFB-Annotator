@@ -119,7 +119,6 @@ public class AnnotationServlet extends HttpServlet {
 		String obo = "http://purl.obolibrary.org/obo/";
 		String orcid = "http://orcid.org/";
 		String viaf = "http://viaf.org/viaf/";
-		String owl = OWL.NAMESPACE;
 
 		// init instances
 		ValueFactory f = repo.getValueFactory();
@@ -214,7 +213,7 @@ public class AnnotationServlet extends HttpServlet {
 			conn.setNamespace("obo", obo);
 			conn.setNamespace("orcid", orcid);
 			conn.setNamespace("oa", oa);
-			conn.setNamespace("owl", owl);
+			conn.setNamespace(OWL.PREFIX, OWL.NAMESPACE);
 			conn.setNamespace("viaf", viaf);
 			conn.setNamespace("gn", gn);
 			conn.setNamespace("gbif", gbif);
