@@ -11,12 +11,12 @@ The Semantic Field Book Annotator is a web application developed for domain expe
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Software used
-- [Eclipse RDF4J Server and Workbench](https://rdf4j.org/documentation/tools/server-workbench/)
-- [grlc](https://www.research-software.nl/software/grlc) Web API
-- [Cantaloupe](https://cantaloupe-project.github.io/) IIIF image server
-- [Mirador](https://projectmirador.org/) IIIF image viewer
-- [Annotorius](https://annotorious.github.io)
-- [OpenSeadragon](https://openseadragon.github.io/)
+- [Eclipse RDF4J Server and Workbench](https://github.com/eclipse/rdf4j)
+- [grlc](https://github.com/CLARIAH/grlc) Web API
+- [Cantaloupe](https://github.com/cantaloupe-project/cantaloupe) IIIF image server
+- [Mirador](https://github.com/projectmirador/mirador) IIIF image viewer
+- [Annotorius](https://github.com/recogito/annotorious)
+- [OpenSeadragon](https://github.com/openseadragon/openseadragon)
 
 ## Vocabularies, ontologies & specs used
 - [Web Annotation Vocabulary](https://www.w3.org/TR/annotation-vocab/)
