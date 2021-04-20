@@ -239,7 +239,7 @@ public class AnnotationServlet extends HttpServlet {
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dwc, "HumanObservation"));
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dsw, "Token"));
 			conn.add(selectorBNode, RDF.TYPE, f.createIRI(oa, "FragmentSelector"));
-			conn.add(selectorBNode, RDF.VALUE, f.createLiteral(selector.replace("#", "")));
+			conn.add(selectorBNode, RDF.VALUE, f.createLiteral(selector));
 			conn.add(selectorBNode, DCTERMS.CONFORMS_TO, f.createIRI(mf));
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(oa, "Source"));
 

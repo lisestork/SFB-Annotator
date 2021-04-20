@@ -17,7 +17,7 @@
   "date": "2021-01-12T14:23:11.646Z",
   "creator": "http://orcid.org/0000-0002-2146-4803",
   "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
-  "selector": "#xywh=0.5517841601392516,0.02345802837896442,0.06701479547432543,0.01914708442123586",
+  "selector": "xywh=0.5517841601392516,0.02345802837896442,0.06701479547432543,0.01914708442123586",
   "verbatim": "Pteropus minimus",
   "language": "lat",
   "type": "taxon",
