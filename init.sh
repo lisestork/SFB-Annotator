@@ -29,8 +29,21 @@ done
 CMD+=$(
  cat <<EOF
 sparql
+PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
+SELECT *
+WHERE {
+ ?annot a oa:Annotation ;
+  oa:hasBody/a ?class .
+ FILTER(?class IN (foaf:Person, dwc:Taxon, dwc:Location, dwc:Event, dwc:MeasurementOrFact))
+}
+.
+sparql
 SELECT (COUNT(*) AS ?n_triples)
-WHERE { ?s ?p ?o }
+WHERE {
+ ?s ?p ?o .
+}
 .
 close
 quit
