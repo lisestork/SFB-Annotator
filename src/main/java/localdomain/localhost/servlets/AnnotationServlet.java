@@ -303,21 +303,18 @@ public class AnnotationServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		long before = 0, after = 0;
-		// get HTTP request parameters
-		String anno = IOUtils.toString(request.getReader());
-		JSONObject json = new JSONObject(anno);
-		// retrieve key-value pairs
-		String source = json.getString("source");
-		String selector = json.getString("selector");
+		// get HTTP request JSON
+		JSONObject json = new JSONObject(IOUtils.toString(request.getReader()));
+		String annot = json.getString("annotation");
 		// construct DELETE query
 		String queryStr = String.join("\n", "PREFIX dcterms: <" + DCTERMS.NAMESPACE + ">",
-				"PREFIX oa: <http://www.w3.org/ns/oa#>", "PREFIX rdf: <" + RDF.NAMESPACE + ">",
-				"PREFIX xsd: <" + XSD.NAMESPACE + ">", "DELETE {?s ?p ?o} WHERE {", "  SELECT * WHERE {{",
-				"    SELECT ?s (COUNT(?s) AS ?n) WHERE {", "      ?annot oa:hasTarget ?bnode ;",
-				"        (oa:hasBody|oa:hasTarget|dcterms:creator|oa:hasSource|oa:hasSelector|dcterms:identifier)* ?s .",
-				"      ?bnode oa:hasSource <" + source + "> .", "      ?bnode oa:hasSelector/rdf:value ?selector .",
-				"      OPTIONAL { ?ss ?pp ?s } .", "	     FILTER(?selector = xsd:string(\"" + selector + "\"))",
-				"    }", "    GROUP BY ?s", "  }", "  ?s ?p ?o .", "  FILTER (?n = 1)}}");
+				"PREFIX oa: <http://www.w3.org/ns/oa#>", "PREFIX dsw: <http://purl.org/dsw/>",
+				"PREFIX rdf: <" + RDF.NAMESPACE + ">", "PREFIX xsd: <" + XSD.NAMESPACE + ">",
+				"DELETE {?s ?p ?o} WHERE {", "SELECT * WHERE {{", "SELECT ?s (COUNT(?s) AS ?n)", "WHERE {",
+				"?annot oa:hasTarget ?bnode ;",
+				"(oa:hasTarget|oa:hasBody|dcterms:creator|dcterms:identifier|oa:hasSource|oa:hasSelector)* ?s .",
+				"OPTIONAL {", "?ss ?pp ?s .", "FILTER(?pp != dsw:derivedFrom)} .", "FILTER(?annot = <" + annot + ">)}",
+				"GROUP BY ?s", "}", "?s ?p ?o .", "FILTER(?n = 1)", "}", "ORDER BY DESC(?n)}");
 
 		try (RepositoryConnection conn = repo.getConnection()) {
 			conn.begin();

@@ -50,6 +50,7 @@ var semanticAnnotation = {
 				for (let i in jsonArray) {
 					var dim = jsonArray[i].selector.split(',');
 					that.annotations.push({
+						annotation: jsonArray[i].annotation,
 						source: jsonArray[i].source,
 						text: jsonArray[i].type,
 						verbatim: jsonArray[i].verbatim,
@@ -74,6 +75,7 @@ var semanticAnnotation = {
 		this.annotations.forEach(function (elem) {
 			if (elem.source == page) {
 				anno.addAnnotation({
+					annotation: elem.annotation,
 					src: 'dzi://openseadragon/something',
 					source: elem.source,
 					text: elem.text,
