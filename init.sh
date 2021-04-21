@@ -18,6 +18,22 @@ true
 show r
 open $REPO_ID
 clear
+set prefixes=annot http://localhost:8080/rdf/nc/annotation/
+set prefixes=dcmitype http://purl.org/dc/dcmitype/
+set prefixes=dsw http://purl.org/dsw/
+set prefixes=dwc http://rs.tdwg.org/dwc/terms/
+set prefix=dwciri http://rs.tdwg.org/dwc/iri/
+set prefixes=gbif http://www.gbif.org/species/
+set prefix=gn http://sws.geonames.org/
+set prefixes=img http://localhost:8080/semanticAnnotator/files/
+set prefixes=iso http://iso639-3.sil.org/code/
+set prefixes=mf http://www.w3.org/TR/media-frags/
+set prefixes=oa http://www.w3.org/ns/oa#
+set prefixes=obo http://purl.obolibrary.org/obo/
+set prefixes=orcid http://orcid.org/
+set prefix=viaf http://viaf.org/viaf/
+set prefixes
+set showprefix=true
 EOF
 )$'\n'
 
@@ -29,9 +45,6 @@ done
 CMD+=$(
  cat <<EOF
 sparql
-PREFIX oa: <http://www.w3.org/ns/oa#>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
 SELECT *
 WHERE {
  ?annot a oa:Annotation ;
