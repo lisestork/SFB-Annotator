@@ -2,7 +2,7 @@
 version: '3'
 services:
   sea:
-    image: linnae/sfb-annotator:dev
+    image: linnae/sfb-annotator:latest
     container_name: sea
     depends_on:
       - melon
