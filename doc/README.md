@@ -7,8 +7,8 @@ Field notes are collections of observation records ([`dwc:HumanObservation`](htt
 | [`dwc:Taxon`](https://dwc.tdwg.org/terms/#taxon)                                                                                                                                  | `rdf:type` | [`1_1`](#Example-1_1)                                           | :heavy_check_mark: |
 | [`foaf:Person`](http://xmlns.com/foaf/spec/#term_Person)                                                                                                                          | `rdf:type` | [`2_1`](#Example-2_1)                                           | :heavy_check_mark: |
 | [`dwc:Location`](https://dwc.tdwg.org/terms/#location), [`dcterms:Location`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/Location) | `rdf:type` | [`3_1`](#Example-3_1)                                           | :heavy_check_mark: |
-| [`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)                                                                                                          | `rdf:type` | [`4_1`](#Example-4_1)[`5_1`](#Example-5_1)[`6_1`](#Example-6_1) | :heavy_check_mark: |
-| [`dwc:Event`](https://dwc.tdwg.org/terms/#event)                                                                                                                                  | `rdf:type` | [`7_1`](#Example-7_1)                                           | :heavy_check_mark: |
+| [`dwc:MeasurementOrFact`](https://dwc.tdwg.org/terms/#measurementorfact)                                                                                                          | `rdf:type` | [`4_1`](#Example-4_1)[`4_2`](#Example-4_2)[`4_3`](#Example-4_3) | :heavy_check_mark: |
+| [`dwc:Event`](https://dwc.tdwg.org/terms/#event)                                                                                                                                  | `rdf:type` | [`5_1`](#Example-5_1)                                           | :heavy_check_mark: |
 
 
 ### Example 1_1
@@ -132,13 +132,13 @@ Steps:
 | Instance        |                                                                                                                                         | Add IRI if known (optional).                                                                                                                |
 
 
-### Example 5_1
+### Example 4_2
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/local/example_5_1.json)
+Input: [JSON](/data/json/local/example_4_2.json)
 
-Output: [RDF/Turtle](/data/rdf/local/example_5_1.ttl) | [SVG](/doc/models/example_5_1.svg)
+Output: [RDF/Turtle](/data/rdf/local/example_4_2.ttl) | [SVG](/doc/models/example_4_2.svg)
 
 Steps:
 
@@ -162,13 +162,13 @@ Steps:
 | Instance        | `http://purl.obolibrary.org/obo/PATO_0000014` (color) | Add IRI if known (optional).                                                                                                                       |
 
 
-### Example 6_1
+### Example 4_3
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/local/example_6_1.json)
+Input: [JSON](/data/json/local/example_4_3.json)
 
-Output: [RDF/Turtle](/data/rdf/local/example_6_1.ttl) | [SVG](/doc/models/example_6_1.svg)
+Output: [RDF/Turtle](/data/rdf/local/example_4_3.ttl) | [SVG](/doc/models/example_4_3.svg)
 
 Steps:
 
@@ -192,13 +192,13 @@ Steps:
 | Instance        | `http://purl.obolibrary.org/obo/UBERON_0001062` (dentition) | Add IRI if known (optional).                                                                                                                           |
 
 
-### Example 7_1
+### Example 5_1
 
 Property: `rdf:type`
 
-Input: [JSON](/data/json/local/example_7_1.json)
+Input: [JSON](/data/json/local/example_5_1.json)
 
-Output: [RDF/Turtle](/data/rdf/local/example_7_1.ttl) | [SVG](/doc/models/example_7_1.svg)
+Output: [RDF/Turtle](/data/rdf/local/example_5_1.ttl) | [SVG](/doc/models/example_5_1.svg)
 
 Steps:
 
