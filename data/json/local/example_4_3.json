@@ -1,6 +1,6 @@
 {
   "src": "dzi://openseadragon/something",
-  "text": "anatomicalentity",
+  "text": "MeasurementOrFact",
   "shapes": [
     {
       "type": "rect",
@@ -15,12 +15,12 @@
   ],
   "context": "http://localhost:8080/semanticAnnotator/#",
   "date": "2021-01-12T14:23:11.646Z",
-  "annotator": "http://orcid.org/0000-0002-2146-4803",
+  "creator": "http://orcid.org/0000-0002-2146-4803",
   "source": "http://localhost:8080/semanticAnnotator/files/MMNAT01_AF_NNM001001033_003.jpg",
-  "selector": "#xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114",
+  "selector": "xywh=0.5366845889070635,0.2939686187699841,0.04048369061255663,0.028409607447408114",
   "verbatim": "Dentibus",
   "language": "lat",
-  "type": "anatomicalentity",
+  "type": "measurementorfact",
   "property": "type",
   "instance": "http://purl.obolibrary.org/obo/UBERON_0001062"
 }

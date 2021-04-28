@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.UUID;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.MissingResourceException;
 
@@ -16,6 +17,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.DateTimeException;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,22 +34,33 @@ import org.eclipse.rdf4j.model.vocabulary.FOAF;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
 import org.eclipse.rdf4j.model.vocabulary.OWL;
+import org.eclipse.rdf4j.model.vocabulary.XSD;
 import org.eclipse.rdf4j.query.BindingSet;
 import org.eclipse.rdf4j.query.TupleQuery;
 import org.eclipse.rdf4j.query.TupleQueryResult;
+import org.eclipse.rdf4j.query.Update;
+import org.eclipse.rdf4j.query.QueryLanguage;
+import org.eclipse.rdf4j.query.QueryEvaluationException;
+import org.eclipse.rdf4j.query.MalformedQueryException;
+import org.eclipse.rdf4j.query.UpdateExecutionException;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
 import org.eclipse.rdf4j.repository.http.HTTPRepository;
 
 import org.apache.commons.io.IOUtils;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
-/**
- * Servlet implementation class WriteAnnotations
- */
-public class writeAnnotationsToRDF extends HttpServlet {
+@WebServlet(loadOnStartup = 1, urlPatterns = "/annotation")
+public class AnnotationServlet extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
+	private static final String host = "http://localhost:8080/";
+	private static final String repositoryID = "mem-rdf";
+	private static final Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -58,7 +71,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 
 		// retrieve key-value pairs
 		String date = (json.isNull("date")) ? "" : json.getString("date").trim();
-		String annotator = (json.isNull("annotator")) ? "" : json.getString("annotator").replaceAll("/$|\\s+$", "");
+		String creator = (json.isNull("creator")) ? "" : json.getString("creator").replaceAll("/$|\\s+$", "");
 		String source = (json.isNull("source")) ? "" : json.getString("source").replaceAll("/$|\\s+$", "");
 		String selector = (json.isNull("selector")) ? "" : json.getString("selector").trim();
 		String belongstotaxon = (json.isNull("belongstotaxon"))
@@ -91,12 +104,6 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		mapMime.put("tif", "image/tiff");
 		mapMime.put("png", "image/png");
 
-		// connect to RDF server
-		String host = "http://localhost:8080/";
-		String repositoryID = "mem-rdf";
-		Repository repo = new HTTPRepository(host + "rdf4j-server/", repositoryID);
-		ValueFactory f = repo.getValueFactory();
-
 		// namespace prefixes
 		String annot = host + "rdf/nc/annotation/" + uuid;
 		String dcmitype = "http://purl.org/dc/dcmitype/";
@@ -112,40 +119,9 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		String obo = "http://purl.obolibrary.org/obo/";
 		String orcid = "http://orcid.org/";
 		String viaf = "http://viaf.org/viaf/";
-		String owl = OWL.NAMESPACE;
-
-		// init class
-		IRI annotationClass = f.createIRI(oa, "Annotation");
-		IRI featureClass = f.createIRI(gn, "Feature");
-		IRI targetClass = f.createIRI(oa, "Target");
-		IRI fragmentSelectorClass = f.createIRI(oa, "FragmentSelector");
-		IRI sourceClass = f.createIRI(oa, "Source");
-		IRI textualBodyClass = f.createIRI(oa, "TextualBody");
-		IRI occurrenceClass = f.createIRI(dwc, "Occurrence");
-		IRI humanObservationClass = f.createIRI(dwc, "HumanObservation");
-		IRI measurementOrFactClass = f.createIRI(dwc, "MeasurementOrFact");
-		IRI organismClass = f.createIRI(dwc, "Organism");
-		IRI eventClass = f.createIRI(dwc, "Event");
-		IRI taxonClass = f.createIRI(dwc, "Taxon");
-		IRI locationClass = f.createIRI(dwc, "Location");
-		IRI tokenClass = f.createIRI(dsw, "Token");
-
-		// init properties
-		IRI hasSourceProperty = f.createIRI(oa, "hasSource");
-		IRI hasSelectorProperty = f.createIRI(oa, "hasSelector");
-		IRI hasBodyProperty = f.createIRI(oa, "hasBody");
-		IRI hasTargetProperty = f.createIRI(oa, "hasTarget");
-		IRI motivatedByProperty = f.createIRI(oa, "motivatedBy");
-		IRI derivedFromProperty = f.createIRI(dsw, "derivedFrom");
-		IRI taxonRankProperty = f.createIRI(dwc, "taxonRank");
-		IRI inDescribedPlaceProperty = f.createIRI(dwciri, "inDescribedPlace");
-		IRI measurementTypeProperty = f.createIRI(dwciri, "measurementType");
-		IRI scientificNameProperty = f.createIRI(dwc, "scientificName");
-		IRI eventDateProperty = f.createIRI(dwc, "eventDate");
-		IRI verbatimEventDateProperty = f.createIRI(dwc, "verbatimEventDate");
-		IRI verbatimLocalityProperty = f.createIRI(dwc, "verbatimLocality");
 
 		// init instances
+		ValueFactory f = repo.getValueFactory();
 		Literal verbatimLiteral;
 		BNode targetBNode = f.createBNode();
 		BNode textualBodyBNode = f.createBNode();
@@ -154,7 +130,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		IRI annotationIRI = f.createIRI(annot);
 		IRI sourceIRI = f.createIRI(source);
 		Resource instanceRes;
-		Resource annotatorRes;
+		Resource creatorRes;
 		Resource identificationRes;
 		Resource taxonRankRes;
 
@@ -184,10 +160,10 @@ public class writeAnnotationsToRDF extends HttpServlet {
 		}
 
 		try {
-			URL url = new URL(annotator);
-			annotatorRes = f.createIRI(url.toString());
+			URL url = new URL(creator);
+			creatorRes = f.createIRI(url.toString());
 		} catch (MalformedURLException e) {
-			annotatorRes = f.createBNode();
+			creatorRes = f.createBNode();
 		}
 
 		try {
@@ -204,7 +180,7 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			taxonRankRes = f.createBNode();
 		}
 
-		// get date/time in ISO 8601 format
+		// get datetime in ISO 8601 format
 		try {
 			date = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX").format(ZonedDateTime.parse(date));
 		} catch (DateTimeException e) {
@@ -237,95 +213,173 @@ public class writeAnnotationsToRDF extends HttpServlet {
 			conn.setNamespace("obo", obo);
 			conn.setNamespace("orcid", orcid);
 			conn.setNamespace("oa", oa);
-			conn.setNamespace("owl", owl);
+			conn.setNamespace(OWL.PREFIX, OWL.NAMESPACE);
 			conn.setNamespace("viaf", viaf);
 			conn.setNamespace("gn", gn);
 			conn.setNamespace("gbif", gbif);
 
 			// add triples
-			conn.add(annotationIRI, RDF.TYPE, annotationClass);
-			conn.add(annotationIRI, hasBodyProperty, textualBodyBNode);
-			conn.add(annotationIRI, hasTargetProperty, targetBNode);
-			conn.add(annotationIRI, motivatedByProperty, f.createIRI(oa, "describing"));
-			conn.add(annotationIRI, DCTERMS.CREATOR, annotatorRes);
+			conn.add(annotationIRI, RDF.TYPE, f.createIRI(oa, "Annotation"));
+			conn.add(annotationIRI, f.createIRI(oa, "hasBody"), textualBodyBNode);
+			conn.add(annotationIRI, f.createIRI(oa, "hasTarget"), targetBNode);
+			conn.add(annotationIRI, f.createIRI(oa, "motivatedBy"), f.createIRI(oa, "describing"));
+			conn.add(annotationIRI, DCTERMS.CREATOR, creatorRes);
 			conn.add(annotationIRI, DCTERMS.DATE, f.createLiteral(date, DCTERMS.W3CDTF));
-			conn.add(annotatorRes, RDF.TYPE, FOAF.PERSON);
+			conn.add(creatorRes, RDF.TYPE, FOAF.PERSON);
 			conn.add(targetBNode, DCTERMS.FORMAT, f.createLiteral(mime));
-			conn.add(targetBNode, hasSourceProperty, sourceIRI);
-			conn.add(targetBNode, hasSelectorProperty, selectorBNode);
-			conn.add(targetBNode, RDF.TYPE, targetClass);
-			conn.add(textualBodyBNode, RDF.TYPE, textualBodyClass);
+			conn.add(targetBNode, f.createIRI(oa, "hasSource"), sourceIRI);
+			conn.add(targetBNode, f.createIRI(oa, "hasSelector"), selectorBNode);
+			conn.add(targetBNode, RDF.TYPE, f.createIRI(oa, "Target"));
+			conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(oa, "TextualBody"));
 			conn.add(textualBodyBNode, DCTERMS.FORMAT, f.createLiteral("text/plain"));
 			conn.add(textualBodyBNode, DCTERMS.LANGUAGE, f.createIRI(iso, lang));
 			conn.add(textualBodyBNode, RDF.VALUE, verbatimLiteral);
 			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dcmitype, "StillImage"));
 			conn.add(sourceIRI, RDF.TYPE, FOAF.IMAGE);
-			conn.add(sourceIRI, RDF.TYPE, humanObservationClass);
-			conn.add(sourceIRI, RDF.TYPE, tokenClass);
-			conn.add(selectorBNode, RDF.TYPE, fragmentSelectorClass);
-			conn.add(selectorBNode, RDF.VALUE, f.createLiteral(selector.replace("#", "")));
+			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dwc, "HumanObservation"));
+			conn.add(sourceIRI, RDF.TYPE, f.createIRI(dsw, "Token"));
+			conn.add(selectorBNode, RDF.TYPE, f.createIRI(oa, "FragmentSelector"));
+			conn.add(selectorBNode, RDF.VALUE, f.createLiteral(selector));
 			conn.add(selectorBNode, DCTERMS.CONFORMS_TO, f.createIRI(mf));
-			conn.add(sourceIRI, RDF.TYPE, sourceClass);
+			conn.add(sourceIRI, RDF.TYPE, f.createIRI(oa, "Source"));
 
 			switch (type) {
 				case "taxon" :
-					conn.add(textualBodyBNode, RDF.TYPE, taxonClass);
-					conn.add(textualBodyBNode, scientificNameProperty, verbatimLiteral);
+					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dwc, "Taxon"));
+					conn.add(textualBodyBNode, f.createIRI(dwc, "scientificName"), verbatimLiteral);
 					if (taxonRankRes.isIRI()) {
-						conn.add(identificationRes, taxonRankProperty, taxonRankRes);
+						conn.add(identificationRes, f.createIRI(dwc, "taxonRank"), taxonRankRes);
 						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, identificationRes);
 					}
 					break;
 				case "person" :
 					conn.add(textualBodyBNode, RDF.TYPE, FOAF.PERSON);
+					conn.add(textualBodyBNode, RDF.TYPE, DCTERMS.AGENT);
 					conn.add(textualBodyBNode, FOAF.NAME, verbatimLiteral);
 					if (instanceRes.isIRI()) {
 						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
 					}
 					break;
 				case "location" :
-					conn.add(textualBodyBNode, verbatimLocalityProperty, verbatimLiteral);
+					conn.add(textualBodyBNode, f.createIRI(dwc, "verbatimLocality"), verbatimLiteral);
 					conn.add(textualBodyBNode, RDF.TYPE, DCTERMS.LOCATION);
-					conn.add(textualBodyBNode, RDF.TYPE, locationClass);
+					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dwc, "Location"));
 					if (instanceRes.isIRI()) {
 						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
-						conn.add(textualBodyBNode, inDescribedPlaceProperty, instanceRes);
+						conn.add(textualBodyBNode, f.createIRI(dwciri, "inDescribedPlace"), instanceRes);
 					}
 					break;
 				case "measurementorfact" :
-					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
-					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
-					conn.add(textualBodyBNode, RDF.TYPE, tokenClass);
-					break;
-				case "propertyorattribute" :
-					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
-					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
-					conn.add(textualBodyBNode, RDF.TYPE, tokenClass);
+					conn.add(textualBodyBNode, f.createIRI(dsw, "derivedFrom"), sourceIRI);
+					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dwc, "MeasurementOrFact"));
+					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dsw, "Token"));
 					if (instanceRes.isIRI()) {
 						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
-						conn.add(textualBodyBNode, measurementTypeProperty, instanceRes);
+						conn.add(textualBodyBNode, f.createIRI(dwciri, "measurementType"), instanceRes);
 					}
 					break;
-				case "anatomicalentity" :
-					conn.add(textualBodyBNode, derivedFromProperty, sourceIRI);
-					conn.add(textualBodyBNode, RDF.TYPE, measurementOrFactClass);
-					conn.add(textualBodyBNode, RDF.TYPE, tokenClass);
-					if (instanceRes.isIRI()) {
-						conn.add(textualBodyBNode, DCTERMS.IDENTIFIER, instanceRes);
-						conn.add(textualBodyBNode, measurementTypeProperty, instanceRes);
-					}
-					break;
-				case "date" :
-					conn.add(textualBodyBNode, RDF.TYPE, eventClass);
-					conn.add(textualBodyBNode, verbatimEventDateProperty, verbatimLiteral);
+				case "event" :
+					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dwc, "Event"));
+					conn.add(textualBodyBNode, RDF.TYPE, f.createIRI(dcmitype, "Event"));
+					conn.add(textualBodyBNode, f.createIRI(dwc, "verbatimEventDate"), verbatimLiteral);
 					if (!instance.equals("")) {
-						conn.add(textualBodyBNode, eventDateProperty, f.createLiteral(instance, DCTERMS.W3CDTF));
+						conn.add(textualBodyBNode, f.createIRI(dwc, "eventDate"),
+								f.createLiteral(instance, DCTERMS.W3CDTF));
 					}
 					break;
 				default :
 					break;
 			}
 			conn.commit();
+		} catch (RepositoryException e) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+		} finally {
+			response.setStatus(HttpServletResponse.SC_CREATED);
+		}
+	}
+
+	@Override
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		long before = 0, after = 0;
+		// get HTTP request JSON
+		JSONObject json = new JSONObject(IOUtils.toString(request.getReader()));
+		String annot = json.getString("annotation");
+		// construct DELETE query
+		String queryStr = String.join("\n", "PREFIX dcterms: <" + DCTERMS.NAMESPACE + ">",
+				"PREFIX oa: <http://www.w3.org/ns/oa#>", "PREFIX dsw: <http://purl.org/dsw/>",
+				"PREFIX rdf: <" + RDF.NAMESPACE + ">", "PREFIX xsd: <" + XSD.NAMESPACE + ">",
+				"DELETE {?s ?p ?o} WHERE {", "SELECT * WHERE {{", "SELECT ?s (COUNT(?s) AS ?n)", "WHERE {",
+				"?annot oa:hasTarget ?bnode ;",
+				"(oa:hasTarget|oa:hasBody|dcterms:creator|dcterms:identifier|oa:hasSource|oa:hasSelector)* ?s .",
+				"OPTIONAL {", "?ss ?pp ?s .", "FILTER(?pp != dsw:derivedFrom)} .", "FILTER(?annot = <" + annot + ">)}",
+				"GROUP BY ?s", "}", "?s ?p ?o .", "FILTER(?n = 1)", "}", "ORDER BY DESC(?n)}");
+
+		try (RepositoryConnection conn = repo.getConnection()) {
+			conn.begin();
+			before = conn.size();
+			Update query = conn.prepareUpdate(QueryLanguage.SPARQL, queryStr);
+			query.execute();
+			conn.commit();
+			after = conn.size();
+		} catch (MalformedQueryException e) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+		} catch (RepositoryException e) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+		} catch (UpdateExecutionException e) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+		} finally {
+			if (before == after) {
+				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			} else {
+				response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			}
+		}
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String jsonStr = "";
+		// construct SELECT query
+		String queryStr = String.join("\n", "PREFIX oa: <http://www.w3.org/ns/oa#>",
+				"PREFIX dcterms: <" + DCTERMS.NAMESPACE + ">", "PREFIX xsd: <" + XSD.NAMESPACE + ">",
+				"PREFIX foaf: <" + FOAF.NAMESPACE + ">", "PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>", "SELECT",
+				"  ?annotation ?type ?verbatim ?creator ?date ?source ?selector", "WHERE {",
+				"  ?annotation oa:hasTarget ?bnodeTarget ;", "    oa:hasBody ?bnodeBody ;",
+				"    dcterms:creator ?creator ;", "    dcterms:date ?date .", "  ?bnodeBody a ?class ;",
+				"    rdf:value ?verbatim .", "  ?bnodeTarget oa:hasSource ?source ;",
+				"    oa:hasSelector/rdf:value ?selector .",
+				"  FILTER(?class IN (foaf:Person, dwc:Taxon, dwc:Location, dwc:Event, dwc:MeasurementOrFact))",
+				"  BIND(REPLACE(STR(?class), '.+/', '') AS ?type)", "}");
+
+		try (RepositoryConnection conn = repo.getConnection()) {
+			JSONArray array = new JSONArray();
+			TupleQuery tupleQuery = conn.prepareTupleQuery(QueryLanguage.SPARQL, queryStr);
+			try (TupleQueryResult result = tupleQuery.evaluate()) {
+				for (BindingSet bs : result) {
+					JSONObject item = new JSONObject();
+					item.put("annotation", bs.getValue("annotation").stringValue());
+					item.put("type", bs.getValue("type").stringValue());
+					item.put("verbatim", bs.getValue("verbatim").stringValue());
+					item.put("creator", bs.getValue("creator").stringValue());
+					item.put("date", bs.getValue("date").stringValue());
+					item.put("source", bs.getValue("source").stringValue());
+					item.put("selector", bs.getValue("selector").stringValue());
+					array.put(item);
+				}
+				jsonStr = array.toString();
+			} catch (QueryEvaluationException e) {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			}
+		} catch (RepositoryException e) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+		} finally {
+			response.setContentType("application/json");
+			response.getWriter().write(jsonStr);
+			response.setStatus(HttpServletResponse.SC_OK);
 		}
 	}
 }

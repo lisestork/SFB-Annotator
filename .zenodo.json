@@ -12,13 +12,14 @@
         }
     ],
     "keywords": [
-        "semantic annotation",
         "natural history",
         "biodiversity",
         "field notes",
-        "Linked data",
+        "semantic annotation",
         "controlled vocabulary",
         "ontology",
+        "Darwin Core",
+        "Linked data",
         "RDF",
         "OWL",
         "IIIF"

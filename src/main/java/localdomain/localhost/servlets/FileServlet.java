@@ -1,11 +1,12 @@
 package localdomain.localhost.servlets;
 
-import java.io.IOException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.io.IOException;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.Closeable;
@@ -19,7 +20,9 @@ import java.net.URLDecoder;
  * @author BalusC
  * @link http://balusc.blogspot.com/2007/07/fileservlet.html
  */
+@WebServlet(loadOnStartup = 1, urlPatterns = "/files/*")
 public class FileServlet extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 
 	private static final int DEFAULT_BUFFER_SIZE = 10240; // 10KB.
@@ -111,5 +114,4 @@ public class FileServlet extends HttpServlet {
 			}
 		}
 	}
-
 }
