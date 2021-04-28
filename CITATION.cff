@@ -16,19 +16,20 @@ authors:
 
 cff-version: "1.0.3"
 title: "Semantic Field Book Annotator"
-doi: 10.5281/zenodo.4602264
+doi: 10.5281/zenodo.4602263
 keywords:
-  - "semantic annotation"
   - "natural history"
   - "biodiversity"
   - "field notes"
-  - "Linked data"
+  - "semantic annotation"
   - "controlled vocabulary"
   - "ontology"
+  - "Darwin Core"
+  - "Linked data"
   - "RDF"
   - "OWL"
   - "IIIF"
-version: "0.1.0"
-date-released: 2021-03-12
+version: "0.1.1"
+date-released: 2021-04-28
 repository-code: https://github.com/LINNAE-project/SFB-Annotator
 license: Apache-2.0
