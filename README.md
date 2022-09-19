@@ -1,6 +1,6 @@
 # Semantic Field Book Annotator
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4602264.svg)](https://doi.org/10.5281/zenodo.4602264)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4602263.svg)](https://doi.org/10.5281/zenodo.4602263)
 ![Build](https://github.com/LINNAE-project/SFB-Annotator/workflows/continuous_integration/badge.svg)
 [![Published in J. Web Semant.](https://img.shields.io/badge/published%20in-JWebSemant-blue.svg)](https://doi.org/10.1016/j.websem.2018.06.002)
 
@@ -11,12 +11,12 @@ The Semantic Field Book Annotator is a web application developed for domain expe
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Software used
-- [Eclipse RDF4J Server and Workbench](https://rdf4j.org/documentation/tools/server-workbench/)
-- [grlc](https://www.research-software.nl/software/grlc) Web API
-- [Cantaloupe](https://cantaloupe-project.github.io/) IIIF image server
-- [Mirador](https://projectmirador.org/) IIIF image viewer
-- [Annotorius](https://annotorious.github.io)
-- [OpenSeadragon](https://openseadragon.github.io/)
+- [Eclipse RDF4J Server and Workbench](https://github.com/eclipse/rdf4j)
+- [grlc](https://github.com/CLARIAH/grlc) Web API
+- [Cantaloupe](https://github.com/cantaloupe-project/cantaloupe) IIIF image server
+- [Mirador](https://github.com/projectmirador/mirador) IIIF image viewer
+- [Annotorius](https://github.com/recogito/annotorious)
+- [OpenSeadragon](https://github.com/openseadragon/openseadragon)
 
 ## Vocabularies, ontologies & specs used
 - [Web Annotation Vocabulary](https://www.w3.org/TR/annotation-vocab/)
@@ -59,7 +59,7 @@ docker-compose up -d # or append [SERVICE]
 **4. Configure service(s).**
 
 ```bash
-# populate an empty RDF store (repository)
+# populate RDF store (repository) with example data
 docker-compose exec sea ./init.sh
 
 # configure sea to use a remote image archive (optional)
@@ -103,6 +103,6 @@ done
   - local path [`/api-local/`](http://localhost:8088/api-local/)
 - http://localhost:8182/iiif/2
   - sample image [`info.json`](http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/info.json)
-  - get a [JPG](http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/max/0/default.jpg) version of this [TIF](https://trng-repository.surfsara.nl/deposit/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_001.tif) image in the archive
+  - get a [JPG](http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/max/0/default.jpg) version of this [TIF](https://trng-repository.surfsara.nl/deposit/900c341c1c10fff7/MMNAT01_PM_NNM001001033_001.tif) image in the archive
 - http://localhost:8000 includes an example [`manifest.json`](data/manifest.json)
   - _Add Item_->_Sample Field Book_->_Change view type_ to _Book View_
