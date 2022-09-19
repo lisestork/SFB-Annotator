@@ -103,6 +103,6 @@ done
   - local path [`/api-local/`](http://localhost:8088/api-local/)
 - http://localhost:8182/iiif/2
   - sample image [`info.json`](http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/info.json)
-  - get a [JPG](http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/max/0/default.jpg) version of this [TIF](https://trng-repository.surfsara.nl/deposit/900c341c1c10fff7/files/MMNAT01_PM_NNM001001033_001.tif) image in the archive
+  - get a [JPG](http://localhost:8182/iiif/2/900c341c1c10fff7:MMNAT01_PM_NNM001001033_001/full/max/0/default.jpg) version of this [TIF](https://trng-repository.surfsara.nl/deposit/900c341c1c10fff7/MMNAT01_PM_NNM001001033_001.tif) image in the archive
 - http://localhost:8000 includes an example [`manifest.json`](data/manifest.json)
   - _Add Item_->_Sample Field Book_->_Change view type_ to _Book View_
